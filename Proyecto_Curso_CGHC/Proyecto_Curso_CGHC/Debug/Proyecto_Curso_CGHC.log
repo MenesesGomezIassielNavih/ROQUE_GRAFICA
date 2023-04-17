@@ -1,12 +1,1 @@
-﻿  Final.cpp
-C:\Users\Navih M\Documents\Visual Studio 2022\Proyectos\Roque\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Include\shader_m.h(44,40): warning C4101: 'e': variable local sin referencia
-C:\Users\Navih M\Documents\Visual Studio 2022\Proyectos\Roque\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Include\modelAnim.h(104,44): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\Navih M\Documents\Visual Studio 2022\Proyectos\Roque\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Include\modelAnim.h(520,24): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\Navih M\Documents\Visual Studio 2022\Proyectos\Roque\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Final.cpp(527,11): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\Navih M\Documents\Visual Studio 2022\Proyectos\Roque\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Final.cpp(528,11): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\Navih M\Documents\Visual Studio 2022\Proyectos\Roque\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Final.cpp(532,16): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\Navih M\Documents\Visual Studio 2022\Proyectos\Roque\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Final.cpp(533,16): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\Navih M\Documents\Visual Studio 2022\Proyectos\Roque\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Final.cpp(535,10): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\Navih M\Documents\Visual Studio 2022\Proyectos\Roque\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Final.cpp(536,10): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\Navih M\Documents\Visual Studio 2022\Proyectos\Roque\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Final.cpp(544,28): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
-  Proyecto_Curso_CGHC.vcxproj -> C:\Users\Navih M\Documents\Visual Studio 2022\Proyectos\Roque\Proyecto_Curso_CGHC\Debug\Proyecto_Curso_CGHC.exe
+﻿  Proyecto_Curso_CGHC.vcxproj -> C:\Users\Navih M\Documents\Visual Studio 2022\Proyectos\Roque\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Debug\Proyecto_Curso_CGHC.exe
