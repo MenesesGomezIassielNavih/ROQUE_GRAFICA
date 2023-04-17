@@ -1,6 +1,6 @@
 ﻿/*---------------------------------------------------------*/
 /* ----------------  Proyecto Final              ----------*/
-/*-----------------				   -------------------------*/
+/*-----------------    Equipo    -------------------------*/
 /*---------------------------------------------------------*/
 #include <Windows.h>
 
@@ -11,7 +11,6 @@
 #include <glm/gtc/matrix_transform.hpp>	//camera y model
 #include <glm/gtc/type_ptr.hpp>
 #include <time.h>
-#include <math.h>
 
 
 #define STB_IMAGE_IMPLEMENTATION
@@ -188,7 +187,6 @@ void getResolution()
 	SCR_WIDTH = mode->width;
 	SCR_HEIGHT = (mode->height) - 80;
 }
-
 void music() {
 	if (sound) {
 		bool played = PlaySound(L"acuario.wav", NULL, SND_LOOP | SND_ASYNC);
@@ -314,9 +312,9 @@ int main()
 		//Setup Advanced Lights
 		staticShader.setVec3("viewPos", camera.Position);
 		staticShader.setVec3("dirLight.direction", lightDirection);
-		staticShader.setVec3("dirLight.ambient", glm::vec3(0.5f, 0.5f, 0.0f));
+		staticShader.setVec3("dirLight.ambient", glm::vec3(0.0f, 0.0f, 0.0f));
 		staticShader.setVec3("dirLight.diffuse", glm::vec3(1.0f, 1.0f, 1.0f));
-		staticShader.setVec3("dirLight.specular", glm::vec3(0.5f, 0.5f, 0.0f));
+		staticShader.setVec3("dirLight.specular", glm::vec3(0.0f, 0.0f, 0.0f));
 
 		staticShader.setVec3("pointLight[0].position", lightPosition);
 		staticShader.setVec3("pointLight[0].ambient", glm::vec3(0.0f, 0.0f, 0.0f));
@@ -484,8 +482,7 @@ void my_input(GLFWwindow *window, int key, int scancode, int action, int mode)
 	//Car animation
 	if (key == GLFW_KEY_SPACE && action == GLFW_PRESS)
 		animacion ^= true;
-	if (key == GLFW_KEY_O && action == GLFW_PRESS)
-		music();
+
 	//To play KeyFrame animation 
 	if (key == GLFW_KEY_P && action == GLFW_PRESS)
 	{

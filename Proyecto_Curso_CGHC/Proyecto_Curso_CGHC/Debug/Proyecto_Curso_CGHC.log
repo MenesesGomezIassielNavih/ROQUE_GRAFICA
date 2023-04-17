@@ -1,1 +1,14 @@
-﻿  Proyecto_Curso_CGHC.vcxproj -> C:\Users\Navih M\Documents\Visual Studio 2022\Proyectos\Roque\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Debug\Proyecto_Curso_CGHC.exe
+﻿  Final.cpp
+C:\Users\Navih M\Documents\Visual Studio 2022\Proyectos\Roque\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Include\shader_m.h(44,40): warning C4101: 'e': variable local sin referencia
+C:\Users\Navih M\Documents\Visual Studio 2022\Proyectos\Roque\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Include\modelAnim.h(104,44): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\Navih M\Documents\Visual Studio 2022\Proyectos\Roque\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Include\modelAnim.h(520,24): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\Navih M\Documents\Visual Studio 2022\Proyectos\Roque\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Final.cpp(193,69): error C2664: 'BOOL PlaySoundA(LPCSTR,HMODULE,DWORD)': el argumento 1 no puede convertirse de 'const wchar_t [12]' a 'LPCSTR'
+C:\Users\Navih M\Documents\Visual Studio 2022\Proyectos\Roque\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Final.cpp(193,27): message : Los tipos señalados no están relacionados; la conversión requiere reinterpret_cast, conversión de estilo de C o conversión de estilo de función entre paréntesis
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\playsoundapi.h(105,1): message : vea la declaración de 'PlaySoundA'
+C:\Users\Navih M\Documents\Visual Studio 2022\Proyectos\Roque\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Final.cpp(533,11): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\Navih M\Documents\Visual Studio 2022\Proyectos\Roque\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Final.cpp(534,11): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\Navih M\Documents\Visual Studio 2022\Proyectos\Roque\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Final.cpp(538,16): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\Navih M\Documents\Visual Studio 2022\Proyectos\Roque\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Final.cpp(539,16): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\Navih M\Documents\Visual Studio 2022\Proyectos\Roque\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Final.cpp(541,10): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\Navih M\Documents\Visual Studio 2022\Proyectos\Roque\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Final.cpp(542,10): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\Navih M\Documents\Visual Studio 2022\Proyectos\Roque\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Final.cpp(550,28): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
