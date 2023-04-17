@@ -3,7 +3,7 @@
 /*-----------------    Equipo    -------------------------*/
 /*---------------------------------------------------------*/
 #include <Windows.h>
-
+#include <mmsystem.h>
 #include <glad/glad.h>
 #include <glfw3.h>	//main
 #include <stdlib.h>		
@@ -189,7 +189,7 @@ void getResolution()
 }
 void music() {
 	if (sound) {
-		bool played = PlaySound(L"acuario.wav", NULL, SND_LOOP | SND_ASYNC);
+		bool played = PlaySoundW(L"acuario.wav", NULL, SND_LOOP | SND_ASYNC);
 		sound = false;
 	}
 }
@@ -482,6 +482,8 @@ void my_input(GLFWwindow *window, int key, int scancode, int action, int mode)
 	//Car animation
 	if (key == GLFW_KEY_SPACE && action == GLFW_PRESS)
 		animacion ^= true;
+	if (key == GLFW_KEY_O && action == GLFW_PRESS)
+		music();
 
 	//To play KeyFrame animation 
 	if (key == GLFW_KEY_P && action == GLFW_PRESS)
