@@ -250,12 +250,19 @@ int main()
 
 	vector<std::string> faces
 	{
-		"resources/skybox/right.jpg",
+		/*"resources/skybox/right.jpg",
 		"resources/skybox/left.jpg",
 		"resources/skybox/top.jpg",
 		"resources/skybox/bottom.jpg",
 		"resources/skybox/front.jpg",
-		"resources/skybox/back.jpg"
+		"resources/skybox/back.jpg"*/
+
+		"resources/skybox/posx.jpg",
+		"resources/skybox/negx.jpg",
+		"resources/skybox/posy.jpg",
+		"resources/skybox/negy.jpg",
+		"resources/skybox/posz.jpg",
+		"resources/skybox/negz.jpg"
 	};
 
 	Skybox skybox = Skybox(faces);
@@ -267,7 +274,7 @@ int main()
 
 	// load models
 	// -----------
-	Model piso("resources/objects/piso/piso.obj");
+	Model piso("resources/objects/piso/PisoProy.obj");
 	ModelAnim animacionPersonaje("resources/objects/Personaje1/PersonajeBrazo.dae");
 	animacionPersonaje.initShaders(animShader.ID);
 
@@ -398,8 +405,9 @@ int main()
 		staticShader.setMat4("projection", projection);
 		staticShader.setMat4("view", view);
 		model = glm::mat4(1.0f);
-		model = glm::translate(model, glm::vec3(0.0f, -1.75f, 0.0f));
-		model = glm::scale(model, glm::vec3(0.2f));
+		model = glm::translate(model, glm::vec3(0.0f, 0.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(100.0f));
 		staticShader.setMat4("model", model);
 		piso.Draw(staticShader);
 

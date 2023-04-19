@@ -1,12 +1,27 @@
 ﻿  Final.cpp
-C:\Users\Navih M\Documents\Visual Studio 2022\Proyectos\Roque\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Include\shader_m.h(44,40): warning C4101: 'e': variable local sin referencia
-C:\Users\Navih M\Documents\Visual Studio 2022\Proyectos\Roque\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Include\modelAnim.h(104,44): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\Navih M\Documents\Visual Studio 2022\Proyectos\Roque\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Include\modelAnim.h(520,24): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\Navih M\Documents\Visual Studio 2022\Proyectos\Roque\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Final.cpp(534,11): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\Navih M\Documents\Visual Studio 2022\Proyectos\Roque\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Final.cpp(535,11): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\Navih M\Documents\Visual Studio 2022\Proyectos\Roque\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Final.cpp(539,16): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\Navih M\Documents\Visual Studio 2022\Proyectos\Roque\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Final.cpp(540,16): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\Navih M\Documents\Visual Studio 2022\Proyectos\Roque\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Final.cpp(542,10): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\Navih M\Documents\Visual Studio 2022\Proyectos\Roque\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Final.cpp(543,10): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\Navih M\Documents\Visual Studio 2022\Proyectos\Roque\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Final.cpp(551,28): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
-  Proyecto_Curso_CGHC.vcxproj -> C:\Users\Navih M\Documents\Visual Studio 2022\Proyectos\Roque\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Debug\Proyecto_Curso_CGHC.exe
+C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Include\shader_m.h(44,40): warning C4101: 'e': variable local sin referencia
+C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Include\modelAnim.h(104,44): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Include\modelAnim.h(520,24): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Final.cpp(542,11): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Final.cpp(543,11): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Final.cpp(547,16): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Final.cpp(548,16): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Final.cpp(550,10): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Final.cpp(551,10): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Final.cpp(559,28): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+glfw3.lib(context.obj) : warning LNK4099: no se encontró PDB '' con 'glfw3.lib(context.obj)' o en ''; se vinculará el objeto sin tener en cuenta información de depuración
+glfw3.lib(init.obj) : warning LNK4099: no se encontró PDB '' con 'glfw3.lib(init.obj)' o en ''; se vinculará el objeto sin tener en cuenta información de depuración
+glfw3.lib(input.obj) : warning LNK4099: no se encontró PDB '' con 'glfw3.lib(input.obj)' o en ''; se vinculará el objeto sin tener en cuenta información de depuración
+glfw3.lib(monitor.obj) : warning LNK4099: no se encontró PDB '' con 'glfw3.lib(monitor.obj)' o en ''; se vinculará el objeto sin tener en cuenta información de depuración
+glfw3.lib(vulkan.obj) : warning LNK4099: no se encontró PDB '' con 'glfw3.lib(vulkan.obj)' o en ''; se vinculará el objeto sin tener en cuenta información de depuración
+glfw3.lib(window.obj) : warning LNK4099: no se encontró PDB '' con 'glfw3.lib(window.obj)' o en ''; se vinculará el objeto sin tener en cuenta información de depuración
+glfw3.lib(win32_init.obj) : warning LNK4099: no se encontró PDB '' con 'glfw3.lib(win32_init.obj)' o en ''; se vinculará el objeto sin tener en cuenta información de depuración
+glfw3.lib(win32_joystick.obj) : warning LNK4099: no se encontró PDB '' con 'glfw3.lib(win32_joystick.obj)' o en ''; se vinculará el objeto sin tener en cuenta información de depuración
+glfw3.lib(win32_monitor.obj) : warning LNK4099: no se encontró PDB '' con 'glfw3.lib(win32_monitor.obj)' o en ''; se vinculará el objeto sin tener en cuenta información de depuración
+glfw3.lib(win32_time.obj) : warning LNK4099: no se encontró PDB '' con 'glfw3.lib(win32_time.obj)' o en ''; se vinculará el objeto sin tener en cuenta información de depuración
+glfw3.lib(win32_thread.obj) : warning LNK4099: no se encontró PDB '' con 'glfw3.lib(win32_thread.obj)' o en ''; se vinculará el objeto sin tener en cuenta información de depuración
+glfw3.lib(win32_window.obj) : warning LNK4099: no se encontró PDB '' con 'glfw3.lib(win32_window.obj)' o en ''; se vinculará el objeto sin tener en cuenta información de depuración
+glfw3.lib(wgl_context.obj) : warning LNK4099: no se encontró PDB '' con 'glfw3.lib(wgl_context.obj)' o en ''; se vinculará el objeto sin tener en cuenta información de depuración
+glfw3.lib(egl_context.obj) : warning LNK4099: no se encontró PDB '' con 'glfw3.lib(egl_context.obj)' o en ''; se vinculará el objeto sin tener en cuenta información de depuración
+glfw3.lib(osmesa_context.obj) : warning LNK4099: no se encontró PDB '' con 'glfw3.lib(osmesa_context.obj)' o en ''; se vinculará el objeto sin tener en cuenta información de depuración
+  Proyecto_Curso_CGHC.vcxproj -> C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Debug\Proyecto_Curso_CGHC.exe
