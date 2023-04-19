@@ -50,6 +50,8 @@ float lastX = SCR_WIDTH / 2.0f;
 float lastY = SCR_HEIGHT / 2.0f;
 bool firstMouse = true;
 
+
+
 // timing
 const int FPS = 60;
 const int LOOP_TIME = 1000 / FPS; // = 16 milisec // 1000 millisec == 1 sec
@@ -257,12 +259,20 @@ int main()
 		"resources/skybox/front.jpg",
 		"resources/skybox/back.jpg"*/
 
-		"resources/skybox/posx.jpg",
+		/*"resources/skybox/posx.jpg",
 		"resources/skybox/negx.jpg",
 		"resources/skybox/posy.jpg",
 		"resources/skybox/negy.jpg",
 		"resources/skybox/posz.jpg",
-		"resources/skybox/negz.jpg"
+		"resources/skybox/negz.jpg"*/
+
+		"resources/skybox/blueAba.jpg",
+		"resources/skybox/blueAba.jpg",
+		"resources/skybox/blueAba.jpg",
+		"resources/skybox/blueAba.jpg",
+		"resources/skybox/blueAba.jpg",
+		"resources/skybox/blueAba.jpg"
+
 	};
 
 	Skybox skybox = Skybox(faces);
@@ -486,6 +496,13 @@ void my_input(GLFWwindow *window, int key, int scancode, int action, int mode)
 		lightPosition.x++;
 	if (glfwGetKey(window, GLFW_KEY_N) == GLFW_PRESS)
 		lightPosition.x--;
+	
+	//para vista oblicua
+	/*if (glfwGetKey(window, GLFW_KEY_F2) == GLFW_PRESS) {
+		// Vista oblícua
+		camera.Position = glm::vec3(25.0f, 25.0f, 25.0f);
+		camera.View = glm::vec3(-1.0f, -1.0f, -1.0f);
+	}*/
 
 	//Car animation
 	if (key == GLFW_KEY_SPACE && action == GLFW_PRESS)
