@@ -1,7 +1,7 @@
-# Blender 3.4.1 MTL File: 'None'
+# Blender 3.4.1 MTL File: 'piso.blend'
 # www.blender.org
 
-newmtl Adoquines
+newmtl Material.002
 Ns 250.000000
 Ka 1.000000 1.000000 1.000000
 Ks 0.500000 0.500000 0.500000

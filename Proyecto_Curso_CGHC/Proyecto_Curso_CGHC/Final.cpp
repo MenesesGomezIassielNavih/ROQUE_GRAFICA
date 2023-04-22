@@ -284,7 +284,7 @@ int main()
 
 	// load models
 	// -----------
-	Model piso("resources/objects/piso/PisoProy.obj");
+	Model piso("resources/objects/piso/pisoProy.obj");
 	ModelAnim animacionPersonaje("resources/objects/Personaje1/PersonajeBrazo.dae");
 	animacionPersonaje.initShaders(animShader.ID);
 
@@ -498,11 +498,11 @@ void my_input(GLFWwindow *window, int key, int scancode, int action, int mode)
 		lightPosition.x--;
 	
 	//para vista oblicua
-	if (glfwGetKey(window, GLFW_KEY_F2) == GLFW_PRESS) {
-		// Vista oblícua
-		camera.Position = glm::vec3(25.0f, 25.0f, 25.0f);
-		camera.View = glm::vec3(-1.0f, -1.0f, -1.0f);
-	}
+	//if (glfwGetKey(window, GLFW_KEY_F2) == GLFW_PRESS) {
+	//	// Vista oblícua
+	//	camera.Position = glm::vec3(25.0f, 25.0f, 25.0f);
+	//	camera.View = glm::vec3(-1.0f, -1.0f, -1.0f);
+	//}
 
 	//Car animation
 	if (key == GLFW_KEY_SPACE && action == GLFW_PRESS)
