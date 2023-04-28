@@ -10,8 +10,12 @@
 #include <glm/glm.hpp>	//camera y model
 #include <glm/gtc/matrix_transform.hpp>	//camera y model
 #include <glm/gtc/type_ptr.hpp>
+#include <glm\gtc\random.hpp>
+#include <vector>
 #include <time.h>
 
+#define _USE_MATH_DEFINES
+#include <math.h>
 
 #define STB_IMAGE_IMPLEMENTATION
 #include <stb_image.h>	//Texture
@@ -25,9 +29,46 @@
 #include <model.h>
 #include <Skybox.h>
 #include <iostream>
+#include "Mesh3.h"
 
 #pragma comment(lib, "winmm.lib")
 bool sound = true;
+
+//PRIMITIVAS
+const float toRadians = 3.14159265f / 180.0; //grados a radianes
+const float PI = 3.14159265f;
+
+typedef struct _VertexColor {
+
+    _VertexColor() {
+    }
+
+    _VertexColor(glm::vec3 position, glm::vec3 color) {
+        this->position = position;
+        this->color = color;
+    }
+
+    glm::vec3 position;
+    glm::vec3 color;
+} VertexColor;
+
+std::vector<VertexColor> vertexC;
+/*std::vector<VertexLightColor> vertexLC;
+std::vector<VertexLightTexture> vertexLT;*/
+std::vector<GLuint> index;
+float ratio;
+int slices;
+int stacks;
+
+//Sphere sp = Sphere(1.0, 20, 20);
+
+//#include "Shader1.h"
+//#pragma comment(lib, "winmm.lib")
+
+//std::vector<Mesh2*> meshList;
+//std::vector<Shader1>shaderList;
+
+GLuint VAO, VBO, IBO;
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 void mouse_callback(GLFWwindow* window, double xpos, double ypos);
@@ -39,9 +80,395 @@ void animate(void);
 // settings
 unsigned int SCR_WIDTH = 800;
 unsigned int SCR_HEIGHT = 600;
-GLFWmonitor *monitors;
+GLFWmonitor* monitors;
 
 void getResolution(void);
+
+
+
+void CrearCubo()
+{
+    unsigned int cubo_indices[] = {
+        // front
+        0, 1, 2,
+        2, 3, 0,
+        // right
+        1, 5, 6,
+        6, 2, 1,
+        // back
+        7, 6, 5,
+        5, 4, 7,
+        // left
+        4, 0, 3,
+        3, 7, 4,
+        // bottom
+        4, 5, 1,
+        1, 0, 4,
+        // top
+        3, 2, 6,
+        6, 7, 3
+    };
+
+    GLfloat cubo_vertices[] = {
+        // front
+        -0.5f, -0.5f,  0.5f,
+        0.5f, -0.5f,  0.5f,
+        0.5f,  0.5f,  0.5f,
+        -0.5f,  0.5f,  0.5f,
+        // back
+        -0.5f, -0.5f, -0.5f,
+        0.5f, -0.5f, -0.5f,
+        0.5f,  0.5f, -0.5f,
+        -0.5f,  0.5f, -0.5f
+    };
+    //Mesh2* cubo = new Mesh2();
+    //cubo->CreateMesh(cubo_vertices, cubo_indices, 24, 36);
+    //meshList.push_back(cubo);
+
+
+    GLint indexCount = 36;
+    glGenVertexArrays(1, &VAO); //generar 1 VAO
+    glBindVertexArray(VAO);//asignar VAO
+
+    glGenBuffers(1, &IBO);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IBO);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(cubo_indices) * indexCount, cubo_indices, GL_STATIC_DRAW);
+
+    glGenBuffers(1, &VBO);
+    glBindBuffer(GL_ARRAY_BUFFER, VBO);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(cubo_vertices) * 8, cubo_vertices, GL_STATIC_DRAW); //pasarle los datos al VBO asignando tamaño, los datos y en este caso es estático pues no se modificarán los valores
+
+    //glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE,sizeof(vertices[0]*3), 0);//Stride en caso de haber datos de color por ejemplo, es saltar cierta cantidad de datos
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, 0);
+    glEnableVertexAttribArray(0);
+    //glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, sizeof(vertices[0] * 6), (void*)(sizeof(vertices[0]) * 3));
+    //glEnableVertexAttribArray(1);
+    glBindBuffer(GL_ARRAY_BUFFER, 0);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+    glBindVertexArray(0);
+
+    glBindVertexArray(VAO);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IBO);
+    glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_INT, 0);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+    glBindVertexArray(0);
+
+}
+
+void CrearPiramide()
+{
+    unsigned int piramide_indices[] = {
+        0,1,2,
+        1,3,2,
+        3,0,2,
+        1,0,3
+
+    };
+    GLfloat piramide_vertices[] = {
+        -0.5f, -0.5f,0.0f,	//0
+        0.5f,-0.5f,0.0f,	//1
+        0.0f,0.5f, -0.25f,	//2
+        0.0f,-0.5f,-0.5f,	//3
+
+    };
+    //Mesh* obj1 = new Mesh();
+    //obj1->CreateMesh(vertices, indices, 12, 12);
+    //meshList.push_back(obj1);
+
+    GLint indexCount = 12;
+    glGenVertexArrays(1, &VAO); //generar 1 VAO
+    glBindVertexArray(VAO);//asignar VAO
+
+    glGenBuffers(1, &IBO);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IBO);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(piramide_indices) * indexCount, piramide_indices, GL_STATIC_DRAW);
+
+    glGenBuffers(1, &VBO);
+    glBindBuffer(GL_ARRAY_BUFFER, VBO);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(piramide_vertices) * 4, piramide_vertices, GL_STATIC_DRAW); //pasarle los datos al VBO asignando tamaño, los datos y en este caso es estático pues no se modificarán los valores
+
+    //glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE,sizeof(vertices[0]*3), 0);//Stride en caso de haber datos de color por ejemplo, es saltar cierta cantidad de datos
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, 0);
+    glEnableVertexAttribArray(0);
+    //glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, sizeof(vertices[0] * 6), (void*)(sizeof(vertices[0]) * 3));
+    //glEnableVertexAttribArray(1);
+    glBindBuffer(GL_ARRAY_BUFFER, 0);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+    glBindVertexArray(0);
+
+    glBindVertexArray(VAO);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IBO);
+    glDrawElements(GL_TRIANGLES, 12, GL_UNSIGNED_INT, 0);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+    glBindVertexArray(0);
+
+
+}
+
+
+void CrearPiramideCuadrangular()
+{
+    unsigned int piramidecuadrangular_indices[] = {
+        0,3,4,
+        3,2,4,
+        2,1,4,
+        1,0,4,
+        0,1,2,
+        0,2,4
+
+    };
+    GLfloat piramidecuadrangular_vertices[] = {
+        0.5f,-0.5f,0.5f,
+        0.5f,-0.5f,-0.5f,
+        -0.5f,-0.5f,-0.5f,
+        -0.5f,-0.5f,0.5f,
+        0.0f,0.5f,0.0f,
+    };
+    //Mesh* piramide = new Mesh();
+    //piramide->CreateMesh(piramidecuadrangular_vertices, piramidecuadrangular_indices, 15, 18);
+    //meshList.push_back(piramide);
+
+    GLint indexCount = 18;
+    glGenVertexArrays(1, &VAO); //generar 1 VAO
+    glBindVertexArray(VAO);//asignar VAO
+
+    glGenBuffers(1, &IBO);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IBO);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(piramidecuadrangular_indices) * indexCount, piramidecuadrangular_indices, GL_STATIC_DRAW);
+
+    glGenBuffers(1, &VBO);
+    glBindBuffer(GL_ARRAY_BUFFER, VBO);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(piramidecuadrangular_vertices) * 5, piramidecuadrangular_vertices, GL_STATIC_DRAW); //pasarle los datos al VBO asignando tamaño, los datos y en este caso es estático pues no se modificarán los valores
+
+    //glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE,sizeof(vertices[0]*3), 0);//Stride en caso de haber datos de color por ejemplo, es saltar cierta cantidad de datos
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, 0);
+    glEnableVertexAttribArray(0);
+    //glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, sizeof(vertices[0] * 6), (void*)(sizeof(vertices[0]) * 3));
+    //glEnableVertexAttribArray(1);
+    glBindBuffer(GL_ARRAY_BUFFER, 0);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+    glBindVertexArray(0);
+
+    glBindVertexArray(VAO);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IBO);
+    glDrawElements(GL_TRIANGLES, 18, GL_UNSIGNED_INT, 0);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+    glBindVertexArray(0);
+
+
+
+
+}
+
+
+void Sphere(float ratio, int slices, int stacks)
+{
+    std::vector<VertexColor> vertexC;
+    /*std::vector<VertexLightColor> vertexLC;
+    std::vector<VertexLightTexture> vertexLT;*/
+    std::vector<GLuint> index;
+
+    vertexC.resize(((slices + 1) * (stacks + 1)));
+    index.resize((slices * stacks + slices) * 6);
+    for (int i = 0; i <= stacks; ++i) {
+        float V = i / (float)stacks;
+        float phi = V * M_PI;
+
+        for (int j = 0; j <= slices; ++j) {
+            float U = j / (float)slices;
+            float theta = U * M_PI * 2.0;
+
+            float X = cos(theta) * sin(phi);
+            float Y = cos(phi);
+            float Z = sin(theta) * sin(phi);
+            vertexC[i * (slices + 1) + j].position = ratio
+                * glm::vec3(X, Y, Z);
+            vertexC[i * (slices + 1) + j].color = glm::sphericalRand(1.0);
+        }
+    }
+
+    for (int i = 0; i < slices * stacks + slices; ++i) {
+        index[i * 6] = i;
+        index[i * 6 + 1] = i + slices + 1;
+        index[i * 6 + 2] = i + slices;
+        index[i * 6 + 3] = i + slices + 1;
+        index[i * 6 + 4] = i;
+        index[i * 6 + 5] = i + 1;
+    }
+
+    glGenVertexArrays(1, &VAO);
+    glGenBuffers(1, &VBO);
+    glGenBuffers(1, &IBO);
+
+    glBindVertexArray(VAO);
+
+    glBindBuffer(GL_ARRAY_BUFFER, VBO);
+
+    size_t stride;
+
+    size_t offset1 = 0;
+    size_t offset2 = 0;
+    size_t offset3 = 0;
+
+    glBufferData(GL_ARRAY_BUFFER, vertexC.size() * sizeof(glm::vec3) * 2,
+        vertexC.data(),
+        GL_STATIC_DRAW);
+    stride = sizeof(vertexC[0]);
+    offset1 = 0;
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IBO);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, index.size() * sizeof(GLuint),
+        index.data(),
+        GL_STATIC_DRAW);
+
+    // First attribute
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, stride, (GLvoid*)offset1);
+    glEnableVertexAttribArray(0);
+    // Second attribute
+    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, stride,
+        (GLvoid*)offset2);
+    glEnableVertexAttribArray(1);
+    // Thrid attribute
+    glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, stride, (GLvoid*)offset3);
+    glEnableVertexAttribArray(2);
+
+    glBindVertexArray(0); // Unbind VAO
+
+    //	****************
+    glBindVertexArray(VAO);
+    glDrawElements(GL_TRIANGLES, index.size(), GL_UNSIGNED_INT,
+        (GLvoid*)(sizeof(GLuint) * 0));
+    glBindVertexArray(0);
+}
+
+
+/*void CrearCilindro(int res, float R) {
+
+    //constantes utilizadas en los ciclos for
+    int n, i, coordenada = 0;
+    //número de vértices ocupados
+    int verticesBase = (res + 1) * 6;
+    //cálculo del paso interno en la circunferencia y variables que almacenarán cada coordenada de cada vértice
+    GLfloat dt = 2 * PI / res, x, z, y = -0.5f;
+    //apuntadores para guardar todos los vértices e índices generados
+    GLfloat* vertices = (GLfloat*)calloc(sizeof(GLfloat*), (verticesBase) * 3);
+    unsigned int* indices = (unsigned int*)calloc(sizeof(unsigned int*), verticesBase);
+
+    //ciclo for para crear los vértices de las paredes del cilindro
+    for (n = 0; n <= (res); n++) {
+        if (n != res) {
+            x = R * cos((n)*dt);
+            z = R * sin((n)*dt);
+        }
+        //caso para terminar el círculo
+        else {
+            x = R * cos((0) * dt);
+            z = R * sin((0) * dt);
+        }
+        for (i = 0; i < 6; i++) {
+            switch (i) {
+            case 0:
+                vertices[i + coordenada] = x;
+                break;
+            case 1:
+                vertices[i + coordenada] = y;
+                break;
+            case 2:
+                vertices[i + coordenada] = z;
+                break;
+            case 3:
+                vertices[i + coordenada] = x;
+                break;
+            case 4:
+                vertices[i + coordenada] = 0.5;
+                break;
+            case 5:
+                vertices[i + coordenada] = z;
+                break;
+            }
+        }
+        coordenada += 6;
+    }
+
+    //ciclo for para crear la circunferencia inferior
+    for (n = 0; n <= (res); n++) {
+        x = R * cos((n)*dt);
+        z = R * sin((n)*dt);
+        for (i = 0; i < 3; i++) {
+            switch (i) {
+            case 0:
+                vertices[coordenada + i] = x;
+                break;
+            case 1:
+                vertices[coordenada + i] = -0.5f;
+                break;
+            case 2:
+                vertices[coordenada + i] = z;
+                break;
+            }
+        }
+        coordenada += 3;
+    }
+
+    //ciclo for para crear la circunferencia superior
+    for (n = 0; n <= (res); n++) {
+        x = R * cos((n)*dt);
+        z = R * sin((n)*dt);
+        for (i = 0; i < 3; i++) {
+            switch (i) {
+            case 0:
+                vertices[coordenada + i] = x;
+                break;
+            case 1:
+                vertices[coordenada + i] = 0.5;
+                break;
+            case 2:
+                vertices[coordenada + i] = z;
+                break;
+            }
+        }
+        coordenada += 3;
+    }
+
+    //Se generan los indices de los vértices
+    for (i = 0; i < verticesBase; i++) {
+        indices[i] = i;
+    }
+
+    //se genera el mesh del cilindro
+    //Mesh* cilindro = new Mesh();
+    //cilindro->CreateMesh(vertices, indices, coordenada, verticesBase);
+    //meshList.push_back(cilindro);
+
+    GLint indexCount = verticesBase;
+    glGenVertexArrays(1, &VAO); //generar 1 VAO
+    glBindVertexArray(VAO);//asignar VAO
+
+    glGenBuffers(1, &IBO);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IBO);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices) * indexCount, indices, GL_STATIC_DRAW);
+
+    glGenBuffers(1, &VBO);
+    glBindBuffer(GL_ARRAY_BUFFER, VBO);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(vertices) * 3, vertices, GL_STATIC_DRAW); //pasarle los datos al VBO asignando tamaño, los datos y en este caso es estático pues no se modificarán los valores
+
+    //glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE,sizeof(vertices[0]*3), 0);//Stride en caso de haber datos de color por ejemplo, es saltar cierta cantidad de datos
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, 0);
+    glEnableVertexAttribArray(0);
+    //glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, sizeof(vertices[0] * 6), (void*)(sizeof(vertices[0]) * 3));
+    //glEnableVertexAttribArray(1);
+    glBindBuffer(GL_ARRAY_BUFFER, 0);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+    glBindVertexArray(0);
+
+    glBindVertexArray(VAO);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IBO);
+    glDrawElements(GL_TRIANGLES, 18, GL_UNSIGNED_INT, 0);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+    glBindVertexArray(0);
+
+
+}*/
+
 
 // camera
 Camera camera(glm::vec3(0.0f, 10.0f, 90.0f));
@@ -252,27 +679,27 @@ int main()
 
 	vector<std::string> faces
 	{
-		/*"resources/skybox/right.jpg",
+		"resources/skybox/right.jpg",
 		"resources/skybox/left.jpg",
 		"resources/skybox/top.jpg",
 		"resources/skybox/bottom.jpg",
 		"resources/skybox/front.jpg",
-		"resources/skybox/back.jpg"*/
+		"resources/skybox/back.jpg"
 
 		/*"resources/skybox/posx.jpg",
 		"resources/skybox/negx.jpg",
 		"resources/skybox/posy.jpg",
 		"resources/skybox/negy.jpg",
 		"resources/skybox/posz.jpg",
-		"resources/skybox/negz.jpg"*/
-
-		"resources/skybox/blueAba.jpg",
+		"resources/skybox/negz.jpg"
+		*/
+		/*"resources/skybox/blueAba.jpg",
 		"resources/skybox/blueAba.jpg",
 		"resources/skybox/blueAba.jpg",
 		"resources/skybox/blueAba.jpg",
 		"resources/skybox/blueAba.jpg",
 		"resources/skybox/blueAba.jpg"
-
+		*/
 	};
 
 	Skybox skybox = Skybox(faces);
@@ -420,6 +847,43 @@ int main()
 		model = glm::scale(model, glm::vec3(100.0f));
 		staticShader.setMat4("model", model);
 		piso.Draw(staticShader);
+
+
+        //primitivas
+        model = glm::translate(glm::mat4(1.0f), glm::vec3(0, 0, 0));
+        model = glm::translate(model, glm::vec3(4.0f, -1.0f, 0.0f));
+        model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0));
+        model = glm::scale(model, glm::vec3(5.0f, 5.0f, 5.0f));
+        staticShader.setMat4("model", model);
+        CrearCubo();
+
+
+        model = glm::translate(model, glm::vec3(-3.0f, 3.0f, 0.0f));
+        //model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0));
+        model = glm::scale(model, glm::vec3(1.0f, 1.0f, 1.0f));
+        staticShader.setMat4("model", model);
+        Sphere(1.0, 20, 20);
+
+        model = glm::translate(model, glm::vec3(-3.0f, 0.0f, 0.0f));
+        //model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0));
+        model = glm::scale(model, glm::vec3(2.0f, 2.0f, 2.0f));
+        staticShader.setMat4("model", model);
+        CrearPiramideCuadrangular();
+
+
+        model = glm::translate(model, glm::vec3(-3.0f, 0.0f, 0.0f));
+        //model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0));
+        model = glm::scale(model, glm::vec3(1.0f, 1.0f, 1.0f));
+        staticShader.setMat4("model", model);
+        CrearCubo();
+
+
+        model = glm::translate(model, glm::vec3(-3.0f, 0.0f, 0.0f));
+        //model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0));
+        model = glm::scale(model, glm::vec3(3.0f, 5.0f, 2.0f));
+        staticShader.setMat4("model", model);
+        CrearPiramide();
+
 
 		// -------------------------------------------------------------------------------------------------------------------------
 		// Caja Transparente --- Siguiente Práctica

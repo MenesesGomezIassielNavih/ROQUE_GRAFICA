@@ -33,4 +33,9 @@
       <Filter>Archivos de recursos</Filter>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Mesh3.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+  </ItemGroup>
 </Project>
