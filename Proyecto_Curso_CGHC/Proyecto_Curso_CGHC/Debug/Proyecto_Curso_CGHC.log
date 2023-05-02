@@ -1,30 +1,83 @@
 ﻿  Final.cpp
-C:\Users\Navih M\Documents\Visual Studio 2022\Proyectos\Roque\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Include\shader_m.h(44,40): warning C4101: 'e': variable local sin referencia
-C:\Users\Navih M\Documents\Visual Studio 2022\Proyectos\Roque\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Include\modelAnim.h(104,44): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\Navih M\Documents\Visual Studio 2022\Proyectos\Roque\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Include\modelAnim.h(520,24): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\Navih M\Documents\Visual Studio 2022\Proyectos\Roque\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Final.cpp(38,44): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-C:\Users\Navih M\Documents\Visual Studio 2022\Proyectos\Roque\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Final.cpp(275,19): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\Navih M\Documents\Visual Studio 2022\Proyectos\Roque\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Final.cpp(279,25): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\Navih M\Documents\Visual Studio 2022\Proyectos\Roque\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Final.cpp(1023,11): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\Navih M\Documents\Visual Studio 2022\Proyectos\Roque\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Final.cpp(1024,11): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\Navih M\Documents\Visual Studio 2022\Proyectos\Roque\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Final.cpp(1028,16): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\Navih M\Documents\Visual Studio 2022\Proyectos\Roque\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Final.cpp(1029,16): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\Navih M\Documents\Visual Studio 2022\Proyectos\Roque\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Final.cpp(1031,10): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\Navih M\Documents\Visual Studio 2022\Proyectos\Roque\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Final.cpp(1032,10): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\Navih M\Documents\Visual Studio 2022\Proyectos\Roque\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Final.cpp(1040,28): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
-glfw3.lib(context.obj) : warning LNK4099: no se encontró PDB 'glfw.pdb' con 'glfw3.lib(context.obj)' o en 'C:\Users\Navih M\Documents\Visual Studio 2022\Proyectos\Roque\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Debug\glfw.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
-glfw3.lib(init.obj) : warning LNK4099: no se encontró PDB '' con 'glfw3.lib(init.obj)' o en ''; se vinculará el objeto sin tener en cuenta información de depuración
-glfw3.lib(input.obj) : warning LNK4099: no se encontró PDB 'glfw.pdb' con 'glfw3.lib(input.obj)' o en 'C:\Users\Navih M\Documents\Visual Studio 2022\Proyectos\Roque\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Debug\glfw.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
-glfw3.lib(monitor.obj) : warning LNK4099: no se encontró PDB '' con 'glfw3.lib(monitor.obj)' o en ''; se vinculará el objeto sin tener en cuenta información de depuración
-glfw3.lib(vulkan.obj) : warning LNK4099: no se encontró PDB 'glfw.pdb' con 'glfw3.lib(vulkan.obj)' o en 'C:\Users\Navih M\Documents\Visual Studio 2022\Proyectos\Roque\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Debug\glfw.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
-glfw3.lib(window.obj) : warning LNK4099: no se encontró PDB 'glfw.pdb' con 'glfw3.lib(window.obj)' o en 'C:\Users\Navih M\Documents\Visual Studio 2022\Proyectos\Roque\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Debug\glfw.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
-glfw3.lib(win32_init.obj) : warning LNK4099: no se encontró PDB 'glfw.pdb' con 'glfw3.lib(win32_init.obj)' o en 'C:\Users\Navih M\Documents\Visual Studio 2022\Proyectos\Roque\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Debug\glfw.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
-glfw3.lib(win32_joystick.obj) : warning LNK4099: no se encontró PDB '' con 'glfw3.lib(win32_joystick.obj)' o en ''; se vinculará el objeto sin tener en cuenta información de depuración
-glfw3.lib(win32_monitor.obj) : warning LNK4099: no se encontró PDB 'glfw.pdb' con 'glfw3.lib(win32_monitor.obj)' o en 'C:\Users\Navih M\Documents\Visual Studio 2022\Proyectos\Roque\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Debug\glfw.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
-glfw3.lib(win32_time.obj) : warning LNK4099: no se encontró PDB 'glfw.pdb' con 'glfw3.lib(win32_time.obj)' o en 'C:\Users\Navih M\Documents\Visual Studio 2022\Proyectos\Roque\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Debug\glfw.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
-glfw3.lib(win32_thread.obj) : warning LNK4099: no se encontró PDB 'glfw.pdb' con 'glfw3.lib(win32_thread.obj)' o en 'C:\Users\Navih M\Documents\Visual Studio 2022\Proyectos\Roque\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Debug\glfw.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
-glfw3.lib(win32_window.obj) : warning LNK4099: no se encontró PDB 'glfw.pdb' con 'glfw3.lib(win32_window.obj)' o en 'C:\Users\Navih M\Documents\Visual Studio 2022\Proyectos\Roque\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Debug\glfw.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
-glfw3.lib(wgl_context.obj) : warning LNK4099: no se encontró PDB 'glfw.pdb' con 'glfw3.lib(wgl_context.obj)' o en 'C:\Users\Navih M\Documents\Visual Studio 2022\Proyectos\Roque\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Debug\glfw.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
-glfw3.lib(egl_context.obj) : warning LNK4099: no se encontró PDB 'glfw.pdb' con 'glfw3.lib(egl_context.obj)' o en 'C:\Users\Navih M\Documents\Visual Studio 2022\Proyectos\Roque\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Debug\glfw.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
-glfw3.lib(osmesa_context.obj) : warning LNK4099: no se encontró PDB 'glfw.pdb' con 'glfw3.lib(osmesa_context.obj)' o en 'C:\Users\Navih M\Documents\Visual Studio 2022\Proyectos\Roque\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Debug\glfw.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
-  Proyecto_Curso_CGHC.vcxproj -> C:\Users\Navih M\Documents\Visual Studio 2022\Proyectos\Roque\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Debug\Proyecto_Curso_CGHC.exe
+C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Include\shader_m.h(44,40): warning C4101: 'e': variable local sin referencia
+C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Include\camera.h(66,21): error C2039: "lookAt": no es un miembro de "glm"
+C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Include\glm\gtc\random.inl(10,11): message : vea la declaración de 'glm'
+C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Include\camera.h(66,1): error C3861: 'lookAt': no se encontró el identificador
+C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Include\modelAnim.h(104,44): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Include\modelAnim.h(520,24): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Final.cpp(38,44): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Final.cpp(275,19): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Final.cpp(279,25): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Final.cpp(795,31): error C2039: "perspective": no es un miembro de "glm"
+C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Include\glm\gtc\random.inl(10,11): message : vea la declaración de 'glm'
+C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Final.cpp(795,42): error C3861: 'perspective': no se encontró el identificador
+C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Final.cpp(822,16): error C2039: "translate": no es un miembro de "glm"
+C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Include\glm\gtc\random.inl(10,11): message : vea la declaración de 'glm'
+C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Final.cpp(822,25): error C3861: 'translate': no se encontró el identificador
+C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Final.cpp(823,16): error C2039: "scale": no es un miembro de "glm"
+C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Include\glm\gtc\random.inl(10,11): message : vea la declaración de 'glm'
+C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Final.cpp(823,21): error C3861: 'scale': no se encontró el identificador
+C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Final.cpp(824,16): error C2672: 'glm::rotate': no se encontró una función sobrecargada que coincida
+C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Include\glm\ext\quaternion_transform.hpp(43,26): message : puede ser 'glm::qua<T,Q> glm::rotate(const glm::qua<T,Q> &,const T &,const glm::vec<3,T,Q> &)'
+C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Final.cpp(824,16): message : "glm::qua<T,Q> glm::rotate(const glm::qua<T,Q> &,const T &,const glm::vec<3,T,Q> &)": no se pudo deducir el argumento plantilla para "const glm::qua<T,Q> &" de "glm::mat4"
+C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Final.cpp(832,16): error C2039: "translate": no es un miembro de "glm"
+C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Include\glm\gtc\random.inl(10,11): message : vea la declaración de 'glm'
+C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Final.cpp(832,25): error C3861: 'translate': no se encontró el identificador
+C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Final.cpp(833,16): error C2039: "scale": no es un miembro de "glm"
+C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Include\glm\gtc\random.inl(10,11): message : vea la declaración de 'glm'
+C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Final.cpp(833,21): error C3861: 'scale': no se encontró el identificador
+C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Final.cpp(834,16): error C2672: 'glm::rotate': no se encontró una función sobrecargada que coincida
+C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Include\glm\ext\quaternion_transform.hpp(43,26): message : puede ser 'glm::qua<T,Q> glm::rotate(const glm::qua<T,Q> &,const T &,const glm::vec<3,T,Q> &)'
+C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Final.cpp(834,16): message : "glm::qua<T,Q> glm::rotate(const glm::qua<T,Q> &,const T &,const glm::vec<3,T,Q> &)": no se pudo deducir el argumento plantilla para "const glm::qua<T,Q> &" de "glm::mat4"
+C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Final.cpp(845,16): error C2039: "translate": no es un miembro de "glm"
+C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Include\glm\gtc\random.inl(10,11): message : vea la declaración de 'glm'
+C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Final.cpp(845,25): error C3861: 'translate': no se encontró el identificador
+C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Final.cpp(846,16): error C2672: 'glm::rotate': no se encontró una función sobrecargada que coincida
+C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Include\glm\ext\quaternion_transform.hpp(43,26): message : puede ser 'glm::qua<T,Q> glm::rotate(const glm::qua<T,Q> &,const T &,const glm::vec<3,T,Q> &)'
+C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Final.cpp(846,16): message : "glm::qua<T,Q> glm::rotate(const glm::qua<T,Q> &,const T &,const glm::vec<3,T,Q> &)": no se pudo deducir el argumento plantilla para "const glm::qua<T,Q> &" de "glm::mat4"
+C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Final.cpp(847,16): error C2039: "scale": no es un miembro de "glm"
+C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Include\glm\gtc\random.inl(10,11): message : vea la declaración de 'glm'
+C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Final.cpp(847,21): error C3861: 'scale': no se encontró el identificador
+C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Final.cpp(853,22): error C2039: "translate": no es un miembro de "glm"
+C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Include\glm\gtc\random.inl(10,11): message : vea la declaración de 'glm'
+C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Final.cpp(853,31): error C3861: 'translate': no se encontró el identificador
+C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Final.cpp(854,22): error C2039: "translate": no es un miembro de "glm"
+C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Include\glm\gtc\random.inl(10,11): message : vea la declaración de 'glm'
+C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Final.cpp(854,31): error C3861: 'translate': no se encontró el identificador
+C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Final.cpp(855,22): error C2672: 'glm::rotate': no se encontró una función sobrecargada que coincida
+C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Include\glm\ext\quaternion_transform.hpp(43,26): message : puede ser 'glm::qua<T,Q> glm::rotate(const glm::qua<T,Q> &,const T &,const glm::vec<3,T,Q> &)'
+C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Final.cpp(855,22): message : "glm::qua<T,Q> glm::rotate(const glm::qua<T,Q> &,const T &,const glm::vec<3,T,Q> &)": no se pudo deducir el argumento plantilla para "const glm::qua<T,Q> &" de "glm::mat4"
+C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Final.cpp(856,22): error C2039: "scale": no es un miembro de "glm"
+C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Include\glm\gtc\random.inl(10,11): message : vea la declaración de 'glm'
+C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Final.cpp(856,27): error C3861: 'scale': no se encontró el identificador
+C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Final.cpp(861,22): error C2039: "translate": no es un miembro de "glm"
+C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Include\glm\gtc\random.inl(10,11): message : vea la declaración de 'glm'
+C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Final.cpp(861,31): error C3861: 'translate': no se encontró el identificador
+C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Final.cpp(863,22): error C2039: "scale": no es un miembro de "glm"
+C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Include\glm\gtc\random.inl(10,11): message : vea la declaración de 'glm'
+C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Final.cpp(863,27): error C3861: 'scale': no se encontró el identificador
+C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Final.cpp(867,22): error C2039: "translate": no es un miembro de "glm"
+C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Include\glm\gtc\random.inl(10,11): message : vea la declaración de 'glm'
+C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Final.cpp(867,31): error C3861: 'translate': no se encontró el identificador
+C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Final.cpp(869,22): error C2039: "scale": no es un miembro de "glm"
+C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Include\glm\gtc\random.inl(10,11): message : vea la declaración de 'glm'
+C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Final.cpp(869,27): error C3861: 'scale': no se encontró el identificador
+C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Final.cpp(874,22): error C2039: "translate": no es un miembro de "glm"
+C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Include\glm\gtc\random.inl(10,11): message : vea la declaración de 'glm'
+C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Final.cpp(874,31): error C3861: 'translate': no se encontró el identificador
+C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Final.cpp(876,22): error C2039: "scale": no es un miembro de "glm"
+C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Include\glm\gtc\random.inl(10,11): message : vea la declaración de 'glm'
+C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Final.cpp(876,27): error C3861: 'scale': no se encontró el identificador
+C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Final.cpp(881,22): error C2039: "translate": no es un miembro de "glm"
+C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Include\glm\gtc\random.inl(10,11): message : vea la declaración de 'glm'
+C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Final.cpp(881,31): error C3861: 'translate': no se encontró el identificador
+C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Final.cpp(883,22): error C2039: "scale": no es un miembro de "glm"
+C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Include\glm\gtc\random.inl(10,11): message : vea la declaración de 'glm'
+C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Final.cpp(883,27): error C3861: 'scale': no se encontró el identificador
+C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Final.cpp(1023,11): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Final.cpp(1024,11): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Final.cpp(1028,16): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Final.cpp(1029,16): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Final.cpp(1031,10): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Final.cpp(1032,10): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGHC\Proyecto_Curso_CGHC\Final.cpp(1040,28): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
