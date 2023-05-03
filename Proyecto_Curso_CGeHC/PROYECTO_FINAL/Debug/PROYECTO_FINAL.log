@@ -1,0 +1,26 @@
+﻿  Final.cpp
+C:\Users\Navih M\Desktop\valencia\PROYECTO_FINAL\include\shader_m.h(44,40): warning C4101: 'e': variable local sin referencia
+C:\Users\Navih M\Desktop\valencia\PROYECTO_FINAL\include\modelAnim.h(104,44): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\Navih M\Desktop\valencia\PROYECTO_FINAL\include\modelAnim.h(520,24): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\Navih M\Desktop\valencia\PROYECTO_FINAL\Final.cpp(33,44): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\Navih M\Desktop\valencia\PROYECTO_FINAL\Final.cpp(222,13): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\Navih M\Desktop\valencia\PROYECTO_FINAL\Final.cpp(225,16): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\Navih M\Desktop\valencia\PROYECTO_FINAL\Final.cpp(359,16): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\Navih M\Desktop\valencia\PROYECTO_FINAL\Final.cpp(416,32): warning C4244: 'argumento': conversión de 'double' a '_Ty'; posible pérdida de datos
+          with
+          [
+              _Ty=GLfloat
+          ]
+C:\Users\Navih M\Desktop\valencia\PROYECTO_FINAL\Final.cpp(418,32): warning C4244: 'argumento': conversión de 'double' a '_Ty'; posible pérdida de datos
+          with
+          [
+              _Ty=GLfloat
+          ]
+C:\Users\Navih M\Desktop\valencia\PROYECTO_FINAL\Final.cpp(1201,11): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\Navih M\Desktop\valencia\PROYECTO_FINAL\Final.cpp(1202,11): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\Navih M\Desktop\valencia\PROYECTO_FINAL\Final.cpp(1206,16): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\Navih M\Desktop\valencia\PROYECTO_FINAL\Final.cpp(1207,16): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\Navih M\Desktop\valencia\PROYECTO_FINAL\Final.cpp(1209,10): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\Navih M\Desktop\valencia\PROYECTO_FINAL\Final.cpp(1210,10): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\Navih M\Desktop\valencia\PROYECTO_FINAL\Final.cpp(1218,28): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+  PROYECTO_FINAL.vcxproj -> C:\Users\Navih M\Desktop\valencia\Debug\PROYECTO_FINAL.exe
