@@ -29,9 +29,17 @@
 #include <iostream>
 #pragma comment(lib, "winmm.lib")
 
+
+//GLOBALES
 bool sound = true;
 const float toRadians = 3.14159265f / 180.0; //grados a radianes
 const float PI = 3.14159265f;
+float ratio;
+int slices;
+int stacks;
+//GLuint VAO, VBO, IBO;
+GLuint VAO[10], VBO[10], IBO[10];
+GLuint indexCount[6];
 
 typedef struct _VertexColor {
 	_VertexColor() {
@@ -46,13 +54,6 @@ typedef struct _VertexColor {
 
 std::vector<VertexColor> vertexC;
 std::vector<GLuint> index;
-float ratio;
-int slices;
-int stacks;
-
-//GLuint VAO, VBO, IBO;
-GLuint VAO[10], VBO[10], IBO[10];
-GLuint indexCount[6];
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 void mouse_callback(GLFWwindow* window, double xpos, double ypos);
@@ -284,20 +285,21 @@ void SphereRenderizar() {
 }
 
 void CrearCilindro(int res, float R) {
-
 	//constantes utilizadas en los ciclos for
 	int n, i;
-	//cálculo del paso interno en la circunferencia y variables que almacenarán cada coordenada de cada vértice
+	//cÃ¡lculo del paso interno en la circunferencia y variables que almacenarÃ¡n cada coordenada de cada vÃ©rtice
 	GLfloat dt = 2 * PI / res, x, z, y = -0.5f;
+
 	vector<GLfloat> vertices;
 	vector<unsigned int> indices;
-	//ciclo for para crear los vértices de las paredes del cilindro
+
+	//ciclo for para crear los vÃ©rtices de las paredes del cilindro
 	for (n = 0; n <= (res); n++) {
 		if (n != res) {
 			x = R * cos((n)*dt);
 			z = R * sin((n)*dt);
 		}
-		//caso para terminar el círculo
+		//caso para terminar el cÃ­rculo
 		else {
 			x = R * cos((0) * dt);
 			z = R * sin((0) * dt);
@@ -343,7 +345,6 @@ void CrearCilindro(int res, float R) {
 			}
 		}
 	}
-
 	//ciclo for para crear la circunferencia superior
 	for (n = 0; n <= (res); n++) {
 		x = R * cos((n)*dt);
@@ -362,8 +363,7 @@ void CrearCilindro(int res, float R) {
 			}
 		}
 	}
-
-	//Se generan los indices de los vértices
+	//Se generan los indices de los vÃ©rtices
 	for (i = 0; i < vertices.size(); i++) indices.push_back(i);
 	indexCount[4] = indices.size();
 	glGenVertexArrays(1, &VAO[4]); //generar 1 VAO
@@ -375,16 +375,18 @@ void CrearCilindro(int res, float R) {
 
 	glGenBuffers(1, &VBO[4]);
 	glBindBuffer(GL_ARRAY_BUFFER, VBO[4]);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices[0]) * vertices.size(), vertices.data(), GL_STATIC_DRAW); //pasarle los datos al VBO asignando tamaño, los datos y en este caso es estático pues no se modificarán los valores
+	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices[0]) * vertices.size(), vertices.data(), GL_STATIC_DRAW); //pasarle los datos al VBO asignando tamaÃ±o, los datos y en este caso es estÃ¡tico pues no se modificarÃ¡n los valores
 
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, 0);
 	glEnableVertexAttribArray(0);
+
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 	glBindVertexArray(0);
 }
 
-void CrearCilindroRenderizar() {
+void CrearCilindroRenderizar()
+{
 	glBindVertexArray(VAO[4]);
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IBO[4]);
 	glDrawElements(GL_TRIANGLE_FAN, indexCount[4], GL_UNSIGNED_INT, 0);
@@ -740,7 +742,7 @@ int main() {
 	CrearPiramide();
 	CrearPiramideCuadrangular();
 	Sphere(1.0, 20, 20);
-	CrearCilindro(108, 1.0f);
+	CrearCilindro(512, 1.0f);
 	CrearCono(20, 1.0f);
 	
 	// draw in wireframe
@@ -772,6 +774,7 @@ int main() {
 		staticShader.setVec3("viewPos", camera.Position);
 		staticShader.setVec3("dirLight.direction", lightDirection);
 		staticShader.setVec3("dirLight.ambient", glm::vec3(0.5f, 0.5f, 0.5f));
+		//staticShader.setVec3("dirLight.ambient", glm::vec3(0.1f, 0.1f, 0.1f));
 		staticShader.setVec3("dirLight.diffuse", glm::vec3(1.0f, 1.0f, 1.0f));
 		staticShader.setVec3("dirLight.specular", glm::vec3(0.5f, 0.5f, 0.5f));
 
@@ -822,7 +825,7 @@ int main() {
 		//GLint modelLoc = glGetUniformLocation(staticShader.setFloat("material_shininess", 32.0f), "model");
 
 		// -------------------------------------------------------------------------------------------------------------------------
-		// Personaje Animacion
+		// Personaje Animacion CHAVA
 		// -------------------------------------------------------------------------------------------------------------------------
 		//Remember to activate the shader with the animation
 		animShader.use();
@@ -837,17 +840,17 @@ int main() {
 		animShader.setVec3("light.direction", lightDirection);
 		animShader.setVec3("viewPos", camera.Position);
 
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(-40.3f, 1.75f, 0.3f)); // translate it down so it's at the center of the scene
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-40.3f, 1.75f, -20.0f)); // translate it down so it's at the center of the scene
 		model = glm::scale(model, glm::vec3(1.2f));	// it's a bit too big for our scene, so scale it down
 		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 		animShader.setMat4("model", model);
 		animacionPersonaje.Draw(animShader);
 
 		// -------------------------------------------------------------------------------------------------------------------------
-		// Segundo Personaje Animacion
+		// Segundo Personaje Animacion NINJA
 		// -------------------------------------------------------------------------------------------------------------------------
 
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(40.3f, 1.75f, 0.3f)); // translate it down so it's at the center of the scene
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(40.3f, 1.75f, -20.0f)); // translate it down so it's at the center of the scene
 		model = glm::scale(model, glm::vec3(0.5f));	// it's a bit too big for our scene, so scale it down
 		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 		animShader.setMat4("model", model);
@@ -880,15 +883,12 @@ int main() {
 		staticShader.setMat4("model", model);
 		igloo.Draw(staticShader);
 
-	
-
 		//Banio
 		model = glm::translate(glm::mat4(1.0f), glm::vec3(300.0f, 0.0f, -260.0f));
 		model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 		model = glm::scale(model, glm::vec3(0.015f));
 		staticShader.setMat4("model", model);
 		banio.Draw(staticShader);
-
 
 
 		//Acuario
@@ -904,9 +904,6 @@ int main() {
 		model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 		staticShader.setMat4("model", model);
 		//acuario_vidrio.Draw(staticShader);
-
-
-
 
 
 		//Vegetacion
@@ -946,68 +943,90 @@ int main() {
 		// Primitivas
 		// -------------------------------------------------------------------------------------------------------------------------
 
-		//color cubo
-		//por lo general la luz debe ir 1 o 2 unidades más en y, 1 unidad más en z 
-		//tomando referencia donde vas a colocar el objeto
+		//En cada primitiva las luces van después de las traslaciones para que tenga material la primitiva
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(0, 0, 0));
+		model = glm::translate(model, glm::vec3(4.0f, 0.0f, 0.0f));
+		//la posición de la luz debe estar x constante, Y+2 y z+1
 		staticShader.setVec3("pointLight[0].position", glm::vec3(4, 2, 1));
 		staticShader.setVec3("pointLight[0].ambient", glm::vec3(0.0f, 0.0f, 1.0f));
 		staticShader.setVec3("pointLight[0].diffuse", glm::vec3(0.0f, 0.0f, 1.0f));
 		staticShader.setVec3("pointLight[0].specular", glm::vec3(0.0f, 0.5f, 0.5f));
-
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(0, 0, 0));
-		model = glm::translate(model, glm::vec3(4.0f, 0.0f, 0.0f));
+		staticShader.setFloat("pointLight[0].constant", 0.08f);
+		staticShader.setFloat("pointLight[0].linear", 0.009f);
+		staticShader.setFloat("pointLight[0].quadratic", 0.00032f); //más 0 es más brillante menos 0 menos brillante
 		model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0));
 		model = glm::scale(model, glm::vec3(5.0f, 5.0f, 5.0f));
 		staticShader.setMat4("model", model);
 		CrearCuboRenderizar();  //dibuja el cubo
 
+
 		model = glm::translate(model, glm::vec3(-3.0f, 3.0f, 0.0f));
+		//la posición de la luz debe estar x constante, Y+2 y z+1
 		//model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0));
 		model = glm::scale(model, glm::vec3(1.0f, 1.0f, 1.0f));
 		staticShader.setMat4("model", model);
 		SphereRenderizar();
 
-		staticShader.setVec3("pointLight[0].position", glm::vec3(-8, 2, 1));
-		staticShader.setVec3("pointLight[0].ambient", glm::vec3(0.17f, 0.01f, 0.01f));
-		staticShader.setVec3("pointLight[0].diffuse", glm::vec3(0.61f, 0.04f, 0.04f));
-		staticShader.setVec3("pointLight[0].specular", glm::vec3(0.72f, 0.62f, 0.62f));
 
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(0, 0, 0));
 		model = glm::translate(model, glm::vec3(-8.0f, 0.0f, 0.0f));
+		//la posición de la luz debe estar x constante, Y+2 y z+1
+		staticShader.setVec3("pointLight[0].position", glm::vec3(-8, 2, 1));
+		staticShader.setVec3("pointLight[0].ambient", glm::vec3(0.1745f, 0.01175f, 0.01175f));
+		staticShader.setVec3("pointLight[0].diffuse", glm::vec3(0.61424f, 0.04136f, 0.04136f));
+		staticShader.setVec3("pointLight[0].specular", glm::vec3(0.727811f, 0.626959f, 0.626959f));
+		staticShader.setFloat("pointLight[0].constant", 0.08f);
+		staticShader.setFloat("pointLight[0].linear", 0.009f);
+		staticShader.setFloat("pointLight[0].quadratic", 0.0000032f); //más 0 es más brillante menos 0 menos brillante
+		staticShader.setFloat("material_shininess", 0.6f);
 		//model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0));
-		model = glm::scale(model, glm::vec3(10.0f, 10.0f, 10.0f));
-		//staticShader.setFloat("material.shininess", 0.6f);
+		model = glm::scale(model, glm::vec3(5.0f, 5.0f, 5.0f));
 		staticShader.setMat4("model", model);
 		CrearPiramideCuadrangularRenderizar();
 		
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(0, 0, 0));
-		model = glm::translate(model, glm::vec3(-20.0f, 0.0f, 0.0f));
-		//model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0));
-		model = glm::scale(model, glm::vec3(30.0f, 30.0f, 30.0f));
-		staticShader.setMat4("model", model);
-		//CrearCubo();
 
-
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(0, 0, 0));
-		model = glm::translate(model, glm::vec3(-100.0f, 0.0f, 0.0f));
+		model = glm::translate(model, glm::vec3(-3.0f, 0.0f, 0.0f));
+		//la posición de la luz debe estar x constante, Y+2 y z+1
+		staticShader.setVec3("pointLight[0].position", glm::vec3(-3, 2, 1));
+		staticShader.setVec3("pointLight[0].ambient", glm::vec3(0.0f, 1.0f, 0.f));
+		staticShader.setVec3("pointLight[0].diffuse", glm::vec3(0.07568f, 0.61424f, 0.07568f));
+		staticShader.setVec3("pointLight[0].specular", glm::vec3(0.633f, 0.727811f, 0.633f));
+		staticShader.setFloat("pointLight[0].constant", 0.08f);
+		staticShader.setFloat("pointLight[0].linear", 0.009f);
+		staticShader.setFloat("pointLight[0].quadratic", 0.00000032f); //más 0 es más brillante menos 0 menos brillante
+		staticShader.setFloat("material_shininess", 0.6f);
 		//model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0));
-		model = glm::scale(model, glm::vec3(30.0f, 30.0f, 30.0f));
+		model = glm::scale(model, glm::vec3(3.0f, 3.0f, 3.0f));
 		staticShader.setMat4("model", model);
 		CrearPiramideRenderizar();
 
 		
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(0, 0, 0));
-		model = glm::translate(model, glm::vec3(-235.0f, 0.0f, 0.0f));
+		model = glm::translate(model, glm::vec3(-1.0f, 0.0f, 0.0f));
+		//la posición de la luz debe estar x constante, Y+2 y z+1
+		staticShader.setVec3("pointLight[0].position", glm::vec3(-1, 2, 1));
+		staticShader.setVec3("pointLight[0].ambient", glm::vec3(212.0f/255.0f, 175.0f/255.0f, 55.0f/255.0f));
+		staticShader.setVec3("pointLight[0].diffuse", glm::vec3(0.75164f, 0.60648f, 0.22648f));
+		staticShader.setVec3("pointLight[0].specular", glm::vec3(0.628281f, 0.555802f, 0.366065f));
+		staticShader.setFloat("pointLight[0].constant", 0.08f);
+		staticShader.setFloat("pointLight[0].linear", 0.009f);
+		staticShader.setFloat("pointLight[0].quadratic", 0.000000032f); //más 0 es más brillante menos 0 menos brillante
+		staticShader.setFloat("material_shininess", 0.4f);
 		//model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0));
-		model = glm::scale(model, glm::vec3(40.0f, 40.0f, 40.0f));
+		model = glm::scale(model, glm::vec3(0.2f, 0.5f, 0.2f));
 		staticShader.setMat4("model", model);
-		//CrearCilindro(36, 1.0f);
 		CrearCilindroRenderizar();
 
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(0, 0, 0));
-		model = glm::translate(model, glm::vec3(60.0f, 0.5f, 2.0f));
+		model = glm::translate(model, glm::vec3(-3.0f, 0.0f, 0.0f));
+		//la posición de la luz debe estar x constante, Y+2 y z+1
+		staticShader.setVec3("pointLight[0].position", glm::vec3(-3, 2, 1));
+		staticShader.setVec3("pointLight[0].ambient", glm::vec3(192.0f/255.0f, 192.0f/255.0f, 192.0f/255.0f));
+		staticShader.setVec3("pointLight[0].diffuse", glm::vec3(0.50754f, 0.50754f, 0.50754f));
+		staticShader.setVec3("pointLight[0].specular", glm::vec3(0.508273f, 0.508273f, 0.508273f));
+		staticShader.setFloat("pointLight[0].constant", 0.08f);
+		staticShader.setFloat("pointLight[0].linear", 0.009f);
+		staticShader.setFloat("pointLight[0].quadratic", 0.000000032f); //más 0 es más brillante menos 0 menos brillante
+		staticShader.setFloat("material_shininess", 0.4f);
 		//model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0));
-		model = glm::scale(model, glm::vec3(20.0f, 20.0f, 20.0f));
+		model = glm::scale(model, glm::vec3(0.4f, 1.0f, 0.4f));
 		staticShader.setMat4("model", model);
 		CrearConoRenderizar();
 		
