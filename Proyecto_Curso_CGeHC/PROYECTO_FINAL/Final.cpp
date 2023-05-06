@@ -50,7 +50,9 @@ float ratio;
 int slices;
 int stacks;
 
-GLuint VAO, VBO, IBO;
+//GLuint VAO, VBO, IBO;
+GLuint VAO[10], VBO[10], IBO[10];
+GLuint indexCount[6];
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 void mouse_callback(GLFWwindow* window, double xpos, double ypos);
@@ -100,16 +102,16 @@ void CrearCubo()
 		0.5f,  0.5f, -0.5f,
 		-0.5f,  0.5f, -0.5f
 	};
-	GLint indexCount = 36;
-	glGenVertexArrays(1, &VAO); //generar 1 VAO
-	glBindVertexArray(VAO);//asignar VAO
+	indexCount[0] = 36;
+	glGenVertexArrays(1, &VAO[0]); //generar 1 VAO
+	glBindVertexArray(VAO[0]);//asignar VAO
 
-	glGenBuffers(1, &IBO);
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IBO);
-	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(cubo_indices) * indexCount, cubo_indices, GL_STATIC_DRAW);
+	glGenBuffers(1, &IBO[0]);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IBO[0]);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(cubo_indices) * indexCount[0], cubo_indices, GL_STATIC_DRAW);
 
-	glGenBuffers(1, &VBO);
-	glBindBuffer(GL_ARRAY_BUFFER, VBO);
+	glGenBuffers(1, &VBO[0]);
+	glBindBuffer(GL_ARRAY_BUFFER, VBO[0]);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(cubo_vertices) * 8, cubo_vertices, GL_STATIC_DRAW); //pasarle los datos al VBO asignando tamaño, los datos y en este caso es estático pues no se modificarán los valores
 
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, 0);
@@ -117,9 +119,11 @@ void CrearCubo()
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 	glBindVertexArray(0);
+}
 
-	glBindVertexArray(VAO);
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IBO);
+void CrearCuboRenderizar() {
+	glBindVertexArray(VAO[0]);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IBO[0]);
 	glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_INT, 0);
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 	glBindVertexArray(0);
@@ -141,16 +145,16 @@ void CrearPiramide()
 		0.0f,-0.5f,-0.5f,	//3
 
 	};
-	GLint indexCount = 12;
-	glGenVertexArrays(1, &VAO); //generar 1 VAO
-	glBindVertexArray(VAO);//asignar VAO
+	indexCount[1] = 12;
+	glGenVertexArrays(1, &VAO[1]); //generar 1 VAO
+	glBindVertexArray(VAO[1]);//asignar VAO
 
-	glGenBuffers(1, &IBO);
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IBO);
-	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(piramide_indices) * indexCount, piramide_indices, GL_STATIC_DRAW);
+	glGenBuffers(1, &IBO[1]);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IBO[1]);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(piramide_indices) * indexCount[1], piramide_indices, GL_STATIC_DRAW);
 
-	glGenBuffers(1, &VBO);
-	glBindBuffer(GL_ARRAY_BUFFER, VBO);
+	glGenBuffers(1, &VBO[1]);
+	glBindBuffer(GL_ARRAY_BUFFER, VBO[1]);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(piramide_vertices) * 4, piramide_vertices, GL_STATIC_DRAW); //pasarle los datos al VBO asignando tamaño, los datos y en este caso es estático pues no se modificarán los valores
 
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, 0);
@@ -158,14 +162,15 @@ void CrearPiramide()
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 	glBindVertexArray(0);
+}
 
-	glBindVertexArray(VAO);
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IBO);
+void CrearPiramideRenderizar() {
+	glBindVertexArray(VAO[1]);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IBO[1]);
 	glDrawElements(GL_TRIANGLES, 12, GL_UNSIGNED_INT, 0);
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 	glBindVertexArray(0);
 }
-
 
 void CrearPiramideCuadrangular()
 {
@@ -184,16 +189,16 @@ void CrearPiramideCuadrangular()
 		-0.5f,-0.5f,0.5f,
 		0.0f,0.5f,0.0f,
 	};
-	GLint indexCount = 18;
-	glGenVertexArrays(1, &VAO); //generar 1 VAO
-	glBindVertexArray(VAO);//asignar VAO
+	indexCount[2] = 18;
+	glGenVertexArrays(1, &VAO[2]); //generar 1 VAO
+	glBindVertexArray(VAO[2]);//asignar VAO
 
-	glGenBuffers(1, &IBO);
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IBO);
-	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(piramidecuadrangular_indices) * indexCount, piramidecuadrangular_indices, GL_STATIC_DRAW);
+	glGenBuffers(1, &IBO[2]);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IBO[2]);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(piramidecuadrangular_indices) * indexCount[2], piramidecuadrangular_indices, GL_STATIC_DRAW);
 
-	glGenBuffers(1, &VBO);
-	glBindBuffer(GL_ARRAY_BUFFER, VBO);
+	glGenBuffers(1, &VBO[2]);
+	glBindBuffer(GL_ARRAY_BUFFER, VBO[2]);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(piramidecuadrangular_vertices) * 5, piramidecuadrangular_vertices, GL_STATIC_DRAW); //pasarle los datos al VBO asignando tamaño, los datos y en este caso es estático pues no se modificarán los valores
 
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, 0);
@@ -201,14 +206,15 @@ void CrearPiramideCuadrangular()
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 	glBindVertexArray(0);
+}
 
-	glBindVertexArray(VAO);
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IBO);
+void CrearPiramideCuadrangularRenderizar() {
+	glBindVertexArray(VAO[2]);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IBO[2]);
 	glDrawElements(GL_TRIANGLES, 18, GL_UNSIGNED_INT, 0);
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 	glBindVertexArray(0);
 }
-
 
 void Sphere(float ratio, int slices, int stacks)
 {
@@ -239,11 +245,11 @@ void Sphere(float ratio, int slices, int stacks)
 		index[i * 6 + 4] = i;
 		index[i * 6 + 5] = i + 1;
 	}
-	glGenVertexArrays(1, &VAO);
-	glGenBuffers(1, &VBO);
-	glGenBuffers(1, &IBO);
-	glBindVertexArray(VAO);
-	glBindBuffer(GL_ARRAY_BUFFER, VBO);
+	glGenVertexArrays(1, &VAO[3]);
+	glGenBuffers(1, &VBO[3]);
+	glGenBuffers(1, &IBO[3]);
+	glBindVertexArray(VAO[3]);
+	glBindBuffer(GL_ARRAY_BUFFER, VBO[3]);
 	size_t stride;
 	size_t offset1 = 0;
 	size_t offset2 = 0;
@@ -253,7 +259,7 @@ void Sphere(float ratio, int slices, int stacks)
 		GL_STATIC_DRAW);
 	stride = sizeof(vertexC[0]);
 	offset1 = 0;
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IBO);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IBO[3]);
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, index.size() * sizeof(GLuint),
 		index.data(),
 		GL_STATIC_DRAW);
@@ -268,8 +274,10 @@ void Sphere(float ratio, int slices, int stacks)
 	glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, stride, (GLvoid*)offset3);
 	glEnableVertexAttribArray(2);
 	glBindVertexArray(0); // Unbind VAO
-	//	****************
-	glBindVertexArray(VAO);
+}
+
+void SphereRenderizar() {
+	glBindVertexArray(VAO[3]);
 	glDrawElements(GL_TRIANGLES, index.size(), GL_UNSIGNED_INT,
 		(GLvoid*)(sizeof(GLuint) * 0));
 	glBindVertexArray(0);
@@ -357,16 +365,16 @@ void CrearCilindro(int res, float R) {
 
 	//Se generan los indices de los vértices
 	for (i = 0; i < vertices.size(); i++) indices.push_back(i);
-	GLuint indexCount = indices.size();
-	glGenVertexArrays(1, &VAO); //generar 1 VAO
-	glBindVertexArray(VAO);//asignar VAO
+	indexCount[4] = indices.size();
+	glGenVertexArrays(1, &VAO[4]); //generar 1 VAO
+	glBindVertexArray(VAO[4]);//asignar VAO
 
-	glGenBuffers(1, &IBO);
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IBO);
+	glGenBuffers(1, &IBO[4]);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IBO[4]);
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices[0]) * indices.size(), indices.data(), GL_STATIC_DRAW);
 
-	glGenBuffers(1, &VBO);
-	glBindBuffer(GL_ARRAY_BUFFER, VBO);
+	glGenBuffers(1, &VBO[4]);
+	glBindBuffer(GL_ARRAY_BUFFER, VBO[4]);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices[0]) * vertices.size(), vertices.data(), GL_STATIC_DRAW); //pasarle los datos al VBO asignando tamaño, los datos y en este caso es estático pues no se modificarán los valores
 
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, 0);
@@ -374,16 +382,17 @@ void CrearCilindro(int res, float R) {
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 	glBindVertexArray(0);
+}
 
-	glBindVertexArray(VAO);
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IBO);
-	glDrawElements(GL_TRIANGLE_FAN, indexCount, GL_UNSIGNED_INT, 0);
+void CrearCilindroRenderizar() {
+	glBindVertexArray(VAO[4]);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IBO[4]);
+	glDrawElements(GL_TRIANGLE_FAN, indexCount[4], GL_UNSIGNED_INT, 0);
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 	glBindVertexArray(0);
 }
 
 void CrearCono(int res, float R) {
-
 	//constantes utilizadas en los ciclos for
 	int n, i;
 	//cálculo del paso interno en la circunferencia y variables que almacenarÃ¡n cada coordenada de cada vÃ©rtice
@@ -418,16 +427,16 @@ void CrearCono(int res, float R) {
 	vertices.push_back(R * sin(0) * dt);
 	for (i = 0; i < res + 2; i++) indices.push_back(i);
 
-	GLuint indexCount = indices.size();
-	glGenVertexArrays(1, &VAO); //generar 1 VAO
-	glBindVertexArray(VAO);//asignar VAO
+	indexCount[5] = indices.size();
+	glGenVertexArrays(1, &VAO[5]); //generar 1 VAO
+	glBindVertexArray(VAO[5]);//asignar VAO
 
-	glGenBuffers(1, &IBO);
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IBO);
+	glGenBuffers(1, &IBO[5]);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IBO[5]);
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices[0]) * indices.size(), indices.data(), GL_STATIC_DRAW);
 
-	glGenBuffers(1, &VBO);
-	glBindBuffer(GL_ARRAY_BUFFER, VBO);
+	glGenBuffers(1, &VBO[5]);
+	glBindBuffer(GL_ARRAY_BUFFER, VBO[5]);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices[0]) * vertices.size(), vertices.data(), GL_STATIC_DRAW); //pasarle los datos al VBO asignando tamaÃ±o, los datos y en este caso es estÃ¡tico pues no se modificarÃ¡n los valores
 
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, 0);
@@ -435,13 +444,16 @@ void CrearCono(int res, float R) {
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 	glBindVertexArray(0);
+}
 
-	glBindVertexArray(VAO);
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IBO);
-	glDrawElements(GL_TRIANGLE_FAN, indexCount, GL_UNSIGNED_INT, 0);
+void CrearConoRenderizar() {
+	glBindVertexArray(VAO[5]);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IBO[5]);
+	glDrawElements(GL_TRIANGLE_FAN, indexCount[5], GL_UNSIGNED_INT, 0);
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 	glBindVertexArray(0);
 }
+
 
 // camera
 Camera camera(glm::vec3(0.0f, 10.0f, 90.0f));
@@ -656,8 +668,6 @@ int main() {
 	Shader skyboxShader("Shaders/skybox.vs", "Shaders/skybox.fs");
 	Shader animShader("Shaders/anim.vs", "Shaders/anim.fs");
 
-	
-
 	vector<std::string> faces
 	{
 		"resources/skybox/right.jpg",
@@ -715,7 +725,6 @@ int main() {
 	Model acuario_vidrio("resources/objects/Acuario/acuario_vidrio.obj");
 	Model banio("resources/objects/Banio2/banio2.obj");
 
-
 	//Inicialización de KeyFrames
 	for (int i = 0; i < MAX_FRAMES; i++)
 	{
@@ -726,6 +735,14 @@ int main() {
 		KeyFrame[i].giroMonito = 0;
 	}
 
+	//Carga de las PRIMITIVAS
+	CrearCubo();
+	CrearPiramide();
+	CrearPiramideCuadrangular();
+	Sphere(1.0, 20, 20);
+	CrearCilindro(108, 1.0f);
+	CrearCono(20, 1.0f);
+	
 	// draw in wireframe
 	//glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 
@@ -942,43 +959,57 @@ int main() {
 		model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0));
 		model = glm::scale(model, glm::vec3(5.0f, 5.0f, 5.0f));
 		staticShader.setMat4("model", model);
-		CrearCubo();
+		CrearCuboRenderizar();  //dibuja el cubo
 
 		model = glm::translate(model, glm::vec3(-3.0f, 3.0f, 0.0f));
 		//model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0));
 		model = glm::scale(model, glm::vec3(1.0f, 1.0f, 1.0f));
 		staticShader.setMat4("model", model);
-		Sphere(1.0, 20, 20);
+		SphereRenderizar();
 
-		model = glm::translate(model, glm::vec3(-3.0f, 0.0f, 0.0f));
-		//model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0));
-		model = glm::scale(model, glm::vec3(2.0f, 2.0f, 2.0f));
-		staticShader.setMat4("model", model);
-		CrearPiramideCuadrangular();
+		staticShader.setVec3("pointLight[0].position", glm::vec3(-8, 2, 1));
+		staticShader.setVec3("pointLight[0].ambient", glm::vec3(0.17f, 0.01f, 0.01f));
+		staticShader.setVec3("pointLight[0].diffuse", glm::vec3(0.61f, 0.04f, 0.04f));
+		staticShader.setVec3("pointLight[0].specular", glm::vec3(0.72f, 0.62f, 0.62f));
 
-		model = glm::translate(model, glm::vec3(-3.0f, 0.0f, 0.0f));
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(0, 0, 0));
+		model = glm::translate(model, glm::vec3(-8.0f, 0.0f, 0.0f));
 		//model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0));
-		model = glm::scale(model, glm::vec3(1.0f, 1.0f, 1.0f));
+		model = glm::scale(model, glm::vec3(10.0f, 10.0f, 10.0f));
+		//staticShader.setFloat("material.shininess", 0.6f);
 		staticShader.setMat4("model", model);
-		CrearCubo();
+		CrearPiramideCuadrangularRenderizar();
+		
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(0, 0, 0));
+		model = glm::translate(model, glm::vec3(-20.0f, 0.0f, 0.0f));
+		//model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0));
+		model = glm::scale(model, glm::vec3(30.0f, 30.0f, 30.0f));
+		staticShader.setMat4("model", model);
+		//CrearCubo();
 
-		model = glm::translate(model, glm::vec3(-3.0f, 0.0f, 0.0f));
-		//model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0));
-		model = glm::scale(model, glm::vec3(3.0f, 5.0f, 2.0f));
-		staticShader.setMat4("model", model);
-		CrearPiramide();
 
-		model = glm::translate(model, glm::vec3(-3.0f, 0.0f, 0.0f));
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(0, 0, 0));
+		model = glm::translate(model, glm::vec3(-100.0f, 0.0f, 0.0f));
 		//model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0));
-		model = glm::scale(model, glm::vec3(1.0f, 1.0f, 1.0f));
+		model = glm::scale(model, glm::vec3(30.0f, 30.0f, 30.0f));
 		staticShader.setMat4("model", model);
-		CrearCilindro(36, 1.0f);
+		CrearPiramideRenderizar();
 
-		model = glm::translate(model, glm::vec3(6.0f, 0.5f, 2.0f));
+		
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(0, 0, 0));
+		model = glm::translate(model, glm::vec3(-235.0f, 0.0f, 0.0f));
 		//model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0));
-		model = glm::scale(model, glm::vec3(1.0f, 1.0f, 1.0f));
+		model = glm::scale(model, glm::vec3(40.0f, 40.0f, 40.0f));
 		staticShader.setMat4("model", model);
-		CrearCono(20, 1.0f);
+		//CrearCilindro(36, 1.0f);
+		CrearCilindroRenderizar();
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(0, 0, 0));
+		model = glm::translate(model, glm::vec3(60.0f, 0.5f, 2.0f));
+		//model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0));
+		model = glm::scale(model, glm::vec3(20.0f, 20.0f, 20.0f));
+		staticShader.setMat4("model", model);
+		CrearConoRenderizar();
 		
 
 		// -------------------------------------------------------------------------------------------------------------------------
