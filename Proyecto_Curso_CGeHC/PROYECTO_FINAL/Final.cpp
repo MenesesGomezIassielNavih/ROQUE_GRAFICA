@@ -474,6 +474,18 @@ double	deltaTime = 0.0f,
 glm::vec3 lightPosition(0.0f, 4.0f, -10.0f);
 glm::vec3 lightDirection(0.0f, -1.0f, -1.0f);
 
+glm::vec3 pez01(0.0f, -1.0f, -1.0f);
+glm::vec3 pez02(0.0f, -1.0f, -1.0f);
+glm::vec3 tfish(0.0f, -1.0f, -1.0f);
+glm::vec3 tfish3(0.0f, -1.0f, -1.0f);
+
+glm::vec3 pez011(0.0f, -1.0f, -1.0f);
+glm::vec3 pez021(0.0f, -1.0f, -1.0f);
+glm::vec3 tfish1(0.0f, -1.0f, -1.0f);
+glm::vec3 tfish31(0.0f, -1.0f, -1.0f);
+
+
+
 // posiciones
 //float x = 0.0f;
 //float y = 0.0f;
@@ -499,6 +511,83 @@ float	incX = 0.0f,
 		rotInc = 0.0f,
 		giroMonitoInc = 0.0f;
 
+// Variables proyecto
+float
+// Pez 1
+movCola = 0.0f,
+posXpez = 0.0f,
+posXpez1 = 0.0f,
+rotPez = 0.0,
+rotPez1 = 0.0f,
+
+// Pez 2
+posXpez2 = 0.0f,
+posXpez21 = 0.0f,
+rotPezA = 0.0f,
+rotPezA1 = 0.0f,
+
+//Pescado Gris
+posXfish = 0.0f,
+posXfish1 = 0.0f,
+rotfish = 0.0f,
+rotfish1 = 0.0f,
+
+//Pescado morado
+
+posXfish3 = 0.0f,
+posXfish31 = 0.0f,
+rotfish3 = 0.0f,
+rotfish31 = 0.0f;
+
+float
+
+// Variables proyecto
+
+movColaInc = 0.0f,
+posXpezInc = 0.0f,
+rotPezInc = 0.0,
+
+posXpez2Inc = 0.0f,
+rotPezAInc = 0.0f,
+
+
+posXfishInc = 0.0f,
+rotfishInc = 0.0f,
+
+posXfish3Inc = 0.0f,
+rotfish3Inc = 0.0f;
+
+/*
+float
+
+posXsharkInc = 0.0f,
+rotsharkInc = 0.0f,
+movColaSharkInc = 0.0f,
+movAletasSharkInc = 0.0f,
+movBocaSharkInc = 0.0f,
+
+posXmedusaInc = 0.0f,
+
+posXniñaInc = 0.0f,
+posZniñaInc = 0.0f,
+movBrazoDerNiñaInc = 0.0f,
+movBrazoIzqNiñaInc = 0.0f,
+rotPiernaDerNiñaInc = 0.0f,
+rotPiernaIzqNiñaInc = 0.0f,
+rotCabezaNiñaInc = 0.0f,
+
+posXPinInc = 0.0f,
+posZPinInc = 0.0f,
+rotPinInc = 0.0f,
+rotPatasPinInc = 0.0f,
+movCabezaPinInc = 0.0f;*/
+
+
+
+
+
+
+
 //Variables para animación delfin
 float pos_x;
 float pos_y;
@@ -515,6 +604,21 @@ typedef struct _frame
 	float posZ;		//Variable para PosicionZ
 	float rotRodIzq;
 	float giroMonito;
+
+	//Variables proyecto
+	float movCola;
+	float posXpez;
+	float rotPez;
+
+	float posXpez2;
+	float rotPezA;
+
+	float posXfish;
+	float rotfish;
+
+	float posXfish3;
+	float rotfish3;
+
 
 }FRAME;
 
@@ -534,6 +638,49 @@ void saveFrame(void){
 	KeyFrame[FrameIndex].rotRodIzq = rotRodIzq;
 	KeyFrame[FrameIndex].giroMonito = giroMonito;
 
+	// Proyecto
+
+	KeyFrame[FrameIndex].movCola = movCola;
+	KeyFrame[FrameIndex].posXpez = posXpez;
+	KeyFrame[FrameIndex].rotPez = rotPez;
+
+	KeyFrame[FrameIndex].posXpez2 = posXpez2;
+	KeyFrame[FrameIndex].rotPezA = rotPezA;
+
+
+	KeyFrame[FrameIndex].posXfish = posXfish;
+	KeyFrame[FrameIndex].rotfish = rotfish;
+
+	KeyFrame[FrameIndex].posXfish3 = posXfish3;
+	KeyFrame[FrameIndex].rotfish3 = rotfish3;
+
+
+	/*KeyFrame[FrameIndex].posXshark = posXshark;
+	KeyFrame[FrameIndex].rotshark = rotshark;
+	KeyFrame[FrameIndex].movColaShark = movColaShark;
+	KeyFrame[FrameIndex].movAletasShark = movAletasShark;
+	KeyFrame[FrameIndex].movBocaShark = movBocaShark;
+
+	KeyFrame[FrameIndex].posXmedusa = posXmedusa;
+
+	KeyFrame[FrameIndex].posXniña = posXniña;
+	KeyFrame[FrameIndex].posZniña = posZniña;
+	KeyFrame[FrameIndex].movBrazoDerNiña = movBrazoDerNiña;
+	KeyFrame[FrameIndex].movBrazoIzqNiña = movBrazoIzqNiña;
+	KeyFrame[FrameIndex].rotPiernaDerNiña = rotPiernaDerNiña;
+	KeyFrame[FrameIndex].rotPiernaIzqNiña = rotPiernaIzqNiña;
+	KeyFrame[FrameIndex].rotCabezaNiña = rotCabezaNiña;
+
+	KeyFrame[FrameIndex].posXPin = posXPin;
+	KeyFrame[FrameIndex].posZPin = posZPin;
+	KeyFrame[FrameIndex].rotPin = rotPin;
+	KeyFrame[FrameIndex].rotPatasPin = rotPatasPin;
+	KeyFrame[FrameIndex].movCabezaPin = movCabezaPin;*/
+
+
+
+
+
 	FrameIndex++;
 }
 
@@ -545,6 +692,46 @@ void resetElements(void)
 
 	rotRodIzq = KeyFrame[0].rotRodIzq;
 	giroMonito = KeyFrame[0].giroMonito;
+
+	//Proyecto
+	movCola = KeyFrame[0].movCola;
+	posXpez = KeyFrame[0].posXpez;
+	rotPez = KeyFrame[0].rotPez;
+
+	posXpez2 = KeyFrame[0].posXpez2;
+	rotPezA = KeyFrame[0].rotPezA;
+
+
+	posXfish = KeyFrame[0].posXfish;
+	rotfish = KeyFrame[0].rotfish;
+
+	posXfish3 = KeyFrame[0].posXfish3;
+	rotfish3 = KeyFrame[0].rotfish3;
+
+	/*
+	posXshark = KeyFrame[0].posXshark;
+	rotshark = KeyFrame[0].rotshark;
+	movColaShark = KeyFrame[0].movColaShark;
+	movAletasShark = KeyFrame[0].movAletasShark;
+	movBocaShark = KeyFrame[0].movBocaShark;
+	
+	posXmedusa = KeyFrame[0].posXmedusa;
+
+	posXniña = KeyFrame[0].posXniña;
+	posZniña = KeyFrame[0].posZniña;
+	movBrazoDerNiña = KeyFrame[0].movBrazoDerNiña;
+	movBrazoIzqNiña = KeyFrame[0].movBrazoIzqNiña;
+	rotPiernaDerNiña = KeyFrame[0].rotPiernaDerNiña;
+	rotPiernaIzqNiña = KeyFrame[0].rotPiernaIzqNiña;
+	rotCabezaNiña = KeyFrame[0].rotCabezaNiña;
+
+	posXPin = KeyFrame[0].posXPin;
+	posZPin = KeyFrame[0].posZPin;
+	rotPin = KeyFrame[0].rotPin;
+	rotPatasPin = KeyFrame[0].rotPatasPin;
+	movCabezaPin = KeyFrame[0].movCabezaPin;*/
+
+
 	
 }
 
@@ -557,11 +744,174 @@ void interpolation(void)
 	rotInc = (KeyFrame[playIndex + 1].rotRodIzq - KeyFrame[playIndex].rotRodIzq) / i_max_steps;
 	giroMonitoInc = (KeyFrame[playIndex + 1].giroMonito - KeyFrame[playIndex].giroMonito) / i_max_steps;
 
+	//Proyecto
+	movColaInc = (KeyFrame[playIndex + 1].movCola - KeyFrame[playIndex].movCola) / i_max_steps;
+	posXpezInc = (KeyFrame[playIndex + 1].posXpez - KeyFrame[playIndex].posXpez) / i_max_steps;
+	rotPezInc = (KeyFrame[playIndex + 1].rotPez - KeyFrame[playIndex].rotPez) / i_max_steps;
+
+	posXpez2Inc = (KeyFrame[playIndex + 1].posXpez2 - KeyFrame[playIndex].posXpez2) / i_max_steps;
+	rotPezAInc = (KeyFrame[playIndex + 1].rotPezA - KeyFrame[playIndex].rotPezA) / i_max_steps;
+
+
+	posXfishInc = (KeyFrame[playIndex + 1].posXfish - KeyFrame[playIndex].posXfish) / i_max_steps;
+	rotfishInc = (KeyFrame[playIndex + 1].rotfish - KeyFrame[playIndex].rotfish) / i_max_steps;
+
+	posXfish3Inc = (KeyFrame[playIndex + 1].posXfish3 - KeyFrame[playIndex].posXfish3) / i_max_steps;
+	rotfish3Inc = (KeyFrame[playIndex + 1].rotfish3 - KeyFrame[playIndex].rotfish3) / i_max_steps;
+
+	/*
+	posXsharkInc = (KeyFrame[playIndex + 1].posXshark - KeyFrame[playIndex].posXshark) / i_max_steps;
+	rotsharkInc = (KeyFrame[playIndex + 1].rotshark - KeyFrame[playIndex].rotshark) / i_max_steps;
+	movColaSharkInc = (KeyFrame[playIndex + 1].movColaShark - KeyFrame[playIndex].movColaShark) / i_max_steps;
+	movAletasSharkInc = (KeyFrame[playIndex + 1].movAletasShark - KeyFrame[playIndex].movAletasShark) / i_max_steps;
+	movBocaSharkInc = (KeyFrame[playIndex + 1].movBocaShark - KeyFrame[playIndex].movBocaShark) / i_max_steps;
+	
+	posXmedusaInc = (KeyFrame[playIndex + 1].posXmedusa - KeyFrame[playIndex].posXmedusa) / i_max_steps;
+
+	posXniñaInc = (KeyFrame[playIndex + 1].posXniña - KeyFrame[playIndex].posXniña) / i_max_steps;
+	posZniñaInc = (KeyFrame[playIndex + 1].posZniña - KeyFrame[playIndex].posZniña) / i_max_steps;
+	movBrazoDerNiñaInc = (KeyFrame[playIndex + 1].movBrazoDerNiña - KeyFrame[playIndex].movBrazoDerNiña) / i_max_steps;
+	movBrazoIzqNiñaInc = (KeyFrame[playIndex + 1].movBrazoIzqNiña - KeyFrame[playIndex].movBrazoIzqNiña) / i_max_steps;
+	rotPiernaDerNiñaInc = (KeyFrame[playIndex + 1].rotPiernaDerNiña - KeyFrame[playIndex].rotPiernaDerNiña) / i_max_steps;
+	rotPiernaIzqNiñaInc = (KeyFrame[playIndex + 1].rotPiernaIzqNiña - KeyFrame[playIndex].rotPiernaIzqNiña) / i_max_steps;
+	rotCabezaNiñaInc = (KeyFrame[playIndex + 1].rotCabezaNiña - KeyFrame[playIndex].rotCabezaNiña) / i_max_steps;
+
+
+	posXPinInc = (KeyFrame[playIndex + 1].posXPin - KeyFrame[playIndex].posXPin) / i_max_steps;
+	posZPinInc = (KeyFrame[playIndex + 1].posZPin - KeyFrame[playIndex].posZPin) / i_max_steps;
+	rotPinInc = (KeyFrame[playIndex + 1].rotPin - KeyFrame[playIndex].rotPin) / i_max_steps;
+	rotPatasPinInc = (KeyFrame[playIndex + 1].rotPatasPin - KeyFrame[playIndex].rotPatasPin) / i_max_steps;
+	movCabezaPinInc = (KeyFrame[playIndex + 1].movCabezaPin - KeyFrame[playIndex].movCabezaPin) / i_max_steps;*/
+
+
+
 
 }
 
 void animate(void)
 {
+	pez01.x = 70.0f * cos(posXpez);
+	pez01.z = 70.0f * sin(posXpez);
+	pez01.y = 20.0f * cos(5 * posXpez);
+	posXpez += 0.005f;
+
+	rotPez -= 0.29;
+	//////////////////////////////////////////
+
+	pez02.x = 70.0f * cos(posXpez2);
+	pez02.z = 70.0f * sin(posXpez2);
+	pez02.y = 20.0f * -cos(5 * posXpez2);
+	posXpez2 += 0.005f;
+
+	rotPezA -= 0.29;
+	////////////////////////////////////////////
+
+	tfish.x = 70.0f * cos(posXfish);
+	tfish.z = 70.0f * sin(posXfish);
+	tfish.y = 20.0f * -sin(5 * posXfish);
+	posXfish += 0.005f;
+
+	rotfish -= 0.29;
+	////////////////////////////////////////////
+
+	tfish3.x = 70.0f * cos(posXfish3);
+	tfish3.z = 70.0f * sin(posXfish3);
+	tfish3.y = 20.0f * sin(5 * posXfish3);
+	posXfish3 += 0.005f;
+
+	rotfish3 -= 0.29;
+	////////////////////////////////////////////
+
+	pez011.x = 70.0f * -cos(posXpez1);
+	pez011.z = 70.0f * sin(posXpez1);
+	pez011.y = 20.0f * cos(5 * posXpez1);
+	posXpez1 += 0.005f;
+
+	rotPez1 += 0.29;
+	//////////////////////////////////////////
+
+	pez021.x = 70.0f * -cos(posXpez21);
+	pez021.z = 70.0f * sin(posXpez21);
+	pez021.y = 20.0f * -cos(5 * posXpez21);
+	posXpez21 += 0.005f;
+
+	rotPezA1 += 0.29;
+	////////////////////////////////////////////
+
+	tfish1.x = 70.0f * -cos(posXfish1);
+	tfish1.z = 70.0f * sin(posXfish1);
+	tfish1.y = 20.0f * -sin(5 * posXfish1);
+	posXfish1 += 0.005f;
+
+	rotfish1 += 0.29;
+	////////////////////////////////////////////
+
+	tfish31.x = 70.0f * -cos(posXfish31);
+	tfish31.z = 70.0f * sin(posXfish31);
+	tfish31.y = 20.0f * sin(5 * posXfish31);
+	posXfish31 += 0.005f;
+
+	rotfish31 += 0.29;
+
+	/*
+	////////////////////////////////////////////
+
+	tshark.x = 250.0f * cos(posXshark);
+	tshark.z = 250.0f * sin(posXshark);
+	tshark.y = 30.0f * cos(3 * posXshark);
+	posXshark += 0.005f;
+
+	rotshark -= 0.29;
+	////////////////////////////////////////////
+
+	tshark01.x = 250.0f * -cos(posXshark01);
+	tshark01.z = 250.0f * sin(posXshark01);
+	tshark01.y = 30.0f * cos(3 * posXshark01);
+	posXshark01 += 0.005f;
+
+	rotshark01 += 0.29;
+	////////////////////////////////////////////
+
+	tshark02.x = 340.0f * cos(posXshark02);
+	tshark02.z = 340.0f * sin(posXshark02);
+	tshark02.y = 30.0f * cos(3 * posXshark02);
+	posXshark02 += 0.005f;
+
+	rotshark02 -= 0.29;
+	////////////////////////////////////////////
+
+	tshark03.x = 340.0f * -cos(posXshark03);
+	tshark03.z = 340.0f * sin(posXshark03);
+	tshark03.y = 30.0f * cos(3 * posXshark03);
+	posXshark03 += 0.005f;
+
+	rotshark03 += 0.29;
+	////////////////////////////////////////////
+
+	tmedusa.x = 70.0f * cos(posXmedusa);
+	tmedusa.z = 70.0f * sin(posXmedusa);
+	tmedusa.y = 30.0f * cos(5 * posXmedusa);
+	posXmedusa += 0.002f;
+	////////////////////////////////////////////
+
+	tmedusa02.x = 70.0f * cos(posXmedusa);
+	tmedusa02.z = 70.0f * sin(posXmedusa);
+	tmedusa02.y = 30.0f * -cos(5 * posXmedusa);
+	posXmedusa += 0.002f;
+	////////////////////////////////////////////
+
+	tmedusa03.x = 70.0f * cos(posXmedusa);
+	tmedusa03.z = 70.0f * sin(posXmedusa);
+	tmedusa03.y = 30.0f * -sin(5 * posXmedusa);
+	posXmedusa += 0.002f;
+	////////////////////////////////////////////
+
+	tmedusa04.x = 70.0f * cos(posXmedusa);
+	tmedusa04.z = 70.0f * sin(posXmedusa);
+	tmedusa04.y = 30.0f * sin(5 * posXmedusa);
+	posXmedusa += 0.002f;*/
+
+
 	if (play)
 	{
 		if (i_curr_steps >= i_max_steps) //end of animation between frames?
@@ -590,6 +940,45 @@ void animate(void)
 
 			rotRodIzq += rotInc;
 			giroMonito += giroMonitoInc;
+
+			//Proyecto
+			movCola += movColaInc;
+			posXpez += posXpezInc;
+			rotPez += rotPezInc;
+
+			posXpez2 += posXpez2Inc;
+			rotPezA += rotPezAInc;
+
+			posXfish += posXfishInc;
+			rotfish += rotfishInc;
+
+			posXfish3 += posXfish3Inc;
+			rotfish3 += rotfish3Inc;
+
+			/*
+			posXshark += posXsharkInc;
+			rotshark += rotsharkInc;
+			movColaShark += movColaSharkInc;
+			movAletasShark += movAletasSharkInc;
+			movBocaShark += movBocaSharkInc;
+
+			posXmedusa += posXmedusaInc;
+
+			posXniña += posXniñaInc;
+			posZniña += posZniñaInc;
+			movBrazoDerNiña += movBrazoDerNiñaInc;
+			movBrazoIzqNiña += movBrazoIzqNiñaInc;
+			rotPiernaDerNiña += rotPiernaDerNiñaInc;
+			rotPiernaIzqNiña += rotPiernaIzqNiñaInc;
+			rotCabezaNiña += rotCabezaNiñaInc;
+
+			posXPin += posXPinInc;
+			posZPin += posZPinInc;
+			rotPin += rotPinInc;
+			rotPatasPin += rotPatasPinInc;
+			movCabezaPin += movCabezaPinInc;*/
+
+
 
 			i_curr_steps++;
 		}
@@ -701,6 +1090,23 @@ int main() {
 	skyboxShader.use();
 	skyboxShader.setInt("skybox", 0);
 
+
+	//MODELOS MIGUEL PROYECTO
+
+	Model pecera1("resources/objects/models/tanques/pecera1/PeceraYObjetos.obj");
+	Model pecera2("resources/objects/models/tanques/pecera2/pecera2yElementos.obj");
+	Model pecera3("resources/objects/models/tanques/pecera3/pecera3yTroncos.obj");
+
+	Model tanque("resources/objects/Edificio/tanque.obj");
+	Model tanque2("resources/objects/Edificio/tanque2.obj");
+
+
+	Model colafish("resources/objects/Peses/colafish.obj");
+	Model bodyfish("resources/objects/Peses/bodyfish.obj");
+	Model pez2("resources/objects/Peses/pez2.obj");
+	Model pez3("resources/objects/Peses/Pez3/13009_Coral_Beauty_Angelfish_v1_l3.obj");
+	Model pezGris("resources/objects/ModeloPez/fish.obj");
+
 	// load models
 	// -----------
 	Model piso("resources/objects/piso/piso.obj");
@@ -718,6 +1124,9 @@ int main() {
 	ModelAnim ninja("resources/objects/ZombieWalk/ZombieWalk.dae");
 	ninja.initShaders(animShader.ID);
 
+	ModelAnim perCaminando("resources/objects/Mixamo/Mixamo/RumbaDancing.dae");
+	perCaminando.initShaders(animShader.ID);
+
 	//MODELOS PROYECTO
 	Model igloo("resources/objects/Igloo/igloo.obj");
 	Model vegetacion("resources/objects/Vegetacion/vegetacion.obj");
@@ -733,6 +1142,43 @@ int main() {
 		KeyFrame[i].posZ = 0;
 		KeyFrame[i].rotRodIzq = 0;
 		KeyFrame[i].giroMonito = 0;
+
+		//Proyecto
+		KeyFrame[i].movCola = 0;
+		KeyFrame[i].posXpez = 0;
+		KeyFrame[i].rotPez = 0;
+
+		KeyFrame[i].posXpez2 = 0;
+		KeyFrame[i].rotPezA = 0;
+
+		KeyFrame[i].posXfish = 0;
+		KeyFrame[i].rotfish = 0;
+
+		KeyFrame[i].posXfish3 = 0;
+		KeyFrame[i].rotfish3 = 0;
+		
+		
+		/*
+		KeyFrame[i].posXshark = 0;
+		KeyFrame[i].rotshark = 0;
+		KeyFrame[i].movColaShark = 0;
+		KeyFrame[i].movAletasShark = 0;
+		KeyFrame[i].movBocaShark = 0;
+
+		KeyFrame[i].posXmedusa = 0;
+
+		KeyFrame[i].posXniña = 0;
+		KeyFrame[i].posZniña = 0;
+		KeyFrame[i].movBrazoDerNiña = 0;
+		KeyFrame[i].movBrazoIzqNiña = 0;
+		KeyFrame[i].rotPiernaDerNiña = 0;
+		KeyFrame[i].rotPiernaIzqNiña = 0;
+
+		KeyFrame[i].posXPin = 0;
+		KeyFrame[i].posZPin = 0;
+		KeyFrame[i].rotPin = 0;
+		KeyFrame[i].rotPatasPin = 0;*/
+
 	}
 
 	//Carga de las PRIMITIVAS
@@ -852,7 +1298,15 @@ int main() {
 		model = glm::scale(model, glm::vec3(0.5f));	// it's a bit too big for our scene, so scale it down
 		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 		animShader.setMat4("model", model);
-		ninja.Draw(animShader);
+		//ninja.Draw(animShader);
+
+		//--Personaje Caminando
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(70.3f, 0.0f, 40.0f)); // translate it down so it's at the center of the scene
+		model = glm::scale(model, glm::vec3(0.3f));	// it's a bit too big for our scene, so scale it down
+		// = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		animShader.setMat4("model", model);
+		perCaminando.Draw(animShader);
 
 		// -------------------------------------------------------------------------------------------------------------------------
 		// Escenario
@@ -861,17 +1315,442 @@ int main() {
 		staticShader.setMat4("projection", projection);
 		staticShader.setMat4("view", view);
 
-		model = glm::mat4(1.0f);
-		model = glm::translate(model, glm::vec3(0.0f, -1.75f, 0.0f));
-		model = glm::scale(model, glm::vec3(0.2f));
-		staticShader.setMat4("model", model);
-		piso.Draw(staticShader);
 
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(0.0f, -1.75f, 0.0f));
-		model = glm::scale(model, glm::vec3(0.2f));
+		model = glm::scale(model, glm::vec3(0.5f));
 		staticShader.setMat4("model", model);
 		piso.Draw(staticShader);
+
+		//----------------tanques--------------------------
+
+
+		model = glm::mat4(1.0f);
+		//model = glm::translate(model, glm::vec3(60.0f, 0.0f, -150.0f));
+		//model = glm::translate(model, glm::vec3(-490.0f, 0.0f, 1150.0f));
+		model = glm::translate(model, glm::vec3(-660.0f, 0.0f, 1650.0f));
+		////model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 0.0f, 0.0f));
+		//model = glm::scale(model, glm::vec3(20.0f, 15.0f, 20.0f));
+		model = glm::rotate(model, glm::radians(45.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		//model = glm::scale(model, glm::vec3(100.0f, 45.0f, 100.0f));
+		model = glm::scale(model, glm::vec3(125.0f, 45.0f, 135.0f));
+		staticShader.setMat4("model", model);
+		pecera2.Draw(staticShader);
+
+		// Pecera tiburones
+
+		model = glm::mat4(1.0f);
+		//model = glm::translate(model, glm::vec3(-230.0f, 0.0f, -350.0f));
+		model = glm::translate(model, glm::vec3(-310.0f, 0.0f, -350.0f));
+		////model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 0.0f, 0.0f));
+		//model = glm::scale(model, glm::vec3(120.0f, 15.0f, 120.0f));
+		model = glm::scale(model, glm::vec3(145.0f, 15.0f, 220.0f));
+		staticShader.setMat4("model", model);
+		pecera3.Draw(staticShader);
+
+
+		// Lugar Pinguinos
+
+		model = glm::mat4(1.0f);
+		//model = glm::translate(model, glm::vec3(-230.0f, 0.0f, -350.0f));
+		model = glm::translate(model, glm::vec3(-2300.0f, 0.0f, -470.0f));
+		////model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 0.0f, 0.0f));
+		//model = glm::scale(model, glm::vec3(120.0f, 15.0f, 120.0f));
+		model = glm::scale(model, glm::vec3(135.0f, 15.0f, 140.0f));
+		staticShader.setMat4("model", model);
+		pecera3.Draw(staticShader);
+
+		// PRIMERA ANIMACION PEZ
+
+		// Body 
+
+		//model = glm::mat4(1.0f);
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-905.0f, 50.0f, 600.0f));
+		//model = glm::translate(model, glm::vec3(-200.0f, 14.0f, 250.0f));
+		//model = glm::translate(model, glm::vec3(posXpez , 0, 0));
+		model = glm::translate(model, pez01);
+		//tmp = model = glm::rotate(model, glm::radians(rotPez), glm::vec3(0.0f, 1.0f, 0.0f));
+		tmp = model = glm::rotate(model, glm::radians(rotPez), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(9.0f, 9.0f, 9.0f));
+		staticShader.setMat4("model", model);
+		bodyfish.Draw(staticShader);
+
+		// Cola
+		//model = glm::mat4(1.0f);
+		model = glm::translate(tmp, glm::vec3(0.0f, 0.0f, 1.0f));
+		model = glm::rotate(model, glm::radians(movCola), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(9.0f, 9.0f, 13.0f));
+		staticShader.setMat4("model", model);
+		colafish.Draw(staticShader);
+
+		// Body 02
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-905.0f, 100.0f, 600.0f));
+		model = glm::translate(model, pez01);
+		tmp = model = glm::rotate(model, glm::radians(rotPez), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(9.0f, 9.0f, 9.0f));
+		staticShader.setMat4("model", model);
+		bodyfish.Draw(staticShader);
+
+		// Cola 02
+		model = glm::translate(tmp, glm::vec3(0.0f, 0.0f, 1.0f));
+		model = glm::rotate(model, glm::radians(movCola), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(9.0f, 9.0f, 13.0f));
+		staticShader.setMat4("model", model);
+		colafish.Draw(staticShader);
+
+		// Body 03
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-905.0f, 150.0f, 600.0f));
+		model = glm::translate(model, pez01);
+		tmp = model = glm::rotate(model, glm::radians(rotPez), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(9.0f, 9.0f, 9.0f));
+		staticShader.setMat4("model", model);
+		bodyfish.Draw(staticShader);
+
+		// Cola 03
+		model = glm::translate(tmp, glm::vec3(0.0f, 0.0f, 1.0f));
+		model = glm::rotate(model, glm::radians(movCola), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(9.0f, 9.0f, 13.0f));
+		staticShader.setMat4("model", model);
+		colafish.Draw(staticShader);
+
+		// Body 04
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-905.0f, 200.0f, 600.0f));
+		model = glm::translate(model, pez01);
+		tmp = model = glm::rotate(model, glm::radians(rotPez), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(9.0f, 9.0f, 9.0f));
+		staticShader.setMat4("model", model);
+		bodyfish.Draw(staticShader);
+
+		// Cola 04
+		model = glm::translate(tmp, glm::vec3(0.0f, 0.0f, 1.0f));
+		model = glm::rotate(model, glm::radians(movCola), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(9.0f, 9.0f, 13.0f));
+		staticShader.setMat4("model", model);
+		colafish.Draw(staticShader);
+
+
+
+		// Body 
+
+		//model = glm::mat4(1.0f);
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-1200.0f, 50.0f, 600.0f));
+		//model = glm::translate(model, glm::vec3(-200.0f, 14.0f, 250.0f));
+		//model = glm::translate(model, glm::vec3(posXpez , 0, 0));
+		model = glm::translate(model, pez011);
+		//tmp = model = glm::rotate(model, glm::radians(rotPez), glm::vec3(0.0f, 1.0f, 0.0f));
+		tmp = model = glm::rotate(model, glm::radians(rotPez1), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(9.0f, 9.0f, 9.0f));
+		staticShader.setMat4("model", model);
+		bodyfish.Draw(staticShader);
+
+		// Cola
+		//model = glm::mat4(1.0f);
+		model = glm::translate(tmp, glm::vec3(0.0f, 0.0f, 1.0f));
+		model = glm::rotate(model, glm::radians(movCola), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(9.0f, 9.0f, 13.0f));
+		staticShader.setMat4("model", model);
+		colafish.Draw(staticShader);
+
+		// Body 02
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-1200.0f, 100.0f, 600.0f));
+		model = glm::translate(model, pez011);
+		tmp = model = glm::rotate(model, glm::radians(rotPez1), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(9.0f, 9.0f, 9.0f));
+		staticShader.setMat4("model", model);
+		bodyfish.Draw(staticShader);
+
+		// Cola 02
+		model = glm::translate(tmp, glm::vec3(0.0f, 0.0f, 1.0f));
+		model = glm::rotate(model, glm::radians(movCola), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(9.0f, 9.0f, 13.0f));
+		staticShader.setMat4("model", model);
+		colafish.Draw(staticShader);
+
+		// Body 03
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-1200.0f, 150.0f, 600.0f));
+		model = glm::translate(model, pez011);
+		tmp = model = glm::rotate(model, glm::radians(rotPez1), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(9.0f, 9.0f, 9.0f));
+		staticShader.setMat4("model", model);
+		bodyfish.Draw(staticShader);
+
+		// Cola 03
+		model = glm::translate(tmp, glm::vec3(0.0f, 0.0f, 1.0f));
+		model = glm::rotate(model, glm::radians(movCola), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(9.0f, 9.0f, 13.0f));
+		staticShader.setMat4("model", model);
+		colafish.Draw(staticShader);
+
+		// Body 04
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-1200.0f, 200.0f, 600.0f));
+		model = glm::translate(model, pez011);
+		tmp = model = glm::rotate(model, glm::radians(rotPez1), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(9.0f, 9.0f, 9.0f));
+		staticShader.setMat4("model", model);
+		bodyfish.Draw(staticShader);
+
+		// Cola 04
+		model = glm::translate(tmp, glm::vec3(0.0f, 0.0f, 1.0f));
+		model = glm::rotate(model, glm::radians(movCola), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(9.0f, 9.0f, 13.0f));
+		staticShader.setMat4("model", model);
+		colafish.Draw(staticShader);
+
+
+
+
+		// SEGUNDA ANIMACION PEZ
+
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(-800.0f, 40.0f, 600.0f));
+		model = glm::translate(model, pez02);
+		model = glm::rotate(model, glm::radians(rotPezA), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(9.0f, 9.0f, 9.0f));
+		staticShader.setMat4("model", model);
+		pez2.Draw(staticShader);
+
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(-800.0f, 90.0f, 600.0f));
+		model = glm::translate(model, pez02);
+		model = glm::rotate(model, glm::radians(rotPezA), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(9.0f, 9.0f, 9.0f));
+		staticShader.setMat4("model", model);
+		pez2.Draw(staticShader);
+
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(-800.0f, 140.0f, 600.0f));
+		model = glm::translate(model, pez02);
+		model = glm::rotate(model, glm::radians(rotPezA), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(9.0f, 9.0f, 9.0f));
+		staticShader.setMat4("model", model);
+		pez2.Draw(staticShader);
+
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(-800.0f, 190.0f, 600.0f));
+		model = glm::translate(model, pez02);
+		model = glm::rotate(model, glm::radians(rotPezA), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(9.0f, 9.0f, 9.0f));
+		staticShader.setMat4("model", model);
+		pez2.Draw(staticShader);
+
+
+
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(-980.0f, 40.0f, 600.0f));
+		model = glm::translate(model, pez02);
+		model = glm::rotate(model, glm::radians(rotPezA), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(9.0f, 9.0f, 9.0f));
+		staticShader.setMat4("model", model);
+		pez2.Draw(staticShader);
+
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(-980.0f, 90.0f, 600.0f));
+		model = glm::translate(model, pez02);
+		model = glm::rotate(model, glm::radians(rotPezA), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(9.0f, 9.0f, 9.0f));
+		staticShader.setMat4("model", model);
+		pez2.Draw(staticShader);
+
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(-980.0f, 140.0f, 600.0f));
+		model = glm::translate(model, pez02);
+		model = glm::rotate(model, glm::radians(rotPezA), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(9.0f, 9.0f, 9.0f));
+		staticShader.setMat4("model", model);
+		pez2.Draw(staticShader);
+
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(-980.0f, 190.0f, 600.0f));
+		model = glm::translate(model, pez02);
+		model = glm::rotate(model, glm::radians(rotPezA), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(9.0f, 9.0f, 9.0f));
+		staticShader.setMat4("model", model);
+		pez2.Draw(staticShader);
+
+
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(-1280.0f, 40.0f, 600.0f));
+		model = glm::translate(model, pez021);
+		model = glm::rotate(model, glm::radians(rotPezA1), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(9.0f, 9.0f, 9.0f));
+		staticShader.setMat4("model", model);
+		pez2.Draw(staticShader);
+
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(-1280.0f, 90.0f, 600.0f));
+		model = glm::translate(model, pez021);
+		model = glm::rotate(model, glm::radians(rotPezA1), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(9.0f, 9.0f, 9.0f));
+		staticShader.setMat4("model", model);
+		pez2.Draw(staticShader);
+
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(-1280.0f, 140.0f, 600.0f));
+		model = glm::translate(model, pez021);
+		model = glm::rotate(model, glm::radians(rotPezA1), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(9.0f, 9.0f, 9.0f));
+		staticShader.setMat4("model", model);
+		pez2.Draw(staticShader);
+
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(-1280.0f, 190.0f, 600.0f));
+		model = glm::translate(model, pez021);
+		model = glm::rotate(model, glm::radians(rotPezA1), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(9.0f, 9.0f, 9.0f));
+		staticShader.setMat4("model", model);
+		pez2.Draw(staticShader);
+
+
+		// Animacion Pez Gris
+
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(-1420.0f, 35.0f, 600.0f));
+		model = glm::translate(model, tfish1);
+		model = glm::rotate(model, glm::radians(rotfish1), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(7.0f, 7.0f, 7.0f));
+		staticShader.setMat4("model", model);
+		pezGris.Draw(staticShader);
+
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(-1420.0f, 85.0f, 600.0f));
+		model = glm::translate(model, tfish1);
+		model = glm::rotate(model, glm::radians(rotfish1), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(7.0f, 7.0f, 7.0f));
+		staticShader.setMat4("model", model);
+		pezGris.Draw(staticShader);
+
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(-1420.0f, 135.0f, 600.0f));
+		model = glm::translate(model, tfish1);
+		model = glm::rotate(model, glm::radians(rotfish1), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(7.0f, 7.0f, 7.0f));
+		staticShader.setMat4("model", model);
+		pezGris.Draw(staticShader);
+
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(-1420.0f, 185.0f, 600.0f));
+		model = glm::translate(model, tfish1);
+		model = glm::rotate(model, glm::radians(rotfish1), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(7.0f, 7.0f, 7.0f));
+		staticShader.setMat4("model", model);
+		pezGris.Draw(staticShader);
+
+
+
+		//ANIMACION PEZ 3
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(-850.0f, 40.0f, 600.0f));
+		model = glm::translate(model, tfish3);
+		model = glm::rotate(model, glm::radians(rotfish3), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(30.0f, 30.0f, 30.0f));
+		staticShader.setMat4("model", model);
+		pez3.Draw(staticShader);
+
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(-850.0f, 90.0f, 600.0f));
+		model = glm::translate(model, tfish3);
+		model = glm::rotate(model, glm::radians(rotfish3), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(30.0f, 30.0f, 30.0f));
+		staticShader.setMat4("model", model);
+		pez3.Draw(staticShader);
+
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(-850.0f, 140.0f, 600.0f));
+		model = glm::translate(model, tfish3);
+		model = glm::rotate(model, glm::radians(rotfish3), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(30.0f, 30.0f, 30.0f));
+		staticShader.setMat4("model", model);
+		pez3.Draw(staticShader);
+
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(-850.0f, 190.0f, 600.0f));
+		model = glm::translate(model, tfish3);
+		model = glm::rotate(model, glm::radians(rotfish3), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(30.0f, 30.0f, 30.0f));
+		staticShader.setMat4("model", model);
+		pez3.Draw(staticShader);
+
+
+
+
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(-1050.0f, 40.0f, 600.0f));
+		model = glm::translate(model, tfish3);
+		model = glm::rotate(model, glm::radians(rotfish3), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(30.0f, 30.0f, 30.0f));
+		staticShader.setMat4("model", model);
+		pez3.Draw(staticShader);
+
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(-1050.0f, 90.0f, 600.0f));
+		model = glm::translate(model, tfish3);
+		model = glm::rotate(model, glm::radians(rotfish3), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(30.0f, 30.0f, 30.0f));
+		staticShader.setMat4("model", model);
+		pez3.Draw(staticShader);
+
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(-1050.0f, 140.0f, 600.0f));
+		model = glm::translate(model, tfish3);
+		model = glm::rotate(model, glm::radians(rotfish3), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(30.0f, 30.0f, 30.0f));
+		staticShader.setMat4("model", model);
+		pez3.Draw(staticShader);
+
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(-1050.0f, 190.0f, 600.0f));
+		model = glm::translate(model, tfish3);
+		model = glm::rotate(model, glm::radians(rotfish3), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(30.0f, 30.0f, 30.0f));
+		staticShader.setMat4("model", model);
+		pez3.Draw(staticShader);
+
+
+
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(-1360.0f, 50.0f, 600.0f));
+		model = glm::translate(model, tfish31);
+		model = glm::rotate(model, glm::radians(rotfish31), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(30.0f, 30.0f, 30.0f));
+		staticShader.setMat4("model", model);
+		pez3.Draw(staticShader);
+
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(-1360.0f, 90.0f, 600.0f));
+		model = glm::translate(model, tfish31);
+		model = glm::rotate(model, glm::radians(rotfish31), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(30.0f, 30.0f, 30.0f));
+		staticShader.setMat4("model", model);
+		pez3.Draw(staticShader);
+
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(-1360.0f, 140.0f, 600.0f));
+		model = glm::translate(model, tfish31);
+		model = glm::rotate(model, glm::radians(rotfish31), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(30.0f, 30.0f, 30.0f));
+		staticShader.setMat4("model", model);
+		pez3.Draw(staticShader);
+
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(-1360.0f, 190.0f, 600.0f));
+		model = glm::translate(model, tfish31);
+		model = glm::rotate(model, glm::radians(rotfish31), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(30.0f, 30.0f, 30.0f));
+		staticShader.setMat4("model", model);
+		pez3.Draw(staticShader);
+
 
 
 		//clima frio
