@@ -473,6 +473,7 @@ double	deltaTime = 0.0f,
 //Lighting
 glm::vec3 lightPosition(0.0f, 4.0f, -10.0f);
 glm::vec3 lightDirection(0.0f, -1.0f, -1.0f);
+double myVariable = 0.0;   //sirve para el SOL
 
 glm::vec3 pez01(0.0f, -1.0f, -1.0f);
 glm::vec3 pez02(0.0f, -1.0f, -1.0f);
@@ -790,6 +791,12 @@ void interpolation(void)
 
 void animate(void)
 {
+	////////////////////////////////    SOL
+	lightDirection.x = 100 * cos(myVariable);
+	lightDirection.y = 100 * sin(myVariable);
+	myVariable += 0.01f;
+
+	///////////////////////////////////////////
 	pez01.x = 70.0f * cos(posXpez);
 	pez01.z = 70.0f * sin(posXpez);
 	pez01.y = 20.0f * cos(5 * posXpez);
