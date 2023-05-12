@@ -92,10 +92,10 @@ void CrearCubo()
 	};
 
 	GLfloat cubo_vertices[] = {
-		// front
-		-0.5f, -0.5f,  0.5f,
-		0.5f, -0.5f,  0.5f,
-		0.5f,  0.5f,  0.5f,
+		// front                 // Coordenadas de textura
+		-0.5f, -0.5f,  0.5f,     // 0.33f, 0.33, 0.33f,
+		0.5f, -0.5f,  0.5f,      // 0.33f, 0.33, 0.33f,
+		0.5f,  0.5f,  0.5f,		 // 0.33f, 0.33, 0.33f,
 		-0.5f,  0.5f,  0.5f,
 		// back
 		-0.5f, -0.5f, -0.5f,

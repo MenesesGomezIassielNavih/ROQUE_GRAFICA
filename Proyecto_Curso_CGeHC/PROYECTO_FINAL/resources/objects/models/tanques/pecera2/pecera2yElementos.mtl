@@ -1,0 +1,134 @@
+newmtl pecera2yElementos__aquarium_treasure_chest_v1_L2_Material__2
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd aquarium_treasure_chest_diffuse.jpg
+map_Ka aquarium_treasure_chest_diffuse.jpg
+Ni 1.50
+Ks 0.88 0.88 0.88
+Ns 70.00
+newmtl pecera2yElementos__aquarium_treasure_chest_v1_L2_aquarium_treasure_chest
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd aquarium_treasure_chest_diffuse.jpg
+map_Ka aquarium_treasure_chest_diffuse.jpg
+Ni 1.50
+Ks 0.27 0.27 0.27
+Ns 40.00
+newmtl pecera2yElementos__aquarium_treasure_chest_v1_L2_aquarium_treasure_chest_metal1
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd aquarium_treasure_chest_diffuse.jpg
+map_Ka aquarium_treasure_chest_diffuse.jpg
+Ni 1.50
+Ks 0.54 0.54 0.54
+Ns 55.00
+newmtl pecera2yElementos__aquarium_treasure_chest_v1_L2_aquarium_treasure_chest_pearl1
+illum 4
+Kd 0.91 0.91 0.91
+Ka 0.91 0.91 0.91
+Tf 1.00 1.00 1.00
+Ni 1.50
+Ks 0.58 0.58 0.58
+Ns 55.00
+newmtl pecera2yElementos__aquarium_treasure_chest_v1_L2_aquarium_treasure_chest_stone_green1
+illum 4
+Kd 0.04 0.42 0.09
+Ka 0.04 0.42 0.09
+Tf 1.00 1.00 1.00
+Ni 1.50
+Ks 0.57 0.57 0.57
+Ns 75.00
+newmtl pecera2yElementos__aquarium_treasure_chest_v1_L2_aquarium_treasure_chest_stone_red1
+illum 4
+Kd 0.55 0.00 0.00
+Ka 0.55 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.50
+Ks 0.45 0.45 0.45
+Ns 75.00
+newmtl pecera2yElementos__aquarium_treasure_chest_v1_L2_aquarium_treasure_chest_stone_yellow1
+illum 4
+Kd 0.80 0.58 0.19
+Ka 0.80 0.58 0.19
+Tf 1.00 1.00 1.00
+Ni 1.50
+Ks 0.68 0.68 0.68
+Ns 75.00
+newmtl pecera2yElementos_almeja_phong5SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd shell_basecolour.jpg
+Ni 1.00
+Ks 0.50 0.50 0.50
+Ns 18.00
+newmtl pecera2yElementos_almeja_phong6SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd shell_basecolour.jpg
+Ni 1.00
+Ks 0.50 0.50 0.50
+Ns 18.00
+newmtl pecera2yElementos_coral_rojo__Coral_v1_L3__Coral_v5
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd 10010_Coral_v1_Diffuse.jpg
+map_Ka 10010_Coral_v1_Diffuse.jpg
+Ni 1.50
+Ks 0.00 0.00 0.00
+Ns 10.00
+newmtl pecera2yElementos_pasted__coral_rojo__Coral_v1_L3__Coral_v5
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd 10010_Coral_v1_Diffuse.jpg
+map_Ka 10010_Coral_v1_Diffuse.jpg
+Ni 1.50
+Ks 0.00 0.00 0.00
+Ns 10.00
+newmtl pecera2yElementos_pasted__pasted__coral_rojo__Coral_v1_L3__Coral_v5
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd 10010_Coral_v1_Diffuse.jpg
+map_Ka 10010_Coral_v1_Diffuse.jpg
+Ni 1.50
+Ks 0.00 0.00 0.00
+Ns 10.00
+newmtl pecera2yElementos_pecera2_pecera2_initialShadingGroup2
+illum 4
+Kd 0.50 0.50 0.50
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+newmtl pecera2yElementos_pecera2_phong4SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd TexturesCom_Sand_Wet5_header.jpg
+Ni 1.00
+Ks 0.50 0.50 0.50
+Ns 18.00
+newmtl phong3SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd transparencia.png
+Ni 1.00
+Ks 0.50 0.50 0.50
+Ns 18.00
