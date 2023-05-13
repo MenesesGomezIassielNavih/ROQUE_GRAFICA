@@ -41,6 +41,13 @@ const float PI = 3.14159265f;
 float ratio;
 int slices;
 int stacks;
+
+//OLAS
+float sineTime = 0.0f;
+float tradius = 10.0f;
+float theta = 0.0f;
+float alpha = 0.0f;
+
 //GLuint VAO, VBO, IBO;
 GLuint VAO[10], VBO[10], IBO[10];
 GLuint indexCount[6];
@@ -778,6 +785,9 @@ int FrameIndex = 0;			//introducir datos
 bool play = false;
 int playIndex = 0;
 
+float proceduralTime = 0.0f;   //OLAS
+float wavesTime = 0.0f;
+
 void saveFrame(void){
 	//printf("frameindex %d\n", FrameIndex);
 	std::cout << "Frame Index = " << FrameIndex << std::endl;
@@ -1216,13 +1226,9 @@ int main() {
 	Shader skyboxShader("Shaders/skybox.vs", "Shaders/skybox.fs");
 	Shader animShader("Shaders/anim.vs", "Shaders/anim.fs");
 	Shader texturaShader("Shaders/shaders_Textura/shader_texture_color.vs", "Shaders/shaders_Textura/shader_texture_color.fs");
-
-
-
-	//por cada FBX que se vaya usar se deben de crear su VS Y FS
-	// -------------------------
 	Shader fbxShader("Shaders/shaders_1/10_vertex_simple.vs", "Shaders/shaders_1/10_fragment_simple.fs");
-	//ents\Visual Studio 2022\Proyectos\Roque\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\shaders\shaders_1
+	Shader wavesShader("Shaders/shaders_1/13_wavesAnimation.vs", "Shaders/shaders_1/13_wavesAnimation.fs");
+	
 
 
 	vector<std::string> faces
@@ -1307,6 +1313,8 @@ int main() {
 
 	//MODELOS DAVID PROYECTO
 	Model moonFBX("resources/FBX/Moon/moon.fbx");
+	Model olaFBX("resources/FBX/Ola/grid.fbx");
+
 
 	//Inicialización de KeyFrames
 	for (int i = 0; i < MAX_FRAMES; i++)
@@ -2492,7 +2500,41 @@ int main() {
 		fbxShader.setMat4("model", model);
 		moonFBX.Draw(fbxShader);
 
+		//OLA con animación procedimental
+		// Activamos el shader de Phong
+		wavesShader.use();
 
+		// Activamos para objetos transparentes
+		glEnable(GL_BLEND);
+		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
+		// Aplicamos transformaciones de proyección y cámara (si las hubiera)
+		projection = glm::perspective(glm::radians(camera.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 10000.0f);
+		view = camera.GetViewMatrix();
+		wavesShader.setMat4("projection", projection);
+		wavesShader.setMat4("view", view);
+
+		// Aplicamos transformaciones del modelo
+
+		/*model = glm::translate(glm::mat4(1.0f), glm::vec3(1.0f, 10.0f, -167.0f));
+		model = glm::rotate(model, glm::radians(92.24f), glm::vec3(0.0f, -1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(2.5f));
+		model = glm::scale(model, glm::vec3(0.74f, 0.955f, 1.27f));*/
+
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(0.0f, 0.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(2.0f, 2.0f, 2.0f));
+		wavesShader.setMat4("model", model);
+
+		wavesShader.setFloat("time", wavesTime);
+		wavesShader.setFloat("radius", 5.0f);
+		wavesShader.setFloat("height", 5.0f);
+
+		olaFBX.Draw(wavesShader);
+		wavesTime += 0.01;
+
+		staticShader.use();
 		
 
 		

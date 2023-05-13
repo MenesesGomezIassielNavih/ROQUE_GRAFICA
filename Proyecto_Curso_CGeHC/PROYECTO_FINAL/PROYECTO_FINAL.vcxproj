@@ -141,6 +141,8 @@
     <ClCompile Include="glad.c" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="shaders\shaders_1\13_wavesAnimation.fs" />
+    <None Include="shaders\shaders_1\13_wavesAnimation.vs" />
     <None Include="shaders\shader_Lights.vs" />
     <None Include="shaders\shader_Lights_mod.fs" />
   </ItemGroup>
