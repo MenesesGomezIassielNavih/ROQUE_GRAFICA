@@ -134,6 +134,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="include\camera.h" />
+    <ClInclude Include="include\material.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Final.cpp" />

@@ -31,7 +31,8 @@
 //CARGA FBX
 #include <assimp/importer.hpp>
 #include <assimp/scene.h>
-
+//MATERIALES
+#include <material.h>
 
 //GLOBALES
 bool sound = true;
@@ -64,11 +65,157 @@ void scroll_callback(GLFWwindow* window, double xoffset, double yoffset);
 void my_input(GLFWwindow* window, int key, int scancode, int action, int mods);
 void animate(void);
 
+//Declaracion para objetos con textura
+void myData(void);
+void LoadTextures(void);
+unsigned int generateTextures(char*, bool);
+
+
 // settings
 unsigned int SCR_WIDTH = 800;
 unsigned int SCR_HEIGHT = 600;
 GLFWmonitor *monitors;
 void getResolution(void);
+
+
+///////////////////TEXTURIZADO
+unsigned int		t_smile,
+					t_toalla,
+					t_unam,
+					t_white,
+					t_brick_png,
+					t_wood_png,
+					t_verdura_png;
+
+unsigned int generateTextures(const char* filename, bool alfa)
+{
+	unsigned int textureID;
+	glGenTextures(1, &textureID);
+	glBindTexture(GL_TEXTURE_2D, textureID);
+	// set the texture wrapping parameters
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+	// set texture filtering parameters
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+	// load image, create texture and generate mipmaps
+	int width, height, nrChannels;
+	stbi_set_flip_vertically_on_load(true); // tell stb_image.h to flip loaded texture's on the y-axis.
+
+	unsigned char* data = stbi_load(filename, &width, &height, &nrChannels, 0);
+	if (data)
+	{
+		if (alfa)
+			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
+		else
+			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
+		glGenerateMipmap(GL_TEXTURE_2D);
+		return textureID;
+	}
+	else
+	{
+		std::cout << "Failed to load texture" << std::endl;
+		return 100;
+	}
+	stbi_image_free(data);
+}
+
+void LoadTextures()
+{
+	t_smile = generateTextures("resources/Texturas1/awesomeface.png", 1);
+	t_toalla = generateTextures("resources/Texturas1/toalla.tga", 0);
+	t_unam = generateTextures("resources/Texturas1/escudo_unam.jpg", 0);
+	t_white = generateTextures("resources/Texturas1/white.jpg", 0);
+	t_brick_png = generateTextures("resources/Texturas1/bricks.jpg", 0);
+	t_wood_png = generateTextures("resources/Texturas1/wood01.png", 0);
+	t_verdura_png = generateTextures("resources/Texturas1/verdura.png", 1);
+}
+
+
+
+void myData()
+{
+	GLfloat verticesCubo[] = {
+		//Position				//texture coords
+		-0.5f, -0.5f, 0.5f,		0.0f, 0.0f,	//V0 - Frontal
+		0.5f, -0.5f, 0.5f,		6.0f, 0.0f,	//V1
+		0.5f, 0.5f, 0.5f,		6.0f, 5.0f,	//V5
+		-0.5f, -0.5f, 0.5f,		0.0f, 0.0f,	//V0
+		-0.5f, 0.5f, 0.5f,		0.0f, 5.0f,	//V4
+		0.5f, 0.5f, 0.5f,		6.0f,5.0f,	//V5
+
+		0.5f, -0.5f, -0.5f,		0.0f, 0.0f,	//V2 - Trasera
+		-0.5f, -0.5f, -0.5f,	6.0f, 0.0f,	//V3
+		-0.5f, 0.5f, -0.5f,		6.0f, 5.0f,	//V7
+		0.5f, -0.5f, -0.5f,		0.0f, 0.0f,	//V2
+		0.5f, 0.5f, -0.5f,		0.0f, 5.0f,	//V6
+		-0.5f, 0.5f, -0.5f,		6.0f, 5.0f,	//V7
+
+		-0.5f, 0.5f, 0.5f,		6.0f, 5.0f,	//V4 - Izq
+		-0.5f, 0.5f, -0.5f,		0.0f, 5.0f,	//V7
+		-0.5f, -0.5f, -0.5f,	0.0f, 0.0f,	//V3
+		-0.5f, -0.5f, -0.5f,	0.0f, 0.0f,	//V3
+		-0.5f, 0.5f, 0.5f,		6.0f, 5.0f,	//V4
+		-0.5f, -0.5f, 0.5f,		6.0f, 0.0f,	//V0
+
+		0.5f, 0.5f, 0.5f,		0.0f, 5.0f,	//V5 - Der
+		0.5f, -0.5f, 0.5f,		0.0f, 0.0f,	//V1
+		0.5f, -0.5f, -0.5f,		6.0f, 0.0f,	//V2
+		0.5f, 0.5f, 0.5f,		0.0f, 5.0f,	//V5
+		0.5f, 0.5f, -0.5f,		6.0f, 5.0f,	//V6
+		0.5f, -0.5f, -0.5f,		6.0f, 0.0f,	//V2
+
+		-0.5f, 0.5f, 0.5f,		0.0f, 0.0f,	//V4 - Sup
+		0.5f, 0.5f, 0.5f,		1.0f, 0.0f,	//V5
+		0.5f, 0.5f, -0.5f,		1.0f, 1.0f,	//V6
+		-0.5f, 0.5f, 0.5f,		0.0f, 0.0f,	//V4
+		-0.5f, 0.5f, -0.5f,		0.0f, 1.0f,	//V7
+		0.5f, 0.5f, -0.5f,		1.0f, 1.0f,	//V6
+
+		-0.5f, -0.5f, 0.5f,		1.0f, 1.0f,	//V0 - Inf
+		-0.5f, -0.5f, -0.5f,	1.0f, 1.0f,	//V3
+		0.5f, -0.5f, -0.5f,		1.0f, 1.0f,	//V2
+		-0.5f, -0.5f, 0.5f,		1.0f, 1.0f,	//V0
+		0.5f, -0.5f, -0.5f,		1.0f, 1.0f,	//V2
+		0.5f, -0.5f, 0.5f,		1.0f, 1.0f,	//V1
+	};
+
+
+	glGenVertexArrays(1, &VAO[8]);
+	glGenBuffers(1, &VBO[8]);
+	//glGenBuffers(2, EBO);
+
+
+	//PARA CUBO
+	glBindVertexArray(VAO[8]);
+	glBindBuffer(GL_ARRAY_BUFFER, VBO[8]);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(verticesCubo), verticesCubo, GL_STATIC_DRAW);
+
+	/*glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO[1]);
+	//glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);*/
+
+	// position attribute
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)0);
+	glEnableVertexAttribArray(0);
+
+	// texture coord attribute
+	glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)(3 * sizeof(float)));
+	glEnableVertexAttribArray(1);
+
+	glBindBuffer(GL_ARRAY_BUFFER, 0);
+	glBindVertexArray(0);
+}
+
+void myDataRenderizar()
+{
+	glBindVertexArray(VAO[8]);
+	glBindTexture(GL_TEXTURE_2D, t_brick_png);
+	glDrawArrays(GL_TRIANGLES, 0, 36);
+	glBindVertexArray(0);
+}
+
+///////////////////   FIN    TEXTURIZADO
+
 
 //PRIMITIVAS INICIALIZACION
 void CrearCubo()
@@ -797,7 +944,7 @@ void animate(void)
 	////////////////////////////////    SOL
 	lightDirection.x = 100 * cos(myVariable);
 	lightDirection.y = 100 * sin(myVariable);
-	myVariable += 0.001f;
+	myVariable += 0.01f;
 
 	///////////////////////////////////////////
 	pez01.x = 70.0f * cos(posXpez);
@@ -1068,11 +1215,13 @@ int main() {
 	Shader staticShader("Shaders/shader_Lights.vs", "Shaders/shader_Lights_mod.fs");
 	Shader skyboxShader("Shaders/skybox.vs", "Shaders/skybox.fs");
 	Shader animShader("Shaders/anim.vs", "Shaders/anim.fs");
+	Shader texturaShader("Shaders/shaders_Textura/shader_texture_color.vs", "Shaders/shaders_Textura/shader_texture_color.fs");
+
 
 
 	//por cada FBX que se vaya usar se deben de crear su VS Y FS
 	// -------------------------
-	Shader zuneshaShader("Shaders/shaders_1/10_vertex_simple.vs", "Shaders/shaders_1/10_fragment_simple.fs");
+	Shader fbxShader("Shaders/shaders_1/10_vertex_simple.vs", "Shaders/shaders_1/10_fragment_simple.fs");
 	//ents\Visual Studio 2022\Proyectos\Roque\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\shaders\shaders_1
 
 
@@ -1152,11 +1301,12 @@ int main() {
 	Model banio("resources/objects/Banio2/banio2.obj");
 
 	Model zuneshaFBX("resources/FBX/Zunesha/Sunicha.fbx");
+	Model ladrillo_Texture("resources/Texturas1/bricks.jpg");
+	Model madera_Texture("resources/Texturas1/wood01.png");
 
 
-
-
-
+	//MODELOS DAVID PROYECTO
+	Model moonFBX("resources/FBX/Moon/moon.fbx");
 
 	//Inicialización de KeyFrames
 	for (int i = 0; i < MAX_FRAMES; i++)
@@ -1212,6 +1362,9 @@ int main() {
 	Sphere(1.0, 20, 20);
 	CrearCilindro(512, 1.0f);
 	CrearCono(20, 1.0f);
+
+	LoadTextures();
+	myData();
 	
 	// draw in wireframe
 	//glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
@@ -2229,6 +2382,42 @@ int main() {
 
 
 		// -------------------------------------------------------------------------------------------------------------------------
+		// CUBO TEXTURIZADO
+		// -------------------------------------------------------------------------------------------------------------------------
+		texturaShader.use();
+		texturaShader.setMat4("projection", projection);
+		texturaShader.setMat4("view", view);
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-100.0f, 0.0f, -100.0f));
+
+		model = glm::scale(model, glm::vec3(2.0f, 50.0f, 100.0f));
+
+		//model = glm::rotate(model, glm::radians(90.0f), glm::vec3(1.0f, 0.0f, 0.0));
+		texturaShader.setMat4("model", model);
+		texturaShader.setVec3("aColor", 1.0f, 1.0f, 1.0f);
+		glBindVertexArray(VAO[8]);
+		glBindTexture(GL_TEXTURE_2D, t_wood_png);
+		glDrawArrays(GL_TRIANGLES, 0, 36);        ///Muro
+		glBindVertexArray(0);
+		//myDataRenderizar();
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-100.0f, 0.0f, -100.0f));
+		model = glm::scale(model, glm::vec3(100.0f, 50.0f, 2.0f));
+		//model = glm::rotate(model, glm::radians(90.0f), glm::vec3(1.0f, 0.0f, 0.0));
+		texturaShader.setMat4("model", model);
+		texturaShader.setVec3("aColor", 1.0f, 1.0f, 1.0f);
+		glBindVertexArray(VAO[8]);
+		glBindTexture(GL_TEXTURE_2D, t_brick_png);
+		glDrawArrays(GL_TRIANGLES, 0, 36);        ///Muro
+		glBindVertexArray(0);
+
+
+		staticShader.use();
+
+
+
+
+		// -------------------------------------------------------------------------------------------------------------------------
 		// Personaje
 		// -------------------------------------------------------------------------------------------------------------------------
 		model = glm::translate(glm::mat4(1.0f), glm::vec3(0, 0, 0));
@@ -2292,8 +2481,16 @@ int main() {
 		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
 		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 0.0f, -1.0f));
 		model = glm::scale(model, glm::vec3(100.0f));
-		zuneshaShader.setMat4("model", model);
-		zuneshaFBX.Draw(zuneshaShader);
+		fbxShader.setMat4("model", model);
+		zuneshaFBX.Draw(fbxShader);
+
+
+		//LUNA
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(3000.0f, 5500.0f, -5000.0f));
+		//model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(200.0f));
+		fbxShader.setMat4("model", model);
+		moonFBX.Draw(fbxShader);
 
 
 		
