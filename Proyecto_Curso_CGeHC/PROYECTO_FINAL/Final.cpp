@@ -28,6 +28,9 @@
 #include <Skybox.h>
 #include <iostream>
 #pragma comment(lib, "winmm.lib")
+//CARGA FBX
+#include <assimp/importer.hpp>
+#include <assimp/scene.h>
 
 
 //GLOBALES
@@ -794,7 +797,7 @@ void animate(void)
 	////////////////////////////////    SOL
 	lightDirection.x = 100 * cos(myVariable);
 	lightDirection.y = 100 * sin(myVariable);
-	myVariable += 0.01f;
+	myVariable += 0.001f;
 
 	///////////////////////////////////////////
 	pez01.x = 70.0f * cos(posXpez);
@@ -1066,6 +1069,13 @@ int main() {
 	Shader skyboxShader("Shaders/skybox.vs", "Shaders/skybox.fs");
 	Shader animShader("Shaders/anim.vs", "Shaders/anim.fs");
 
+
+	//por cada FBX que se vaya usar se deben de crear su VS Y FS
+	// -------------------------
+	Shader zuneshaShader("Shaders/shaders_1/10_vertex_simple.vs", "Shaders/shaders_1/10_fragment_simple.fs");
+	//ents\Visual Studio 2022\Proyectos\Roque\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\shaders\shaders_1
+
+
 	vector<std::string> faces
 	{
 		"resources/skybox/right.jpg",
@@ -1134,12 +1144,19 @@ int main() {
 	ModelAnim perCaminando("resources/objects/Mixamo/Mixamo/RumbaDancing.dae");
 	perCaminando.initShaders(animShader.ID);
 
-	//MODELOS PROYECTO
+	//MODELOS NAVIH PROYECTO
 	Model igloo("resources/objects/Igloo/igloo.obj");
 	Model vegetacion("resources/objects/Vegetacion/vegetacion.obj");
 	Model acuario("resources/objects/Acuario/acuario.obj");
 	Model acuario_vidrio("resources/objects/Acuario/acuario_vidrio.obj");
 	Model banio("resources/objects/Banio2/banio2.obj");
+
+	Model zuneshaFBX("resources/FBX/Zunesha/Sunicha.fbx");
+
+
+
+
+
 
 	//Inicialización de KeyFrames
 	for (int i = 0; i < MAX_FRAMES; i++)
@@ -2264,6 +2281,20 @@ int main() {
 		staticShader.setMat4("model", model);
 		//cabeza.Draw(staticShader);
 		// 
+
+
+		// -------------------------------------------------------------------------------------------------------------------------
+		// FBX
+		// -------------------------------------------------------------------------------------------------------------------------
+		
+		//Zunesha Elefante
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, -500.0f, -1500.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 0.0f, -1.0f));
+		model = glm::scale(model, glm::vec3(100.0f));
+		zuneshaShader.setMat4("model", model);
+		zuneshaFBX.Draw(zuneshaShader);
+
 
 		
 
