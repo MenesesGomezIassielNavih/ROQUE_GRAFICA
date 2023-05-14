@@ -18,7 +18,7 @@ uniform float height;
 void main()
 {
     
-    vec4 PosL = vec4(aPos, 1.0f);
+    vec4 PosL = vec4(aPos, 10.0f);
     PosL.x += radius * cos(time);
     PosL.y += radius * sin(time);
     PosL.z += height;

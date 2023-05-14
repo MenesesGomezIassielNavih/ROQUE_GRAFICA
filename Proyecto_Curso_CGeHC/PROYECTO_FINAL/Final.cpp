@@ -788,6 +788,10 @@ int playIndex = 0;
 float proceduralTime = 0.0f;   //OLAS
 float wavesTime = 0.0f;
 
+float proceduralTime2 = 0.0f;   //LUNA
+float moonTime = 0.0f;
+
+
 void saveFrame(void){
 	//printf("frameindex %d\n", FrameIndex);
 	std::cout << "Frame Index = " << FrameIndex << std::endl;
@@ -1228,7 +1232,7 @@ int main() {
 	Shader texturaShader("Shaders/shaders_Textura/shader_texture_color.vs", "Shaders/shaders_Textura/shader_texture_color.fs");
 	Shader fbxShader("Shaders/shaders_1/10_vertex_simple.vs", "Shaders/shaders_1/10_fragment_simple.fs");
 	Shader wavesShader("Shaders/shaders_1/13_wavesAnimation.vs", "Shaders/shaders_1/13_wavesAnimation.fs");
-	
+	Shader lunaShader ("Shaders/shaders_1/12_ProceduralAnimation.vs", "Shaders/shaders_1/12_ProceduralAnimation.fs");
 
 
 	vector<std::string> faces
@@ -2387,7 +2391,9 @@ int main() {
 		staticShader.setMat4("model", model);
 		CrearCilindroRenderizar();
 
+		//pinguino con primitivas
 
+		//mono de nieve con primitivas
 
 		// -------------------------------------------------------------------------------------------------------------------------
 		// CUBO TEXTURIZADO
@@ -2494,11 +2500,25 @@ int main() {
 
 
 		//LUNA
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(3000.0f, 5500.0f, -5000.0f));
-		//model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
-		model = glm::scale(model, glm::vec3(200.0f));
+		lunaShader.use();
+		lunaShader.setMat4("projection", projection);
+		lunaShader.setMat4("view", view);
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 1800.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(700.0f));
 		fbxShader.setMat4("model", model);
 		moonFBX.Draw(fbxShader);
+
+		lunaShader.setMat4("model", model);
+
+		lunaShader.setFloat("time", proceduralTime2);
+		lunaShader.setFloat("radius", 50.0f);
+		lunaShader.setFloat("height", 10.0f);
+
+		moonFBX.Draw(lunaShader);
+		proceduralTime2 += 0.01;
+		staticShader.use();
 
 		//OLA con animación procedimental
 		// Activamos el shader de Phong
