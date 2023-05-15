@@ -404,11 +404,13 @@ void CrearSphere(float ratio, int slices, int stacks)
 		index[i * 6 + 4] = i;
 		index[i * 6 + 5] = i + 1;
 	}
-	glGenVertexArrays(1, &VAO[8]);
-	glGenBuffers(1, &VBO[8]);
-	glGenBuffers(1, &IBO[8]);
-	glBindVertexArray(VAO[8]);
-	glBindBuffer(GL_ARRAY_BUFFER, VBO[8]);
+	
+	indexCount[3] = index.size();
+	glGenVertexArrays(1, &VAO[3]);
+	glGenBuffers(1, &VBO[3]);
+	glGenBuffers(1, &IBO[3]);
+	glBindVertexArray(VAO[3]);
+	glBindBuffer(GL_ARRAY_BUFFER, VBO[3]);
 	size_t stride;
 	size_t offset1 = 0;
 	size_t offset2 = 0;
@@ -418,7 +420,7 @@ void CrearSphere(float ratio, int slices, int stacks)
 		GL_STATIC_DRAW);
 	stride = sizeof(vertexC[0]);
 	offset1 = 0;
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IBO[8]);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IBO[3]);
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, index.size() * sizeof(GLuint),
 		index.data(),
 		GL_STATIC_DRAW);
@@ -436,11 +438,12 @@ void CrearSphere(float ratio, int slices, int stacks)
 }
 
 void CrearSphereRenderizar() {
-	glBindVertexArray(VAO[8]);
-	glDrawElements(GL_TRIANGLES, index.size(), GL_UNSIGNED_INT,
+	glBindVertexArray(VAO[3]);
+	glDrawElements(GL_TRIANGLES, indexCount[3], GL_UNSIGNED_INT,
 		(GLvoid*)(sizeof(GLuint) * 0));
 	glBindVertexArray(0);
 }
+
 
 void CrearCilindro(int res, float R) {
 	//constantes utilizadas en los ciclos for
@@ -1316,6 +1319,16 @@ int main() {
 	Model madera_Texture("resources/Texturas1/wood01.png");
 
 
+	Model amarillo("resources/objects/Esfera/amarillo/amarillo.obj");
+	Model azul("resources/objects/Esfera/azul/azul.obj");
+	Model blanco("resources/objects/Esfera/blanco/blanco.obj");
+	Model gris("resources/objects/Esfera/gris/gris.obj");
+	Model naranja("resources/objects/Esfera/naranja/naranja.obj");
+	Model negro("resources/objects/Esfera/negro/negro.obj");
+	Model rojo("resources/objects/Esfera/rojo/rojo.obj");
+	Model rosa("resources/objects/Esfera/rosa/rosa.obj");
+
+
 	//MODELOS DAVID PROYECTO
 	Model moonFBX("resources/FBX/Moon/moon.fbx");
 	Model olaFBX("resources/FBX/Ola/grid.fbx");
@@ -2013,6 +2026,7 @@ int main() {
 
 
 
+
 		// -------------------------------------------------------------------------------------------------------------------------
 		// Primitivas
 		// -------------------------------------------------------------------------------------------------------------------------
@@ -2033,13 +2047,8 @@ int main() {
 		staticShader.setMat4("model", model);
 		CrearCuboRenderizar();  //dibuja el cubo
 
+		
 
-		model = glm::translate(model, glm::vec3(-3.0f, 3.0f, 0.0f));
-		//la posición de la luz debe estar x constante, Y+2 y z+1
-		//model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0));
-		model = glm::scale(model, glm::vec3(1.0f, 1.0f, 1.0f));
-		staticShader.setMat4("model", model);
-	//	SphereRenderizar();
 
 
 		model = glm::translate(model, glm::vec3(-8.0f, 0.0f, 0.0f));
@@ -2630,7 +2639,55 @@ int main() {
 
 
 
+		// ------------------------------------------------------------------------------------------------------------------------ -
+		// PINGUINO
+		// -------------------------------------------------------------------------------------------------------------------------
+		texturaShader.use();
 
+
+		//Esfera Negra
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(0, 0, 0));
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(0.01f));
+		staticShader.setMat4("model", model);
+		//En esta parte escoges el color que vas a seleccionar para la esfera
+		//amarillo.Draw(staticShader);
+		//azul.Draw(staticShader);
+		//blanco.Draw(staticShader);
+		//gris.Draw(staticShader);
+		//naranja.Draw(staticShader);
+		negro.Draw(staticShader);
+		//rojo.Draw(staticShader);
+		//rosa.Draw(staticShader);
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(0, 0, 0));
+		model = glm::translate(model, glm::vec3(10.0f, 10.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(10.0f));
+		//model = glm::scale(model, glm::vec3(1.0f, 1.0f, 1.0f));
+		staticShader.setMat4("model", model);
+		CrearSphereRenderizar();
+
+		//Esfera blanca
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(0, 0, 0));
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(0.01f));
+		staticShader.setMat4("model", model);
+		//En esta parte escoges el color que vas a seleccionar para la esfera
+		//amarillo.Draw(staticShader);
+		//azul.Draw(staticShader);
+		blanco.Draw(staticShader);
+		//gris.Draw(staticShader);
+		//naranja.Draw(staticShader);
+		//negro.Draw(staticShader);
+		//rojo.Draw(staticShader);
+		//rosa.Draw(staticShader);
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(0, 0, 0));
+		model = glm::translate(model, glm::vec3(10.0f, 40.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(10.0f));
+		//model = glm::scale(model, glm::vec3(1.0f, 1.0f, 1.0f));
+		staticShader.setMat4("model", model);
+		CrearSphereRenderizar();
 
 
 
