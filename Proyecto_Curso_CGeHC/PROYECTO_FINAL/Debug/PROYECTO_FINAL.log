@@ -3,59 +3,47 @@ C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\incl
 C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\include\modelAnim.h(104,44): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
 C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\include\modelAnim.h(520,24): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
 C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(39,44): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(386,13): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
-C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(389,16): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
-C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(524,16): warning C4018: '<': no coinciden signed/unsigned
-C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(584,32): warning C4244: 'argumento': conversión de 'double' a '_Ty'; posible pérdida de datos
+C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(387,13): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(390,16): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(525,16): warning C4018: '<': no coinciden signed/unsigned
+C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(585,32): warning C4244: 'argumento': conversión de 'double' a '_Ty'; posible pérdida de datos
           with
           [
               _Ty=GLfloat
           ]
-C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(586,32): warning C4244: 'argumento': conversión de 'double' a '_Ty'; posible pérdida de datos
+C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(587,32): warning C4244: 'argumento': conversión de 'double' a '_Ty'; posible pérdida de datos
           with
           [
               _Ty=GLfloat
-          ]
-C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(959,25): warning C4244: '=': conversión de 'double' a 'T'; posible pérdida de datos
-          with
-          [
-              T=float
           ]
 C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(960,25): warning C4244: '=': conversión de 'double' a 'T'; posible pérdida de datos
           with
           [
               T=float
           ]
-C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(969,16): warning C4305: '-=': truncamiento de 'double' a 'float'
-C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(977,17): warning C4305: '-=': truncamiento de 'double' a 'float'
-C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(985,17): warning C4305: '-=': truncamiento de 'double' a 'float'
-C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(993,18): warning C4305: '-=': truncamiento de 'double' a 'float'
-C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(1001,17): warning C4305: '+=': truncamiento de 'double' a 'float'
-C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(1009,18): warning C4305: '+=': truncamiento de 'double' a 'float'
-C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(1017,18): warning C4305: '+=': truncamiento de 'double' a 'float'
-C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(1025,19): warning C4305: '+=': truncamiento de 'double' a 'float'
-C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(2520,26): warning C4305: '+=': truncamiento de 'double' a 'float'
-C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(2555,20): warning C4305: '+=': truncamiento de 'double' a 'float'
-C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(2681,11): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
-C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(2682,11): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
-C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(2686,16): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
-C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(2687,16): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
-C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(2689,10): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
-C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(2690,10): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
-C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(2698,28): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
-glfw3.lib(context.obj) : warning LNK4099: no se encontró PDB '' con 'glfw3.lib(context.obj)' o en ''; se vinculará el objeto sin tener en cuenta información de depuración
-glfw3.lib(init.obj) : warning LNK4099: no se encontró PDB '' con 'glfw3.lib(init.obj)' o en ''; se vinculará el objeto sin tener en cuenta información de depuración
+C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(961,25): warning C4244: '=': conversión de 'double' a 'T'; posible pérdida de datos
+          with
+          [
+              T=float
+          ]
+C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(970,16): warning C4305: '-=': truncamiento de 'double' a 'float'
+C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(978,17): warning C4305: '-=': truncamiento de 'double' a 'float'
+C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(986,17): warning C4305: '-=': truncamiento de 'double' a 'float'
+C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(994,18): warning C4305: '-=': truncamiento de 'double' a 'float'
+C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(1002,17): warning C4305: '+=': truncamiento de 'double' a 'float'
+C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(1010,18): warning C4305: '+=': truncamiento de 'double' a 'float'
+C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(1018,18): warning C4305: '+=': truncamiento de 'double' a 'float'
+C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(1026,19): warning C4305: '+=': truncamiento de 'double' a 'float'
+C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(2785,26): warning C4305: '+=': truncamiento de 'double' a 'float'
+C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(2817,20): warning C4305: '+=': truncamiento de 'double' a 'float'
+C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(2943,11): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(2944,11): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(2948,16): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(2949,16): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(2951,10): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(2952,10): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(2960,28): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
 glfw3.lib(input.obj) : warning LNK4099: no se encontró PDB '' con 'glfw3.lib(input.obj)' o en ''; se vinculará el objeto sin tener en cuenta información de depuración
 glfw3.lib(monitor.obj) : warning LNK4099: no se encontró PDB '' con 'glfw3.lib(monitor.obj)' o en ''; se vinculará el objeto sin tener en cuenta información de depuración
-glfw3.lib(vulkan.obj) : warning LNK4099: no se encontró PDB '' con 'glfw3.lib(vulkan.obj)' o en ''; se vinculará el objeto sin tener en cuenta información de depuración
-glfw3.lib(window.obj) : warning LNK4099: no se encontró PDB '' con 'glfw3.lib(window.obj)' o en ''; se vinculará el objeto sin tener en cuenta información de depuración
-glfw3.lib(win32_init.obj) : warning LNK4099: no se encontró PDB '' con 'glfw3.lib(win32_init.obj)' o en ''; se vinculará el objeto sin tener en cuenta información de depuración
-glfw3.lib(win32_joystick.obj) : warning LNK4099: no se encontró PDB '' con 'glfw3.lib(win32_joystick.obj)' o en ''; se vinculará el objeto sin tener en cuenta información de depuración
-glfw3.lib(win32_monitor.obj) : warning LNK4099: no se encontró PDB '' con 'glfw3.lib(win32_monitor.obj)' o en ''; se vinculará el objeto sin tener en cuenta información de depuración
-glfw3.lib(win32_time.obj) : warning LNK4099: no se encontró PDB '' con 'glfw3.lib(win32_time.obj)' o en ''; se vinculará el objeto sin tener en cuenta información de depuración
-glfw3.lib(win32_thread.obj) : warning LNK4099: no se encontró PDB '' con 'glfw3.lib(win32_thread.obj)' o en ''; se vinculará el objeto sin tener en cuenta información de depuración
 glfw3.lib(win32_window.obj) : warning LNK4099: no se encontró PDB '' con 'glfw3.lib(win32_window.obj)' o en ''; se vinculará el objeto sin tener en cuenta información de depuración
-glfw3.lib(wgl_context.obj) : warning LNK4099: no se encontró PDB '' con 'glfw3.lib(wgl_context.obj)' o en ''; se vinculará el objeto sin tener en cuenta información de depuración
-glfw3.lib(egl_context.obj) : warning LNK4099: no se encontró PDB '' con 'glfw3.lib(egl_context.obj)' o en ''; se vinculará el objeto sin tener en cuenta información de depuración
-glfw3.lib(osmesa_context.obj) : warning LNK4099: no se encontró PDB '' con 'glfw3.lib(osmesa_context.obj)' o en ''; se vinculará el objeto sin tener en cuenta información de depuración
   PROYECTO_FINAL.vcxproj -> C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\Debug\PROYECTO_FINAL.exe

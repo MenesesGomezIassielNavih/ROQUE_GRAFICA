@@ -50,7 +50,8 @@ float alpha = 0.0f;
 
 //GLuint VAO, VBO, IBO;
 GLuint VAO[10], VBO[10], IBO[10];
-GLuint indexCount[6];
+GLuint indexCount[10];
+//GLuint indexCount[6];
 
 typedef struct _VertexColor {
 	_VertexColor() {
@@ -374,7 +375,7 @@ void CrearPiramideCuadrangularRenderizar() {
 	glBindVertexArray(0);
 }
 
-void Sphere(float ratio, int slices, int stacks)
+void CrearSphere(float ratio, int slices, int stacks)
 {
 	std::vector<VertexColor> vertexC;
 	std::vector<GLuint> index;
@@ -403,11 +404,11 @@ void Sphere(float ratio, int slices, int stacks)
 		index[i * 6 + 4] = i;
 		index[i * 6 + 5] = i + 1;
 	}
-	glGenVertexArrays(1, &VAO[3]);
-	glGenBuffers(1, &VBO[3]);
-	glGenBuffers(1, &IBO[3]);
-	glBindVertexArray(VAO[3]);
-	glBindBuffer(GL_ARRAY_BUFFER, VBO[3]);
+	glGenVertexArrays(1, &VAO[8]);
+	glGenBuffers(1, &VBO[8]);
+	glGenBuffers(1, &IBO[8]);
+	glBindVertexArray(VAO[8]);
+	glBindBuffer(GL_ARRAY_BUFFER, VBO[8]);
 	size_t stride;
 	size_t offset1 = 0;
 	size_t offset2 = 0;
@@ -417,7 +418,7 @@ void Sphere(float ratio, int slices, int stacks)
 		GL_STATIC_DRAW);
 	stride = sizeof(vertexC[0]);
 	offset1 = 0;
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IBO[3]);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IBO[8]);
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, index.size() * sizeof(GLuint),
 		index.data(),
 		GL_STATIC_DRAW);
@@ -434,8 +435,8 @@ void Sphere(float ratio, int slices, int stacks)
 	glBindVertexArray(0); // Unbind VAO
 }
 
-void SphereRenderizar() {
-	glBindVertexArray(VAO[3]);
+void CrearSphereRenderizar() {
+	glBindVertexArray(VAO[8]);
 	glDrawElements(GL_TRIANGLES, index.size(), GL_UNSIGNED_INT,
 		(GLvoid*)(sizeof(GLuint) * 0));
 	glBindVertexArray(0);
@@ -1371,10 +1372,9 @@ int main() {
 	CrearCubo();
 	CrearPiramide();
 	CrearPiramideCuadrangular();
-	Sphere(1.0, 20, 20);
 	CrearCilindro(512, 1.0f);
 	CrearCono(20, 1.0f);
-
+	CrearSphere(1.0, 40, 40);
 	LoadTextures();
 	myData();
 	
@@ -1949,6 +1949,7 @@ int main() {
 		staticShader.setMat4("model", model);
 		igloo.Draw(staticShader);
 
+
 		//Banio
 		model = glm::translate(glm::mat4(1.0f), glm::vec3(300.0f, 0.0f, -260.0f));
 		model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
@@ -2038,7 +2039,7 @@ int main() {
 		//model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0));
 		model = glm::scale(model, glm::vec3(1.0f, 1.0f, 1.0f));
 		staticShader.setMat4("model", model);
-		SphereRenderizar();
+	//	SphereRenderizar();
 
 
 		model = glm::translate(model, glm::vec3(-8.0f, 0.0f, 0.0f));
@@ -2391,9 +2392,275 @@ int main() {
 		staticShader.setMat4("model", model);
 		CrearCilindroRenderizar();
 
-		//pinguino con primitivas
 
-		//mono de nieve con primitivas
+		// -------------------------------------------------------------------------------------------------------------------------
+		// ICE MAN
+		// -------------------------------------------------------------------------------------------------------------------------
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(0, 0, 0));
+		model = glm::translate(model, glm::vec3(270.0f, 15.0f, 320.0f));// es el único traslación pa mover
+		//model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0));
+		staticShader.setVec3("pointLight[0].ambient", glm::vec3(1.0f, 1.0f, 1.0f)); // color
+		staticShader.setVec3("pointLight[0].diffuse", glm::vec3(0.0f, 0.0f, 1.0f));
+		staticShader.setVec3("pointLight[0].specular", glm::vec3(0.0f, 0.0f, 1.0f));
+		model = glm::scale(model, glm::vec3(15.0f, 1.5f, 15.0f)); //escala
+		staticShader.use();
+		staticShader.setMat4("projection", projection);
+		staticShader.setMat4("view", view);
+		staticShader.setMat4("model", model);
+		CrearCilindroRenderizar();
+
+		model = glm::translate(model, glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0));
+		model = glm::scale(model, glm::vec3(1.1f, 1.0f, 1.1f));
+		staticShader.setVec3("pointLight[0].ambient", glm::vec3(1.0f, 1.0f, 1.0f)); //color
+		staticShader.setVec3("pointLight[0].diffuse", glm::vec3(0.0f, 0.0f, 1.0f));
+		staticShader.setVec3("pointLight[0].specular", glm::vec3(0.0f, 0.0f, 1.0f));
+		staticShader.setMat4("model", model);
+		CrearCilindroRenderizar();
+
+		staticShader.use();
+		staticShader.setMat4("projection", projection);
+		staticShader.setMat4("view", view);
+		model = glm::translate(model, glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(1.05f, 1.0f, 1.05f));
+
+		staticShader.setVec3("pointLight[0].position", glm::vec3(6.0f, 2.0f, 3.0f));
+		staticShader.setVec3("pointLight[0].ambient", glm::vec3(1.0f, 1.0f, 1.0f)); //color
+		staticShader.setVec3("pointLight[0].diffuse", glm::vec3(0.0f, 0.0f, 1.0f));
+		staticShader.setVec3("pointLight[0].specular", glm::vec3(0.0f, 0.0f, 1.0f));
+		staticShader.setMat4("model", model);
+		CrearCilindroRenderizar();
+
+		model = glm::translate(model, glm::vec3(0.0f, 1.0f, 0.0f));
+		//model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0));
+		model = glm::scale(model, glm::vec3(1.05f, 1.0f, 1.05f));
+		staticShader.setMat4("model", model);
+		CrearCilindroRenderizar();
+
+		model = glm::translate(model, glm::vec3(0.0f, 1.0f, 0.0f));
+		//model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0));
+		model = glm::scale(model, glm::vec3(1.05f, 1.0f, 1.05f));
+		staticShader.setMat4("model", model);
+		CrearCilindroRenderizar();
+
+		model = glm::translate(model, glm::vec3(0.0f, 1.0f, 0.0f));
+		//model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0));
+		model = glm::scale(model, glm::vec3(1.05f, 1.0f, 1.05f));
+		staticShader.setMat4("model", model);
+		CrearCilindroRenderizar();
+
+		model = glm::translate(model, glm::vec3(0.0f, 1.0f, 0.0f));
+		//model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0));
+		model = glm::scale(model, glm::vec3(1.05f, 1.0f, 1.05f));
+		staticShader.setMat4("model", model);
+		CrearCilindroRenderizar();
+
+		model = glm::translate(model, glm::vec3(0.0f, 1.0f, 0.0f));
+		//model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0));
+		model = glm::scale(model, glm::vec3(1.0f, 1.5f, 1.0f));
+		staticShader.setMat4("model", model);
+		CrearCilindroRenderizar();
+
+		model = glm::translate(model, glm::vec3(0.0f, 1.0f, 0.0f));
+		//model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0));
+		model = glm::scale(model, glm::vec3(0.97f, 1.0f, 0.97f));
+		staticShader.setMat4("model", model);
+		CrearCilindroRenderizar();
+
+		model = glm::translate(model, glm::vec3(0.0f, 1.0f, 0.0f));
+		//model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0));
+		model = glm::scale(model, glm::vec3(0.97f, 1.0f, 0.97f));
+		staticShader.setMat4("model", model);
+		CrearCilindroRenderizar();
+
+		model = glm::translate(model, glm::vec3(0.0f, 1.0f, 0.0f));
+		//model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0));
+		model = glm::scale(model, glm::vec3(0.95f, 1.0f, 0.95f));
+		staticShader.setMat4("model", model);
+		CrearCilindroRenderizar();
+
+		model = glm::translate(model, glm::vec3(0.0f, 1.0f, 0.0f));
+		//model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0));
+		model = glm::scale(model, glm::vec3(0.93f, 1.0f, 0.93f));
+		staticShader.setMat4("model", model);
+		CrearCilindroRenderizar();
+
+		model = glm::translate(model, glm::vec3(0.0f, 1.0f, 0.0f));
+		//model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0));
+		model = glm::scale(model, glm::vec3(0.90f, 1.0f, 0.90f));
+		staticShader.setMat4("model", model);
+		CrearCilindroRenderizar();
+
+		model = glm::translate(model, glm::vec3(0.0f, 1.0f, 0.0f));
+		//model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0));
+		model = glm::scale(model, glm::vec3(0.5f, 1.0f, 0.50f));
+		staticShader.setMat4("model", model);
+		CrearCilindroRenderizar();
+
+		//CABEZA 
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(0, 0, 0));
+		model = glm::translate(model, glm::vec3(270.0f, 40.0f, 320.0f));// es el único traslación pa mover
+		//model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0));
+		staticShader.setVec3("pointLight[0].ambient", glm::vec3(1.0f, 1.0f, 1.0f)); // color
+		staticShader.setVec3("pointLight[0].diffuse", glm::vec3(0.0f, 0.0f, 1.0f));
+		staticShader.setVec3("pointLight[0].specular", glm::vec3(0.0f, 0.0f, 1.0f));
+		model = glm::scale(model, glm::vec3(10.0f, 1.0f, 10.0f)); //escala
+		staticShader.use();
+		staticShader.setMat4("projection", projection);
+		staticShader.setMat4("view", view);
+		staticShader.setMat4("model", model);
+		CrearCilindroRenderizar();
+
+		model = glm::translate(model, glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0));
+		model = glm::scale(model, glm::vec3(1.1f, 1.0f, 1.1f));
+		staticShader.setVec3("pointLight[0].ambient", glm::vec3(1.0f, 1.0f, 1.0f)); //color
+		staticShader.setVec3("pointLight[0].diffuse", glm::vec3(0.0f, 0.0f, 1.0f));
+		staticShader.setVec3("pointLight[0].specular", glm::vec3(0.0f, 0.0f, 1.0f));
+		staticShader.setMat4("model", model);
+		CrearCilindroRenderizar();
+
+		staticShader.use();
+		staticShader.setMat4("projection", projection);
+		staticShader.setMat4("view", view);
+		model = glm::translate(model, glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(1.05f, 1.0f, 1.05f));
+
+		staticShader.setVec3("pointLight[0].position", glm::vec3(6.0f, 2.0f, 3.0f));
+		staticShader.setVec3("pointLight[0].ambient", glm::vec3(1.0f, 1.0f, 1.0f)); //color
+		staticShader.setVec3("pointLight[0].diffuse", glm::vec3(0.0f, 0.0f, 1.0f));
+		staticShader.setVec3("pointLight[0].specular", glm::vec3(0.0f, 0.0f, 1.0f));
+		staticShader.setMat4("model", model);
+		CrearCilindroRenderizar();
+
+		model = glm::translate(model, glm::vec3(0.0f, 1.0f, 0.0f));
+		//model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0));
+		model = glm::scale(model, glm::vec3(1.05f, 1.0f, 1.05f));
+		staticShader.setMat4("model", model);
+		CrearCilindroRenderizar();
+
+		model = glm::translate(model, glm::vec3(0.0f, 1.0f, 0.0f));
+		//model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0));
+		model = glm::scale(model, glm::vec3(1.05f, 1.0f, 1.05f));
+		staticShader.setMat4("model", model);
+		CrearCilindroRenderizar();
+
+		model = glm::translate(model, glm::vec3(0.0f, 1.0f, 0.0f));
+		//model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0));
+		model = glm::scale(model, glm::vec3(1.05f, 1.0f, 1.05f));
+		staticShader.setMat4("model", model);
+		CrearCilindroRenderizar();
+
+		model = glm::translate(model, glm::vec3(0.0f, 1.0f, 0.0f));
+		//model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0));
+		model = glm::scale(model, glm::vec3(1.05f, 1.0f, 1.05f));
+		staticShader.setMat4("model", model);
+		CrearCilindroRenderizar();
+
+		model = glm::translate(model, glm::vec3(0.0f, 1.0f, 0.0f));
+		//model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0));
+		model = glm::scale(model, glm::vec3(1.0f, 1.5f, 1.0f));
+		staticShader.setMat4("model", model);
+		CrearCilindroRenderizar();
+
+		model = glm::translate(model, glm::vec3(0.0f, 1.0f, 0.0f));
+		//model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0));
+		model = glm::scale(model, glm::vec3(0.97f, 1.0f, 0.97f));
+		staticShader.setMat4("model", model);
+		CrearCilindroRenderizar();
+
+		model = glm::translate(model, glm::vec3(0.0f, 1.0f, 0.0f));
+		//model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0));
+		model = glm::scale(model, glm::vec3(0.97f, 1.0f, 0.97f));
+		staticShader.setMat4("model", model);
+		CrearCilindroRenderizar();
+
+		model = glm::translate(model, glm::vec3(0.0f, 1.0f, 0.0f));
+		//model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0));
+		model = glm::scale(model, glm::vec3(0.95f, 1.0f, 0.95f));
+		staticShader.setMat4("model", model);
+		CrearCilindroRenderizar();
+
+		model = glm::translate(model, glm::vec3(0.0f, 1.0f, 0.0f));
+		//model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0));
+		model = glm::scale(model, glm::vec3(0.93f, 1.0f, 0.93f));
+		staticShader.setMat4("model", model);
+		CrearCilindroRenderizar();
+
+		model = glm::translate(model, glm::vec3(0.0f, 1.0f, 0.0f));
+		//model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0));
+		model = glm::scale(model, glm::vec3(0.90f, 1.0f, 0.90f));
+		staticShader.setMat4("model", model);
+		CrearCilindroRenderizar();
+
+		model = glm::translate(model, glm::vec3(0.0f, 1.0f, 0.0f));
+		//model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0));
+		model = glm::scale(model, glm::vec3(0.5f, 1.0f, 0.50f));
+		staticShader.setMat4("model", model);
+		CrearCilindroRenderizar();
+
+		//SOMBRERO
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(0, 0, 0));
+		model = glm::translate(model, glm::vec3(270.0f, 55.0f, 320.0f));// es el único traslación pa mover
+		//model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0));
+		staticShader.setVec3("pointLight[0].ambient", glm::vec3(0.0f, 0.0f, 0.0f)); // color
+		staticShader.setVec3("pointLight[0].diffuse", glm::vec3(0.0f, 0.0f, 1.0f));
+		staticShader.setVec3("pointLight[0].specular", glm::vec3(0.0f, 0.0f, 1.0f));
+		model = glm::scale(model, glm::vec3(14.0f, 0.1f, 14.0f)); //escala
+		staticShader.use();
+		staticShader.setMat4("projection", projection);
+		staticShader.setMat4("view", view);
+		staticShader.setMat4("model", model);
+		CrearCilindroRenderizar();
+
+		//COPA SOMBRERO
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(0, 0, 0));
+		model = glm::translate(model, glm::vec3(270.0f, 60.0f, 320.0f));// es el único traslación pa mover
+		//model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0));
+		staticShader.setVec3("pointLight[0].ambient", glm::vec3(0.0f, 0.0f, 0.0f)); // color
+		staticShader.setVec3("pointLight[0].diffuse", glm::vec3(0.0f, 0.0f, 1.0f));
+		staticShader.setVec3("pointLight[0].specular", glm::vec3(0.0f, 0.0f, 1.0f));
+		model = glm::scale(model, glm::vec3(5.0f, 10.0f, 5.0f)); //escala
+		staticShader.use();
+		staticShader.setMat4("projection", projection);
+		staticShader.setMat4("view", view);
+		staticShader.setMat4("model", model);
+		CrearCilindroRenderizar();
+
+
+
+
+
+
+
+
+
+		//pinguino con primitivas
+		// muñeco de nieve con primitivas
+		//staticShader.use();
+		//staticShader.setMat4("projection", projection);
+		//staticShader.setMat4("view", view);
+		//model = glm::translate(glm::mat4(1.0f), glm::vec3(0, 0, 0));//al origen
+		//estas forman la esfera
+		//model = glm::translate(model, glm::vec3(0.0f, 2.0f, 0.0f));
+		//la posición de la luz debe estar x constante, Y+2 y z+1
+		//staticShader.setVec3("pointLight[0].position", glm::vec3(0, 4, 1));
+		//staticShader.setVec3("pointLight[0].ambient", glm::vec3(1.0f, 1.0f, 1.0f));
+		//staticShader.setVec3("pointLight[0].diffuse", glm::vec3(0.61424f, 0.04136f, 0.04136f));
+		//staticShader.setVec3("pointLight[0].specular", glm::vec3(0.727811f, 0.626959f, 0.626959f));
+		//staticShader.setFloat("pointLight[0].constant", 0.08f);
+		//staticShader.setFloat("pointLight[0].linear", 0.009f);
+		//staticShader.setFloat("pointLight[0].quadratic", 0.0000032f); //más 0 es más brillante menos 0 menos brillante
+		//staticShader.setFloat("material_shininess", 0.6f);
+		//model = glm::scale(model, glm::vec3(40.0f));
+		//model = glm::scale(model, glm::vec3(1.1f, 1.0f, 1.1f));
+		//model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0));
+		//staticShader.setMat4("model", model);
+		//CrearSphereRenderizar();
+		//staticShader.use();
+		
+
 
 		// -------------------------------------------------------------------------------------------------------------------------
 		// CUBO TEXTURIZADO
@@ -2424,8 +2691,6 @@ int main() {
 		glBindTexture(GL_TEXTURE_2D, t_brick_png);
 		glDrawArrays(GL_TRIANGLES, 0, 36);        ///Muro
 		glBindVertexArray(0);
-
-
 		staticShader.use();
 
 
@@ -2520,7 +2785,7 @@ int main() {
 		proceduralTime2 += 0.01;
 		staticShader.use();
 
-		//OLA con animación procedimental
+		//OLA con animación procedural
 		// Activamos el shader de Phong
 		wavesShader.use();
 
@@ -2535,16 +2800,13 @@ int main() {
 		wavesShader.setMat4("view", view);
 
 		// Aplicamos transformaciones del modelo
-
-		/*model = glm::translate(glm::mat4(1.0f), glm::vec3(1.0f, 10.0f, -167.0f));
-		model = glm::rotate(model, glm::radians(92.24f), glm::vec3(0.0f, -1.0f, 0.0f));
-		model = glm::scale(model, glm::vec3(2.5f));
-		model = glm::scale(model, glm::vec3(0.74f, 0.955f, 1.27f));*/
-
+				
 		model = glm::mat4(1.0f);
-		model = glm::translate(model, glm::vec3(0.0f, 0.0f, 0.0f));
+		model = glm::translate(model, glm::vec3(-20.0f, 150.0f, -220.0f));
+		//model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(2.5f));
+		model = glm::scale(model, glm::vec3(5.5f, 1.0f, 2.0f));
 		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
-		model = glm::scale(model, glm::vec3(2.0f, 2.0f, 2.0f));
 		wavesShader.setMat4("model", model);
 
 		wavesShader.setFloat("time", wavesTime);
