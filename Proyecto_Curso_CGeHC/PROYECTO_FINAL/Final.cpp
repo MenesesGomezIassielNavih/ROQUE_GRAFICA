@@ -33,6 +33,13 @@
 #include <assimp/scene.h>
 //MATERIALES
 #include <material.h>
+//FIGURAS 2D
+#include<Mesh_1.h>
+#include <Circle.h>
+#include <Triangle.h>
+#include <Plane.h>
+#include <Shader1.h>
+#include <Vertex1.h>
 
 //GLOBALES
 bool sound = true;
@@ -84,6 +91,11 @@ unsigned int SCR_WIDTH = 800;
 unsigned int SCR_HEIGHT = 600;
 GLFWmonitor *monitors;
 void getResolution(void);
+
+//MALLAS para 2D
+Mesh_1* meshCircle;
+Mesh_1* meshTriangle;
+Mesh_1* meshPlane;
 
 
 ///////////////////TEXTURIZADO
@@ -1237,6 +1249,10 @@ int main() {
 	Shader fbxShader("Shaders/shaders_1/10_vertex_simple.vs", "Shaders/shaders_1/10_fragment_simple.fs");
 	Shader wavesShader("Shaders/shaders_1/13_wavesAnimation.vs", "Shaders/shaders_1/13_wavesAnimation.fs");
 	Shader lunaShader ("Shaders/shaders_1/12_ProceduralAnimation.vs", "Shaders/shaders_1/12_ProceduralAnimation.fs");
+	Shader1* my3Shader;
+	my3Shader = new Shader1("shaders/02-simplePVM.vs", "shaders/02-simplePVM.fs");
+	Shader1* myOtherShader;
+	myOtherShader = new Shader1("shaders/02-simplePVM.vs", "shaders/02-simplePVM.fs");
 
 
 	vector<std::string> faces
@@ -1318,8 +1334,6 @@ int main() {
 	Model ladrillo_Texture("resources/Texturas1/bricks.jpg");
 	Model madera_Texture("resources/Texturas1/wood01.png");
 
-
-	Model amarillo("resources/objects/Esfera/amarillo/amarillo.obj");
 	Model azul("resources/objects/Esfera/azul/azul.obj");
 	Model blanco("resources/objects/Esfera/blanco/blanco.obj");
 	Model gris("resources/objects/Esfera/gris/gris.obj");
@@ -1380,6 +1394,16 @@ int main() {
 		KeyFrame[i].rotPatasPin = 0;*/
 
 	}
+
+	//Carga de lasprimitivas 2D
+	Circle circle(1.0f);
+	meshCircle = new Mesh_1(circle.vertices, circle.indices);
+
+	Triangle triangulo(1.0f);
+	meshTriangle = new Mesh_1(triangulo.vertices, triangulo.indices);
+
+	Plane plano(1.0f);
+	meshPlane = new Mesh_1(plano.vertices, plano.indices);
 
 	//Carga de las PRIMITIVAS
 	CrearCubo();
@@ -2112,8 +2136,9 @@ int main() {
 		model = glm::scale(model, glm::vec3(0.4f, 1.0f, 0.4f));
 		staticShader.setMat4("model", model);
 		CrearConoRenderizar();
-		
 
+
+	
 
 		// -------------------------------------------------------------------------------------------------------------------------
 		// TETERA
@@ -2642,8 +2667,6 @@ int main() {
 		// ------------------------------------------------------------------------------------------------------------------------ -
 		// PINGUINO
 		// -------------------------------------------------------------------------------------------------------------------------
-		texturaShader.use();
-
 
 		//Esfera Negra
 		model = glm::translate(glm::mat4(1.0f), glm::vec3(0, 0, 0));
@@ -2651,7 +2674,6 @@ int main() {
 		model = glm::scale(model, glm::vec3(0.01f));
 		staticShader.setMat4("model", model);
 		//En esta parte escoges el color que vas a seleccionar para la esfera
-		//amarillo.Draw(staticShader);
 		//azul.Draw(staticShader);
 		//blanco.Draw(staticShader);
 		//gris.Draw(staticShader);
@@ -2673,7 +2695,6 @@ int main() {
 		model = glm::scale(model, glm::vec3(0.01f));
 		staticShader.setMat4("model", model);
 		//En esta parte escoges el color que vas a seleccionar para la esfera
-		//amarillo.Draw(staticShader);
 		//azul.Draw(staticShader);
 		blanco.Draw(staticShader);
 		//gris.Draw(staticShader);
@@ -2690,33 +2711,107 @@ int main() {
 		CrearSphereRenderizar();
 
 
+		//Plano naranja
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(0, 0, 0));
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(0.01f));
+		staticShader.setMat4("model", model);
+		//En esta parte escoges el color que vas a seleccionar para la esfera
+		//azul.Draw(staticShader);
+		//blanco.Draw(staticShader);
+		//gris.Draw(staticShader);
+		naranja.Draw(staticShader);
+		//negro.Draw(staticShader);
+		//rojo.Draw(staticShader);
+		//rosa.Draw(staticShader);
+
+		// Aplicamos transformaciones de proyección y cámara (si las hubiera)
+		projection = glm::perspective(glm::radians(45.0f), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 1000.0f);
+		myOtherShader->setMat4("projection", projection);
+
+		//view = glm::lookAt(camera.Position, camera.View, camera.Up);
+		myOtherShader->setMat4("view", view);
+
+		// Aplicamos transformaciones del modelo
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(20.0f, 5.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(0.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(10.0f, 10.0f, 10.0f));
+		staticShader.setMat4("model", model);
+
+		myOtherShader->setMat4("model", model);
+		meshPlane->Draw(*myOtherShader);
+
+
+		//Circulo rosa
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(0, 0, 0));
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(0.01f));
+		staticShader.setMat4("model", model);
+		//En esta parte escoges el color que vas a seleccionar para la esfera
+		//azul.Draw(staticShader);
+		//blanco.Draw(staticShader);
+		//gris.Draw(staticShader);
+		//naranja.Draw(staticShader);
+		//negro.Draw(staticShader);
+		//rojo.Draw(staticShader);
+		rosa.Draw(staticShader);
+
+
+		// Aplicamos transformaciones de proyección y cámara (si las hubiera)
+		projection = glm::perspective(glm::radians(45.0f), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 1000.0f);
+		myOtherShader->setMat4("projection", projection);
+
+		//view = glm::lookAt(camera.Position, camera.View, camera.Up);
+		myOtherShader->setMat4("view", view);
+
+		model = glm::mat4(1.0f);
+
+		model = glm::translate(model, glm::vec3(30.0f, 5.0f, 15.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(10.0f, 10.0f, 10.0f));
+		staticShader.setMat4("model", model);
+
+		myOtherShader->setMat4("model", model);
+		meshCircle->Draw(*myOtherShader);
 
 
 
-		//pinguino con primitivas
-		// muñeco de nieve con primitivas
-		//staticShader.use();
-		//staticShader.setMat4("projection", projection);
-		//staticShader.setMat4("view", view);
-		//model = glm::translate(glm::mat4(1.0f), glm::vec3(0, 0, 0));//al origen
-		//estas forman la esfera
-		//model = glm::translate(model, glm::vec3(0.0f, 2.0f, 0.0f));
-		//la posición de la luz debe estar x constante, Y+2 y z+1
-		//staticShader.setVec3("pointLight[0].position", glm::vec3(0, 4, 1));
-		//staticShader.setVec3("pointLight[0].ambient", glm::vec3(1.0f, 1.0f, 1.0f));
-		//staticShader.setVec3("pointLight[0].diffuse", glm::vec3(0.61424f, 0.04136f, 0.04136f));
-		//staticShader.setVec3("pointLight[0].specular", glm::vec3(0.727811f, 0.626959f, 0.626959f));
-		//staticShader.setFloat("pointLight[0].constant", 0.08f);
-		//staticShader.setFloat("pointLight[0].linear", 0.009f);
-		//staticShader.setFloat("pointLight[0].quadratic", 0.0000032f); //más 0 es más brillante menos 0 menos brillante
-		//staticShader.setFloat("material_shininess", 0.6f);
-		//model = glm::scale(model, glm::vec3(40.0f));
-		//model = glm::scale(model, glm::vec3(1.1f, 1.0f, 1.1f));
-		//model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0));
-		//staticShader.setMat4("model", model);
-		//CrearSphereRenderizar();
-		//staticShader.use();
-		
+		//Triangulo rojo
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(0, 0, 0));
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(0.01f));
+		staticShader.setMat4("model", model);
+		//En esta parte escoges el color que vas a seleccionar para la esfera
+		//azul.Draw(staticShader);
+		//blanco.Draw(staticShader);
+		//gris.Draw(staticShader);
+		//naranja.Draw(staticShader);
+		//negro.Draw(staticShader);
+		rojo.Draw(staticShader);
+		//rosa.Draw(staticShader);
+
+
+		// Aplicamos transformaciones de proyección y cámara (si las hubiera)
+		projection = glm::perspective(glm::radians(45.0f), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 1000.0f);
+		myOtherShader->setMat4("projection", projection);
+
+		//view = glm::lookAt(camera.Position, camera.View, camera.Up);
+		myOtherShader->setMat4("view", view);
+
+		model = glm::mat4(1.0f);
+
+		model = glm::translate(model, glm::vec3(40.0f, 3.0f, 40.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(10.0f, 10.0f, 10.0f));
+		staticShader.setMat4("model", model);
+
+		myOtherShader->setMat4("model", model);
+		meshTriangle->Draw(*myOtherShader);
+
+
+
+
 
 
 		// -------------------------------------------------------------------------------------------------------------------------
