@@ -710,6 +710,403 @@ void CrearTorusRenderizar()
 }
 
 
+void CrearTetera()
+{
+	vector <float> vertices;
+	vector<unsigned int> indices;
+
+	int i = 0.0f, j = 0.0f, k = 0.0f;
+	int _nR = 0, _nr = 0;
+	float R = 4.0f, r = 0.0f;
+	_nR = 100;
+	_nr = 50;
+
+	float v = 0.0f;
+	float du = (2 * PI) / _nR;
+	float dv = (2 * PI) / _nr;
+	float u = 0.0f;
+
+	float uu = 0.0f;
+	float x = 0.0f, y = 0.0f, z = 0.0f;
+	//Para el vertice del centro de la base
+
+	vertices.push_back(x);
+	vertices.push_back(y);
+	vertices.push_back(z);
+
+	//ingresando los vertices de la base
+
+	R = 4.0f;
+	y = 0.0f;
+
+	for (i = 0; i <= _nr; i++)
+	{
+		x = R * cos(v);
+		z = R * sin(v);
+		// agrega vertice 
+		vertices.push_back(x);
+		vertices.push_back(y);
+		vertices.push_back(z);
+		v += dv;
+	}
+
+	//ingresando los indices de la triangulacion de la base
+	int n = 0;
+	for (i = 0; i < 12 * _nr; i++)
+	{
+		indices.push_back(n);
+		indices.push_back(n + i + 1);
+		indices.push_back(n + i + 2);
+	}
+	//ingresando los vertices de los aros de cada nivel
+	R = 5.0f;
+	y = 1.0f;
+	u = 0.0f;
+	for (i = 0; i <= _nr; i++)
+	{
+		x = R * cos(v);
+		z = R * sin(v);
+		// agrega vertice 
+		vertices.push_back(x);
+		vertices.push_back(y);
+		vertices.push_back(z);
+		v += dv;
+	}
+	R = 5.0f;
+	y = 2.0f;
+	u = 0.0f;
+	for (i = 0; i <= _nr; i++)
+	{
+		x = R * cos(v);
+		z = R * sin(v);
+		// agrega vertice 
+		vertices.push_back(x);
+		vertices.push_back(y);
+		vertices.push_back(z);
+		v += dv;
+	}
+	R = 6.0f;
+	y = 3.0f;
+	u = 0.0f;
+	for (i = 0; i <= _nr; i++)
+	{
+		x = R * cos(v);
+		z = R * sin(v);
+		// agrega vertice 
+		vertices.push_back(x);
+		vertices.push_back(y);
+		vertices.push_back(z);
+		v += dv;
+	}
+	R = 6.0f;
+	y = 4.0f;
+	u = 0.0f;
+	for (i = 0; i <= _nr; i++)
+	{
+		x = R * cos(v);
+		z = R * sin(v);
+		// agrega vertice 
+		vertices.push_back(x);
+		vertices.push_back(y);
+		vertices.push_back(z);
+		v += dv;
+	}
+	R = 5.5f;
+	y = 5.0f;
+	u = 0.0f;
+	for (i = 0; i <= _nr; i++)
+	{
+		x = R * cos(v);
+		z = R * sin(v);
+		// agrega vertice 
+		vertices.push_back(x);
+		vertices.push_back(y);
+		vertices.push_back(z);
+		v += dv;
+	}
+	R = 5.3f;
+	y = 6.0f;
+	u = 0.0f;
+	for (i = 0; i <= _nr; i++)
+	{
+		x = R * cos(v);
+		z = R * sin(v);
+		// agrega vertice 
+		vertices.push_back(x);
+		vertices.push_back(y);
+		vertices.push_back(z);
+		v += dv;
+	}
+	R = 5.2f;
+	y = 7.0f;
+	u = 0.0f;
+	for (i = 0; i <= _nr; i++)
+	{
+		x = R * cos(v);
+		z = R * sin(v);
+		// agrega vertice 
+		vertices.push_back(x);
+		vertices.push_back(y);
+		vertices.push_back(z);
+		v += dv;
+	}
+	R = 5.1f;
+	y = 8.0f;
+	u = 0.0f;
+	for (i = 0; i <= _nr; i++)
+	{
+		x = R * cos(v);
+		z = R * sin(v);
+		// agrega vertice 
+		vertices.push_back(x);
+		vertices.push_back(y);
+		vertices.push_back(z);
+		v += dv;
+	}
+	R = 4.8f;
+	y = 9.0f;
+	u = 0.0f;
+	for (i = 0; i <= _nr; i++)
+	{
+		x = R * cos(v);
+		z = R * sin(v);
+		// agrega vertice 
+		vertices.push_back(x);
+		vertices.push_back(y);
+		vertices.push_back(z);
+		v += dv;
+	}
+	R = 4.3f;
+	y = 10.0f;
+	u = 0.0f;
+	for (i = 0; i <= _nr; i++)
+	{
+		x = R * cos(v);
+		z = R * sin(v);
+		// agrega vertice 
+		vertices.push_back(x);
+		vertices.push_back(y);
+		vertices.push_back(z);
+		v += dv;
+	}
+
+	R = 3.0f;
+	y = 11.0f;
+	u = 0.0f;
+	for (i = 0; i <= _nr; i++)
+	{
+		x = R * cos(v);
+		z = R * sin(v);
+
+		// agrega vertice 
+		vertices.push_back(x);
+		vertices.push_back(y);
+		vertices.push_back(z);
+		v += dv;
+	}
+	for (i = 1; i < 12 * _nr; i++)
+	{
+		indices.push_back(i);
+		indices.push_back(i + 50);
+		indices.push_back(i + 1);
+		indices.push_back(i + 50);
+		indices.push_back(i + 51);
+		indices.push_back(i + 1);
+
+	}
+
+	indexCount[13] = indices.size();
+	glGenVertexArrays(1, &VAO[13]); //generar 1 VAO
+	glBindVertexArray(VAO[13]);//asignar VAO
+
+	glGenBuffers(1, &IBO[13]);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IBO[13]);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices[0]) * indices.size(), indices.data(), GL_STATIC_DRAW);
+
+	glGenBuffers(1, &VBO[13]);
+	glBindBuffer(GL_ARRAY_BUFFER, VBO[13]);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices[0]) * vertices.size(), vertices.data(), GL_STATIC_DRAW); //pasarle los datos al VBO asignando tamaño, los datos y en este caso es estático pues no se modificarán los valores
+
+	//glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE,sizeof(vertices[0]*3), 0);//Stride en caso de haber datos de color por ejemplo, es saltar cierta cantidad de datos
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, 0);
+	glEnableVertexAttribArray(0);
+	//glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, sizeof(vertices[0] * 6), (void*)(sizeof(vertices[0]) * 3));
+	//glEnableVertexAttribArray(1);
+	glBindBuffer(GL_ARRAY_BUFFER, 0);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+	glBindVertexArray(0);
+}
+
+void CrearTeteraRenderizar()
+{
+	glBindVertexArray(VAO[13]);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IBO[13]);
+	glDrawElements(GL_TRIANGLES, indexCount[13], GL_UNSIGNED_INT, 0);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+	glBindVertexArray(0);
+}
+
+
+void CrearAsaTetera()
+{
+	vector <float> vertices;
+	vector<unsigned int> indices;
+
+	int i = 0.0f, j = 0.0f, k = 0.0f;
+	int _nR = 0, _nr = 0;
+	float _R = 3.0, _r = 0.5;
+	_nR = 36;
+	_nr = 12;
+
+	float v = 0.0f;
+	float du = (2 * PI) / _nR;
+	float dv = (2 * PI) / _nr;
+	float u = 0.0f;
+
+	float uu = 0.0f;
+	float x = 0.0f, y = 0.0f, z = 0.0f;
+
+
+	for (j = 0; j <= _nR; j++)
+	{
+		if (j == _nR / 3 * 2)
+			break;
+		for (i = 0; i <= _nr; i++)
+		{
+			x = (_R + _r * cos(v)) * cos(u);
+			y = _r * sin(v);
+			z = (_R + _r * cos(v)) * sin(u);;
+
+			// agrega vertice 
+			vertices.push_back(x);
+			vertices.push_back(y);
+			vertices.push_back(z);
+			v += dv;
+		}
+		u += du;
+	}
+
+	for (size_t i = 0; i <= _nR * _nr; i++)
+	{
+		indices.push_back(i);
+		indices.push_back(i + 12);
+		indices.push_back(i + 1);
+		indices.push_back(i + 12);
+		indices.push_back(i + 13);
+		indices.push_back(i + 1);
+
+	}
+
+	indexCount[14] = indices.size();
+	glGenVertexArrays(1, &VAO[14]); //generar 1 VAO
+	glBindVertexArray(VAO[14]);//asignar VAO
+
+	glGenBuffers(1, &IBO[14]);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IBO[14]);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices[0]) * indices.size(), indices.data(), GL_STATIC_DRAW);
+
+	glGenBuffers(1, &VBO[14]);
+	glBindBuffer(GL_ARRAY_BUFFER, VBO[14]);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices[0]) * vertices.size(), vertices.data(), GL_STATIC_DRAW); //pasarle los datos al VBO asignando tamaño, los datos y en este caso es estático pues no se modificarán los valores
+
+	//glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE,sizeof(vertices[0]*3), 0);//Stride en caso de haber datos de color por ejemplo, es saltar cierta cantidad de datos
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, 0);
+	glEnableVertexAttribArray(0);
+	//glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, sizeof(vertices[0] * 6), (void*)(sizeof(vertices[0]) * 3));
+	//glEnableVertexAttribArray(1);
+	glBindBuffer(GL_ARRAY_BUFFER, 0);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+	glBindVertexArray(0);
+
+}
+
+void CrearAsaTeteraRenderizar()
+{
+
+	glBindVertexArray(VAO[14]);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IBO[14]);
+	glDrawElements(GL_TRIANGLES, indexCount[14] / 3 * 2, GL_UNSIGNED_INT, 0);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+	glBindVertexArray(0);
+
+}
+
+void CrearBoquillaTetera()
+{
+	vector <float> vertices;
+	vector<unsigned int> indices;
+
+	int i = 0.0f, j = 0.0f, k = 0.0f;
+	int _nR = 0, _nr = 0;
+	float R = 4.0f, r = 1.2f;
+	_nR = 100;
+	_nr = 50;
+
+	float v = 0.0f;
+	float du = (2 * PI) / _nR;
+	float dv = (2 * PI) / _nr;
+	float u = 0.0f;
+
+	float uu = 0.0f;
+	float x = 0.0f, y = 0.0f, z = 0.0f;
+
+	for (j = 0; j <= _nR; j++)
+	{
+
+		for (i = 0; i <= _nr; i++)
+		{
+			z = (R + r * cos(v)) * cos(u);
+			y = r * sin(v);
+			x = (R + r * cos(v)) * sin(u);
+			//z = (R + r * cos(v)) * sin(u);;
+			// agrega vertice 
+			vertices.push_back(x);
+			vertices.push_back(y);
+			vertices.push_back(z);
+			v += dv;
+		}
+		u += du;
+	}
+	for (i = 0; i <= _nR * _nr; i++)
+	{
+		indices.push_back(i);
+		indices.push_back(i + 50);
+		indices.push_back(i + 1);
+		indices.push_back(i + 50);
+		indices.push_back(i + 51);
+		indices.push_back(i + 1);
+	}
+	indexCount[16] = indices.size();
+	glGenVertexArrays(1, &VAO[16]); //generar 1 VAO
+	glBindVertexArray(VAO[16]);//asignar VAO
+
+	glGenBuffers(1, &IBO[16]);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IBO[16]);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices[0]) * indices.size(), indices.data(), GL_STATIC_DRAW);
+
+	glGenBuffers(1, &VBO[16]);
+	glBindBuffer(GL_ARRAY_BUFFER, VBO[16]);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices[0]) * vertices.size(), vertices.data(), GL_STATIC_DRAW); //pasarle los datos al VBO asignando tamaño, los datos y en este caso es estático pues no se modificarán los valores
+
+	//glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE,sizeof(vertices[0]*3), 0);//Stride en caso de haber datos de color por ejemplo, es saltar cierta cantidad de datos
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, 0);
+	glEnableVertexAttribArray(0);
+	//glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, sizeof(vertices[0] * 6), (void*)(sizeof(vertices[0]) * 3));
+	//glEnableVertexAttribArray(1);
+	glBindBuffer(GL_ARRAY_BUFFER, 0);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+	glBindVertexArray(0);
+}
+
+void CrearBoquillaTeteraRenderizar()
+{
+	glBindVertexArray(VAO[16]);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IBO[16]);
+	glDrawElements(GL_TRIANGLES, indexCount[16] / 3 - 3, GL_UNSIGNED_INT, 0);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+	glBindVertexArray(0);
+}
+
 
 
 // camera
@@ -1497,6 +1894,9 @@ int main() {
 	LoadTextures();
 	myData();
 	CrearTorus(8.0f, 1.0f, 200, 12);
+	CrearTetera();
+	CrearAsaTetera();
+	CrearBoquillaTetera();
 	
 	// draw in wireframe
 	//glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
@@ -2517,6 +2917,534 @@ int main() {
 		model = glm::scale(model, glm::vec3(0.5f, 1.0f, 0.5f));
 		staticShader.setMat4("model", model);
 		CrearCilindroRenderizar();
+
+
+
+		// -------------------------------------------------------------------------------------------------------------------------
+		// TOROIDE a partir de cilindros
+		// -------------------------------------------------------------------------------------------------------------------------
+
+
+		model = glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, 0.0f);
+		tmp = model = glm::translate(model, glm::vec3(15.0f, 30.0f, 20.0f));
+		//model = glm::rotate(tmp, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+		model = glm::rotate(tmp, glm::radians(0.0f), glm::vec3(0.0f, 0.0f, 1.0f));
+
+		model = glm::translate(model, glm::vec3(10.0f, 0.0f, 0.0f));
+		//la posición de la luz debe estar x constante, Y+2 y z+1
+		staticShader.setVec3("pointLight[0].position", glm::vec3(10, -3, 21));
+		staticShader.setVec3("pointLight[0].ambient", glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(2.0f, 2.0f, 2.0));
+		staticShader.setMat4("model", model);
+		myShader2.setMat4("model", model);
+		//SphereRenderizar();
+		CrearCilindroRenderizar();
+
+		//model = glm::translate(glm::mat4(1.0f), glm::vec3(0, 0, 0));
+		model = glm::rotate(tmp, glm::radians(10.0f), glm::vec3(0.0f, 0.0f, 1.0));
+		model = glm::translate(model, glm::vec3(10.0f, 0.0f, 0.0f));
+
+		//model = glm::rotate(model, glm::radians(90.0f), glm::vec3(1.0f, 0.0f, 0.0));
+		model = glm::scale(model, glm::vec3(2.0f, 2.0f, 2.0));
+		staticShader.setMat4("model", model);
+
+		//myOtherShader->setMat4("model", model);
+		//meshSphere->Draw(*myOtherShader);
+
+		myShader2.setMat4("model", model);
+		//SphereRenderizar();
+		CrearCilindroRenderizar();
+
+		model = glm::rotate(tmp, glm::radians(20.0f), glm::vec3(0.0f, 0.0f, 1.0));
+		model = glm::translate(model, glm::vec3(10.0f, 0.0f, 0.0f));
+		//model = glm::rotate(model, glm::radians(90.0f), glm::vec3(1.0f, 0.0f, 0.0));
+
+		model = glm::scale(model, glm::vec3(2.0f, 2.0f, 2.0));
+		staticShader.setMat4("model", model);
+
+		//myOtherShader->setMat4("model", model);
+		//meshSphere->Draw(*myOtherShader);
+
+		//myShader2.setMat4("model", model);
+		//SphereRenderizar();
+		myShader2.setMat4("model", model);
+		CrearCilindroRenderizar();
+
+		model = glm::rotate(tmp, glm::radians(30.0f), glm::vec3(0.0f, 0.0f, 1.0));
+		model = glm::translate(model, glm::vec3(10.0f, 0.0f, 0.0f));
+
+
+		model = glm::scale(model, glm::vec3(2.0f, 2.0f, 2.0));
+		staticShader.setMat4("model", model);
+
+		//myOtherShader->setMat4("model", model);
+		//meshSphere->Draw(*myOtherShader);
+		myShader2.setMat4("model", model);
+		CrearCilindroRenderizar();
+
+		model = glm::rotate(tmp, glm::radians(40.0f), glm::vec3(0.0f, 0.0f, 1.0));
+		model = glm::translate(model, glm::vec3(10.0f, 0.0f, 0.0f));
+
+
+		model = glm::scale(model, glm::vec3(2.0f, 2.0f, 2.0));
+		staticShader.setMat4("model", model);
+
+		//myOtherShader->setMat4("model", model);
+		//meshSphere->Draw(*myOtherShader);
+		myShader2.setMat4("model", model);
+		CrearCilindroRenderizar();
+
+		model = glm::rotate(tmp, glm::radians(50.0f), glm::vec3(0.0f, 0.0f, 1.0));
+		model = glm::translate(model, glm::vec3(10.0f, 0.0f, 0.0f));
+
+		model = glm::scale(model, glm::vec3(2.0f, 2.0f, 2.0));
+
+		staticShader.setMat4("model", model);
+
+		//myOtherShader->setMat4("model", model);
+		//meshSphere->Draw(*myOtherShader);
+		myShader2.setMat4("model", model);
+		CrearCilindroRenderizar();
+
+
+
+		model = glm::rotate(tmp, glm::radians(60.0f), glm::vec3(0.0f, 0.0f, 1.0));
+		model = glm::translate(model, glm::vec3(10.0f, 0.0f, 0.0f));
+
+		model = glm::scale(model, glm::vec3(2.0f, 2.0f, 2.0));
+		staticShader.setMat4("model", model);
+
+		//myOtherShader->setMat4("model", model);
+		//meshSphere->Draw(*myOtherShader);
+		myShader2.setMat4("model", model);
+		CrearCilindroRenderizar();
+
+		model = glm::rotate(tmp, glm::radians(70.0f), glm::vec3(0.0f, 0.0f, 1.0));
+		model = glm::translate(model, glm::vec3(10.0f, 0.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(2.0f, 2.0f, 2.0));
+		staticShader.setMat4("model", model);
+
+		//myOtherShader->setMat4("model", model);
+		//meshSphere->Draw(*myOtherShader);
+
+		//myShader2.setMat4("model", model);
+		myShader2.setMat4("model", model);
+		CrearCilindroRenderizar();
+
+		model = glm::rotate(tmp, glm::radians(80.0f), glm::vec3(0.0f, 0.0f, 1.0));
+		model = glm::translate(model, glm::vec3(10.0f, 0.0f, 0.0f));
+
+		model = glm::scale(model, glm::vec3(2.0f, 2.0f, 2.0));
+
+		staticShader.setMat4("model", model);
+
+		//myOtherShader->setMat4("model", model);
+		//meshSphere->Draw(*myOtherShader);
+		myShader2.setMat4("model", model);
+		CrearCilindroRenderizar();
+
+		model = glm::rotate(tmp, glm::radians(90.0f), glm::vec3(0.0f, 0.0f, 1.0));
+		model = glm::translate(model, glm::vec3(10.0f, 0.0f, 0.0f));
+
+		model = glm::scale(model, glm::vec3(2.0f, 2.0f, 2.0));
+		//myShader2.setMat4("model", model);
+
+		staticShader.setMat4("model", model);
+
+		//myOtherShader->setMat4("model", model);
+		//meshSphere->Draw(*myOtherShader);
+		myShader2.setMat4("model", model);
+		CrearCilindroRenderizar();
+
+
+		model = glm::rotate(tmp, glm::radians(100.0f), glm::vec3(0.0f, 0.0f, 1.0));
+		model = glm::translate(model, glm::vec3(10.0f, 0.0f, 0.0f));
+
+		model = glm::scale(model, glm::vec3(2.0f, 2.0f, 2.0));
+		//myShader2.setMat4("model", model);
+
+		staticShader.setMat4("model", model);
+
+		//myOtherShader->setMat4("model", model);
+		//meshSphere->Draw(*myOtherShader);
+		myShader2.setMat4("model", model);
+		CrearCilindroRenderizar();
+
+		model = glm::rotate(tmp, glm::radians(110.0f), glm::vec3(0.0f, 0.0f, 1.0));
+		model = glm::translate(model, glm::vec3(10.0f, 0.0f, 0.0f));
+
+		model = glm::scale(model, glm::vec3(2.0f, 2.0f, 2.0));
+		//myShader2.setMat4("model", model);
+
+		staticShader.setMat4("model", model);
+
+		//myOtherShader->setMat4("model", model);
+		//meshSphere->Draw(*myOtherShader);
+		myShader2.setMat4("model", model);
+		CrearCilindroRenderizar();
+
+		model = glm::rotate(tmp, glm::radians(120.0f), glm::vec3(0.0f, 0.0f, 1.0));
+		model = glm::translate(model, glm::vec3(10.0f, 0.0f, 0.0f));
+
+		model = glm::scale(model, glm::vec3(2.0f, 2.0f, 2.0));
+		//myShader2.setMat4("model", model);
+
+		staticShader.setMat4("model", model);
+
+		//myOtherShader->setMat4("model", model);
+		//meshSphere->Draw(*myOtherShader);
+		myShader2.setMat4("model", model);
+		CrearCilindroRenderizar();
+
+		model = glm::rotate(tmp, glm::radians(130.0f), glm::vec3(0.0f, 0.0f, 1.0));
+		model = glm::translate(model, glm::vec3(10.0f, 0.0f, 0.0f));
+
+		model = glm::scale(model, glm::vec3(2.0f, 2.0f, 2.0));
+		//myShader2.setMat4("model", model);
+
+		staticShader.setMat4("model", model);
+
+		//myOtherShader->setMat4("model", model);
+		//meshSphere->Draw(*myOtherShader);
+		myShader2.setMat4("model", model);
+		CrearCilindroRenderizar();
+
+		model = glm::rotate(tmp, glm::radians(140.0f), glm::vec3(0.0f, 0.0f, 1.0));
+		model = glm::translate(model, glm::vec3(10.0f, 0.0f, 0.0f));
+
+		model = glm::scale(model, glm::vec3(2.0f, 2.0f, 2.0));
+		//myShader2.setMat4("model", model);
+
+		staticShader.setMat4("model", model);
+
+		//myOtherShader->setMat4("model", model);
+		//meshSphere->Draw(*myOtherShader);
+		myShader2.setMat4("model", model);
+		CrearCilindroRenderizar();
+
+		model = glm::rotate(tmp, glm::radians(150.0f), glm::vec3(0.0f, 0.0f, 1.0));
+		model = glm::translate(model, glm::vec3(10.0f, 0.0f, 0.0f));
+
+		model = glm::scale(model, glm::vec3(2.0f, 2.0f, 2.0));
+		//myShader2.setMat4("model", model);
+
+		staticShader.setMat4("model", model);
+
+		//myOtherShader->setMat4("model", model);
+		//meshSphere->Draw(*myOtherShader);
+		myShader2.setMat4("model", model);
+		CrearCilindroRenderizar();
+
+		model = glm::rotate(tmp, glm::radians(160.0f), glm::vec3(0.0f, 0.0f, 1.0));
+		model = glm::translate(model, glm::vec3(10.0f, 0.0f, 0.0f));
+
+		model = glm::scale(model, glm::vec3(2.0f, 2.0f, 2.0));
+		//myShader2.setMat4("model", model);
+
+		staticShader.setMat4("model", model);
+
+		//myOtherShader->setMat4("model", model);
+		//meshSphere->Draw(*myOtherShader);
+		myShader2.setMat4("model", model);
+		CrearCilindroRenderizar();
+
+		model = glm::rotate(tmp, glm::radians(170.0f), glm::vec3(0.0f, 0.0f, 1.0));
+		model = glm::translate(model, glm::vec3(10.0f, 0.0f, 0.0f));
+
+		model = glm::scale(model, glm::vec3(2.0f, 2.0f, 2.0));
+		//myShader2.setMat4("model", model);
+
+		staticShader.setMat4("model", model);
+
+		//myOtherShader->setMat4("model", model);
+		//meshSphere->Draw(*myOtherShader);
+		myShader2.setMat4("model", model);
+		CrearCilindroRenderizar();
+
+		model = glm::rotate(tmp, glm::radians(180.0f), glm::vec3(0.0f, 0.0f, 1.0));
+		model = glm::translate(model, glm::vec3(10.0f, 0.0f, 0.0f));
+
+		model = glm::scale(model, glm::vec3(2.0f, 2.0f, 2.0));
+		//myShader2.setMat4("model", model);
+
+		staticShader.setMat4("model", model);
+
+		//myOtherShader->setMat4("model", model);
+		//meshSphere->Draw(*myOtherShader);
+		myShader2.setMat4("model", model);
+		CrearCilindroRenderizar();
+
+		model = glm::rotate(tmp, glm::radians(190.0f), glm::vec3(0.0f, 0.0f, 1.0));
+		model = glm::translate(model, glm::vec3(10.0f, 0.0f, 0.0f));
+
+		model = glm::scale(model, glm::vec3(2.0f, 2.0f, 2.0));
+		//myShader2.setMat4("model", model);
+
+		staticShader.setMat4("model", model);
+
+		//myOtherShader->setMat4("model", model);
+		//meshSphere->Draw(*myOtherShader);
+		myShader2.setMat4("model", model);
+		CrearCilindroRenderizar();
+
+		model = glm::rotate(tmp, glm::radians(200.0f), glm::vec3(0.0f, 0.0f, 1.0));
+		model = glm::translate(model, glm::vec3(10.0f, 0.0f, 0.0f));
+
+		model = glm::scale(model, glm::vec3(2.0f, 2.0f, 2.0));
+		//myShader2.setMat4("model", model);
+
+		staticShader.setMat4("model", model);
+
+		//myOtherShader->setMat4("model", model);
+		//meshSphere->Draw(*myOtherShader);
+		myShader2.setMat4("model", model);
+		CrearCilindroRenderizar();
+
+		model = glm::rotate(tmp, glm::radians(210.0f), glm::vec3(0.0f, 0.0f, 1.0));
+		model = glm::translate(model, glm::vec3(10.0f, 0.0f, 0.0f));
+
+		model = glm::scale(model, glm::vec3(2.0f, 2.0f, 2.0));
+		//myShader2.setMat4("model", model);
+
+		staticShader.setMat4("model", model);
+
+		//myOtherShader->setMat4("model", model);
+		//meshSphere->Draw(*myOtherShader);
+		myShader2.setMat4("model", model);
+		CrearCilindroRenderizar();
+
+		model = glm::rotate(tmp, glm::radians(220.0f), glm::vec3(0.0f, 0.0f, 1.0));
+		model = glm::translate(model, glm::vec3(10.0f, 0.0f, 0.0f));
+
+		model = glm::scale(model, glm::vec3(2.0f, 2.0f, 2.0));
+		//myShader2.setMat4("model", model);
+
+		staticShader.setMat4("model", model);
+
+		//myOtherShader->setMat4("model", model);
+		//meshSphere->Draw(*myOtherShader);
+		myShader2.setMat4("model", model);
+		CrearCilindroRenderizar();
+
+		model = glm::rotate(tmp, glm::radians(230.0f), glm::vec3(0.0f, 0.0f, 1.0));
+		model = glm::translate(model, glm::vec3(10.0f, 0.0f, 0.0f));
+
+		model = glm::scale(model, glm::vec3(2.0f, 2.0f, 2.0));
+		//myShader2.setMat4("model", model);
+
+		staticShader.setMat4("model", model);
+
+		//myOtherShader->setMat4("model", model);
+		//meshSphere->Draw(*myOtherShader);
+		myShader2.setMat4("model", model);
+		CrearCilindroRenderizar();
+
+		model = glm::rotate(tmp, glm::radians(240.0f), glm::vec3(0.0f, 0.0f, 1.0));
+		model = glm::translate(model, glm::vec3(10.0f, 0.0f, 0.0f));
+
+		model = glm::scale(model, glm::vec3(2.0f, 2.0f, 2.0));
+		//myShader2.setMat4("model", model);
+
+		staticShader.setMat4("model", model);
+
+		//myOtherShader->setMat4("model", model);
+		//meshSphere->Draw(*myOtherShader);
+		myShader2.setMat4("model", model);
+		CrearCilindroRenderizar();
+
+		model = glm::rotate(tmp, glm::radians(250.0f), glm::vec3(0.0f, 0.0f, 1.0));
+		model = glm::translate(model, glm::vec3(10.0f, 0.0f, 0.0f));
+
+		model = glm::scale(model, glm::vec3(2.0f, 2.0f, 2.0));
+		//myShader2.setMat4("model", model);
+
+		staticShader.setMat4("model", model);
+
+		//myOtherShader->setMat4("model", model);
+		//meshSphere->Draw(*myOtherShader);
+		myShader2.setMat4("model", model);
+		CrearCilindroRenderizar();
+
+		model = glm::rotate(tmp, glm::radians(260.0f), glm::vec3(0.0f, 0.0f, 1.0));
+		model = glm::translate(model, glm::vec3(10.0f, 0.0f, 0.0f));
+
+		model = glm::scale(model, glm::vec3(2.0f, 2.0f, 2.0));
+		//myShader2.setMat4("model", model);
+
+		staticShader.setMat4("model", model);
+
+		//myOtherShader->setMat4("model", model);
+		//meshSphere->Draw(*myOtherShader);
+		myShader2.setMat4("model", model);
+		CrearCilindroRenderizar();
+
+		model = glm::rotate(tmp, glm::radians(270.0f), glm::vec3(0.0f, 0.0f, 1.0));
+		model = glm::translate(model, glm::vec3(10.0f, 0.0f, 0.0f));
+
+		model = glm::scale(model, glm::vec3(2.0f, 2.0f, 2.0));
+		//myShader2.setMat4("model", model);
+
+		staticShader.setMat4("model", model);
+
+		//myOtherShader->setMat4("model", model);
+		//meshSphere->Draw(*myOtherShader);
+		myShader2.setMat4("model", model);
+		CrearCilindroRenderizar();
+
+		model = glm::rotate(tmp, glm::radians(280.0f), glm::vec3(0.0f, 0.0f, 1.0));
+		model = glm::translate(model, glm::vec3(10.0f, 0.0f, 0.0f));
+
+		model = glm::scale(model, glm::vec3(2.0f, 2.0f, 2.0));
+		//myShader2.setMat4("model", model);
+
+		staticShader.setMat4("model", model);
+
+		//myOtherShader->setMat4("model", model);
+		//meshSphere->Draw(*myOtherShader);
+		myShader2.setMat4("model", model);
+		CrearCilindroRenderizar();
+
+		model = glm::rotate(tmp, glm::radians(290.0f), glm::vec3(0.0f, 0.0f, 1.0));
+		model = glm::translate(model, glm::vec3(10.0f, 0.0f, 0.0f));
+
+		model = glm::scale(model, glm::vec3(2.0f, 2.0f, 2.0));
+		//myShader2.setMat4("model", model);
+
+		staticShader.setMat4("model", model);
+
+		//myOtherShader->setMat4("model", model);
+		//meshSphere->Draw(*myOtherShader);
+		myShader2.setMat4("model", model);
+		CrearCilindroRenderizar();
+
+		model = glm::rotate(tmp, glm::radians(300.0f), glm::vec3(0.0f, 0.0f, 1.0));
+		model = glm::translate(model, glm::vec3(10.0f, 0.0f, 0.0f));
+
+		model = glm::scale(model, glm::vec3(2.0f, 2.0f, 2.0));
+		//myShader2.setMat4("model", model);
+
+		staticShader.setMat4("model", model);
+
+		//myOtherShader->setMat4("model", model);
+		//meshSphere->Draw(*myOtherShader);
+		myShader2.setMat4("model", model);
+		CrearCilindroRenderizar();
+
+		model = glm::rotate(tmp, glm::radians(310.0f), glm::vec3(0.0f, 0.0f, 1.0));
+		model = glm::translate(model, glm::vec3(10.0f, 0.0f, 0.0f));
+
+		model = glm::scale(model, glm::vec3(2.0f, 2.0f, 2.0));
+		//myShader2.setMat4("model", model);
+
+		staticShader.setMat4("model", model);
+
+		//myOtherShader->setMat4("model", model);
+		//meshSphere->Draw(*myOtherShader);
+		myShader2.setMat4("model", model);
+		CrearCilindroRenderizar();
+
+		model = glm::rotate(tmp, glm::radians(320.0f), glm::vec3(0.0f, 0.0f, 1.0));
+		model = glm::translate(model, glm::vec3(10.0f, 0.0f, 0.0f));
+
+		model = glm::scale(model, glm::vec3(2.0f, 2.0f, 2.0));
+		//myShader2.setMat4("model", model);
+
+		staticShader.setMat4("model", model);
+
+		//myOtherShader->setMat4("model", model);
+		//meshSphere->Draw(*myOtherShader);
+		myShader2.setMat4("model", model);
+		CrearCilindroRenderizar();
+
+		model = glm::rotate(tmp, glm::radians(330.0f), glm::vec3(0.0f, 0.0f, 1.0));
+		model = glm::translate(model, glm::vec3(10.0f, 0.0f, 0.0f));
+
+		model = glm::scale(model, glm::vec3(2.0f, 2.0f, 2.0));
+		//myShader2.setMat4("model", model);
+
+		staticShader.setMat4("model", model);
+
+		//myOtherShader->setMat4("model", model);
+		//meshSphere->Draw(*myOtherShader);
+		myShader2.setMat4("model", model);
+		CrearCilindroRenderizar();
+
+
+		model = glm::rotate(tmp, glm::radians(340.0f), glm::vec3(0.0f, 0.0f, 1.0));
+		model = glm::translate(model, glm::vec3(10.0f, 0.0f, 0.0f));
+
+		model = glm::scale(model, glm::vec3(2.0f, 2.0f, 2.0));
+		//myShader2.setMat4("model", model);
+
+		staticShader.setMat4("model", model);
+
+		//myOtherShader->setMat4("model", model);
+		//meshSphere->Draw(*myOtherShader);
+		myShader2.setMat4("model", model);
+		CrearCilindroRenderizar();
+
+		model = glm::rotate(tmp, glm::radians(350.0f), glm::vec3(0.0f, 0.0f, 1.0));
+		model = glm::translate(model, glm::vec3(10.0f, 0.0f, 0.0f));
+
+		model = glm::scale(model, glm::vec3(2.0f, 2.0f, 2.0));
+		//myShader2.setMat4("model", model);
+
+		staticShader.setMat4("model", model);
+
+		//myOtherShader->setMat4("model", model);
+		//meshSphere->Draw(*myOtherShader);
+		myShader2.setMat4("model", model);
+		CrearCilindroRenderizar();
+
+		model = glm::rotate(tmp, glm::radians(360.0f), glm::vec3(0.0f, 0.0f, 1.0));
+		model = glm::translate(model, glm::vec3(10.0f, 0.0f, 0.0f));
+
+		model = glm::scale(model, glm::vec3(2.0f, 2.0f, 2.0));
+		//myShader2.setMat4("model", model);
+
+		staticShader.setMat4("model", model);
+
+		//myOtherShader->setMat4("model", model);
+		//meshSphere->Draw(*myOtherShader);
+		myShader2.setMat4("model", model);
+		CrearCilindroRenderizar();
+
+
+
+		// -------------------------------------------------------------------------------------------------------------------------
+		// TETERA CON TOROIDE
+		// -------------------------------------------------------------------------------------------------------------------------
+
+		staticShader.use();
+
+		tmp = model = glm::translate(glm::mat4(1.0f), glm::vec3(15.0f, 2.0f, 20.0f));
+		//model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(0.5f, 0.5f, 0.5f));
+		staticShader.setMat4("model", model);
+
+		CrearTeteraRenderizar();
+
+
+		model = glm::translate(model, glm::vec3(5.0f, 6.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 0.0f, 1.0));
+		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(1.0f, 0.0f, 0.0));
+		model = glm::rotate(model, glm::radians(30.0f), glm::vec3(0.0f, 1.0f, 0.0));
+		//model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(1.0f, 1.0f, 1.0f));
+		staticShader.setMat4("model", model);
+
+		CrearAsaTeteraRenderizar();
+
+		model = glm::translate(model, glm::vec3(6.0f, 0.0f, -8.0f));
+		model = glm::rotate(model, glm::radians(145.0f), glm::vec3(0.0f, 1.0f, 0.0));
+		//model = glm::rotate(model, glm::radians(90.0f), glm::vec3(1.0f, 0.0f, 0.0));
+		//model = glm::rotate(model, glm::radians(30.0f), glm::vec3(0.0f, 1.0f, 0.0));
+		//model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(0.7f, 0.7f, 0.7f));
+		staticShader.setMat4("model", model);
+
+		CrearBoquillaTeteraRenderizar();
+
 
 
 		// -------------------------------------------------------------------------------------------------------------------------
