@@ -56,8 +56,8 @@ float theta = 0.0f;
 float alpha = 0.0f;
 
 //GLuint VAO, VBO, IBO;
-GLuint VAO[10], VBO[10], IBO[10];
-GLuint indexCount[10];
+GLuint VAO[20], VBO[20], IBO[20];
+GLuint indexCount[20];
 //GLuint indexCount[6];
 
 typedef struct _VertexColor {
@@ -628,6 +628,88 @@ void CrearConoRenderizar() {
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 	glBindVertexArray(0);
 }
+
+void CrearTorus(float R, float r, int nR, int nr)
+{
+
+	vector <float> vertices;
+	vector<unsigned int> indices;
+
+	int i = 0.0f, j = 0.0f, k = 0.0f;
+	int _nR = 0, _nr = 0;
+	float _R = R, _r = r;
+	_nR = nR;
+	_nr = nr;
+
+	float v = 0.0f;
+	float du = (2 * PI * _R) / _nR;
+	float dv = (2 * PI * _r) / _nr;
+	float u = 0.0f;
+
+	float uu = 0.0f;
+	float x = 0.0f, y = 0.0f, z = 0.0f;
+
+	for (j = 0; j <= _nR; j++)
+	{
+		for (i = 0; i <= _nr; i++)
+		{
+			x = (_R + _r * cos(v)) * cos(u);
+			y = _r * sin(v);
+			z = (_R + _r * cos(v)) * sin(u);;
+
+			// agrega vertice 
+			vertices.push_back(x);
+			vertices.push_back(y);
+			vertices.push_back(z);
+			v += dv;
+		}
+		u += du;
+	}
+
+	//generacion de indices
+
+	for (i = 0; i < _nR * _nr; i++)
+	{
+		indices.push_back(i);
+		indices.push_back(i + 12);
+		indices.push_back(i + 1);
+		indices.push_back(i + 12);
+		indices.push_back(i + 13);
+		indices.push_back(i + 1);
+	}
+
+	indexCount[6] = indices.size();
+	glGenVertexArrays(1, &VAO[6]); //generar 1 VAO
+	glBindVertexArray(VAO[6]);//asignar VAO
+
+	glGenBuffers(1, &IBO[6]);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IBO[6]);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices[0]) * indices.size(), indices.data(), GL_STATIC_DRAW);
+
+	glGenBuffers(1, &VBO[6]);
+	glBindBuffer(GL_ARRAY_BUFFER, VBO[6]);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices[0]) * vertices.size(), vertices.data(), GL_STATIC_DRAW); //pasarle los datos al VBO asignando tamaño, los datos y en este caso es estático pues no se modificarán los valores
+
+	//glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE,sizeof(vertices[0]*3), 0);//Stride en caso de haber datos de color por ejemplo, es saltar cierta cantidad de datos
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, 0);
+	glEnableVertexAttribArray(0);
+	//glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, sizeof(vertices[0] * 6), (void*)(sizeof(vertices[0]) * 3));
+	//glEnableVertexAttribArray(1);
+	glBindBuffer(GL_ARRAY_BUFFER, 0);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+	glBindVertexArray(0);
+}
+
+void CrearTorusRenderizar()
+{
+	glBindVertexArray(VAO[6]);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IBO[6]);
+	glDrawElements(GL_TRIANGLES, indexCount[6], GL_UNSIGNED_INT, 0);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+	glBindVertexArray(0);
+}
+
+
 
 
 // camera
@@ -1253,7 +1335,7 @@ int main() {
 	my3Shader = new Shader1("shaders/02-simplePVM.vs", "shaders/02-simplePVM.fs");
 	Shader1* myOtherShader;
 	myOtherShader = new Shader1("shaders/02-simplePVM.vs", "shaders/02-simplePVM.fs");
-
+	Shader myShader2("Shaders/shaders_Textura/shader_texture_color.vs", "Shaders/shaders_Textura/shader_texture_color.fs");
 
 	vector<std::string> faces
 	{
@@ -1414,6 +1496,7 @@ int main() {
 	CrearSphere(1.0, 40, 40);
 	LoadTextures();
 	myData();
+	CrearTorus(8.0f, 1.0f, 200, 12);
 	
 	// draw in wireframe
 	//glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
@@ -2137,7 +2220,16 @@ int main() {
 		staticShader.setMat4("model", model);
 		CrearConoRenderizar();
 
-
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(0, 0, 0));
+		model = glm::translate(model, glm::vec3(70.0f, 20.0f, 42.0f));
+		model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0));
+		//la posición de la luz debe estar x constante, Y+2 y z+1
+		staticShader.setVec3("pointLight[0].position", glm::vec3(10, -3, 21));
+		staticShader.setVec3("pointLight[0].ambient", glm::vec3(0.0f, 0.0f, 1.0f));
+		model = glm::scale(model, glm::vec3(1.05f, 1.0f, 1.05f));
+		model = glm::scale(model, glm::vec3(1.0f));
+		myShader2.setMat4("model", model);
+		CrearTorusRenderizar();
 	
 
 		// -------------------------------------------------------------------------------------------------------------------------
@@ -2811,9 +2903,6 @@ int main() {
 
 
 
-
-
-
 		// -------------------------------------------------------------------------------------------------------------------------
 		// CUBO TEXTURIZADO
 		// -------------------------------------------------------------------------------------------------------------------------
@@ -2916,27 +3005,6 @@ int main() {
 		zuneshaFBX.Draw(fbxShader);
 
 
-		//LUNA
-		lunaShader.use();
-		lunaShader.setMat4("projection", projection);
-		lunaShader.setMat4("view", view);
-
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 1800.0f, 0.0f));
-		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
-		model = glm::scale(model, glm::vec3(700.0f));
-		fbxShader.setMat4("model", model);
-		moonFBX.Draw(fbxShader);
-
-		lunaShader.setMat4("model", model);
-
-		lunaShader.setFloat("time", proceduralTime2);
-		lunaShader.setFloat("radius", 50.0f);
-		lunaShader.setFloat("height", 10.0f);
-
-		moonFBX.Draw(lunaShader);
-		proceduralTime2 += 0.01;
-		staticShader.use();
-
 		//OLA con animación procedural
 		// Activamos el shader de Phong
 		wavesShader.use();
@@ -2970,6 +3038,30 @@ int main() {
 
 		staticShader.use();
 		
+
+		//LUNA
+		lunaShader.use();
+		lunaShader.setMat4("projection", projection);
+		lunaShader.setMat4("view", view);
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 1800.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(700.0f));
+		fbxShader.setMat4("model", model);
+		moonFBX.Draw(fbxShader);
+
+		lunaShader.setMat4("model", model);
+
+		lunaShader.setFloat("time", proceduralTime2);
+		lunaShader.setFloat("radius", 50.0f);
+		lunaShader.setFloat("height", 10.0f);
+
+		moonFBX.Draw(lunaShader);
+		proceduralTime2 += 0.02;
+		staticShader.use();
+
+
+
 
 		
 		// -------------------------------------------------------------------------------------------------------------------------
