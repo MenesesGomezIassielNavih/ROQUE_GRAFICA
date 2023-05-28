@@ -5215,8 +5215,257 @@ int main() {
 
 
 		// ------------------------------------------------------------------------------------------------------------------------ -
-		// PINGUINO
+		// PINGUINO AVATAR
 		// -------------------------------------------------------------------------------------------------------------------------
+
+
+		// ------------------------------------------------------------------------------------------------------------------------ -
+		// PINGUINO AVATAR
+		// -------------------------------------------------------------------------------------------------------------------------
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(0, 0, 0));
+		model = glm::translate(model, glm::vec3(12.0f, 10.0f, 1000.0f));// es el único traslación pa mover
+		model = glm::rotate(model, glm::radians(-30.0f), glm::vec3(0.0f, 0.0f, 1.0f));
+		staticShader.setVec3("pointLight[0].ambient", glm::vec3(0.0f, 0.0f, 0.0f)); // color
+		staticShader.setVec3("pointLight[0].diffuse", glm::vec3(0.0f, 0.0f, 1.0f));
+		staticShader.setVec3("pointLight[0].specular", glm::vec3(0.0f, 0.0f, 1.0f));
+		model = glm::scale(model, glm::vec3(6.0f, 1.0f, 3.0f)); //escala
+		staticShader.use();
+		staticShader.setMat4("projection", projection);
+		staticShader.setMat4("view", view);
+		staticShader.setMat4("model", model);
+		
+		CrearCilindroRenderizar();// brazo derecho
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(0, 0, 0));
+		model = glm::translate(model, glm::vec3(-12.0f, 10.0f, 1000.0f));// es el único traslación pa mover
+		model = glm::rotate(model, glm::radians(30.0f), glm::vec3(0.0f, 0.0f, 1.0f));
+		staticShader.setVec3("pointLight[0].ambient", glm::vec3(0.0f, 0.0f, 0.0f)); // color
+		staticShader.setVec3("pointLight[0].diffuse", glm::vec3(0.0f, 0.0f, 1.0f));
+		staticShader.setVec3("pointLight[0].specular", glm::vec3(0.0f, 0.0f, 1.0f));
+		model = glm::scale(model, glm::vec3(6.0f, 1.0f, 3.0f)); //escala
+		staticShader.use();
+		staticShader.setMat4("projection", projection);
+		staticShader.setMat4("view", view);
+		staticShader.setMat4("model", model);
+		
+		CrearCilindroRenderizar();// brazo izquierdo
+		
+
+		//pico
+		model = glm::translate(model, glm::vec3(-8.0f, 0.0f, 0.0f));
+		//la posición de la luz debe estar x constante, Y+2 y z+1
+		staticShader.setVec3("pointLight[0].position", glm::vec3(-8, 2, 1));
+		staticShader.setVec3("pointLight[0].ambient", glm::vec3(1.0f, 0.5f, 0.0f));  // Ambiente naranja
+		//staticShader.setVec3("pointLight[0].diffuse", glm::vec3(1.0f, 0.5f, 0.0f));  // Difuso naranja
+		//staticShader.setVec3("pointLight[0].specular", glm::vec3(1.0f, 0.5f, 0.0f));  // Especular naranja
+		staticShader.setFloat("pointLight[0].constant", 0.08f);
+		staticShader.setFloat("pointLight[0].linear", 0.009f);
+		staticShader.setFloat("pointLight[0].quadratic", 0.0000032f); //más 0 es más brillante menos 0 menos brillante
+		staticShader.setFloat("material_shininess", 0.6f);
+		//model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0));
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(0, 0, 0));
+		model = glm::translate(model, glm::vec3(0.0f, 18.0f, 991.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0));
+		model = glm::scale(model, glm::vec3(4.0f, 4.0f, 2.0f));
+		staticShader.setMat4("model", model);
+		CrearPiramideCuadrangularRenderizar();
+
+		//Esfera blanca cuerpo barriga
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(0, 0, 0));
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(0.01f));
+		staticShader.setMat4("model", model);
+		//En esta parte escoges el color que vas a seleccionar para la esfera
+		//azul.Draw(staticShader);
+		blanco.Draw(staticShader);
+		//gris.Draw(staticShader);
+		//naranja.Draw(staticShader);
+		//negro.Draw(staticShader);
+		//rojo.Draw(staticShader);
+		//rosa.Draw(staticShader);
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(0, 0, 0));
+		model = glm::translate(model, glm::vec3(0.0f, 10.0f, 995.0f));
+		model = glm::scale(model, glm::vec3(7.0f));
+		//model = glm::scale(model, glm::vec3(1.0f, 1.0f, 1.0f));
+		staticShader.setMat4("model", model);
+		CrearSphereRenderizar();//sefera del cuerpo barriga
+
+		//Esfera Negra cuerpo
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(0, 0, 0));
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(0.01f));
+		staticShader.setMat4("model", model);
+		//En esta parte escoges el color que vas a seleccionar para la esfera
+		//azul.Draw(staticShader);
+		//blanco.Draw(staticShader);
+		//gris.Draw(staticShader);
+		//naranja.Draw(staticShader);
+		negro.Draw(staticShader);
+		//rojo.Draw(staticShader);
+		//rosa.Draw(staticShader);
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(0, 0, 0));
+		model = glm::translate(model, glm::vec3(0.0f, 9.0f, 1000.0f));
+		model = glm::scale(model, glm::vec3(10.0f));
+		//model = glm::scale(model, glm::vec3(1.0f, 1.0f, 1.0f));
+		staticShader.setMat4("model", model);
+		CrearSphereRenderizar();//sefera del cuerpo
+
+		//Esfera negra cabeza
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(0, 0, 0));
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(0.01f));
+		staticShader.setMat4("model", model);
+		//En esta parte escoges el color que vas a seleccionar para la esfera
+		//azul.Draw(staticShader);
+		//blanco.Draw(staticShader);
+		//gris.Draw(staticShader);
+		//naranja.Draw(staticShader);
+		negro.Draw(staticShader);
+		//rojo.Draw(staticShader);
+		//rosa.Draw(staticShader);
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(0, 0, 0));
+		model = glm::translate(model, glm::vec3(0.0f, 15.0f, 1000.0f));
+		model = glm::scale(model, glm::vec3(7.5f));
+		//model = glm::scale(model, glm::vec3(1.0f, 1.0f, 1.0f));
+		staticShader.setMat4("model", model);
+		CrearSphereRenderizar();//dibuja cabeza
+
+		//Esfera cabeza ojo
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(0, 0, 0));
+		model = glm::translate(glm::mat4(1.5f), glm::vec3(0.0f, 0.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(0.01f));
+		staticShader.setMat4("model", model);
+		//En esta parte escoges el color que vas a seleccionar para la esfera
+		//azul.Draw(staticShader);
+		blanco.Draw(staticShader);
+		//gris.Draw(staticShader);
+		//naranja.Draw(staticShader);
+		//negro.Draw(staticShader);
+		//rojo.Draw(staticShader);
+		//rosa.Draw(staticShader);
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(0, 0, 0));
+		model = glm::translate(model, glm::vec3(-2.0f, 20.0f, 993.0f));
+		model = glm::scale(model, glm::vec3(1.5f));
+		//model = glm::scale(model, glm::vec3(1.0f, 1.0f, 1.0f));
+		staticShader.setMat4("model", model);
+		CrearSphereRenderizar();//dibuja ojo derecho
+
+		//Esfera cabeza pupila ojo
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(0, 0, 0));
+		model = glm::translate(glm::mat4(1.5f), glm::vec3(0.0f, 0.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(0.01f));
+		staticShader.setMat4("model", model);
+		//En esta parte escoges el color que vas a seleccionar para la esfera
+		//azul.Draw(staticShader);
+		//blanco.Draw(staticShader);
+		//gris.Draw(staticShader);
+		//naranja.Draw(staticShader);
+		negro.Draw(staticShader);
+		//rojo.Draw(staticShader);
+		//rosa.Draw(staticShader);
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(0, 0, 0));
+		model = glm::translate(model, glm::vec3(-2.0f, 20.0f, 992.0f));
+		model = glm::scale(model, glm::vec3(0.8f));
+		//model = glm::scale(model, glm::vec3(1.0f, 1.0f, 1.0f));
+		staticShader.setMat4("model", model);
+		CrearSphereRenderizar();//dibuja pupila ojo derecho
+
+		//Esfera cabeza ojo
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(0, 0, 0));
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(0.01f));
+		staticShader.setMat4("model", model);
+		//En esta parte escoges el color que vas a seleccionar para la esfera
+		//azul.Draw(staticShader);
+		blanco.Draw(staticShader);
+		//gris.Draw(staticShader);
+		//naranja.Draw(staticShader);
+		//negro.Draw(staticShader);
+		//rojo.Draw(staticShader);
+		//rosa.Draw(staticShader);
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(0, 0, 0));
+		model = glm::translate(model, glm::vec3(2.0f, 20.0f, 993.0f));
+		model = glm::scale(model, glm::vec3(2.0f));
+		//model = glm::scale(model, glm::vec3(1.0f, 1.0f, 1.0f));
+		staticShader.setMat4("model", model);
+		CrearSphereRenderizar();//dibuja cabeza ojo izquierdo
+
+		//Esfera cabeza pupila ojo
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(0, 0, 0));
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(0.01f));
+		staticShader.setMat4("model", model);
+		//En esta parte escoges el color que vas a seleccionar para la esfera
+		//azul.Draw(staticShader);
+		//blanco.Draw(staticShader);
+		//gris.Draw(staticShader);
+		//naranja.Draw(staticShader);
+		negro.Draw(staticShader);
+		//rojo.Draw(staticShader);
+		//rosa.Draw(staticShader);
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(0, 0, 0));
+		model = glm::translate(model, glm::vec3(2.0f, 20.0f, 991.0f));
+		model = glm::scale(model, glm::vec3(0.8f));
+		//model = glm::scale(model, glm::vec3(1.0f, 1.0f, 1.0f));
+		staticShader.setMat4("model", model);
+		CrearSphereRenderizar();//dibuja cabeza pupila ojo izquierdo
+
+
+		//Esfera pata naranja
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(0, 0, 0));
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(0.01f));
+		staticShader.setMat4("model", model);
+		//En esta parte escoges el color que vas a seleccionar para la esfera
+		//azul.Draw(staticShader);
+		//blanco.Draw(staticShader);
+		//gris.Draw(staticShader);
+		naranja.Draw(staticShader);
+		//negro.Draw(staticShader);
+		//rojo.Draw(staticShader);
+		//rosa.Draw(staticShader);
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(0, 0, 0));
+		model = glm::translate(model, glm::vec3(3.0f, 1.0f, 1000.0f));
+		model = glm::scale(model, glm::vec3(3.0f));
+		//model = glm::scale(model, glm::vec3(1.0f, 1.0f, 1.0f));
+		staticShader.setMat4("model", model);
+		CrearSphereRenderizar();//dibuja pata derecha
+
+		//Esfera pata naranja
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(0, 0, 0));
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(0.01f));
+		staticShader.setMat4("model", model);
+		//En esta parte escoges el color que vas a seleccionar para la esfera
+		//azul.Draw(staticShader);
+		//blanco.Draw(staticShader);
+		//gris.Draw(staticShader);
+		naranja.Draw(staticShader);
+		//negro.Draw(staticShader);
+		//rojo.Draw(staticShader);
+		//rosa.Draw(staticShader);
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(0, 0, 0));
+		model = glm::translate(model, glm::vec3(-3.0f, 1.0f, 1000.0f));
+		model = glm::scale(model, glm::vec3(3.0f));
+		//model = glm::scale(model, glm::vec3(1.0f, 1.0f, 1.0f));
+		staticShader.setMat4("model", model);
+		CrearSphereRenderizar();//dibuja pata izquierda
+//acaba pinguino
+
+
+
+
+
 
 		//Esfera Negra
 		model = glm::translate(glm::mat4(1.0f), glm::vec3(0, 0, 0));
