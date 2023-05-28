@@ -1137,6 +1137,15 @@ glm::vec3 pez021(0.0f, -1.0f, -1.0f);
 glm::vec3 tfish1(0.0f, -1.0f, -1.0f);
 glm::vec3 tfish31(0.0f, -1.0f, -1.0f);
 
+glm::vec3 tshark(0.0f, -1.0f, -1.0f);
+glm::vec3 tshark01(0.0f, -1.0f, -1.0f);
+glm::vec3 tshark02(0.0f, -1.0f, -1.0f);
+glm::vec3 tshark03(0.0f, -1.0f, -1.0f);
+glm::vec3 tmedusa(0.0f, -1.0f, -1.0f);
+glm::vec3 tmedusa02(0.0f, -1.0f, -1.0f);
+glm::vec3 tmedusa03(0.0f, -1.0f, -1.0f);
+glm::vec3 tmedusa04(0.0f, -1.0f, -1.0f);
+
 
 
 // posiciones
@@ -1193,6 +1202,39 @@ rotfish3 = 0.0f,
 rotfish31 = 0.0f;
 
 float
+//Medusa
+posXmedusa = 0.0f,
+
+//Tiburon
+posXshark = 0.0f,
+posXshark01 = 0.0f,
+posXshark02 = 0.0f,
+posXshark03 = 0.0f,
+rotshark = 0.0f,
+rotshark01 = 0.0f,
+rotshark02 = 0.0f,
+rotshark03 = 0.0f,
+movColaShark = 0.0f,
+movAletasShark = 0.0f,
+movBocaShark = 0.0f;
+
+float
+// Pinguino
+posXPin = 0.0f,
+posZPin = 0.0f,
+rotPin = 0.0f,
+rotPatasPin = 0.0f,
+movCabezaPin = 0.0f,
+
+posXGirl = 0.0f,
+posZGirl= 0.0f,
+movBrazoDerGirl = 0.0f,
+movBrazoIzqGirl = 0.0f,
+rotPiernaDerGirl = 0.0f,
+rotPiernaIzqGirl = 0.0f,
+rotCabezaGirl = 0.0f;
+
+float
 
 // Variables proyecto
 
@@ -1211,16 +1253,6 @@ posXfish3Inc = 0.0f,
 rotfish3Inc = 0.0f;
 
 /*
-float
-
-posXsharkInc = 0.0f,
-rotsharkInc = 0.0f,
-movColaSharkInc = 0.0f,
-movAletasSharkInc = 0.0f,
-movBocaSharkInc = 0.0f,
-
-posXmedusaInc = 0.0f,
-
 posXniñaInc = 0.0f,
 posZniñaInc = 0.0f,
 movBrazoDerNiñaInc = 0.0f,
@@ -1519,7 +1551,7 @@ void animate(void)
 
 	rotfish31 += 0.29;
 
-	/*
+	
 	////////////////////////////////////////////
 
 	tshark.x = 250.0f * cos(posXshark);
@@ -1552,6 +1584,8 @@ void animate(void)
 	posXshark03 += 0.005f;
 
 	rotshark03 += 0.29;
+
+	
 	////////////////////////////////////////////
 
 	tmedusa.x = 70.0f * cos(posXmedusa);
@@ -1575,7 +1609,9 @@ void animate(void)
 	tmedusa04.x = 70.0f * cos(posXmedusa);
 	tmedusa04.z = 70.0f * sin(posXmedusa);
 	tmedusa04.y = 30.0f * sin(5 * posXmedusa);
-	posXmedusa += 0.002f;*/
+	posXmedusa += 0.002f;
+
+
 
 
 	if (play)
@@ -1781,6 +1817,47 @@ int main() {
 	Model pez2("resources/objects/Peses/pez2.obj");
 	Model pez3("resources/objects/Peses/Pez3/13009_Coral_Beauty_Angelfish_v1_l3.obj");
 	Model pezGris("resources/objects/ModeloPez/fish.obj");
+
+	Model medusa("resources/objects/Medusa/medusa.obj");
+
+	//Tiburon
+	Model AletaDerTiburon("resources/objects/shark/AletaDerTiburon.obj");
+	Model AletaIzqTiburon("resources/objects/shark/AletaIzqTiburon.obj");
+	Model BocaTiburon("resources/objects/shark/BocaTiburon.obj");
+	Model ColaTiburon("resources/objects/shark/ColaTiburon.obj");
+	Model CuerpoDelTiburon("resources/objects/shark/CuerpoDelTiburon.obj");
+	Model CuerpoPrinTiburon("resources/objects/shark/CuerpoPrinTiburon.obj");
+
+	//Pinguino
+
+	Model CabezaPin("resources/objects/Pinguino/CabezaPinguino.obj");
+	Model CuerpoPin("resources/objects/Pinguino/PinguinoCuerpo.obj");
+	Model TorsoPin("resources/objects/Pinguino/TorsoPinguino.obj");
+	Model patasPin("resources/objects/Pinguino/PinguinoPatas.obj");
+	
+	
+	//Persona 11 (niña)
+
+	Model CabezaGirl("resources/objects/Personas/Persona111/Cabeza/Cabeza.obj");
+	Model GirlBrazoDer("resources/objects/Personas/Persona111/Brazo_derecho/BrazoDerecho.obj");
+	Model GirlBrazoIzq("resources/objects/Personas/Persona111/Brazo_izquierdo/BrazoIzquierdo.obj");
+	Model GirlPiernaDer("resources/objects/Personas/Persona111/Pierna_derecha/PiernaDerecha.obj");
+	Model GirlPiernaIzq("resources/objects/Personas/Persona111/Pierna_izquierda/PiernaIzquierda.obj");
+	Model Torso("resources/objects/Personas/Persona111/Torso/Torso.obj");
+	Model GirlTorso("resources/objects/Personas/Persona111/Torso_cabeza/TorsoCabeza.obj");
+
+	//PERSONAS
+
+	Model persona1("resources/objects/Personas/Persona1/Persona1.obj");
+	Model persona2("resources/objects/Personas/Persona2/12-1.obj");
+	Model persona3("resources/objects/Personas/Persona3/12-2.obj");
+	Model persona4("resources/objects/Personas/Persona4/12-3.obj");
+	Model persona5("resources/objects/Personas/Persona5/12-4.obj");
+	Model persona6("resources/objects/Personas/Persona6/12-5.obj");
+	Model persona7("resources/objects/Personas/Persona7/12-6.obj");
+	Model persona8("resources/objects/Personas/Persona8/12-7.obj");
+	Model persona9("resources/objects/Personas/Persona9/Persona9.obj");
+
 
 	// load models
 	// -----------
@@ -2025,9 +2102,11 @@ int main() {
 		staticShader.setMat4("view", view);
 
 
+		
+		//-----------------piso----------------------------
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(0.0f, -1.75f, 0.0f));
-		model = glm::scale(model, glm::vec3(0.5f));
+		model = glm::scale(model, glm::vec3(0.65f, 0.0f, 0.40f));
 		staticShader.setMat4("model", model);
 		piso.Draw(staticShader);
 
@@ -2068,6 +2147,50 @@ int main() {
 		model = glm::scale(model, glm::vec3(135.0f, 15.0f, 140.0f));
 		staticShader.setMat4("model", model);
 		pecera3.Draw(staticShader);
+
+		// ANIMACION NIÑA
+		
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-75.0f, 0.0f, 720.0f));
+		model = glm::translate(model, glm::vec3(posXGirl, 0, posZGirl));
+		tmp = model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0));
+		model = glm::rotate(model, glm::radians(rotCabezaGirl), glm::vec3(0.0f, 1.0f, 0.0));
+		model = glm::scale(model, glm::vec3(0.6f, 0.6f, 0.6f));
+		staticShader.setMat4("model", model);
+		CabezaGirl.Draw(staticShader);
+
+
+		model = glm::translate(tmp, glm::vec3(1.0f, 2.1f, 0.0f));
+		model = glm::rotate(model, glm::radians(movBrazoDerGirl), glm::vec3(0.0f, 1.0f, 0.0));
+		model = glm::scale(model, glm::vec3(0.6f, 0.6f, 0.6f));
+		staticShader.setMat4("model", model);
+		GirlBrazoDer.Draw(staticShader);
+
+
+		model = glm::translate(tmp, glm::vec3(-1.0f, 2.1f, 0.0f));
+		model = glm::rotate(model, glm::radians(movBrazoIzqGirl), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(0.6f, 0.6f, 0.6f));
+		staticShader.setMat4("model", model);
+		GirlBrazoIzq.Draw(staticShader);
+
+
+		model = glm::translate(tmp, glm::vec3(0.0f, 2.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(0.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(0.6f, 0.6f, 0.6f));
+		staticShader.setMat4("model", model);
+		Torso.Draw(staticShader);
+
+		model = glm::translate(tmp, glm::vec3(0.0f, 2.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(rotPiernaDerGirl), glm::vec3(1.0f, 0.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(0.6f, 0.6f, 0.6f));
+		staticShader.setMat4("model", model);
+		GirlPiernaDer.Draw(staticShader);
+
+
+		model = glm::translate(tmp, glm::vec3(0.0f, 2.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(rotPiernaIzqGirl), glm::vec3(1.0f, 0.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(0.6f, 0.6f, 0.6f));
+		staticShader.setMat4("model", model);
+		GirlPiernaIzq.Draw(staticShader);
 
 		// PRIMERA ANIMACION PEZ
 
@@ -2204,7 +2327,6 @@ int main() {
 		model = glm::scale(model, glm::vec3(9.0f, 9.0f, 13.0f));
 		staticShader.setMat4("model", model);
 		colafish.Draw(staticShader);
-
 
 
 
@@ -2459,6 +2581,1414 @@ int main() {
 		model = glm::scale(model, glm::vec3(30.0f, 30.0f, 30.0f));
 		staticShader.setMat4("model", model);
 		pez3.Draw(staticShader);
+
+		
+		// Personas Pecera peces
+
+
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(-540.0f, 0.0f, 760.0f));
+		model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0));
+		model = glm::scale(model, glm::vec3(0.6f, 0.6f, 0.6f));
+		staticShader.setMat4("model", model);
+		persona1.Draw(staticShader);
+
+
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(-540.0f, 0.0f, 660.0f));
+		model = glm::rotate(model, glm::radians(-45.0f), glm::vec3(0.0f, 1.0f, 0.0));
+		model = glm::scale(model, glm::vec3(0.6f, 0.6f, 0.6f));
+		staticShader.setMat4("model", model);
+		persona2.Draw(staticShader);
+
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(-540.0f, 0.0f, 560.0f));
+		model = glm::rotate(model, glm::radians(-45.0f), glm::vec3(0.0f, 1.0f, 0.0));
+		model = glm::scale(model, glm::vec3(0.6f, 0.6f, 0.6f));
+		staticShader.setMat4("model", model);
+		persona3.Draw(staticShader);
+
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(-540.0f, 0.0f, 460.0f));
+		model = glm::rotate(model, glm::radians(-45.0f), glm::vec3(0.0f, 1.0f, 0.0));
+		model = glm::scale(model, glm::vec3(0.6f, 0.6f, 0.6f));
+		staticShader.setMat4("model", model);
+		persona4.Draw(staticShader);
+
+
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(-540.0f, 0.0f, 360.0f));
+		model = glm::rotate(model, glm::radians(-45.0f), glm::vec3(0.0f, 1.0f, 0.0));
+		model = glm::scale(model, glm::vec3(0.6f, 0.6f, 0.6f));
+		staticShader.setMat4("model", model);
+		persona5.Draw(staticShader);
+
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(-540.0f, 0.0f, 260.0f));
+		model = glm::rotate(model, glm::radians(-45.0f), glm::vec3(0.0f, 1.0f, 0.0));
+		model = glm::scale(model, glm::vec3(0.6f, 0.6f, 0.6f));
+		staticShader.setMat4("model", model);
+		persona3.Draw(staticShader);
+
+		// HORIZONTAL
+
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(-1400.0f, 0.0f, 150.0f));
+		model = glm::scale(model, glm::vec3(0.6f, 0.6f, 0.6f));
+		staticShader.setMat4("model", model);
+		persona4.Draw(staticShader);
+
+
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(-1300.0f, 0.0f, 150.0f));
+		model = glm::scale(model, glm::vec3(0.6f, 0.6f, 0.6f));
+		staticShader.setMat4("model", model);
+		persona5.Draw(staticShader);
+
+
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(-1200.0f, 0.0f, 150.0f));
+		model = glm::scale(model, glm::vec3(0.6f, 0.6f, 0.6f));
+		staticShader.setMat4("model", model);
+		persona6.Draw(staticShader);
+
+
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(-1100.0f, 0.0f, 150.0f));
+		model = glm::scale(model, glm::vec3(0.6f, 0.6f, 0.6f));
+		staticShader.setMat4("model", model);
+		persona7.Draw(staticShader);
+
+
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(-1000.0f, 0.0f, 150.0f));
+		model = glm::scale(model, glm::vec3(0.6f, 0.6f, 0.6f));
+		staticShader.setMat4("model", model);
+		persona8.Draw(staticShader);
+
+
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(-900.0f, 0.0f, 150.0f));
+		model = glm::rotate(model, glm::radians(-45.0f), glm::vec3(0.0f, 1.0f, 0.0));
+		model = glm::scale(model, glm::vec3(0.6f, 0.6f, 0.6f));
+		staticShader.setMat4("model", model);
+		persona1.Draw(staticShader);
+
+
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(-800.0f, 0.0f, 150.0f));
+		model = glm::scale(model, glm::vec3(0.6f, 0.6f, 0.6f));
+		staticShader.setMat4("model", model);
+		persona2.Draw(staticShader);
+
+
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(-700.0f, 0.0f, 150.0f));
+		model = glm::scale(model, glm::vec3(0.6f, 0.6f, 0.6f));
+		staticShader.setMat4("model", model);
+		persona7.Draw(staticShader);
+
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(-600.0f, 0.0f, 150.0f));
+		model = glm::rotate(model, glm::radians(-45.0f), glm::vec3(0.0f, 1.0f, 0.0));
+		model = glm::scale(model, glm::vec3(0.6f, 0.6f, 0.6f));
+		staticShader.setMat4("model", model);
+		persona5.Draw(staticShader);
+
+
+
+
+		// Personas Pecera Pinguinos
+
+
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(-540.0f, 0.0f, -200.0f));
+		model = glm::rotate(model, glm::radians(-45.0f), glm::vec3(0.0f, 1.0f, 0.0));
+		model = glm::scale(model, glm::vec3(0.6f, 0.6f, 0.6f));
+		staticShader.setMat4("model", model);
+		persona4.Draw(staticShader);
+
+
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(-540.0f, 0.0f, -300.0f));
+		model = glm::rotate(model, glm::radians(-45.0f), glm::vec3(0.0f, 1.0f, 0.0));
+		model = glm::scale(model, glm::vec3(0.6f, 0.6f, 0.6f));
+		staticShader.setMat4("model", model);
+		persona5.Draw(staticShader);
+
+
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(-540.0f, 0.0f, -400.0f));
+		model = glm::rotate(model, glm::radians(-45.0f), glm::vec3(0.0f, 1.0f, 0.0));
+		model = glm::scale(model, glm::vec3(0.6f, 0.6f, 0.6f));
+		staticShader.setMat4("model", model);
+		persona6.Draw(staticShader);
+
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(-540.0f, 0.0f, -500.0f));
+		model = glm::rotate(model, glm::radians(-45.0f), glm::vec3(0.0f, 1.0f, 0.0));
+		model = glm::scale(model, glm::vec3(0.6f, 0.6f, 0.6f));
+		staticShader.setMat4("model", model);
+		persona7.Draw(staticShader);
+
+
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(-540.0f, 0.0f, -600.0f));
+		model = glm::rotate(model, glm::radians(-45.0f), glm::vec3(0.0f, 1.0f, 0.0));
+		model = glm::scale(model, glm::vec3(0.6f, 0.6f, 0.6f));
+		staticShader.setMat4("model", model);
+		persona8.Draw(staticShader);
+
+
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(-540.0f, 0.0f, -700.0f));
+		model = glm::rotate(model, glm::radians(-65.0f), glm::vec3(0.0f, 1.0f, 0.0));
+		model = glm::scale(model, glm::vec3(0.065f, 0.065f, 0.065f));
+		staticShader.setMat4("model", model);
+		persona9.Draw(staticShader);
+
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(-540.0f, 0.0f, -800.0f));
+		model = glm::rotate(model, glm::radians(-45.0f), glm::vec3(0.0f, 1.0f, 0.0));
+		model = glm::scale(model, glm::vec3(0.6f, 0.6f, 0.6f));
+		staticShader.setMat4("model", model);
+		persona6.Draw(staticShader);
+
+		//Horizontal
+
+
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(-1400.0f, 0.0f, -50.0f));
+		model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0));
+		model = glm::scale(model, glm::vec3(0.6f, 0.6f, 0.6f));
+		staticShader.setMat4("model", model);
+		persona2.Draw(staticShader);
+
+
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(-1300.0f, 0.0f, -50.0f));
+		model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0));
+		model = glm::scale(model, glm::vec3(0.6f, 0.6f, 0.6f));
+		staticShader.setMat4("model", model);
+		persona7.Draw(staticShader);
+
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(-1200.0f, 0.0f, -50.0f));
+		model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0));
+		model = glm::scale(model, glm::vec3(0.6f, 0.6f, 0.6f));
+		staticShader.setMat4("model", model);
+		persona5.Draw(staticShader);
+
+
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(-1100.0f, 0.0f, -50.0f));
+		model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0));
+		model = glm::scale(model, glm::vec3(0.6f, 0.6f, 0.6f));
+		staticShader.setMat4("model", model);
+		persona4.Draw(staticShader);
+
+
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(-1000.0f, 0.0f, -50.0f));
+		model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0));
+		model = glm::scale(model, glm::vec3(0.6f, 0.6f, 0.6f));
+		staticShader.setMat4("model", model);
+		persona5.Draw(staticShader);
+
+
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(-900.0f, 0.0f, -50.0f));
+		model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0));
+		model = glm::scale(model, glm::vec3(0.6f, 0.6f, 0.6f));
+		staticShader.setMat4("model", model);
+		persona6.Draw(staticShader);
+
+
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(-800.0f, 0.0f, -50.0f));
+		model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0));
+		model = glm::scale(model, glm::vec3(0.6f, 0.6f, 0.6f));
+		staticShader.setMat4("model", model);
+		persona7.Draw(staticShader);
+
+
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(-700.0f, 0.0f, -50.0f));
+		model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0));
+		model = glm::scale(model, glm::vec3(0.6f, 0.6f, 0.6f));
+		staticShader.setMat4("model", model);
+		persona8.Draw(staticShader);
+
+
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(-600.0f, 0.0f, -50.0f));
+		model = glm::rotate(model, glm::radians(135.0f), glm::vec3(0.0f, 1.0f, 0.0));
+		model = glm::scale(model, glm::vec3(0.6f, 0.6f, 0.6f));
+		staticShader.setMat4("model", model);
+		persona1.Draw(staticShader);
+
+
+
+
+		// Personas Pecera Tiburones
+
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(420.0f, 0.0f, 200.0f));
+		model = glm::rotate(model, glm::radians(45.0f), glm::vec3(0.0f, 1.0f, 0.0));
+		model = glm::scale(model, glm::vec3(0.6f, 0.6f, 0.6f));
+		staticShader.setMat4("model", model);
+		persona7.Draw(staticShader);
+
+
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(420.0f, 0.0f, 100.0f));
+		model = glm::rotate(model, glm::radians(45.0f), glm::vec3(0.0f, 1.0f, 0.0));
+		model = glm::scale(model, glm::vec3(0.6f, 0.6f, 0.6f));
+		staticShader.setMat4("model", model);
+		persona8.Draw(staticShader);
+
+
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(420.0f, 0.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(40.0f), glm::vec3(0.0f, 1.0f, 0.0));
+		model = glm::scale(model, glm::vec3(0.065f, 0.065f, 0.065f));
+		staticShader.setMat4("model", model);
+		persona9.Draw(staticShader);
+
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(420.0f, 0.0f, -100.0f));
+		model = glm::rotate(model, glm::radians(25.0f), glm::vec3(0.0f, 1.0f, 0.0));
+		model = glm::scale(model, glm::vec3(0.6f, 0.6f, 0.6f));
+		staticShader.setMat4("model", model);
+		persona6.Draw(staticShader);
+
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(420.0f, 0.0f, -200.0f));
+		model = glm::rotate(model, glm::radians(45.0f), glm::vec3(0.0f, 1.0f, 0.0));
+		model = glm::scale(model, glm::vec3(0.6f, 0.6f, 0.6f));
+		staticShader.setMat4("model", model);
+		persona4.Draw(staticShader);
+
+
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(420.0f, 0.0f, -300.0f));
+		model = glm::rotate(model, glm::radians(45.0f), glm::vec3(0.0f, 1.0f, 0.0));
+		model = glm::scale(model, glm::vec3(0.6f, 0.6f, 0.6f));
+		staticShader.setMat4("model", model);
+		persona5.Draw(staticShader);
+
+
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(420.0f, 0.0f, -400.0f));
+		model = glm::rotate(model, glm::radians(45.0f), glm::vec3(0.0f, 1.0f, 0.0));
+		model = glm::scale(model, glm::vec3(0.6f, 0.6f, 0.6f));
+		staticShader.setMat4("model", model);
+		persona6.Draw(staticShader);
+
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(420.0f, 0.0f, -500.0f));
+		model = glm::rotate(model, glm::radians(45.0f), glm::vec3(0.0f, 1.0f, 0.0));
+		model = glm::scale(model, glm::vec3(0.6f, 0.6f, 0.6f));
+		staticShader.setMat4("model", model);
+		persona7.Draw(staticShader);
+
+
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(420.0f, 0.0f, -600.0f));
+		model = glm::rotate(model, glm::radians(45.0f), glm::vec3(0.0f, 1.0f, 0.0));
+		model = glm::scale(model, glm::vec3(0.6f, 0.6f, 0.6f));
+		staticShader.setMat4("model", model);
+		persona8.Draw(staticShader);
+
+
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(420.0f, 0.0f, -700.0f));
+		model = glm::rotate(model, glm::radians(40.0f), glm::vec3(0.0f, 1.0f, 0.0));
+		model = glm::scale(model, glm::vec3(0.065f, 0.065f, 0.065f));
+		staticShader.setMat4("model", model);
+		persona9.Draw(staticShader);
+
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(420.0f, 0.0f, -800.0f));
+		model = glm::rotate(model, glm::radians(25.0f), glm::vec3(0.0f, 1.0f, 0.0));
+		model = glm::scale(model, glm::vec3(0.6f, 0.6f, 0.6f));
+		staticShader.setMat4("model", model);
+		persona6.Draw(staticShader);
+
+		//Horizontal
+
+
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(1400.0f, 0.0f, 300.0f));
+		model = glm::rotate(model, glm::radians(210.0f), glm::vec3(0.0f, 1.0f, 0.0));
+		model = glm::scale(model, glm::vec3(0.6f, 0.6f, 0.6f));
+		staticShader.setMat4("model", model);
+		persona2.Draw(staticShader);
+
+
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(1300.0f, 0.0f, 300.0f));
+		model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0));
+		model = glm::scale(model, glm::vec3(0.6f, 0.6f, 0.6f));
+		staticShader.setMat4("model", model);
+		persona7.Draw(staticShader);
+
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(1200.0f, 0.0f, 300.0f));
+		model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0));
+		model = glm::scale(model, glm::vec3(0.6f, 0.6f, 0.6f));
+		staticShader.setMat4("model", model);
+		persona5.Draw(staticShader);
+
+
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(1100.0f, 0.0f, 300.0f));
+		model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0));
+		model = glm::scale(model, glm::vec3(0.6f, 0.6f, 0.6f));
+		staticShader.setMat4("model", model);
+		persona4.Draw(staticShader);
+
+
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(1000.0f, 0.0f, 300.0f));
+		model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0));
+		model = glm::scale(model, glm::vec3(0.6f, 0.6f, 0.6f));
+		staticShader.setMat4("model", model);
+		persona5.Draw(staticShader);
+
+
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(900.0f, 0.0f, 300.0f));
+		model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0));
+		model = glm::scale(model, glm::vec3(0.6f, 0.6f, 0.6f));
+		staticShader.setMat4("model", model);
+		persona6.Draw(staticShader);
+
+
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(800.0f, 0.0f, 300.0f));
+		model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0));
+		model = glm::scale(model, glm::vec3(0.6f, 0.6f, 0.6f));
+		staticShader.setMat4("model", model);
+		persona7.Draw(staticShader);
+
+
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(700.0f, 0.0f, 300.0f));
+		model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0));
+		model = glm::scale(model, glm::vec3(0.6f, 0.6f, 0.6f));
+		staticShader.setMat4("model", model);
+		persona8.Draw(staticShader);
+
+
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(600.0f, 0.0f, 300.0f));
+		model = glm::rotate(model, glm::radians(95.0f), glm::vec3(0.0f, 1.0f, 0.0));
+		model = glm::scale(model, glm::vec3(0.6f, 0.6f, 0.6f));
+		staticShader.setMat4("model", model);
+		persona1.Draw(staticShader);
+
+
+
+
+
+
+
+
+
+		//ANIMACION TIBURON
+
+// Tiburon 1
+
+// Boca Tiburon
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(1000.0f, 50.0f, -160.0f));
+		model = glm::translate(model, tshark);
+		tmp = model = glm::rotate(model, glm::radians(rotshark), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(movBocaShark), glm::vec3(1.0f, 0.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(7.0f, 7.0f, 7.0f));
+		staticShader.setMat4("model", model);
+		BocaTiburon.Draw(staticShader);
+
+
+		model = glm::translate(tmp, glm::vec3(0.0f, 0.0f, 0.0f));
+		//model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(7.0f, 7.0f, 7.0f));
+		staticShader.setMat4("model", model);
+		CuerpoDelTiburon.Draw(staticShader);
+
+
+		model = glm::translate(tmp, glm::vec3(0.0f, 0.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(7.0f, 7.0f, 7.0f));
+		staticShader.setMat4("model", model);
+		CuerpoPrinTiburon.Draw(staticShader);
+
+
+		model = glm::translate(tmp, glm::vec3(0.0f, 0.0f, 1.0f));
+		model = glm::rotate(model, glm::radians(movColaShark), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(7.0f, 7.0f, 7.0f));
+		staticShader.setMat4("model", model);
+		ColaTiburon.Draw(staticShader);
+
+		model = glm::translate(tmp, glm::vec3(0.0f, 0.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(movAletasShark), glm::vec3(0.0f, 0.0f, 1.0f));
+		model = glm::scale(model, glm::vec3(7.0f, 7.0f, 7.0f));
+		staticShader.setMat4("model", model);
+		AletaDerTiburon.Draw(staticShader);
+
+		model = glm::translate(tmp, glm::vec3(0.0f, 0.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(movAletasShark), glm::vec3(0.0f, 0.0f, -1.0f));
+		model = glm::scale(model, glm::vec3(7.0f, 7.0f, 7.0f));
+		staticShader.setMat4("model", model);
+		AletaIzqTiburon.Draw(staticShader);
+
+
+		// Tiburon 2
+
+		// Boca Tiburon
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(1000.0f, 150.0f, -160.0f));
+		model = glm::translate(model, tshark01);
+		tmp = model = glm::rotate(model, glm::radians(rotshark01), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(movBocaShark), glm::vec3(1.0f, 0.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(7.0f, 7.0f, 7.0f));
+		staticShader.setMat4("model", model);
+		BocaTiburon.Draw(staticShader);
+
+
+		model = glm::translate(tmp, glm::vec3(0.0f, 0.0f, 0.0f));
+		//model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(7.0f, 7.0f, 7.0f));
+		staticShader.setMat4("model", model);
+		CuerpoDelTiburon.Draw(staticShader);
+
+
+		model = glm::translate(tmp, glm::vec3(0.0f, 0.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(7.0f, 7.0f, 7.0f));
+		staticShader.setMat4("model", model);
+		CuerpoPrinTiburon.Draw(staticShader);
+
+
+		model = glm::translate(tmp, glm::vec3(0.0f, 0.0f, 1.0f));
+		model = glm::rotate(model, glm::radians(movColaShark), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(7.0f, 7.0f, 7.0f));
+		staticShader.setMat4("model", model);
+		ColaTiburon.Draw(staticShader);
+
+		model = glm::translate(tmp, glm::vec3(0.0f, 0.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(movAletasShark), glm::vec3(0.0f, 0.0f, 1.0f));
+		model = glm::scale(model, glm::vec3(7.0f, 7.0f, 7.0f));
+		staticShader.setMat4("model", model);
+		AletaDerTiburon.Draw(staticShader);
+
+		model = glm::translate(tmp, glm::vec3(0.0f, 0.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(movAletasShark), glm::vec3(0.0f, 0.0f, -1.0f));
+		model = glm::scale(model, glm::vec3(7.0f, 7.0f, 7.0f));
+		staticShader.setMat4("model", model);
+		AletaIzqTiburon.Draw(staticShader);
+
+
+		// Tiburon 3
+
+		// Boca Tiburon
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(1050.0f, 250.0f, -390.0f));
+		model = glm::translate(model, tshark02);
+		tmp = model = glm::rotate(model, glm::radians(rotshark02), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(movBocaShark), glm::vec3(1.0f, 0.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(7.0f, 7.0f, 7.0f));
+		staticShader.setMat4("model", model);
+		BocaTiburon.Draw(staticShader);
+
+
+		model = glm::translate(tmp, glm::vec3(0.0f, 0.0f, 0.0f));
+		//model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(7.0f, 7.0f, 7.0f));
+		staticShader.setMat4("model", model);
+		CuerpoDelTiburon.Draw(staticShader);
+
+
+		model = glm::translate(tmp, glm::vec3(0.0f, 0.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(7.0f, 7.0f, 7.0f));
+		staticShader.setMat4("model", model);
+		CuerpoPrinTiburon.Draw(staticShader);
+
+
+		model = glm::translate(tmp, glm::vec3(0.0f, 0.0f, 1.0f));
+		model = glm::rotate(model, glm::radians(movColaShark), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(7.0f, 7.0f, 7.0f));
+		staticShader.setMat4("model", model);
+		ColaTiburon.Draw(staticShader);
+
+		model = glm::translate(tmp, glm::vec3(0.0f, 0.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(movAletasShark), glm::vec3(0.0f, 0.0f, 1.0f));
+		model = glm::scale(model, glm::vec3(7.0f, 7.0f, 7.0f));
+		staticShader.setMat4("model", model);
+		AletaDerTiburon.Draw(staticShader);
+
+		model = glm::translate(tmp, glm::vec3(0.0f, 0.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(movAletasShark), glm::vec3(0.0f, 0.0f, -1.0f));
+		model = glm::scale(model, glm::vec3(7.0f, 7.0f, 7.0f));
+		staticShader.setMat4("model", model);
+		AletaIzqTiburon.Draw(staticShader);
+
+		// Tiburon 4
+
+		// Boca Tiburon
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(1050.0f, 350.0f, -380.0f));
+		model = glm::translate(model, tshark03);
+		tmp = model = glm::rotate(model, glm::radians(rotshark03), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(movBocaShark), glm::vec3(1.0f, 0.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(7.0f, 7.0f, 7.0f));
+		staticShader.setMat4("model", model);
+		BocaTiburon.Draw(staticShader);
+
+
+		model = glm::translate(tmp, glm::vec3(0.0f, 0.0f, 0.0f));
+		//model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(7.0f, 7.0f, 7.0f));
+		staticShader.setMat4("model", model);
+		CuerpoDelTiburon.Draw(staticShader);
+
+
+		model = glm::translate(tmp, glm::vec3(0.0f, 0.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(7.0f, 7.0f, 7.0f));
+		staticShader.setMat4("model", model);
+		CuerpoPrinTiburon.Draw(staticShader);
+
+
+		model = glm::translate(tmp, glm::vec3(0.0f, 0.0f, 1.0f));
+		model = glm::rotate(model, glm::radians(movColaShark), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(7.0f, 7.0f, 7.0f));
+		staticShader.setMat4("model", model);
+		ColaTiburon.Draw(staticShader);
+
+		model = glm::translate(tmp, glm::vec3(0.0f, 0.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(movAletasShark), glm::vec3(0.0f, 0.0f, 1.0f));
+		model = glm::scale(model, glm::vec3(7.0f, 7.0f, 7.0f));
+		staticShader.setMat4("model", model);
+		AletaDerTiburon.Draw(staticShader);
+
+		model = glm::translate(tmp, glm::vec3(0.0f, 0.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(movAletasShark), glm::vec3(0.0f, 0.0f, -1.0f));
+		model = glm::scale(model, glm::vec3(7.0f, 7.0f, 7.0f));
+		staticShader.setMat4("model", model);
+		AletaIzqTiburon.Draw(staticShader);
+
+
+
+		
+
+		//ANIMACION MEDUSAS
+
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(950.0f, 40.0f, -600.0f));
+		model = glm::translate(model, tmedusa);
+		model = glm::scale(model, glm::vec3(8.0f, 8.0f, 8.0f));
+		staticShader.setMat4("model", model);
+		medusa.Draw(staticShader);
+
+		//ANIMACION MEDUSA 02
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(930.0f, 50.0f, -600.0f));
+		model = glm::translate(model, tmedusa02);
+		model = glm::scale(model, glm::vec3(8.0f, 8.0f, 8.0f));
+		staticShader.setMat4("model", model);
+		medusa.Draw(staticShader);
+
+		//ANIMACION MEDUSA 03
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(910.0f, 40.0f, -600.0f));
+		model = glm::translate(model, tmedusa03);
+		model = glm::scale(model, glm::vec3(8.0f, 8.0f, 8.0f));
+		staticShader.setMat4("model", model);
+		medusa.Draw(staticShader);
+
+		//ANIMACION MEDUSA 04
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(890.0f, 50.0f, -600.0f));
+		model = glm::translate(model, tmedusa04);
+		model = glm::scale(model, glm::vec3(8.0f, 8.0f, 8.0f));
+		staticShader.setMat4("model", model);
+		medusa.Draw(staticShader);
+
+		//ANIMACION MEDUSA 05
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(870.0f, 40.0f, -600.0f));
+		model = glm::translate(model, tmedusa);
+		model = glm::scale(model, glm::vec3(8.0f, 8.0f, 8.0f));
+		staticShader.setMat4("model", model);
+		medusa.Draw(staticShader);
+
+		//ANIMACION MEDUSA 06
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(850.0f, 50.0f, -600.0f));
+		model = glm::translate(model, tmedusa02);
+		model = glm::scale(model, glm::vec3(8.0f, 8.0f, 8.0f));
+		staticShader.setMat4("model", model);
+		medusa.Draw(staticShader);
+
+		//ANIMACION MEDUSA 07
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(830.0f, 40.0f, -600.0f));
+		model = glm::translate(model, tmedusa03);
+		model = glm::scale(model, glm::vec3(8.0f, 8.0f, 8.0f));
+		staticShader.setMat4("model", model);
+		medusa.Draw(staticShader);
+
+		//ANIMACION MEDUSA 08
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(810.0f, 50.0f, -600.0f));
+		model = glm::translate(model, tmedusa04);
+		model = glm::scale(model, glm::vec3(8.0f, 8.0f, 8.0f));
+		staticShader.setMat4("model", model);
+		medusa.Draw(staticShader);
+
+		//ANIMACION MEDUSA 09
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(790.0f, 50.0f, -600.0f));
+		model = glm::translate(model, tmedusa);
+		model = glm::scale(model, glm::vec3(8.0f, 8.0f, 8.0f));
+		staticShader.setMat4("model", model);
+		medusa.Draw(staticShader);
+
+		//ANIMACION MEDUSA 10
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(770.0f, 50.0f, -600.0f));
+		model = glm::translate(model, tmedusa02);
+		model = glm::scale(model, glm::vec3(8.0f, 8.0f, 8.0f));
+		staticShader.setMat4("model", model);
+		medusa.Draw(staticShader);
+
+		//ANIMACION MEDUSA 11
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(750.0f, 50.0f, -600.0f));
+		model = glm::translate(model, tmedusa03);
+		model = glm::scale(model, glm::vec3(8.0f, 8.0f, 8.0f));
+		staticShader.setMat4("model", model);
+		medusa.Draw(staticShader);
+
+		//ANIMACION MEDUSA 12
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(730.0f, 50.0f, -600.0f));
+		model = glm::translate(model, tmedusa04);
+		model = glm::scale(model, glm::vec3(8.0f, 8.0f, 8.0f));
+		staticShader.setMat4("model", model);
+		medusa.Draw(staticShader);
+
+		//ANIMACION MEDUSA 13
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(710.0f, 50.0f, -600.0f));
+		model = glm::translate(model, tmedusa);
+		model = glm::scale(model, glm::vec3(8.0f, 8.0f, 8.0f));
+		staticShader.setMat4("model", model);
+		medusa.Draw(staticShader);
+
+		//ANIMACION MEDUSA 14
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(690.0f, 50.0f, -600.0f));
+		model = glm::translate(model, tmedusa02);
+		model = glm::scale(model, glm::vec3(8.0f, 8.0f, 8.0f));
+		staticShader.setMat4("model", model);
+		medusa.Draw(staticShader);
+
+		//ANIMACION MEDUSA 15
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(670.0f, 50.0f, -600.0f));
+		model = glm::translate(model, tmedusa03);
+		model = glm::scale(model, glm::vec3(8.0f, 8.0f, 8.0f));
+		staticShader.setMat4("model", model);
+		medusa.Draw(staticShader);
+
+		//ANIMACION MEDUSA 16
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(650.0f, 50.0f, -600.0f));
+		model = glm::translate(model, tmedusa04);
+		model = glm::scale(model, glm::vec3(8.0f, 8.0f, 8.0f));
+		staticShader.setMat4("model", model);
+		medusa.Draw(staticShader);
+
+		////////////////////
+
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(1420.0f, 40.0f, -560.0f));
+		model = glm::translate(model, tmedusa);
+		model = glm::scale(model, glm::vec3(8.0f, 8.0f, 8.0f));
+		staticShader.setMat4("model", model);
+		medusa.Draw(staticShader);
+
+		//ANIMACION MEDUSA 02
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(1400.0f, 50.0f, -560.0f));
+		model = glm::translate(model, tmedusa02);
+		model = glm::scale(model, glm::vec3(8.0f, 8.0f, 8.0f));
+		staticShader.setMat4("model", model);
+		medusa.Draw(staticShader);
+
+		//ANIMACION MEDUSA 03
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(1375.0f, 40.0f, -560.0f));
+		model = glm::translate(model, tmedusa03);
+		model = glm::scale(model, glm::vec3(8.0f, 8.0f, 8.0f));
+		staticShader.setMat4("model", model);
+		medusa.Draw(staticShader);
+
+		//ANIMACION MEDUSA 04
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(1350.0f, 50.0f, -560.0f));
+		model = glm::translate(model, tmedusa04);
+		model = glm::scale(model, glm::vec3(8.0f, 8.0f, 8.0f));
+		staticShader.setMat4("model", model);
+		medusa.Draw(staticShader);
+
+		//ANIMACION MEDUSA 05
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(1325.0f, 40.0f, -560.0f));
+		model = glm::translate(model, tmedusa);
+		model = glm::scale(model, glm::vec3(8.0f, 8.0f, 8.0f));
+		staticShader.setMat4("model", model);
+		medusa.Draw(staticShader);
+
+		//ANIMACION MEDUSA 06
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(1300.0f, 50.0f, -560.0f));
+		model = glm::translate(model, tmedusa02);
+		model = glm::scale(model, glm::vec3(8.0f, 8.0f, 8.0f));
+		staticShader.setMat4("model", model);
+		medusa.Draw(staticShader);
+
+		//ANIMACION MEDUSA 07
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(1275.0f, 40.0f, -560.0f));
+		model = glm::translate(model, tmedusa03);
+		model = glm::scale(model, glm::vec3(8.0f, 8.0f, 8.0f));
+		staticShader.setMat4("model", model);
+		medusa.Draw(staticShader);
+
+		//ANIMACION MEDUSA 08
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(1250.0f, 50.0f, -560.0f));
+		model = glm::translate(model, tmedusa04);
+		model = glm::scale(model, glm::vec3(8.0f, 8.0f, 8.0f));
+		staticShader.setMat4("model", model);
+		medusa.Draw(staticShader);
+
+		//ANIMACION MEDUSA 09
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(1225.0f, 50.0f, -560.0f));
+		model = glm::translate(model, tmedusa);
+		model = glm::scale(model, glm::vec3(8.0f, 8.0f, 8.0f));
+		staticShader.setMat4("model", model);
+		medusa.Draw(staticShader);
+
+		//ANIMACION MEDUSA 10
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(1200.0f, 50.0f, -560.0f));
+		model = glm::translate(model, tmedusa02);
+		model = glm::scale(model, glm::vec3(8.0f, 8.0f, 8.0f));
+		staticShader.setMat4("model", model);
+		medusa.Draw(staticShader);
+
+		//ANIMACION MEDUSA 11
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(1175.0f, 50.0f, -560.0f));
+		model = glm::translate(model, tmedusa03);
+		model = glm::scale(model, glm::vec3(8.0f, 8.0f, 8.0f));
+		staticShader.setMat4("model", model);
+		medusa.Draw(staticShader);
+
+		//ANIMACION MEDUSA 12
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(1150.0f, 50.0f, -560.0f));
+		model = glm::translate(model, tmedusa04);
+		model = glm::scale(model, glm::vec3(8.0f, 8.0f, 8.0f));
+		staticShader.setMat4("model", model);
+		medusa.Draw(staticShader);
+
+		//ANIMACION MEDUSA 13
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(1125.0f, 50.0f, -560.0f));
+		model = glm::translate(model, tmedusa);
+		model = glm::scale(model, glm::vec3(8.0f, 8.0f, 8.0f));
+		staticShader.setMat4("model", model);
+		medusa.Draw(staticShader);
+
+		//ANIMACION MEDUSA 14
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(1100.0f, 50.0f, -560.0f));
+		model = glm::translate(model, tmedusa02);
+		model = glm::scale(model, glm::vec3(8.0f, 8.0f, 8.0f));
+		staticShader.setMat4("model", model);
+		medusa.Draw(staticShader);
+
+		//ANIMACION MEDUSA 15
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(1075.0f, 50.0f, -560.0f));
+		model = glm::translate(model, tmedusa03);
+		model = glm::scale(model, glm::vec3(8.0f, 8.0f, 8.0f));
+		staticShader.setMat4("model", model);
+		medusa.Draw(staticShader);
+
+		//ANIMACION MEDUSA 16
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(1050.0f, 50.0f, -560.0f));
+		model = glm::translate(model, tmedusa04);
+		model = glm::scale(model, glm::vec3(8.0f, 8.0f, 8.0f));
+		staticShader.setMat4("model", model);
+		medusa.Draw(staticShader);
+		
+
+		//Pinguino
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-1300.0f, 0.0f, -670.0f));
+		model = glm::translate(model, glm::vec3(posXPin, 0, posZPin));
+		tmp = model = glm::rotate(model, glm::radians(rotPin), glm::vec3(0.0f, 0.0f, 1.0));
+		model = glm::rotate(model, glm::radians(movCabezaPin), glm::vec3(0.0f, 1.0f, 0.0));
+		model = glm::scale(model, glm::vec3(20.9f, 20.9f, 20.9f));
+		staticShader.setMat4("model", model);
+		CabezaPin.Draw(staticShader);
+
+		model = glm::translate(tmp, glm::vec3(0.0f, 0.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(0.0f), glm::vec3(1.0f, 0.0f, 0.0));
+		model = glm::scale(model, glm::vec3(20.9f, 20.9f, 20.9f));
+		staticShader.setMat4("model", model);
+		TorsoPin.Draw(staticShader);
+
+		model = glm::translate(tmp, glm::vec3(0.0f, 0.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(rotPatasPin), glm::vec3(1.0f, 0.0f, 0.0));
+		model = glm::scale(model, glm::vec3(20.9f, 20.9f, 20.9f));
+		staticShader.setMat4("model", model);
+		patasPin.Draw(staticShader);
+
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-1335.0f, 0.0f, -670.0f));
+		model = glm::translate(model, glm::vec3(posXPin, 0, posZPin));
+		tmp = model = glm::rotate(model, glm::radians(rotPin), glm::vec3(0.0f, 0.0f, 1.0));
+		model = glm::rotate(model, glm::radians(movCabezaPin), glm::vec3(0.0f, 1.0f, 0.0));
+		model = glm::scale(model, glm::vec3(20.9f, 20.9f, 20.9f));
+		staticShader.setMat4("model", model);
+		CabezaPin.Draw(staticShader);
+
+		model = glm::translate(tmp, glm::vec3(0.0f, 0.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(0.0f), glm::vec3(1.0f, 0.0f, 0.0));
+		model = glm::scale(model, glm::vec3(20.9f, 20.9f, 20.9f));
+		staticShader.setMat4("model", model);
+		TorsoPin.Draw(staticShader);
+
+		model = glm::translate(tmp, glm::vec3(0.0f, 0.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(rotPatasPin), glm::vec3(1.0f, 0.0f, 0.0));
+		model = glm::scale(model, glm::vec3(20.9f, 20.9f, 20.9f));
+		staticShader.setMat4("model", model);
+		patasPin.Draw(staticShader);
+
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-1317.5f, 0.0f, -650.0f));
+		model = glm::translate(model, glm::vec3(posXPin, 0, posZPin));
+		tmp = model = glm::rotate(model, glm::radians(rotPin), glm::vec3(0.0f, 0.0f, 1.0));
+		model = glm::rotate(model, glm::radians(movCabezaPin), glm::vec3(0.0f, 1.0f, 0.0));
+		model = glm::scale(model, glm::vec3(10.9f, 10.9f, 10.9f));
+		staticShader.setMat4("model", model);
+		CabezaPin.Draw(staticShader);
+
+		model = glm::translate(tmp, glm::vec3(0.0f, 0.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(0.0f), glm::vec3(1.0f, 0.0f, 0.0));
+		model = glm::scale(model, glm::vec3(10.9f, 10.9f, 10.9f));
+		staticShader.setMat4("model", model);
+		TorsoPin.Draw(staticShader);
+
+		model = glm::translate(tmp, glm::vec3(0.0f, 0.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(rotPatasPin), glm::vec3(1.0f, 0.0f, 0.0));
+		model = glm::scale(model, glm::vec3(10.9f, 10.9f, 10.9f));
+		staticShader.setMat4("model", model);
+		patasPin.Draw(staticShader);
+
+
+		// 2
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-1050.0f, 0.0f, -660.0f));
+		model = glm::translate(model, glm::vec3(posXPin, 0, posZPin));
+		model = glm::rotate(model, glm::radians(40.0f), glm::vec3(0.0f, 1.0f, 0.0));
+		tmp = model = glm::rotate(model, glm::radians(rotPin), glm::vec3(0.0f, 0.0f, 1.0));
+		model = glm::rotate(model, glm::radians(movCabezaPin), glm::vec3(0.0f, 1.0f, 0.0));
+		model = glm::scale(model, glm::vec3(20.9f, 20.9f, 20.9f));
+		staticShader.setMat4("model", model);
+		CabezaPin.Draw(staticShader);
+
+		model = glm::translate(tmp, glm::vec3(0.0f, 0.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(0.0f), glm::vec3(1.0f, 0.0f, 0.0));
+		model = glm::scale(model, glm::vec3(20.9f, 20.9f, 20.9f));
+		staticShader.setMat4("model", model);
+		TorsoPin.Draw(staticShader);
+
+		model = glm::translate(tmp, glm::vec3(0.0f, 0.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(rotPatasPin), glm::vec3(1.0f, 0.0f, 0.0));
+		model = glm::scale(model, glm::vec3(20.9f, 20.9f, 20.9f));
+		staticShader.setMat4("model", model);
+		patasPin.Draw(staticShader);
+
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-1000.0f, 0.0f, -670.0f));
+		model = glm::translate(model, glm::vec3(posXPin, 0, posZPin));
+		tmp = model = glm::rotate(model, glm::radians(rotPin), glm::vec3(0.0f, 0.0f, 1.0));
+		model = glm::rotate(model, glm::radians(movCabezaPin), glm::vec3(0.0f, 1.0f, 0.0));
+		model = glm::scale(model, glm::vec3(20.9f, 20.9f, 20.9f));
+		staticShader.setMat4("model", model);
+		CabezaPin.Draw(staticShader);
+
+		model = glm::translate(tmp, glm::vec3(0.0f, 0.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(0.0f), glm::vec3(1.0f, 0.0f, 0.0));
+		model = glm::scale(model, glm::vec3(20.9f, 20.9f, 20.9f));
+		staticShader.setMat4("model", model);
+		TorsoPin.Draw(staticShader);
+
+		model = glm::translate(tmp, glm::vec3(0.0f, 0.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(rotPatasPin), glm::vec3(1.0f, 0.0f, 0.0));
+		model = glm::scale(model, glm::vec3(20.9f, 20.9f, 20.9f));
+		staticShader.setMat4("model", model);
+		patasPin.Draw(staticShader);
+
+
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-960.0f, 0.0f, -670.0f));
+		model = glm::translate(model, glm::vec3(posXPin, 0, posZPin));
+		tmp = model = glm::rotate(model, glm::radians(rotPin), glm::vec3(0.0f, 0.0f, 1.0));
+		model = glm::rotate(model, glm::radians(movCabezaPin), glm::vec3(0.0f, 1.0f, 0.0));
+		model = glm::scale(model, glm::vec3(20.9f, 20.9f, 20.9f));
+		staticShader.setMat4("model", model);
+		CabezaPin.Draw(staticShader);
+
+		model = glm::translate(tmp, glm::vec3(0.0f, 0.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(0.0f), glm::vec3(1.0f, 0.0f, 0.0));
+		model = glm::scale(model, glm::vec3(20.9f, 20.9f, 20.9f));
+		staticShader.setMat4("model", model);
+		TorsoPin.Draw(staticShader);
+
+		model = glm::translate(tmp, glm::vec3(0.0f, 0.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(rotPatasPin), glm::vec3(1.0f, 0.0f, 0.0));
+		model = glm::scale(model, glm::vec3(20.9f, 20.9f, 20.9f));
+		staticShader.setMat4("model", model);
+		patasPin.Draw(staticShader);
+
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-910.0f, 0.0f, -660.0f));
+		model = glm::translate(model, glm::vec3(posXPin, 0, posZPin));
+		model = glm::rotate(model, glm::radians(-40.0f), glm::vec3(0.0f, 1.0f, 0.0));
+		tmp = model = glm::rotate(model, glm::radians(rotPin), glm::vec3(0.0f, 0.0f, 1.0));
+		model = glm::rotate(model, glm::radians(movCabezaPin), glm::vec3(0.0f, 1.0f, 0.0));
+		model = glm::scale(model, glm::vec3(20.9f, 20.9f, 20.9f));
+		staticShader.setMat4("model", model);
+		CabezaPin.Draw(staticShader);
+
+		model = glm::translate(tmp, glm::vec3(0.0f, 0.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(0.0f), glm::vec3(1.0f, 0.0f, 0.0));
+		model = glm::scale(model, glm::vec3(20.9f, 20.9f, 20.9f));
+		staticShader.setMat4("model", model);
+		TorsoPin.Draw(staticShader);
+
+		model = glm::translate(tmp, glm::vec3(0.0f, 0.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(rotPatasPin), glm::vec3(1.0f, 0.0f, 0.0));
+		model = glm::scale(model, glm::vec3(20.9f, 20.9f, 20.9f));
+		staticShader.setMat4("model", model);
+		patasPin.Draw(staticShader);
+
+
+
+		// 3
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-1050.0f, 0.0f, -480.0f));
+		model = glm::translate(model, glm::vec3(posXPin, 0, posZPin));
+		model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0));
+		model = glm::rotate(model, glm::radians(-40.0f), glm::vec3(0.0f, 1.0f, 0.0));
+		tmp = model = glm::rotate(model, glm::radians(rotPin), glm::vec3(0.0f, 0.0f, 1.0));
+		model = glm::rotate(model, glm::radians(movCabezaPin), glm::vec3(0.0f, 1.0f, 0.0));
+		model = glm::scale(model, glm::vec3(20.9f, 20.9f, 20.9f));
+		staticShader.setMat4("model", model);
+		CabezaPin.Draw(staticShader);
+
+		model = glm::translate(tmp, glm::vec3(0.0f, 0.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(0.0f), glm::vec3(1.0f, 0.0f, 0.0));
+		model = glm::scale(model, glm::vec3(20.9f, 20.9f, 20.9f));
+		staticShader.setMat4("model", model);
+		TorsoPin.Draw(staticShader);
+
+		model = glm::translate(tmp, glm::vec3(0.0f, 0.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(rotPatasPin), glm::vec3(1.0f, 0.0f, 0.0));
+		model = glm::scale(model, glm::vec3(20.9f, 20.9f, 20.9f));
+		staticShader.setMat4("model", model);
+		patasPin.Draw(staticShader);
+
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-1000.0f, 0.0f, -470.0f));
+		model = glm::translate(model, glm::vec3(posXPin, 0, posZPin));
+		model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0));
+		tmp = model = glm::rotate(model, glm::radians(rotPin), glm::vec3(0.0f, 0.0f, 1.0));
+		model = glm::rotate(model, glm::radians(movCabezaPin), glm::vec3(0.0f, 1.0f, 0.0));
+		model = glm::scale(model, glm::vec3(20.9f, 20.9f, 20.9f));
+		staticShader.setMat4("model", model);
+		CabezaPin.Draw(staticShader);
+
+		model = glm::translate(tmp, glm::vec3(0.0f, 0.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(0.0f), glm::vec3(1.0f, 0.0f, 0.0));
+		model = glm::scale(model, glm::vec3(20.9f, 20.9f, 20.9f));
+		staticShader.setMat4("model", model);
+		TorsoPin.Draw(staticShader);
+
+		model = glm::translate(tmp, glm::vec3(0.0f, 0.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(rotPatasPin), glm::vec3(1.0f, 0.0f, 0.0));
+		model = glm::scale(model, glm::vec3(20.9f, 20.9f, 20.9f));
+		staticShader.setMat4("model", model);
+		patasPin.Draw(staticShader);
+
+
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-960.0f, 0.0f, -470.0f));
+		model = glm::translate(model, glm::vec3(posXPin, 0, posZPin));
+		model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0));
+		tmp = model = glm::rotate(model, glm::radians(rotPin), glm::vec3(0.0f, 0.0f, 1.0));
+		model = glm::rotate(model, glm::radians(movCabezaPin), glm::vec3(0.0f, 1.0f, 0.0));
+		model = glm::scale(model, glm::vec3(20.9f, 20.9f, 20.9f));
+		staticShader.setMat4("model", model);
+		CabezaPin.Draw(staticShader);
+
+		model = glm::translate(tmp, glm::vec3(0.0f, 0.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(0.0f), glm::vec3(1.0f, 0.0f, 0.0));
+		model = glm::scale(model, glm::vec3(20.9f, 20.9f, 20.9f));
+		staticShader.setMat4("model", model);
+		TorsoPin.Draw(staticShader);
+
+		model = glm::translate(tmp, glm::vec3(0.0f, 0.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(rotPatasPin), glm::vec3(1.0f, 0.0f, 0.0));
+		model = glm::scale(model, glm::vec3(20.9f, 20.9f, 20.9f));
+		staticShader.setMat4("model", model);
+		patasPin.Draw(staticShader);
+
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-910.0f, 0.0f, -480.0f));
+		model = glm::translate(model, glm::vec3(posXPin, 0, posZPin));
+		model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0));
+		model = glm::rotate(model, glm::radians(40.0f), glm::vec3(0.0f, 1.0f, 0.0));
+		tmp = model = glm::rotate(model, glm::radians(rotPin), glm::vec3(0.0f, 0.0f, 1.0));
+		model = glm::rotate(model, glm::radians(movCabezaPin), glm::vec3(0.0f, 1.0f, 0.0));
+		model = glm::scale(model, glm::vec3(20.9f, 20.9f, 20.9f));
+		staticShader.setMat4("model", model);
+		CabezaPin.Draw(staticShader);
+
+		model = glm::translate(tmp, glm::vec3(0.0f, 0.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(0.0f), glm::vec3(1.0f, 0.0f, 0.0));
+		model = glm::scale(model, glm::vec3(20.9f, 20.9f, 20.9f));
+		staticShader.setMat4("model", model);
+		TorsoPin.Draw(staticShader);
+
+		model = glm::translate(tmp, glm::vec3(0.0f, 0.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(rotPatasPin), glm::vec3(1.0f, 0.0f, 0.0));
+		model = glm::scale(model, glm::vec3(20.9f, 20.9f, 20.9f));
+		staticShader.setMat4("model", model);
+		patasPin.Draw(staticShader);
+
+
+
+		// 4
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-800.0f, 0.0f, -280.0f));
+		model = glm::translate(model, glm::vec3(posXPin, 0, posZPin));
+		tmp = model = glm::rotate(model, glm::radians(rotPin), glm::vec3(0.0f, 0.0f, 1.0));
+		model = glm::rotate(model, glm::radians(movCabezaPin), glm::vec3(0.0f, 1.0f, 0.0));
+		model = glm::scale(model, glm::vec3(20.9f, 20.9f, 20.9f));
+		staticShader.setMat4("model", model);
+		CabezaPin.Draw(staticShader);
+
+		model = glm::translate(tmp, glm::vec3(0.0f, 0.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(0.0f), glm::vec3(1.0f, 0.0f, 0.0));
+		model = glm::scale(model, glm::vec3(20.9f, 20.9f, 20.9f));
+		staticShader.setMat4("model", model);
+		TorsoPin.Draw(staticShader);
+
+		model = glm::translate(tmp, glm::vec3(0.0f, 0.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(rotPatasPin), glm::vec3(1.0f, 0.0f, 0.0));
+		model = glm::scale(model, glm::vec3(20.9f, 20.9f, 20.9f));
+		staticShader.setMat4("model", model);
+		patasPin.Draw(staticShader);
+
+
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-760.0f, 0.0f, -280.0f));
+		model = glm::translate(model, glm::vec3(posXPin, 0, posZPin));
+		tmp = model = glm::rotate(model, glm::radians(rotPin), glm::vec3(0.0f, 0.0f, 1.0));
+		model = glm::rotate(model, glm::radians(movCabezaPin), glm::vec3(0.0f, 1.0f, 0.0));
+		model = glm::scale(model, glm::vec3(20.9f, 20.9f, 20.9f));
+		staticShader.setMat4("model", model);
+		CabezaPin.Draw(staticShader);
+
+		model = glm::translate(tmp, glm::vec3(0.0f, 0.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(0.0f), glm::vec3(1.0f, 0.0f, 0.0));
+		model = glm::scale(model, glm::vec3(20.9f, 20.9f, 20.9f));
+		staticShader.setMat4("model", model);
+		TorsoPin.Draw(staticShader);
+
+		model = glm::translate(tmp, glm::vec3(0.0f, 0.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(rotPatasPin), glm::vec3(1.0f, 0.0f, 0.0));
+		model = glm::scale(model, glm::vec3(20.9f, 20.9f, 20.9f));
+		staticShader.setMat4("model", model);
+		patasPin.Draw(staticShader);
+
+
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-800.0f, 0.0f, -180.0f));
+		model = glm::translate(model, glm::vec3(posXPin, 0, posZPin));
+		model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0));
+		tmp = model = glm::rotate(model, glm::radians(rotPin), glm::vec3(0.0f, 0.0f, 1.0));
+		model = glm::rotate(model, glm::radians(movCabezaPin), glm::vec3(0.0f, 1.0f, 0.0));
+		model = glm::scale(model, glm::vec3(20.9f, 20.9f, 20.9f));
+		staticShader.setMat4("model", model);
+		CabezaPin.Draw(staticShader);
+
+		model = glm::translate(tmp, glm::vec3(0.0f, 0.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(0.0f), glm::vec3(1.0f, 0.0f, 0.0));
+		model = glm::scale(model, glm::vec3(20.9f, 20.9f, 20.9f));
+		staticShader.setMat4("model", model);
+		TorsoPin.Draw(staticShader);
+
+		model = glm::translate(tmp, glm::vec3(0.0f, 0.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(rotPatasPin), glm::vec3(1.0f, 0.0f, 0.0));
+		model = glm::scale(model, glm::vec3(20.9f, 20.9f, 20.9f));
+		staticShader.setMat4("model", model);
+		patasPin.Draw(staticShader);
+
+
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-760.0f, 0.0f, -180.0f));
+		model = glm::translate(model, glm::vec3(posXPin, 0, posZPin));
+		model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0));
+		tmp = model = glm::rotate(model, glm::radians(rotPin), glm::vec3(0.0f, 0.0f, 1.0));
+		model = glm::rotate(model, glm::radians(movCabezaPin), glm::vec3(0.0f, 1.0f, 0.0));
+		model = glm::scale(model, glm::vec3(20.9f, 20.9f, 20.9f));
+		staticShader.setMat4("model", model);
+		CabezaPin.Draw(staticShader);
+
+		model = glm::translate(tmp, glm::vec3(0.0f, 0.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(0.0f), glm::vec3(1.0f, 0.0f, 0.0));
+		model = glm::scale(model, glm::vec3(20.9f, 20.9f, 20.9f));
+		staticShader.setMat4("model", model);
+		TorsoPin.Draw(staticShader);
+
+		model = glm::translate(tmp, glm::vec3(0.0f, 0.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(rotPatasPin), glm::vec3(1.0f, 0.0f, 0.0));
+		model = glm::scale(model, glm::vec3(20.9f, 20.9f, 20.9f));
+		staticShader.setMat4("model", model);
+		patasPin.Draw(staticShader);
+
+
+
+		// 
+
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-1000.0f, 0.0f, -280.0f));
+		model = glm::translate(model, glm::vec3(posXPin, 0, posZPin));
+		tmp = model = glm::rotate(model, glm::radians(rotPin), glm::vec3(0.0f, 0.0f, 1.0));
+		model = glm::rotate(model, glm::radians(movCabezaPin), glm::vec3(0.0f, 1.0f, 0.0));
+		model = glm::scale(model, glm::vec3(20.9f, 20.9f, 20.9f));
+		staticShader.setMat4("model", model);
+		CabezaPin.Draw(staticShader);
+
+		model = glm::translate(tmp, glm::vec3(0.0f, 0.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(0.0f), glm::vec3(1.0f, 0.0f, 0.0));
+		model = glm::scale(model, glm::vec3(20.9f, 20.9f, 20.9f));
+		staticShader.setMat4("model", model);
+		TorsoPin.Draw(staticShader);
+
+		model = glm::translate(tmp, glm::vec3(0.0f, 0.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(rotPatasPin), glm::vec3(1.0f, 0.0f, 0.0));
+		model = glm::scale(model, glm::vec3(20.9f, 20.9f, 20.9f));
+		staticShader.setMat4("model", model);
+		patasPin.Draw(staticShader);
+
+
+
+
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-960.0f, 0.0f, -280.0f));
+		model = glm::translate(model, glm::vec3(posXPin, 0, posZPin));
+		tmp = model = glm::rotate(model, glm::radians(rotPin), glm::vec3(0.0f, 0.0f, 1.0));
+		model = glm::rotate(model, glm::radians(movCabezaPin), glm::vec3(0.0f, 1.0f, 0.0));
+		model = glm::scale(model, glm::vec3(20.9f, 20.9f, 20.9f));
+		staticShader.setMat4("model", model);
+		CabezaPin.Draw(staticShader);
+
+		model = glm::translate(tmp, glm::vec3(0.0f, 0.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(0.0f), glm::vec3(1.0f, 0.0f, 0.0));
+		model = glm::scale(model, glm::vec3(20.9f, 20.9f, 20.9f));
+		staticShader.setMat4("model", model);
+		TorsoPin.Draw(staticShader);
+
+		model = glm::translate(tmp, glm::vec3(0.0f, 0.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(rotPatasPin), glm::vec3(1.0f, 0.0f, 0.0));
+		model = glm::scale(model, glm::vec3(20.9f, 20.9f, 20.9f));
+		staticShader.setMat4("model", model);
+		patasPin.Draw(staticShader);
+
+
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-1000.0f, 0.0f, -160.0f));
+		model = glm::translate(model, glm::vec3(posXPin, 0, posZPin));
+		model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0));
+		tmp = model = glm::rotate(model, glm::radians(rotPin), glm::vec3(0.0f, 0.0f, 1.0));
+		model = glm::rotate(model, glm::radians(movCabezaPin), glm::vec3(0.0f, 1.0f, 0.0));
+		model = glm::scale(model, glm::vec3(20.9f, 20.9f, 20.9f));
+		staticShader.setMat4("model", model);
+		CabezaPin.Draw(staticShader);
+
+		model = glm::translate(tmp, glm::vec3(0.0f, 0.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(0.0f), glm::vec3(1.0f, 0.0f, 0.0));
+		model = glm::scale(model, glm::vec3(20.9f, 20.9f, 20.9f));
+		staticShader.setMat4("model", model);
+		TorsoPin.Draw(staticShader);
+
+		model = glm::translate(tmp, glm::vec3(0.0f, 0.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(rotPatasPin), glm::vec3(1.0f, 0.0f, 0.0));
+		model = glm::scale(model, glm::vec3(20.9f, 20.9f, 20.9f));
+		staticShader.setMat4("model", model);
+		patasPin.Draw(staticShader);
+
+
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-960.0f, 0.0f, -180.0f));
+		model = glm::translate(model, glm::vec3(posXPin, 0, posZPin));
+		model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0));
+		tmp = model = glm::rotate(model, glm::radians(rotPin), glm::vec3(0.0f, 0.0f, 1.0));
+		model = glm::rotate(model, glm::radians(movCabezaPin), glm::vec3(0.0f, 1.0f, 0.0));
+		model = glm::scale(model, glm::vec3(20.9f, 20.9f, 20.9f));
+		staticShader.setMat4("model", model);
+		CabezaPin.Draw(staticShader);
+
+		model = glm::translate(tmp, glm::vec3(0.0f, 0.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(0.0f), glm::vec3(1.0f, 0.0f, 0.0));
+		model = glm::scale(model, glm::vec3(20.9f, 20.9f, 20.9f));
+		staticShader.setMat4("model", model);
+		TorsoPin.Draw(staticShader);
+
+		model = glm::translate(tmp, glm::vec3(0.0f, 0.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(rotPatasPin), glm::vec3(1.0f, 0.0f, 0.0));
+		model = glm::scale(model, glm::vec3(20.9f, 20.9f, 20.9f));
+		staticShader.setMat4("model", model);
+		patasPin.Draw(staticShader);
+
+
+
+		//
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-1340.0f, 0.0f, -370.0f));
+		model = glm::translate(model, glm::vec3(posXPin, 0, posZPin));
+		tmp = model = glm::rotate(model, glm::radians(rotPin), glm::vec3(0.0f, 0.0f, 1.0));
+		model = glm::rotate(model, glm::radians(movCabezaPin), glm::vec3(0.0f, 1.0f, 0.0));
+		model = glm::scale(model, glm::vec3(20.9f, 20.9f, 20.9f));
+		staticShader.setMat4("model", model);
+		CabezaPin.Draw(staticShader);
+
+		model = glm::translate(tmp, glm::vec3(0.0f, 0.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(0.0f), glm::vec3(1.0f, 0.0f, 0.0));
+		model = glm::scale(model, glm::vec3(20.9f, 20.9f, 20.9f));
+		staticShader.setMat4("model", model);
+		TorsoPin.Draw(staticShader);
+
+		model = glm::translate(tmp, glm::vec3(0.0f, 0.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(rotPatasPin), glm::vec3(1.0f, 0.0f, 0.0));
+		model = glm::scale(model, glm::vec3(20.9f, 20.9f, 20.9f));
+		staticShader.setMat4("model", model);
+		patasPin.Draw(staticShader);
+
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-1440.0f, 0.0f, -470.0f));
+		model = glm::translate(model, glm::vec3(posXPin, 0, posZPin));
+		model = glm::rotate(model, glm::radians(-40.0f), glm::vec3(0.0f, 1.0f, 0.0));
+		tmp = model = glm::rotate(model, glm::radians(rotPin), glm::vec3(0.0f, 0.0f, 1.0));
+		model = glm::rotate(model, glm::radians(movCabezaPin), glm::vec3(0.0f, 1.0f, 0.0));
+		model = glm::scale(model, glm::vec3(20.9f, 20.9f, 20.9f));
+		staticShader.setMat4("model", model);
+		CabezaPin.Draw(staticShader);
+
+		model = glm::translate(tmp, glm::vec3(0.0f, 0.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(0.0f), glm::vec3(1.0f, 0.0f, 0.0));
+		model = glm::scale(model, glm::vec3(20.9f, 20.9f, 20.9f));
+		staticShader.setMat4("model", model);
+		TorsoPin.Draw(staticShader);
+
+		model = glm::translate(tmp, glm::vec3(0.0f, 0.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(rotPatasPin), glm::vec3(1.0f, 0.0f, 0.0));
+		model = glm::scale(model, glm::vec3(20.9f, 20.9f, 20.9f));
+		staticShader.setMat4("model", model);
+		patasPin.Draw(staticShader);
+
+
+
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-1490.0f, 0.0f, -240.0f));
+		model = glm::translate(model, glm::vec3(posXPin, 0, posZPin));
+		model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0));
+		tmp = model = glm::rotate(model, glm::radians(rotPin), glm::vec3(0.0f, 0.0f, 1.0));
+		model = glm::rotate(model, glm::radians(movCabezaPin), glm::vec3(0.0f, 1.0f, 0.0));
+		model = glm::scale(model, glm::vec3(20.9f, 20.9f, 20.9f));
+		staticShader.setMat4("model", model);
+		CabezaPin.Draw(staticShader);
+
+		model = glm::translate(tmp, glm::vec3(0.0f, 0.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(0.0f), glm::vec3(1.0f, 0.0f, 0.0));
+		model = glm::scale(model, glm::vec3(20.9f, 20.9f, 20.9f));
+		staticShader.setMat4("model", model);
+		TorsoPin.Draw(staticShader);
+
+		model = glm::translate(tmp, glm::vec3(0.0f, 0.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(rotPatasPin), glm::vec3(1.0f, 0.0f, 0.0));
+		model = glm::scale(model, glm::vec3(20.9f, 20.9f, 20.9f));
+		staticShader.setMat4("model", model);
+		patasPin.Draw(staticShader);
+
+
+
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-1240.0f, 0.0f, -470.0f));
+		model = glm::translate(model, glm::vec3(posXPin, 0, posZPin));
+		model = glm::rotate(model, glm::radians(35.0f), glm::vec3(0.0f, 1.0f, 0.0));
+		tmp = model = glm::rotate(model, glm::radians(rotPin), glm::vec3(0.0f, 0.0f, 1.0));
+		model = glm::rotate(model, glm::radians(movCabezaPin), glm::vec3(0.0f, 1.0f, 0.0));
+		model = glm::scale(model, glm::vec3(20.9f, 20.9f, 20.9f));
+		staticShader.setMat4("model", model);
+		CabezaPin.Draw(staticShader);
+
+		model = glm::translate(tmp, glm::vec3(0.0f, 0.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(0.0f), glm::vec3(1.0f, 0.0f, 0.0));
+		model = glm::scale(model, glm::vec3(20.9f, 20.9f, 20.9f));
+		staticShader.setMat4("model", model);
+		TorsoPin.Draw(staticShader);
+
+		model = glm::translate(tmp, glm::vec3(0.0f, 0.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(rotPatasPin), glm::vec3(1.0f, 0.0f, 0.0));
+		model = glm::scale(model, glm::vec3(20.9f, 20.9f, 20.9f));
+		staticShader.setMat4("model", model);
+		patasPin.Draw(staticShader);
+
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-1150.0f, 0.0f, -270.0f));
+		model = glm::translate(model, glm::vec3(posXPin, 0, posZPin));
+		model = glm::rotate(model, glm::radians(20.0f), glm::vec3(0.0f, 1.0f, 0.0));
+		tmp = model = glm::rotate(model, glm::radians(rotPin), glm::vec3(0.0f, 0.0f, 1.0));
+		model = glm::rotate(model, glm::radians(movCabezaPin), glm::vec3(0.0f, 1.0f, 0.0));
+		model = glm::scale(model, glm::vec3(20.9f, 20.9f, 20.9f));
+		staticShader.setMat4("model", model);
+		CabezaPin.Draw(staticShader);
+
+		model = glm::translate(tmp, glm::vec3(0.0f, 0.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(0.0f), glm::vec3(1.0f, 0.0f, 0.0));
+		model = glm::scale(model, glm::vec3(20.9f, 20.9f, 20.9f));
+		staticShader.setMat4("model", model);
+		TorsoPin.Draw(staticShader);
+
+		model = glm::translate(tmp, glm::vec3(0.0f, 0.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(rotPatasPin), glm::vec3(1.0f, 0.0f, 0.0));
+		model = glm::scale(model, glm::vec3(20.9f, 20.9f, 20.9f));
+		staticShader.setMat4("model", model);
+		patasPin.Draw(staticShader);
+
+		
+
+
+
 
 
 
@@ -4036,27 +5566,89 @@ void my_input(GLFWwindow *window, int key, int scancode, int action, int mode)
 		camera.ProcessKeyboard(LEFT, (float)deltaTime);
 	if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
 		camera.ProcessKeyboard(RIGHT, (float)deltaTime);
-	//To Configure Model
-	if (glfwGetKey(window, GLFW_KEY_Y) == GLFW_PRESS)
-		posZ++;
-	if (glfwGetKey(window, GLFW_KEY_H) == GLFW_PRESS)
-		posZ--;
-	if (glfwGetKey(window, GLFW_KEY_G) == GLFW_PRESS)
-		posX--;
-	if (glfwGetKey(window, GLFW_KEY_J) == GLFW_PRESS)
-		posX++;
-	if (glfwGetKey(window, GLFW_KEY_X) == GLFW_PRESS)
-		rotRodIzq--;
-	if (glfwGetKey(window, GLFW_KEY_C) == GLFW_PRESS)
-		rotRodIzq++;
-	if (glfwGetKey(window, GLFW_KEY_V) == GLFW_PRESS)
-		giroMonito--;
+	
+	//PROYECTO
+
+//Teclas mueve cola pez
+
 	if (glfwGetKey(window, GLFW_KEY_B) == GLFW_PRESS)
-		giroMonito++;
-	if (glfwGetKey(window, GLFW_KEY_M) == GLFW_PRESS)
-		lightPosition.x++;
+		movCola--;
 	if (glfwGetKey(window, GLFW_KEY_N) == GLFW_PRESS)
-		lightPosition.x--;
+		movCola++;
+
+
+	// Teclas movimiento Tiburon
+
+
+	if (glfwGetKey(window, GLFW_KEY_1) == GLFW_PRESS)
+		movAletasShark -= 0.2f;
+	if (glfwGetKey(window, GLFW_KEY_2) == GLFW_PRESS)
+		movAletasShark += 0.2f;
+
+	if (glfwGetKey(window, GLFW_KEY_3) == GLFW_PRESS)
+		movBocaShark -= 0.15f;
+	if (glfwGetKey(window, GLFW_KEY_4) == GLFW_PRESS)
+		movBocaShark += 0.15f;
+
+
+	//Teclas niña
+	if (glfwGetKey(window, GLFW_KEY_5) == GLFW_PRESS)
+		rotCabezaGirl += 0.5f;
+	if (glfwGetKey(window, GLFW_KEY_6) == GLFW_PRESS)
+		rotCabezaGirl -= 0.5f;
+
+	if (glfwGetKey(window, GLFW_KEY_1) == GLFW_PRESS)
+		posXGirl--;
+	if (glfwGetKey(window, GLFW_KEY_2) == GLFW_PRESS)
+		posXGirl++;
+	if (glfwGetKey(window, GLFW_KEY_3) == GLFW_PRESS)
+		posZGirl--;
+	if (glfwGetKey(window, GLFW_KEY_4) == GLFW_PRESS)
+		posZGirl++;
+
+	if (glfwGetKey(window, GLFW_KEY_7) == GLFW_PRESS)
+		movBrazoDerGirl += 0.28f;
+	if (glfwGetKey(window, GLFW_KEY_8) == GLFW_PRESS)
+		movBrazoDerGirl -= 0.28f;
+	if (glfwGetKey(window, GLFW_KEY_9) == GLFW_PRESS)
+		movBrazoIzqGirl += 0.28f;
+	if (glfwGetKey(window, GLFW_KEY_0) == GLFW_PRESS)
+		movBrazoIzqGirl -= 0.28f;
+
+	if (glfwGetKey(window, GLFW_KEY_E) == GLFW_PRESS)
+		rotPiernaDerGirl += 0.2f;
+	if (glfwGetKey(window, GLFW_KEY_R) == GLFW_PRESS)
+		rotPiernaDerGirl -= 0.2f;
+	if (glfwGetKey(window, GLFW_KEY_T) == GLFW_PRESS)
+		rotPiernaIzqGirl += 0.2f;
+	if (glfwGetKey(window, GLFW_KEY_Y) == GLFW_PRESS)
+		rotPiernaIzqGirl -= 0.2f;
+
+	// Teclas Pinguino
+
+	if (glfwGetKey(window, GLFW_KEY_F) == GLFW_PRESS)
+		movCabezaPin += 0.2f;
+	if (glfwGetKey(window, GLFW_KEY_G) == GLFW_PRESS)
+		movCabezaPin -= 0.2f;
+
+	if (glfwGetKey(window, GLFW_KEY_J) == GLFW_PRESS)
+		posXPin++;
+	if (glfwGetKey(window, GLFW_KEY_H) == GLFW_PRESS)
+		posXPin--;
+	if (glfwGetKey(window, GLFW_KEY_I) == GLFW_PRESS)
+		posZPin--;
+	if (glfwGetKey(window, GLFW_KEY_O) == GLFW_PRESS)
+		posZPin++;
+
+	if (glfwGetKey(window, GLFW_KEY_Z) == GLFW_PRESS)
+		rotPin += 0.2f;
+	if (glfwGetKey(window, GLFW_KEY_X) == GLFW_PRESS)
+		rotPin -= 0.2f;
+	if (glfwGetKey(window, GLFW_KEY_C) == GLFW_PRESS)
+		rotPatasPin += 0.2f;
+	if (glfwGetKey(window, GLFW_KEY_V) == GLFW_PRESS)
+		rotPatasPin -= 0.2f;
+
 	
 	//Car animation
 	if (key == GLFW_KEY_SPACE && action == GLFW_PRESS)
