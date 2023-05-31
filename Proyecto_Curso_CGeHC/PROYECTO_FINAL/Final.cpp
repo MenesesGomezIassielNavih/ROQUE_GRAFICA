@@ -1148,6 +1148,44 @@ glm::vec3 tmedusa04(0.0f, -1.0f, -1.0f);
 
 
 
+//variables mov   guinos
+float movPingu_x = 0.0f,
+movPingu_y = 0.0f,
+movPingu_z = 0.0f,
+orientaPingu = 0.0f,
+movPingu_x2 = 400.0f,
+movPingu_y2 = 0.0f,
+movPingu_z2 = 30.0f,
+orientaPingu2 = 0.0f,
+animalaspingu = 0.0f,
+alaspingu = 0.0f,
+animpataspingu = 0.0f,
+pataspingu = 0.0f;
+
+
+
+//animaciones pinguinos
+bool animacionP = true,
+reco1 = true,
+reco2 = false,
+reco3 = false,
+reco4 = false,
+recoo5 = false,
+recoo6 = false,
+recoo7 = false,
+animacionP2 = true,
+reco5 = true,
+reco6 = false,
+reco7 = false,
+reco8 = false,
+reco9 = false,
+reco10 = false,
+reco11 = false;
+
+
+
+
+
 // posiciones
 //float x = 0.0f;
 //float y = 0.0f;
@@ -1486,6 +1524,119 @@ void animate(void)
 	lightDirection.x = 100 * cos(myVariable);
 	lightDirection.y = 100 * sin(myVariable);
 	myVariable += 0.01f;
+
+
+	////////////////////////////////  ANIMACION PINGUINO
+	if (animacionP2) {
+		//animacion alas
+
+		if (animalaspingu == 0) {//CAMBIAR PIVOTE
+			alaspingu += 1.0f;
+			if (alaspingu >= 15) {
+				animalaspingu = 1;
+			}
+		}
+		else {
+			alaspingu -= 1.0f;
+			if (alaspingu <= -15) {
+				animalaspingu = 0;
+			}
+		}
+
+		//animacion patas
+		if (animpataspingu == 0) {
+			pataspingu += 1.0f;
+			if (pataspingu >= 25) {
+				animpataspingu = 1;
+			}
+		}
+		else {
+			pataspingu -= 1.0f;
+			if (pataspingu <= -25) {
+				animpataspingu = 0;
+			}
+		}
+
+		//animacion recorrido
+		if (reco5) {
+			movPingu_x2 = 400.0f;
+			movPingu_z2 += 1.0f;
+			orientaPingu2 = 0.0f;
+			if (movPingu_z2 >= 80.0f) {
+				reco5 = false;
+				reco6 = true;
+			}
+		}
+
+		if (reco6) {
+			movPingu_x2 += 1.0f;
+			movPingu_z2 -= 1.43f;
+			orientaPingu2 = 145.0f;
+			if (movPingu_x2 >= 435.0f) {
+				reco6 = false;
+				reco7 = true;
+				//reco7 = true;
+			}
+		}
+
+		if (reco7) {
+			movPingu_x2 -= 1.0f;
+			movPingu_z2 -= 0.0f;
+			orientaPingu2 = -135.0f;
+			if (movPingu_x2 <= 400.0f) {
+				movPingu_x2 = 400.0f;
+				movPingu_z2 = 30.0f;
+				reco7 = false;
+				reco8 = true;
+			}
+		}
+
+		if (reco8) {
+			movPingu_x2 -= 1.0f;
+			movPingu_y2 = -(movPingu_x2 - 375.0f) * (movPingu_x2 - 375.0f) / 25.0f + 50.0f;
+			orientaPingu2 = -135.0f;
+			if (movPingu_x2 <= 330.0f) {
+				movPingu_y2 = 0.0f;
+				movPingu_x2 = 275.0f;
+				reco8 = false;
+				reco9 = true;
+			}
+		}
+
+		if (reco9) {
+			movPingu_x2 -= 1.0f;
+			movPingu_y2 = -(movPingu_x2 - 120.0f) * (movPingu_x2 - 120.0f) / 25.0f + 50.0f;
+			orientaPingu2 = -135.0f;
+			if (movPingu_x2 <= 90.0f) {
+				movPingu_x2 = 90.0f;
+				movPingu_y2 = 0.0f;
+				movPingu_z2 = 65.0f;
+				reco9 = false;
+				reco10 = true;
+			}
+		}
+
+		if (reco10) {
+			movPingu_x2 -= 1.0f;
+			movPingu_z2 += 1.0f;
+			orientaPingu2 = 90.0f;
+			if (movPingu_z2 <= 100.0f) {
+				reco10 = false;
+				reco11 = true;
+			}
+		}
+
+		if (reco11) {
+			movPingu_x2 += 1.0f;
+			//movPingu_z2 += 1.0f;
+			orientaPingu2 = 90.0f;
+			if (movPingu_x2 >= 400.0f) {
+				reco11 = false;
+				reco5 = true;
+			}
+		}
+	}
+
 
 	///////////////////////////////////////////
 	pez01.x = 70.0f * cos(posXpez);
@@ -1889,6 +2040,7 @@ int main() {
 	Model zuneshaFBX("resources/FBX/Zunesha/Sunicha.fbx");
 	Model ladrillo_Texture("resources/Texturas1/bricks.jpg");
 	Model madera_Texture("resources/Texturas1/wood01.png");
+	Model goingmerryFBX("resources/FBX/Going_Merry/going_merry.fbx");
 
 	Model azul("resources/objects/Esfera/azul/azul.obj");
 	Model blanco("resources/objects/Esfera/blanco/blanco.obj");
@@ -1897,6 +2049,14 @@ int main() {
 	Model negro("resources/objects/Esfera/negro/negro.obj");
 	Model rojo("resources/objects/Esfera/rojo/rojo.obj");
 	Model rosa("resources/objects/Esfera/rosa/rosa.obj");
+
+	//pinguino en partes
+	Model pingu1("resources/objects/pinguino2/pingu.obj");
+	Model pingupi1("resources/objects/pinguino2/pieizq.obj");
+	Model pingupd1("resources/objects/pinguino2/pieder.obj");
+	Model pinguai1("resources/objects/pinguino2/alaizq.obj");
+	Model pinguad1("resources/objects/pinguino2/alader.obj");
+
 
 
 	//MODELOS DAVID PROYECTO
@@ -2054,45 +2214,6 @@ int main() {
 		glm::vec3 ambientColor = diffuseColor * glm::vec3(0.75f);
 		//GLint modelLoc = glGetUniformLocation(staticShader.setFloat("material_shininess", 32.0f), "model");
 
-		// -------------------------------------------------------------------------------------------------------------------------
-		// Personaje Animacion CHAVA
-		// -------------------------------------------------------------------------------------------------------------------------
-		//Remember to activate the shader with the animation
-		animShader.use();
-		animShader.setMat4("projection", projection);
-		animShader.setMat4("view", view);
-
-		animShader.setVec3("material.specular", glm::vec3(0.5f));
-		animShader.setFloat("material.shininess", 32.0f);
-		animShader.setVec3("light.ambient", ambientColor);
-		animShader.setVec3("light.diffuse", diffuseColor);
-		animShader.setVec3("light.specular", 1.0f, 1.0f, 1.0f);
-		animShader.setVec3("light.direction", lightDirection);
-		animShader.setVec3("viewPos", camera.Position);
-
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(-40.3f, 1.75f, -20.0f)); // translate it down so it's at the center of the scene
-		model = glm::scale(model, glm::vec3(1.2f));	// it's a bit too big for our scene, so scale it down
-		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-		animShader.setMat4("model", model);
-		animacionPersonaje.Draw(animShader);
-
-		// -------------------------------------------------------------------------------------------------------------------------
-		// Segundo Personaje Animacion NINJA
-		// -------------------------------------------------------------------------------------------------------------------------
-
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(40.3f, 1.75f, -20.0f)); // translate it down so it's at the center of the scene
-		model = glm::scale(model, glm::vec3(0.5f));	// it's a bit too big for our scene, so scale it down
-		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-		animShader.setMat4("model", model);
-		//ninja.Draw(animShader);
-
-		//--Personaje Caminando
-
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(70.3f, 0.0f, 40.0f)); // translate it down so it's at the center of the scene
-		model = glm::scale(model, glm::vec3(0.3f));	// it's a bit too big for our scene, so scale it down
-		// = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-		animShader.setMat4("model", model);
-		perCaminando.Draw(animShader);
 
 		// -------------------------------------------------------------------------------------------------------------------------
 		// Escenario
@@ -2138,15 +2259,64 @@ int main() {
 
 
 		// Lugar Pinguinos
-
-		model = glm::mat4(1.0f);
-		//model = glm::translate(model, glm::vec3(-230.0f, 0.0f, -350.0f));
-		model = glm::translate(model, glm::vec3(-2300.0f, 0.0f, -470.0f));
-		////model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 0.0f, 0.0f));
-		//model = glm::scale(model, glm::vec3(120.0f, 15.0f, 120.0f));
-		model = glm::scale(model, glm::vec3(135.0f, 15.0f, 140.0f));
+		//clima frio
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-1008.0f, /*-15.0f*/0.0f, -250.0f));
+		model = glm::scale(model, glm::vec3(2.9f, 2.5f, 2.8f));
 		staticShader.setMat4("model", model);
-		pecera3.Draw(staticShader);
+		igloo.Draw(staticShader);
+
+
+		//--------------------------------
+		// Personaje pinguino1
+		//-------------------------------
+
+		//pinguinoanimado 2
+		glm::mat4 tmp30 = glm::mat4(1.0f);
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-1008.0f, /*-15.0f*/0.0f, -250.0f));
+		tmp30 = model = glm::translate(model, glm::vec3(-190.0f, 30.0f, 70.0f));
+		model = glm::translate(tmp30, glm::vec3(movPingu_x2, movPingu_y2, movPingu_z2));
+		//model = glm::translate(glm::mat4(1.0f), glm::vec3(movPingu_x2, 0.0f, movPingu_z2));
+		model = glm::rotate(model, glm::radians(orientaPingu2), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(1.0f));
+		staticShader.setMat4("model", model);
+		pingu1.Draw(staticShader);
+
+		//model = glm::translate(glm::mat4(1.0f), glm::vec3(movPingu_x2, 0.0f, movPingu_z2));
+		model = glm::translate(tmp30, glm::vec3(movPingu_x2, movPingu_y2, movPingu_z2));
+		model = glm::rotate(model, glm::radians(orientaPingu2), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(-pataspingu), glm::vec3(1.0f, 0.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(1.0f));
+		staticShader.setMat4("model", model);
+		pingupi1.Draw(staticShader);
+
+		//model = glm::translate(glm::mat4(1.0f), glm::vec3(movPingu_x2, 0.0f, movPingu_z2));
+		model = glm::translate(tmp30, glm::vec3(movPingu_x2, movPingu_y2, movPingu_z2));
+
+		model = glm::rotate(model, glm::radians(orientaPingu2), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(pataspingu), glm::vec3(1.0f, 0.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(1.0f));
+		staticShader.setMat4("model", model);
+		pingupd1.Draw(staticShader);
+
+
+		model = glm::translate(tmp30, glm::vec3(movPingu_x2, movPingu_y2, movPingu_z2));
+		model = glm::rotate(model, glm::radians(orientaPingu2), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(-alaspingu), glm::vec3(0.0f, 0.0f, 1.0f));
+		model = glm::scale(model, glm::vec3(1.0f));
+		staticShader.setMat4("model", model);
+		pinguai1.Draw(staticShader);
+
+		model = glm::translate(tmp30, glm::vec3(movPingu_x2, movPingu_y2, movPingu_z2));
+		model = glm::rotate(model, glm::radians(orientaPingu2), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(alaspingu), glm::vec3(0.0f, 0.0f, 1.0f));
+		model = glm::scale(model, glm::vec3(1.0f));
+		staticShader.setMat4("model", model);
+		pinguad1.Draw(staticShader);
+
+
+
+
+
 
 		// ANIMACION NIÑA
 		
@@ -2587,29 +2757,29 @@ int main() {
 
 
 		model = glm::mat4(1.0f);
-		model = glm::translate(model, glm::vec3(-540.0f, 0.0f, 760.0f));
+		model = glm::translate(model, glm::vec3(-540.0f, 0.0f, 860.0f));
 		model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0));
 		model = glm::scale(model, glm::vec3(0.6f, 0.6f, 0.6f));
 		staticShader.setMat4("model", model);
-		persona1.Draw(staticShader);
+		//persona1.Draw(staticShader);
 
 
 		model = glm::mat4(1.0f);
-		model = glm::translate(model, glm::vec3(-540.0f, 0.0f, 660.0f));
+		model = glm::translate(model, glm::vec3(-540.0f, 0.0f, 760.0f));
 		model = glm::rotate(model, glm::radians(-45.0f), glm::vec3(0.0f, 1.0f, 0.0));
 		model = glm::scale(model, glm::vec3(0.6f, 0.6f, 0.6f));
 		staticShader.setMat4("model", model);
 		persona2.Draw(staticShader);
 
 		model = glm::mat4(1.0f);
-		model = glm::translate(model, glm::vec3(-540.0f, 0.0f, 560.0f));
+		model = glm::translate(model, glm::vec3(-540.0f, 0.0f, 660.0f));
 		model = glm::rotate(model, glm::radians(-45.0f), glm::vec3(0.0f, 1.0f, 0.0));
 		model = glm::scale(model, glm::vec3(0.6f, 0.6f, 0.6f));
 		staticShader.setMat4("model", model);
 		persona3.Draw(staticShader);
 
 		model = glm::mat4(1.0f);
-		model = glm::translate(model, glm::vec3(-540.0f, 0.0f, 460.0f));
+		model = glm::translate(model, glm::vec3(-540.0f, 0.0f, 560.0f));
 		model = glm::rotate(model, glm::radians(-45.0f), glm::vec3(0.0f, 1.0f, 0.0));
 		model = glm::scale(model, glm::vec3(0.6f, 0.6f, 0.6f));
 		staticShader.setMat4("model", model);
@@ -2617,14 +2787,14 @@ int main() {
 
 
 		model = glm::mat4(1.0f);
-		model = glm::translate(model, glm::vec3(-540.0f, 0.0f, 360.0f));
+		model = glm::translate(model, glm::vec3(-540.0f, 0.0f, 460.0f));
 		model = glm::rotate(model, glm::radians(-45.0f), glm::vec3(0.0f, 1.0f, 0.0));
 		model = glm::scale(model, glm::vec3(0.6f, 0.6f, 0.6f));
 		staticShader.setMat4("model", model);
 		persona5.Draw(staticShader);
 
 		model = glm::mat4(1.0f);
-		model = glm::translate(model, glm::vec3(-540.0f, 0.0f, 260.0f));
+		model = glm::translate(model, glm::vec3(-540.0f, 0.0f, 360.0f));
 		model = glm::rotate(model, glm::radians(-45.0f), glm::vec3(0.0f, 1.0f, 0.0));
 		model = glm::scale(model, glm::vec3(0.6f, 0.6f, 0.6f));
 		staticShader.setMat4("model", model);
@@ -2672,7 +2842,7 @@ int main() {
 		model = glm::rotate(model, glm::radians(-45.0f), glm::vec3(0.0f, 1.0f, 0.0));
 		model = glm::scale(model, glm::vec3(0.6f, 0.6f, 0.6f));
 		staticShader.setMat4("model", model);
-		persona1.Draw(staticShader);
+		//persona1.Draw(staticShader);
 
 
 		model = glm::mat4(1.0f);
@@ -2698,7 +2868,7 @@ int main() {
 
 
 
-		// Personas Pecera Pinguinos
+		// Personas Zona de Pinguinos
 
 
 		model = glm::mat4(1.0f);
@@ -2708,14 +2878,12 @@ int main() {
 		staticShader.setMat4("model", model);
 		persona4.Draw(staticShader);
 
-
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(-540.0f, 0.0f, -300.0f));
 		model = glm::rotate(model, glm::radians(-45.0f), glm::vec3(0.0f, 1.0f, 0.0));
 		model = glm::scale(model, glm::vec3(0.6f, 0.6f, 0.6f));
 		staticShader.setMat4("model", model);
 		persona5.Draw(staticShader);
-
 
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(-540.0f, 0.0f, -400.0f));
@@ -2739,7 +2907,6 @@ int main() {
 		staticShader.setMat4("model", model);
 		persona8.Draw(staticShader);
 
-
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(-540.0f, 0.0f, -700.0f));
 		model = glm::rotate(model, glm::radians(-65.0f), glm::vec3(0.0f, 1.0f, 0.0));
@@ -2755,79 +2922,68 @@ int main() {
 		persona6.Draw(staticShader);
 
 		//Horizontal
-
-
 		model = glm::mat4(1.0f);
-		model = glm::translate(model, glm::vec3(-1400.0f, 0.0f, -50.0f));
+		model = glm::translate(model, glm::vec3(-1400.0f, 0.0f, -10.0f));
 		model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0));
 		model = glm::scale(model, glm::vec3(0.6f, 0.6f, 0.6f));
 		staticShader.setMat4("model", model);
 		persona2.Draw(staticShader);
 
-
 		model = glm::mat4(1.0f);
-		model = glm::translate(model, glm::vec3(-1300.0f, 0.0f, -50.0f));
+		model = glm::translate(model, glm::vec3(-1300.0f, 0.0f, -10.0f));
 		model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0));
 		model = glm::scale(model, glm::vec3(0.6f, 0.6f, 0.6f));
 		staticShader.setMat4("model", model);
 		persona7.Draw(staticShader);
 
 		model = glm::mat4(1.0f);
-		model = glm::translate(model, glm::vec3(-1200.0f, 0.0f, -50.0f));
+		model = glm::translate(model, glm::vec3(-1200.0f, 0.0f, -10.0f));
 		model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0));
 		model = glm::scale(model, glm::vec3(0.6f, 0.6f, 0.6f));
 		staticShader.setMat4("model", model);
 		persona5.Draw(staticShader);
 
-
 		model = glm::mat4(1.0f);
-		model = glm::translate(model, glm::vec3(-1100.0f, 0.0f, -50.0f));
+		model = glm::translate(model, glm::vec3(-1100.0f, 0.0f, -10.0f));
 		model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0));
 		model = glm::scale(model, glm::vec3(0.6f, 0.6f, 0.6f));
 		staticShader.setMat4("model", model);
 		persona4.Draw(staticShader);
 
-
 		model = glm::mat4(1.0f);
-		model = glm::translate(model, glm::vec3(-1000.0f, 0.0f, -50.0f));
+		model = glm::translate(model, glm::vec3(-1000.0f, 0.0f, -10.0f));
 		model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0));
 		model = glm::scale(model, glm::vec3(0.6f, 0.6f, 0.6f));
 		staticShader.setMat4("model", model);
 		persona5.Draw(staticShader);
 
-
 		model = glm::mat4(1.0f);
-		model = glm::translate(model, glm::vec3(-900.0f, 0.0f, -50.0f));
+		model = glm::translate(model, glm::vec3(-900.0f, 0.0f, -10.0f));
 		model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0));
 		model = glm::scale(model, glm::vec3(0.6f, 0.6f, 0.6f));
 		staticShader.setMat4("model", model);
 		persona6.Draw(staticShader);
 
-
 		model = glm::mat4(1.0f);
-		model = glm::translate(model, glm::vec3(-800.0f, 0.0f, -50.0f));
+		model = glm::translate(model, glm::vec3(-800.0f, 0.0f, -10.0f));
 		model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0));
 		model = glm::scale(model, glm::vec3(0.6f, 0.6f, 0.6f));
 		staticShader.setMat4("model", model);
 		persona7.Draw(staticShader);
 
-
 		model = glm::mat4(1.0f);
-		model = glm::translate(model, glm::vec3(-700.0f, 0.0f, -50.0f));
+		model = glm::translate(model, glm::vec3(-700.0f, 0.0f, -10.0f));
 		model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0));
 		model = glm::scale(model, glm::vec3(0.6f, 0.6f, 0.6f));
 		staticShader.setMat4("model", model);
 		persona8.Draw(staticShader);
 
-
 		model = glm::mat4(1.0f);
-		model = glm::translate(model, glm::vec3(-600.0f, 0.0f, -50.0f));
+		model = glm::translate(model, glm::vec3(-600.0f, 0.0f, -10.0f));
 		model = glm::rotate(model, glm::radians(135.0f), glm::vec3(0.0f, 1.0f, 0.0));
 		model = glm::scale(model, glm::vec3(0.6f, 0.6f, 0.6f));
 		staticShader.setMat4("model", model);
-		persona1.Draw(staticShader);
-
-
+		//persona1.Draw(staticShader);
 
 
 		// Personas Pecera Tiburones
@@ -2839,14 +2995,12 @@ int main() {
 		staticShader.setMat4("model", model);
 		persona7.Draw(staticShader);
 
-
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(420.0f, 0.0f, 100.0f));
 		model = glm::rotate(model, glm::radians(45.0f), glm::vec3(0.0f, 1.0f, 0.0));
 		model = glm::scale(model, glm::vec3(0.6f, 0.6f, 0.6f));
 		staticShader.setMat4("model", model);
 		persona8.Draw(staticShader);
-
 
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(420.0f, 0.0f, 0.0f));
@@ -2869,14 +3023,12 @@ int main() {
 		staticShader.setMat4("model", model);
 		persona4.Draw(staticShader);
 
-
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(420.0f, 0.0f, -300.0f));
 		model = glm::rotate(model, glm::radians(45.0f), glm::vec3(0.0f, 1.0f, 0.0));
 		model = glm::scale(model, glm::vec3(0.6f, 0.6f, 0.6f));
 		staticShader.setMat4("model", model);
 		persona5.Draw(staticShader);
-
 
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(420.0f, 0.0f, -400.0f));
@@ -2892,14 +3044,12 @@ int main() {
 		staticShader.setMat4("model", model);
 		persona7.Draw(staticShader);
 
-
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(420.0f, 0.0f, -600.0f));
 		model = glm::rotate(model, glm::radians(45.0f), glm::vec3(0.0f, 1.0f, 0.0));
 		model = glm::scale(model, glm::vec3(0.6f, 0.6f, 0.6f));
 		staticShader.setMat4("model", model);
 		persona8.Draw(staticShader);
-
 
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(420.0f, 0.0f, -700.0f));
@@ -2916,15 +3066,12 @@ int main() {
 		persona6.Draw(staticShader);
 
 		//Horizontal
-
-
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(1400.0f, 0.0f, 300.0f));
 		model = glm::rotate(model, glm::radians(210.0f), glm::vec3(0.0f, 1.0f, 0.0));
 		model = glm::scale(model, glm::vec3(0.6f, 0.6f, 0.6f));
 		staticShader.setMat4("model", model);
 		persona2.Draw(staticShader);
-
 
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(1300.0f, 0.0f, 300.0f));
@@ -2940,14 +3087,12 @@ int main() {
 		staticShader.setMat4("model", model);
 		persona5.Draw(staticShader);
 
-
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(1100.0f, 0.0f, 300.0f));
 		model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0));
 		model = glm::scale(model, glm::vec3(0.6f, 0.6f, 0.6f));
 		staticShader.setMat4("model", model);
 		persona4.Draw(staticShader);
-
 
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(1000.0f, 0.0f, 300.0f));
@@ -2956,14 +3101,12 @@ int main() {
 		staticShader.setMat4("model", model);
 		persona5.Draw(staticShader);
 
-
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(900.0f, 0.0f, 300.0f));
 		model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0));
 		model = glm::scale(model, glm::vec3(0.6f, 0.6f, 0.6f));
 		staticShader.setMat4("model", model);
 		persona6.Draw(staticShader);
-
 
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(800.0f, 0.0f, 300.0f));
@@ -2972,7 +3115,6 @@ int main() {
 		staticShader.setMat4("model", model);
 		persona7.Draw(staticShader);
 
-
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(700.0f, 0.0f, 300.0f));
 		model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0));
@@ -2980,27 +3122,19 @@ int main() {
 		staticShader.setMat4("model", model);
 		persona8.Draw(staticShader);
 
-
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(600.0f, 0.0f, 300.0f));
 		model = glm::rotate(model, glm::radians(95.0f), glm::vec3(0.0f, 1.0f, 0.0));
 		model = glm::scale(model, glm::vec3(0.6f, 0.6f, 0.6f));
 		staticShader.setMat4("model", model);
-		persona1.Draw(staticShader);
-
-
-
-
-
-
-
+		//persona1.Draw(staticShader);
 
 
 		//ANIMACION TIBURON
 
-// Tiburon 1
+		// Tiburon 1
 
-// Boca Tiburon
+		// Boca Tiburon
 		model = glm::translate(glm::mat4(1.0f), glm::vec3(1000.0f, 50.0f, -160.0f));
 		model = glm::translate(model, tshark);
 		tmp = model = glm::rotate(model, glm::radians(rotshark), glm::vec3(0.0f, 1.0f, 0.0f));
@@ -3437,7 +3571,7 @@ int main() {
 
 		//Pinguino
 
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(-1300.0f, 0.0f, -670.0f));
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-1300.0f, 50.0f, -670.0f));
 		model = glm::translate(model, glm::vec3(posXPin, 0, posZPin));
 		tmp = model = glm::rotate(model, glm::radians(rotPin), glm::vec3(0.0f, 0.0f, 1.0));
 		model = glm::rotate(model, glm::radians(movCabezaPin), glm::vec3(0.0f, 1.0f, 0.0));
@@ -3458,7 +3592,7 @@ int main() {
 		patasPin.Draw(staticShader);
 
 
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(-1335.0f, 0.0f, -670.0f));
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-1335.0f, 50.0f, -670.0f));
 		model = glm::translate(model, glm::vec3(posXPin, 0, posZPin));
 		tmp = model = glm::rotate(model, glm::radians(rotPin), glm::vec3(0.0f, 0.0f, 1.0));
 		model = glm::rotate(model, glm::radians(movCabezaPin), glm::vec3(0.0f, 1.0f, 0.0));
@@ -3479,7 +3613,7 @@ int main() {
 		patasPin.Draw(staticShader);
 
 
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(-1317.5f, 0.0f, -650.0f));
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-1317.5f, 50.0f, -650.0f));
 		model = glm::translate(model, glm::vec3(posXPin, 0, posZPin));
 		tmp = model = glm::rotate(model, glm::radians(rotPin), glm::vec3(0.0f, 0.0f, 1.0));
 		model = glm::rotate(model, glm::radians(movCabezaPin), glm::vec3(0.0f, 1.0f, 0.0));
@@ -3501,8 +3635,7 @@ int main() {
 
 
 		// 2
-
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(-1050.0f, 0.0f, -660.0f));
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-1050.0f, 50.0f, -660.0f));
 		model = glm::translate(model, glm::vec3(posXPin, 0, posZPin));
 		model = glm::rotate(model, glm::radians(40.0f), glm::vec3(0.0f, 1.0f, 0.0));
 		tmp = model = glm::rotate(model, glm::radians(rotPin), glm::vec3(0.0f, 0.0f, 1.0));
@@ -3524,7 +3657,7 @@ int main() {
 		patasPin.Draw(staticShader);
 
 
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(-1000.0f, 0.0f, -670.0f));
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-1000.0f, 50.0f, -670.0f));
 		model = glm::translate(model, glm::vec3(posXPin, 0, posZPin));
 		tmp = model = glm::rotate(model, glm::radians(rotPin), glm::vec3(0.0f, 0.0f, 1.0));
 		model = glm::rotate(model, glm::radians(movCabezaPin), glm::vec3(0.0f, 1.0f, 0.0));
@@ -3546,7 +3679,7 @@ int main() {
 
 
 
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(-960.0f, 0.0f, -670.0f));
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-960.0f, 50.0f, -670.0f));
 		model = glm::translate(model, glm::vec3(posXPin, 0, posZPin));
 		tmp = model = glm::rotate(model, glm::radians(rotPin), glm::vec3(0.0f, 0.0f, 1.0));
 		model = glm::rotate(model, glm::radians(movCabezaPin), glm::vec3(0.0f, 1.0f, 0.0));
@@ -3567,7 +3700,7 @@ int main() {
 		patasPin.Draw(staticShader);
 
 
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(-910.0f, 0.0f, -660.0f));
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-910.0f, 50.0f, -660.0f));
 		model = glm::translate(model, glm::vec3(posXPin, 0, posZPin));
 		model = glm::rotate(model, glm::radians(-40.0f), glm::vec3(0.0f, 1.0f, 0.0));
 		tmp = model = glm::rotate(model, glm::radians(rotPin), glm::vec3(0.0f, 0.0f, 1.0));
@@ -3592,7 +3725,7 @@ int main() {
 
 		// 3
 
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(-1050.0f, 0.0f, -480.0f));
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-1050.0f, 50.0f, -480.0f));
 		model = glm::translate(model, glm::vec3(posXPin, 0, posZPin));
 		model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0));
 		model = glm::rotate(model, glm::radians(-40.0f), glm::vec3(0.0f, 1.0f, 0.0));
@@ -3615,7 +3748,7 @@ int main() {
 		patasPin.Draw(staticShader);
 
 
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(-1000.0f, 0.0f, -470.0f));
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-1000.0f, 50.0f, -470.0f));
 		model = glm::translate(model, glm::vec3(posXPin, 0, posZPin));
 		model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0));
 		tmp = model = glm::rotate(model, glm::radians(rotPin), glm::vec3(0.0f, 0.0f, 1.0));
@@ -3638,7 +3771,7 @@ int main() {
 
 
 
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(-960.0f, 0.0f, -470.0f));
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-960.0f, 50.0f, -470.0f));
 		model = glm::translate(model, glm::vec3(posXPin, 0, posZPin));
 		model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0));
 		tmp = model = glm::rotate(model, glm::radians(rotPin), glm::vec3(0.0f, 0.0f, 1.0));
@@ -3660,7 +3793,7 @@ int main() {
 		patasPin.Draw(staticShader);
 
 
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(-910.0f, 0.0f, -480.0f));
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-910.0f, 50.0f, -480.0f));
 		model = glm::translate(model, glm::vec3(posXPin, 0, posZPin));
 		model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0));
 		model = glm::rotate(model, glm::radians(40.0f), glm::vec3(0.0f, 1.0f, 0.0));
@@ -3686,7 +3819,28 @@ int main() {
 
 		// 4
 
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(-800.0f, 0.0f, -280.0f));
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-800.0f, 50.0f, -280.0f));
+		model = glm::translate(model, glm::vec3(posXPin, 0, posZPin));
+		tmp = model = glm::rotate(model, glm::radians(rotPin), glm::vec3(0.0f, 0.0f, 1.0));
+		model = glm::rotate(model, glm::radians(movCabezaPin), glm::vec3(0.0f, 1.0f, 0.0));
+		model = glm::scale(model, glm::vec3(20.9f, 20.9f, 20.9f));
+		staticShader.setMat4("model", model);
+		//CabezaPin.Draw(staticShader);
+
+		model = glm::translate(tmp, glm::vec3(0.0f, 0.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(0.0f), glm::vec3(1.0f, 0.0f, 0.0));
+		model = glm::scale(model, glm::vec3(20.9f, 20.9f, 20.9f));
+		staticShader.setMat4("model", model);
+		//TorsoPin.Draw(staticShader);
+
+		model = glm::translate(tmp, glm::vec3(0.0f, 0.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(rotPatasPin), glm::vec3(1.0f, 0.0f, 0.0));
+		model = glm::scale(model, glm::vec3(20.9f, 20.9f, 20.9f));
+		staticShader.setMat4("model", model);
+		//patasPin.Draw(staticShader);
+
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-760.0f, 50.0f, -280.0f));
 		model = glm::translate(model, glm::vec3(posXPin, 0, posZPin));
 		tmp = model = glm::rotate(model, glm::radians(rotPin), glm::vec3(0.0f, 0.0f, 1.0));
 		model = glm::rotate(model, glm::radians(movCabezaPin), glm::vec3(0.0f, 1.0f, 0.0));
@@ -3708,48 +3862,26 @@ int main() {
 
 
 
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(-760.0f, 0.0f, -280.0f));
-		model = glm::translate(model, glm::vec3(posXPin, 0, posZPin));
-		tmp = model = glm::rotate(model, glm::radians(rotPin), glm::vec3(0.0f, 0.0f, 1.0));
-		model = glm::rotate(model, glm::radians(movCabezaPin), glm::vec3(0.0f, 1.0f, 0.0));
-		model = glm::scale(model, glm::vec3(20.9f, 20.9f, 20.9f));
-		staticShader.setMat4("model", model);
-		CabezaPin.Draw(staticShader);
-
-		model = glm::translate(tmp, glm::vec3(0.0f, 0.0f, 0.0f));
-		model = glm::rotate(model, glm::radians(0.0f), glm::vec3(1.0f, 0.0f, 0.0));
-		model = glm::scale(model, glm::vec3(20.9f, 20.9f, 20.9f));
-		staticShader.setMat4("model", model);
-		TorsoPin.Draw(staticShader);
-
-		model = glm::translate(tmp, glm::vec3(0.0f, 0.0f, 0.0f));
-		model = glm::rotate(model, glm::radians(rotPatasPin), glm::vec3(1.0f, 0.0f, 0.0));
-		model = glm::scale(model, glm::vec3(20.9f, 20.9f, 20.9f));
-		staticShader.setMat4("model", model);
-		patasPin.Draw(staticShader);
-
-
-
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(-800.0f, 0.0f, -180.0f));
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-800.0f, 50.0f, -180.0f));
 		model = glm::translate(model, glm::vec3(posXPin, 0, posZPin));
 		model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0));
 		tmp = model = glm::rotate(model, glm::radians(rotPin), glm::vec3(0.0f, 0.0f, 1.0));
 		model = glm::rotate(model, glm::radians(movCabezaPin), glm::vec3(0.0f, 1.0f, 0.0));
 		model = glm::scale(model, glm::vec3(20.9f, 20.9f, 20.9f));
 		staticShader.setMat4("model", model);
-		CabezaPin.Draw(staticShader);
+		//CabezaPin.Draw(staticShader);
 
 		model = glm::translate(tmp, glm::vec3(0.0f, 0.0f, 0.0f));
 		model = glm::rotate(model, glm::radians(0.0f), glm::vec3(1.0f, 0.0f, 0.0));
 		model = glm::scale(model, glm::vec3(20.9f, 20.9f, 20.9f));
 		staticShader.setMat4("model", model);
-		TorsoPin.Draw(staticShader);
+		//TorsoPin.Draw(staticShader);
 
 		model = glm::translate(tmp, glm::vec3(0.0f, 0.0f, 0.0f));
 		model = glm::rotate(model, glm::radians(rotPatasPin), glm::vec3(1.0f, 0.0f, 0.0));
 		model = glm::scale(model, glm::vec3(20.9f, 20.9f, 20.9f));
 		staticShader.setMat4("model", model);
-		patasPin.Draw(staticShader);
+		//patasPin.Draw(staticShader);
 
 
 
@@ -3760,47 +3892,42 @@ int main() {
 		model = glm::rotate(model, glm::radians(movCabezaPin), glm::vec3(0.0f, 1.0f, 0.0));
 		model = glm::scale(model, glm::vec3(20.9f, 20.9f, 20.9f));
 		staticShader.setMat4("model", model);
-		CabezaPin.Draw(staticShader);
+		//CabezaPin.Draw(staticShader);
 
 		model = glm::translate(tmp, glm::vec3(0.0f, 0.0f, 0.0f));
 		model = glm::rotate(model, glm::radians(0.0f), glm::vec3(1.0f, 0.0f, 0.0));
 		model = glm::scale(model, glm::vec3(20.9f, 20.9f, 20.9f));
 		staticShader.setMat4("model", model);
-		TorsoPin.Draw(staticShader);
+		//TorsoPin.Draw(staticShader);
 
 		model = glm::translate(tmp, glm::vec3(0.0f, 0.0f, 0.0f));
 		model = glm::rotate(model, glm::radians(rotPatasPin), glm::vec3(1.0f, 0.0f, 0.0));
 		model = glm::scale(model, glm::vec3(20.9f, 20.9f, 20.9f));
 		staticShader.setMat4("model", model);
-		patasPin.Draw(staticShader);
+		//patasPin.Draw(staticShader);
 
 
 
 		// 
-
-
 		model = glm::translate(glm::mat4(1.0f), glm::vec3(-1000.0f, 0.0f, -280.0f));
 		model = glm::translate(model, glm::vec3(posXPin, 0, posZPin));
 		tmp = model = glm::rotate(model, glm::radians(rotPin), glm::vec3(0.0f, 0.0f, 1.0));
 		model = glm::rotate(model, glm::radians(movCabezaPin), glm::vec3(0.0f, 1.0f, 0.0));
 		model = glm::scale(model, glm::vec3(20.9f, 20.9f, 20.9f));
 		staticShader.setMat4("model", model);
-		CabezaPin.Draw(staticShader);
+		//CabezaPin.Draw(staticShader);
 
 		model = glm::translate(tmp, glm::vec3(0.0f, 0.0f, 0.0f));
 		model = glm::rotate(model, glm::radians(0.0f), glm::vec3(1.0f, 0.0f, 0.0));
 		model = glm::scale(model, glm::vec3(20.9f, 20.9f, 20.9f));
 		staticShader.setMat4("model", model);
-		TorsoPin.Draw(staticShader);
+		//TorsoPin.Draw(staticShader);
 
 		model = glm::translate(tmp, glm::vec3(0.0f, 0.0f, 0.0f));
 		model = glm::rotate(model, glm::radians(rotPatasPin), glm::vec3(1.0f, 0.0f, 0.0));
 		model = glm::scale(model, glm::vec3(20.9f, 20.9f, 20.9f));
 		staticShader.setMat4("model", model);
-		patasPin.Draw(staticShader);
-
-
-
+		//patasPin.Draw(staticShader);
 
 
 		model = glm::translate(glm::mat4(1.0f), glm::vec3(-960.0f, 0.0f, -280.0f));
@@ -3809,19 +3936,19 @@ int main() {
 		model = glm::rotate(model, glm::radians(movCabezaPin), glm::vec3(0.0f, 1.0f, 0.0));
 		model = glm::scale(model, glm::vec3(20.9f, 20.9f, 20.9f));
 		staticShader.setMat4("model", model);
-		CabezaPin.Draw(staticShader);
+		//CabezaPin.Draw(staticShader);
 
 		model = glm::translate(tmp, glm::vec3(0.0f, 0.0f, 0.0f));
 		model = glm::rotate(model, glm::radians(0.0f), glm::vec3(1.0f, 0.0f, 0.0));
 		model = glm::scale(model, glm::vec3(20.9f, 20.9f, 20.9f));
 		staticShader.setMat4("model", model);
-		TorsoPin.Draw(staticShader);
+		//TorsoPin.Draw(staticShader);
 
 		model = glm::translate(tmp, glm::vec3(0.0f, 0.0f, 0.0f));
 		model = glm::rotate(model, glm::radians(rotPatasPin), glm::vec3(1.0f, 0.0f, 0.0));
 		model = glm::scale(model, glm::vec3(20.9f, 20.9f, 20.9f));
 		staticShader.setMat4("model", model);
-		patasPin.Draw(staticShader);
+		//patasPin.Draw(staticShader);
 
 
 
@@ -3832,19 +3959,19 @@ int main() {
 		model = glm::rotate(model, glm::radians(movCabezaPin), glm::vec3(0.0f, 1.0f, 0.0));
 		model = glm::scale(model, glm::vec3(20.9f, 20.9f, 20.9f));
 		staticShader.setMat4("model", model);
-		CabezaPin.Draw(staticShader);
+		//CabezaPin.Draw(staticShader);
 
 		model = glm::translate(tmp, glm::vec3(0.0f, 0.0f, 0.0f));
 		model = glm::rotate(model, glm::radians(0.0f), glm::vec3(1.0f, 0.0f, 0.0));
 		model = glm::scale(model, glm::vec3(20.9f, 20.9f, 20.9f));
 		staticShader.setMat4("model", model);
-		TorsoPin.Draw(staticShader);
+		//TorsoPin.Draw(staticShader);
 
 		model = glm::translate(tmp, glm::vec3(0.0f, 0.0f, 0.0f));
 		model = glm::rotate(model, glm::radians(rotPatasPin), glm::vec3(1.0f, 0.0f, 0.0));
 		model = glm::scale(model, glm::vec3(20.9f, 20.9f, 20.9f));
 		staticShader.setMat4("model", model);
-		patasPin.Draw(staticShader);
+		//patasPin.Draw(staticShader);
 
 
 
@@ -3855,19 +3982,19 @@ int main() {
 		model = glm::rotate(model, glm::radians(movCabezaPin), glm::vec3(0.0f, 1.0f, 0.0));
 		model = glm::scale(model, glm::vec3(20.9f, 20.9f, 20.9f));
 		staticShader.setMat4("model", model);
-		CabezaPin.Draw(staticShader);
+		//CabezaPin.Draw(staticShader);
 
 		model = glm::translate(tmp, glm::vec3(0.0f, 0.0f, 0.0f));
 		model = glm::rotate(model, glm::radians(0.0f), glm::vec3(1.0f, 0.0f, 0.0));
 		model = glm::scale(model, glm::vec3(20.9f, 20.9f, 20.9f));
 		staticShader.setMat4("model", model);
-		TorsoPin.Draw(staticShader);
+		//TorsoPin.Draw(staticShader);
 
 		model = glm::translate(tmp, glm::vec3(0.0f, 0.0f, 0.0f));
 		model = glm::rotate(model, glm::radians(rotPatasPin), glm::vec3(1.0f, 0.0f, 0.0));
 		model = glm::scale(model, glm::vec3(20.9f, 20.9f, 20.9f));
 		staticShader.setMat4("model", model);
-		patasPin.Draw(staticShader);
+		//patasPin.Draw(staticShader);
 
 
 
@@ -3879,19 +4006,19 @@ int main() {
 		model = glm::rotate(model, glm::radians(movCabezaPin), glm::vec3(0.0f, 1.0f, 0.0));
 		model = glm::scale(model, glm::vec3(20.9f, 20.9f, 20.9f));
 		staticShader.setMat4("model", model);
-		CabezaPin.Draw(staticShader);
+		//CabezaPin.Draw(staticShader);
 
 		model = glm::translate(tmp, glm::vec3(0.0f, 0.0f, 0.0f));
 		model = glm::rotate(model, glm::radians(0.0f), glm::vec3(1.0f, 0.0f, 0.0));
 		model = glm::scale(model, glm::vec3(20.9f, 20.9f, 20.9f));
 		staticShader.setMat4("model", model);
-		TorsoPin.Draw(staticShader);
+		//TorsoPin.Draw(staticShader);
 
 		model = glm::translate(tmp, glm::vec3(0.0f, 0.0f, 0.0f));
 		model = glm::rotate(model, glm::radians(rotPatasPin), glm::vec3(1.0f, 0.0f, 0.0));
 		model = glm::scale(model, glm::vec3(20.9f, 20.9f, 20.9f));
 		staticShader.setMat4("model", model);
-		patasPin.Draw(staticShader);
+		//patasPin.Draw(staticShader);
 
 
 		model = glm::translate(glm::mat4(1.0f), glm::vec3(-1440.0f, 0.0f, -470.0f));
@@ -3901,19 +4028,19 @@ int main() {
 		model = glm::rotate(model, glm::radians(movCabezaPin), glm::vec3(0.0f, 1.0f, 0.0));
 		model = glm::scale(model, glm::vec3(20.9f, 20.9f, 20.9f));
 		staticShader.setMat4("model", model);
-		CabezaPin.Draw(staticShader);
+		//CabezaPin.Draw(staticShader);
 
 		model = glm::translate(tmp, glm::vec3(0.0f, 0.0f, 0.0f));
 		model = glm::rotate(model, glm::radians(0.0f), glm::vec3(1.0f, 0.0f, 0.0));
 		model = glm::scale(model, glm::vec3(20.9f, 20.9f, 20.9f));
 		staticShader.setMat4("model", model);
-		TorsoPin.Draw(staticShader);
+		//TorsoPin.Draw(staticShader);
 
 		model = glm::translate(tmp, glm::vec3(0.0f, 0.0f, 0.0f));
 		model = glm::rotate(model, glm::radians(rotPatasPin), glm::vec3(1.0f, 0.0f, 0.0));
 		model = glm::scale(model, glm::vec3(20.9f, 20.9f, 20.9f));
 		staticShader.setMat4("model", model);
-		patasPin.Draw(staticShader);
+		//patasPin.Draw(staticShader);
 
 
 
@@ -3925,19 +4052,19 @@ int main() {
 		model = glm::rotate(model, glm::radians(movCabezaPin), glm::vec3(0.0f, 1.0f, 0.0));
 		model = glm::scale(model, glm::vec3(20.9f, 20.9f, 20.9f));
 		staticShader.setMat4("model", model);
-		CabezaPin.Draw(staticShader);
+		//CabezaPin.Draw(staticShader);
 
 		model = glm::translate(tmp, glm::vec3(0.0f, 0.0f, 0.0f));
 		model = glm::rotate(model, glm::radians(0.0f), glm::vec3(1.0f, 0.0f, 0.0));
 		model = glm::scale(model, glm::vec3(20.9f, 20.9f, 20.9f));
 		staticShader.setMat4("model", model);
-		TorsoPin.Draw(staticShader);
+		//TorsoPin.Draw(staticShader);
 
 		model = glm::translate(tmp, glm::vec3(0.0f, 0.0f, 0.0f));
 		model = glm::rotate(model, glm::radians(rotPatasPin), glm::vec3(1.0f, 0.0f, 0.0));
 		model = glm::scale(model, glm::vec3(20.9f, 20.9f, 20.9f));
 		staticShader.setMat4("model", model);
-		patasPin.Draw(staticShader);
+		//patasPin.Draw(staticShader);
 
 
 
@@ -3949,19 +4076,19 @@ int main() {
 		model = glm::rotate(model, glm::radians(movCabezaPin), glm::vec3(0.0f, 1.0f, 0.0));
 		model = glm::scale(model, glm::vec3(20.9f, 20.9f, 20.9f));
 		staticShader.setMat4("model", model);
-		CabezaPin.Draw(staticShader);
+		//CabezaPin.Draw(staticShader);
 
 		model = glm::translate(tmp, glm::vec3(0.0f, 0.0f, 0.0f));
 		model = glm::rotate(model, glm::radians(0.0f), glm::vec3(1.0f, 0.0f, 0.0));
 		model = glm::scale(model, glm::vec3(20.9f, 20.9f, 20.9f));
 		staticShader.setMat4("model", model);
-		TorsoPin.Draw(staticShader);
+		//TorsoPin.Draw(staticShader);
 
 		model = glm::translate(tmp, glm::vec3(0.0f, 0.0f, 0.0f));
 		model = glm::rotate(model, glm::radians(rotPatasPin), glm::vec3(1.0f, 0.0f, 0.0));
 		model = glm::scale(model, glm::vec3(20.9f, 20.9f, 20.9f));
 		staticShader.setMat4("model", model);
-		patasPin.Draw(staticShader);
+		//patasPin.Draw(staticShader);
 
 
 		model = glm::translate(glm::mat4(1.0f), glm::vec3(-1150.0f, 0.0f, -270.0f));
@@ -3971,33 +4098,20 @@ int main() {
 		model = glm::rotate(model, glm::radians(movCabezaPin), glm::vec3(0.0f, 1.0f, 0.0));
 		model = glm::scale(model, glm::vec3(20.9f, 20.9f, 20.9f));
 		staticShader.setMat4("model", model);
-		CabezaPin.Draw(staticShader);
+		//CabezaPin.Draw(staticShader);
 
 		model = glm::translate(tmp, glm::vec3(0.0f, 0.0f, 0.0f));
 		model = glm::rotate(model, glm::radians(0.0f), glm::vec3(1.0f, 0.0f, 0.0));
 		model = glm::scale(model, glm::vec3(20.9f, 20.9f, 20.9f));
 		staticShader.setMat4("model", model);
-		TorsoPin.Draw(staticShader);
+		//TorsoPin.Draw(staticShader);
 
 		model = glm::translate(tmp, glm::vec3(0.0f, 0.0f, 0.0f));
 		model = glm::rotate(model, glm::radians(rotPatasPin), glm::vec3(1.0f, 0.0f, 0.0));
 		model = glm::scale(model, glm::vec3(20.9f, 20.9f, 20.9f));
 		staticShader.setMat4("model", model);
-		patasPin.Draw(staticShader);
+		//patasPin.Draw(staticShader);
 
-		
-
-
-
-
-
-
-		//clima frio
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(190.0f, 0.0f, 275.0f));
-		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, -1.0f, 0.0f));
-		model = glm::scale(model, glm::vec3(0.8f));
-		staticShader.setMat4("model", model);
-		igloo.Draw(staticShader);
 
 
 		//Banio
@@ -4025,6 +4139,33 @@ int main() {
 		model = glm::rotate(model, glm::radians(92.24f), glm::vec3(0.0f, -1.0f, 0.0f));
 		model = glm::scale(model, glm::vec3(2.5f));
 		model = glm::scale(model, glm::vec3(0.74f, 0.955f, 1.27f));
+		staticShader.setMat4("model", model);
+		cubo.Draw(staticShader);
+		glEnable(GL_BLEND);
+
+
+		// -------------------------------------------------------------------------------------------------------------------------
+		// Caja Transparente Peces
+		// -------------------------------------------------------------------------------------------------------------------------
+		glEnable(GL_BLEND);
+		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-650.0f, 0.0f, 490.0f));
+		model = glm::rotate(model, glm::radians(-1.24f), glm::vec3(0.0f, -1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(1.5f));
+		model = glm::scale(model, glm::vec3(11.19f, 5.0f, 5.27f));
+		staticShader.setMat4("model", model);
+		cubo.Draw(staticShader);
+		glEnable(GL_BLEND);
+
+
+		// Caja Transparente tiburones
+		// -------------------------------------------------------------------------------------------------------------------------
+		glEnable(GL_BLEND);
+		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(1465.0f, 0.0f, -445.0f));
+		model = glm::rotate(model, glm::radians(-2.0f), glm::vec3(0.0f, -1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(1.5f));
+		model = glm::scale(model, glm::vec3(12.6f, 5.0f, 9.03f));
 		staticShader.setMat4("model", model);
 		cubo.Draw(staticShader);
 		glEnable(GL_BLEND);
@@ -4951,7 +5092,6 @@ int main() {
 		//model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
 		model = glm::scale(model, glm::vec3(0.5f, 0.5f, 0.5f));
 		staticShader.setMat4("model", model);
-
 		CrearTeteraRenderizar();
 
 
@@ -4962,7 +5102,6 @@ int main() {
 		//model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
 		model = glm::scale(model, glm::vec3(1.0f, 1.0f, 1.0f));
 		staticShader.setMat4("model", model);
-
 		CrearAsaTeteraRenderizar();
 
 		model = glm::translate(model, glm::vec3(6.0f, 0.0f, -8.0f));
@@ -4972,7 +5111,6 @@ int main() {
 		//model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
 		model = glm::scale(model, glm::vec3(0.7f, 0.7f, 0.7f));
 		staticShader.setMat4("model", model);
-
 		CrearBoquillaTeteraRenderizar();
 
 
@@ -4981,13 +5119,16 @@ int main() {
 		// ICE MAN
 		// -------------------------------------------------------------------------------------------------------------------------
 
+		//CUERPO
 		model = glm::translate(glm::mat4(1.0f), glm::vec3(0, 0, 0));
-		model = glm::translate(model, glm::vec3(270.0f, 15.0f, 320.0f));// es el único traslación pa mover
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-750.0f, 50.0f, -470.0f));
+		//model = glm::translate(model, glm::vec3(270.0f, 15.0f, 320.0f));// es el único traslación pa mover
 		//model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0));
 		staticShader.setVec3("pointLight[0].ambient", glm::vec3(1.0f, 1.0f, 1.0f)); // color
 		staticShader.setVec3("pointLight[0].diffuse", glm::vec3(0.0f, 0.0f, 1.0f));
 		staticShader.setVec3("pointLight[0].specular", glm::vec3(0.0f, 0.0f, 1.0f));
 		model = glm::scale(model, glm::vec3(15.0f, 1.5f, 15.0f)); //escala
+		model = glm::scale(model, glm::vec3(2.5f));
 		staticShader.use();
 		staticShader.setMat4("projection", projection);
 		staticShader.setMat4("view", view);
@@ -5082,14 +5223,18 @@ int main() {
 		staticShader.setMat4("model", model);
 		CrearCilindroRenderizar();
 
+
+
 		//CABEZA 
 		model = glm::translate(glm::mat4(1.0f), glm::vec3(0, 0, 0));
-		model = glm::translate(model, glm::vec3(270.0f, 40.0f, 320.0f));// es el único traslación pa mover
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-750.0f, 110.0f, -470.0f));
+		//model = glm::translate(model, glm::vec3(270.0f, 40.0f, 320.0f));// es el único traslación pa mover
 		//model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0));
 		staticShader.setVec3("pointLight[0].ambient", glm::vec3(1.0f, 1.0f, 1.0f)); // color
 		staticShader.setVec3("pointLight[0].diffuse", glm::vec3(0.0f, 0.0f, 1.0f));
 		staticShader.setVec3("pointLight[0].specular", glm::vec3(0.0f, 0.0f, 1.0f));
 		model = glm::scale(model, glm::vec3(10.0f, 1.0f, 10.0f)); //escala
+		model = glm::scale(model, glm::vec3(2.5f));
 		staticShader.use();
 		staticShader.setMat4("projection", projection);
 		staticShader.setMat4("view", view);
@@ -5186,12 +5331,13 @@ int main() {
 
 		//SOMBRERO
 		model = glm::translate(glm::mat4(1.0f), glm::vec3(0, 0, 0));
-		model = glm::translate(model, glm::vec3(270.0f, 55.0f, 320.0f));// es el único traslación pa mover
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-750.0f, 150.0f, -470.0f));
 		//model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0));
 		staticShader.setVec3("pointLight[0].ambient", glm::vec3(0.0f, 0.0f, 0.0f)); // color
 		staticShader.setVec3("pointLight[0].diffuse", glm::vec3(0.0f, 0.0f, 1.0f));
 		staticShader.setVec3("pointLight[0].specular", glm::vec3(0.0f, 0.0f, 1.0f));
 		model = glm::scale(model, glm::vec3(14.0f, 0.1f, 14.0f)); //escala
+		model = glm::scale(model, glm::vec3(2.5f));
 		staticShader.use();
 		staticShader.setMat4("projection", projection);
 		staticShader.setMat4("view", view);
@@ -5200,12 +5346,14 @@ int main() {
 
 		//COPA SOMBRERO
 		model = glm::translate(glm::mat4(1.0f), glm::vec3(0, 0, 0));
-		model = glm::translate(model, glm::vec3(270.0f, 60.0f, 320.0f));// es el único traslación pa mover
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-750.0f, 162.0f, -470.0f));
+		//model = glm::translate(model, glm::vec3(270.0f, 60.0f, 320.0f));// es el único traslación pa mover
 		//model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0));
 		staticShader.setVec3("pointLight[0].ambient", glm::vec3(0.0f, 0.0f, 0.0f)); // color
 		staticShader.setVec3("pointLight[0].diffuse", glm::vec3(0.0f, 0.0f, 1.0f));
 		staticShader.setVec3("pointLight[0].specular", glm::vec3(0.0f, 0.0f, 1.0f));
 		model = glm::scale(model, glm::vec3(5.0f, 10.0f, 5.0f)); //escala
+		model = glm::scale(model, glm::vec3(2.5f));
 		staticShader.use();
 		staticShader.setMat4("projection", projection);
 		staticShader.setMat4("view", view);
@@ -5214,11 +5362,7 @@ int main() {
 
 
 
-		// ------------------------------------------------------------------------------------------------------------------------ -
-		// PINGUINO AVATAR
-		// -------------------------------------------------------------------------------------------------------------------------
-
-
+		
 		// ------------------------------------------------------------------------------------------------------------------------ -
 		// PINGUINO AVATAR
 		// -------------------------------------------------------------------------------------------------------------------------
@@ -5625,7 +5769,7 @@ int main() {
 		texturaShader.setMat4("model", model);
 		texturaShader.setVec3("aColor", 1.0f, 1.0f, 1.0f);
 		glBindVertexArray(VAO[8]);
-		glBindTexture(GL_TEXTURE_2D, t_wood_png);
+		glBindTexture(GL_TEXTURE_2D, t_brick_png);
 		glDrawArrays(GL_TRIANGLES, 0, 36);        ///Muro
 		glBindVertexArray(0);
 		//myDataRenderizar();
@@ -5636,7 +5780,7 @@ int main() {
 		texturaShader.setMat4("model", model);
 		texturaShader.setVec3("aColor", 1.0f, 1.0f, 1.0f);
 		glBindVertexArray(VAO[8]);
-		glBindTexture(GL_TEXTURE_2D, t_brick_png);
+		glBindTexture(GL_TEXTURE_2D, t_wood_png);
 		glDrawArrays(GL_TRIANGLES, 0, 36);        ///Muro
 		glBindVertexArray(0);
 		staticShader.use();
@@ -5702,20 +5846,32 @@ int main() {
 		// -------------------------------------------------------------------------------------------------------------------------
 		// FBX
 		// -------------------------------------------------------------------------------------------------------------------------
+	
+		//Going_Merry
+		staticShader.use();
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 250.0f, 200.0f));
+		//model = glm::translate(model, glm::vec3(40.0f, 3.0f, 40.0f));
+		//model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+		//model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 0.0f, -1.0f));
+		model = glm::scale(model, glm::vec3(1.0f));
+		fbxShader.setMat4("model", model);
+		goingmerryFBX.Draw(fbxShader);
+		staticShader.use();
+		
 		
 		//Zunesha Elefante
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, -500.0f, -1500.0f));
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, -500.0f, -1700.0f));
 		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
 		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 0.0f, -1.0f));
 		model = glm::scale(model, glm::vec3(100.0f));
-		fbxShader.setMat4("model", model);
+		staticShader.setMat4("model", model);
 		zuneshaFBX.Draw(fbxShader);
-
+		staticShader.use();
+	
 
 		//OLA con animación procedural
 		// Activamos el shader de Phong
 		wavesShader.use();
-
 		// Activamos para objetos transparentes
 		glEnable(GL_BLEND);
 		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
@@ -5726,8 +5882,11 @@ int main() {
 		wavesShader.setMat4("projection", projection);
 		wavesShader.setMat4("view", view);
 
-		// Aplicamos transformaciones del modelo
-				
+
+		// -------------------------------------------------------------------------------------------------------------------------
+		// OLAS DE PECERA DE ENMEDIO
+		// -------------------------------------------------------------------------------------------------------------------------
+		// Aplicamos transformaciones del modelo	
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(-20.0f, 150.0f, -220.0f));
 		//model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
@@ -5737,14 +5896,76 @@ int main() {
 		wavesShader.setMat4("model", model);
 
 		wavesShader.setFloat("time", wavesTime);
-		wavesShader.setFloat("radius", 5.0f);
-		wavesShader.setFloat("height", 5.0f);
+		wavesShader.setFloat("radius", 4.0f);
+		wavesShader.setFloat("height", 3.0f);
 
 		olaFBX.Draw(wavesShader);
 		wavesTime += 0.01;
-
 		staticShader.use();
-		
+		// -------------------------------------------------------------------------------------------------------------------------
+		// OLAS DE PECERA DE PECES
+		// -------------------------------------------------------------------------------------------------------------------------
+		wavesShader.use();
+		// Activamos para objetos transparentes
+		glEnable(GL_BLEND);
+		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
+		// Aplicamos transformaciones de proyección y cámara (si las hubiera)
+		projection = glm::perspective(glm::radians(camera.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 10000.0f);
+		view = camera.GetViewMatrix();
+		wavesShader.setMat4("projection", projection);
+		wavesShader.setMat4("view", view);
+	
+		// Aplicamos transformaciones del modelo	
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(-1080.0f, 439.0f, 555.0f));
+		//model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(2.5f));
+		model = glm::scale(model, glm::vec3(4.56f, 1.0f, 3.40f));
+		model = glm::scale(model, glm::vec3(4.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+		wavesShader.setMat4("model", model);
+
+		wavesShader.setFloat("time", wavesTime);
+		wavesShader.setFloat("radius", 3.0f);
+		wavesShader.setFloat("height", 3.0f);
+
+		olaFBX.Draw(wavesShader);
+		staticShader.use();
+		// -------------------------------------------------------------------------------------------------------------------------
+		// OLAS DE PECERA DE TRIBURONES
+		// ------------------------------------------------------------------------------------------------------------------------
+		wavesShader.use();
+		// Activamos para objetos transparentes
+		glEnable(GL_BLEND);
+		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
+		// Aplicamos transformaciones de proyección y cámara (si las hubiera)
+		projection = glm::perspective(glm::radians(camera.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 10000.0f);
+		view = camera.GetViewMatrix();
+		wavesShader.setMat4("projection", projection);
+		wavesShader.setMat4("view", view);
+		// Aplicamos transformaciones del modelo	
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(1000.0f, 439.0f, -300.0f));
+		model = glm::rotate(model, glm::radians(3.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(52.0f, 1.0f, 55.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+		wavesShader.setMat4("model", model);
+
+		wavesShader.setFloat("time", wavesTime);
+		wavesShader.setFloat("radius", 3.0f);
+		wavesShader.setFloat("height", 3.0f);
+
+		olaFBX.Draw(wavesShader);
+		staticShader.use();
+
+
+
+
+
+
+
 
 		//LUNA
 		lunaShader.use();

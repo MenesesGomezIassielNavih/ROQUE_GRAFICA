@@ -1,79 +1,64 @@
 ﻿  Final.cpp
-C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\include\shader_m.h(44,40): warning C4101: 'e': variable local sin referencia
-C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\include\modelAnim.h(104,44): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
-C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\include\modelAnim.h(520,24): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
-C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\include\Circle.h(63,20): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
-C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(46,44): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(399,13): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
-C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(402,16): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
-C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(540,16): warning C4018: '<': no coinciden signed/unsigned
-C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(600,32): warning C4244: 'argumento': conversión de 'double' a '_Ty'; posible pérdida de datos
+C:\Users\Navih M\Documents\Visual Studio 2022\Proyectos\Roque\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\include\shader_m.h(44,40): warning C4101: 'e': variable local sin referencia
+C:\Users\Navih M\Documents\Visual Studio 2022\Proyectos\Roque\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\include\modelAnim.h(104,44): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\Navih M\Documents\Visual Studio 2022\Proyectos\Roque\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\include\modelAnim.h(520,24): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\Navih M\Documents\Visual Studio 2022\Proyectos\Roque\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\include\Circle.h(63,20): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Navih M\Documents\Visual Studio 2022\Proyectos\Roque\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(46,44): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\Navih M\Documents\Visual Studio 2022\Proyectos\Roque\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(399,13): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\Navih M\Documents\Visual Studio 2022\Proyectos\Roque\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(402,16): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\Navih M\Documents\Visual Studio 2022\Proyectos\Roque\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(540,16): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\Navih M\Documents\Visual Studio 2022\Proyectos\Roque\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(600,32): warning C4244: 'argumento': conversión de 'double' a '_Ty'; posible pérdida de datos
           with
           [
               _Ty=GLfloat
           ]
-C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(602,32): warning C4244: 'argumento': conversión de 'double' a '_Ty'; posible pérdida de datos
+C:\Users\Navih M\Documents\Visual Studio 2022\Proyectos\Roque\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(602,32): warning C4244: 'argumento': conversión de 'double' a '_Ty'; posible pérdida de datos
           with
           [
               _Ty=GLfloat
           ]
-C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(638,8): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(638,18): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(638,28): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(718,8): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(718,18): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(718,28): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(955,8): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(955,18): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(955,28): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(989,23): warning C4018: '<=': no coinciden signed/unsigned
-C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(1039,8): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(1039,18): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(1039,28): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(1486,25): warning C4244: '=': conversión de 'double' a 'T'; posible pérdida de datos
+C:\Users\Navih M\Documents\Visual Studio 2022\Proyectos\Roque\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(638,8): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Navih M\Documents\Visual Studio 2022\Proyectos\Roque\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(638,18): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Navih M\Documents\Visual Studio 2022\Proyectos\Roque\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(638,28): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Navih M\Documents\Visual Studio 2022\Proyectos\Roque\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(718,8): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Navih M\Documents\Visual Studio 2022\Proyectos\Roque\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(718,18): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Navih M\Documents\Visual Studio 2022\Proyectos\Roque\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(718,28): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Navih M\Documents\Visual Studio 2022\Proyectos\Roque\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(955,8): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Navih M\Documents\Visual Studio 2022\Proyectos\Roque\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(955,18): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Navih M\Documents\Visual Studio 2022\Proyectos\Roque\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(955,28): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Navih M\Documents\Visual Studio 2022\Proyectos\Roque\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(989,23): warning C4018: '<=': no coinciden signed/unsigned
+C:\Users\Navih M\Documents\Visual Studio 2022\Proyectos\Roque\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(1039,8): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Navih M\Documents\Visual Studio 2022\Proyectos\Roque\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(1039,18): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Navih M\Documents\Visual Studio 2022\Proyectos\Roque\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(1039,28): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Navih M\Documents\Visual Studio 2022\Proyectos\Roque\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(1524,25): warning C4244: '=': conversión de 'double' a 'T'; posible pérdida de datos
           with
           [
               T=float
           ]
-C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(1487,25): warning C4244: '=': conversión de 'double' a 'T'; posible pérdida de datos
+C:\Users\Navih M\Documents\Visual Studio 2022\Proyectos\Roque\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(1525,25): warning C4244: '=': conversión de 'double' a 'T'; posible pérdida de datos
           with
           [
               T=float
           ]
-C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(1496,16): warning C4305: '-=': truncamiento de 'double' a 'float'
-C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(1504,17): warning C4305: '-=': truncamiento de 'double' a 'float'
-C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(1512,17): warning C4305: '-=': truncamiento de 'double' a 'float'
-C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(1520,18): warning C4305: '-=': truncamiento de 'double' a 'float'
-C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(1528,17): warning C4305: '+=': truncamiento de 'double' a 'float'
-C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(1536,18): warning C4305: '+=': truncamiento de 'double' a 'float'
-C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(1544,18): warning C4305: '+=': truncamiento de 'double' a 'float'
-C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(1552,19): warning C4305: '+=': truncamiento de 'double' a 'float'
-C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(1562,18): warning C4305: '-=': truncamiento de 'double' a 'float'
-C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(1570,20): warning C4305: '+=': truncamiento de 'double' a 'float'
-C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(1578,20): warning C4305: '-=': truncamiento de 'double' a 'float'
-C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(1586,20): warning C4305: '+=': truncamiento de 'double' a 'float'
-C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(5744,20): warning C4305: '+=': truncamiento de 'double' a 'float'
-C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(5767,26): warning C4305: '+=': truncamiento de 'double' a 'float'
-C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(5956,11): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
-C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(5957,11): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
-C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(5961,16): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
-C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(5962,16): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
-C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(5964,10): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
-C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(5965,10): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
-C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(5973,28): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
-glfw3.lib(context.obj) : warning LNK4099: no se encontró PDB '' con 'glfw3.lib(context.obj)' o en ''; se vinculará el objeto sin tener en cuenta información de depuración
-glfw3.lib(init.obj) : warning LNK4099: no se encontró PDB '' con 'glfw3.lib(init.obj)' o en ''; se vinculará el objeto sin tener en cuenta información de depuración
-glfw3.lib(input.obj) : warning LNK4099: no se encontró PDB '' con 'glfw3.lib(input.obj)' o en ''; se vinculará el objeto sin tener en cuenta información de depuración
-glfw3.lib(monitor.obj) : warning LNK4099: no se encontró PDB '' con 'glfw3.lib(monitor.obj)' o en ''; se vinculará el objeto sin tener en cuenta información de depuración
-glfw3.lib(vulkan.obj) : warning LNK4099: no se encontró PDB '' con 'glfw3.lib(vulkan.obj)' o en ''; se vinculará el objeto sin tener en cuenta información de depuración
-glfw3.lib(window.obj) : warning LNK4099: no se encontró PDB '' con 'glfw3.lib(window.obj)' o en ''; se vinculará el objeto sin tener en cuenta información de depuración
-glfw3.lib(win32_init.obj) : warning LNK4099: no se encontró PDB '' con 'glfw3.lib(win32_init.obj)' o en ''; se vinculará el objeto sin tener en cuenta información de depuración
-glfw3.lib(win32_joystick.obj) : warning LNK4099: no se encontró PDB '' con 'glfw3.lib(win32_joystick.obj)' o en ''; se vinculará el objeto sin tener en cuenta información de depuración
-glfw3.lib(win32_monitor.obj) : warning LNK4099: no se encontró PDB '' con 'glfw3.lib(win32_monitor.obj)' o en ''; se vinculará el objeto sin tener en cuenta información de depuración
-glfw3.lib(win32_time.obj) : warning LNK4099: no se encontró PDB '' con 'glfw3.lib(win32_time.obj)' o en ''; se vinculará el objeto sin tener en cuenta información de depuración
-glfw3.lib(win32_thread.obj) : warning LNK4099: no se encontró PDB '' con 'glfw3.lib(win32_thread.obj)' o en ''; se vinculará el objeto sin tener en cuenta información de depuración
-glfw3.lib(win32_window.obj) : warning LNK4099: no se encontró PDB '' con 'glfw3.lib(win32_window.obj)' o en ''; se vinculará el objeto sin tener en cuenta información de depuración
-glfw3.lib(wgl_context.obj) : warning LNK4099: no se encontró PDB '' con 'glfw3.lib(wgl_context.obj)' o en ''; se vinculará el objeto sin tener en cuenta información de depuración
-glfw3.lib(egl_context.obj) : warning LNK4099: no se encontró PDB '' con 'glfw3.lib(egl_context.obj)' o en ''; se vinculará el objeto sin tener en cuenta información de depuración
-glfw3.lib(osmesa_context.obj) : warning LNK4099: no se encontró PDB '' con 'glfw3.lib(osmesa_context.obj)' o en ''; se vinculará el objeto sin tener en cuenta información de depuración
-  PROYECTO_FINAL.vcxproj -> C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\Debug\PROYECTO_FINAL.exe
+C:\Users\Navih M\Documents\Visual Studio 2022\Proyectos\Roque\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(1647,16): warning C4305: '-=': truncamiento de 'double' a 'float'
+C:\Users\Navih M\Documents\Visual Studio 2022\Proyectos\Roque\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(1655,17): warning C4305: '-=': truncamiento de 'double' a 'float'
+C:\Users\Navih M\Documents\Visual Studio 2022\Proyectos\Roque\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(1663,17): warning C4305: '-=': truncamiento de 'double' a 'float'
+C:\Users\Navih M\Documents\Visual Studio 2022\Proyectos\Roque\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(1671,18): warning C4305: '-=': truncamiento de 'double' a 'float'
+C:\Users\Navih M\Documents\Visual Studio 2022\Proyectos\Roque\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(1679,17): warning C4305: '+=': truncamiento de 'double' a 'float'
+C:\Users\Navih M\Documents\Visual Studio 2022\Proyectos\Roque\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(1687,18): warning C4305: '+=': truncamiento de 'double' a 'float'
+C:\Users\Navih M\Documents\Visual Studio 2022\Proyectos\Roque\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(1695,18): warning C4305: '+=': truncamiento de 'double' a 'float'
+C:\Users\Navih M\Documents\Visual Studio 2022\Proyectos\Roque\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(1703,19): warning C4305: '+=': truncamiento de 'double' a 'float'
+C:\Users\Navih M\Documents\Visual Studio 2022\Proyectos\Roque\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(1713,18): warning C4305: '-=': truncamiento de 'double' a 'float'
+C:\Users\Navih M\Documents\Visual Studio 2022\Proyectos\Roque\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(1721,20): warning C4305: '+=': truncamiento de 'double' a 'float'
+C:\Users\Navih M\Documents\Visual Studio 2022\Proyectos\Roque\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(1729,20): warning C4305: '-=': truncamiento de 'double' a 'float'
+C:\Users\Navih M\Documents\Visual Studio 2022\Proyectos\Roque\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(1737,20): warning C4305: '+=': truncamiento de 'double' a 'float'
+C:\Users\Navih M\Documents\Visual Studio 2022\Proyectos\Roque\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(5903,20): warning C4305: '+=': truncamiento de 'double' a 'float'
+C:\Users\Navih M\Documents\Visual Studio 2022\Proyectos\Roque\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(5988,26): warning C4305: '+=': truncamiento de 'double' a 'float'
+C:\Users\Navih M\Documents\Visual Studio 2022\Proyectos\Roque\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(6177,11): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\Navih M\Documents\Visual Studio 2022\Proyectos\Roque\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(6178,11): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\Navih M\Documents\Visual Studio 2022\Proyectos\Roque\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(6182,16): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\Navih M\Documents\Visual Studio 2022\Proyectos\Roque\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(6183,16): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\Navih M\Documents\Visual Studio 2022\Proyectos\Roque\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(6185,10): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\Navih M\Documents\Visual Studio 2022\Proyectos\Roque\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(6186,10): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\Navih M\Documents\Visual Studio 2022\Proyectos\Roque\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(6194,28): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+  PROYECTO_FINAL.vcxproj -> C:\Users\Navih M\Documents\Visual Studio 2022\Proyectos\Roque\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\Debug\PROYECTO_FINAL.exe
