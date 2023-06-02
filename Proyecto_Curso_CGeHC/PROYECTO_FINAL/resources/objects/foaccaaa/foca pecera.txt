@@ -1,0 +1,180 @@
+//variables mov   guinos
+float movPingu_x = 0.0f,
+movPingu_z = 0.0f,
+orientaPingu = 0.0f,
+movPingu_x2 = 400.0f,
+movPingu_z2 = 30.0f,
+orientaPingu2 = 0.0f,
+animalaspingu = 0.0f,
+alaspingu = 0.0f,
+animpataspingu = 0.0f,
+pataspingu = 0.0f;
+
+
+
+//animaciones pinguinos
+bool animacionP = true,
+reco1 = true,
+reco2 = false,
+reco3 = false,
+reco4 = false,
+recoo5 = false,
+recoo6 = false,
+recoo7 = false,
+animacionP2 = true,
+reco5 = true,
+reco6 = false,
+reco7 = false,
+reco8 = false,
+reco9 = false;
+
+
+
+void animate(void)
+{
+	if (play)
+	{
+		if (i_curr_steps >= i_max_steps) //end of animation between frames?
+		{
+			playIndex++;
+			if (playIndex > FrameIndex - 2)	//end of total animation?
+			{
+				std::cout << "Animation ended" << std::endl;
+				//printf("termina anim\n");
+				playIndex = 0;
+				play = false;
+			}
+			else //Next frame interpolations
+			{
+				i_curr_steps = 0; //Reset counter
+								  //Interpolation
+				interpolation();
+			}
+		}
+		else
+		{
+			//Draw animation
+			posX += incX;
+			posY += incY;
+			posZ += incZ;
+
+			rotRodIzq += rotInc;
+			giroMonito += giroMonitoInc;
+
+			i_curr_steps++;
+		}
+	}
+
+
+
+
+	if (animacionP2) {
+		//animacion alas
+
+		if (animalaspingu == 0) {//CAMBIAR PIVOTE
+			alaspingu += 1.0f;
+			if (alaspingu >= 15) {
+				animalaspingu = 1;
+			}
+		}
+		else {
+			alaspingu -= 1.0f;
+			if (alaspingu <= -15) {
+				animalaspingu = 0;
+			}
+		}
+
+		//animacion patas
+
+		if (animpataspingu == 0) {
+			pataspingu += 1.0f;
+			if (pataspingu >= 25) {
+				animpataspingu = 1;
+			}
+		}
+		else {
+			pataspingu -= 1.0f;
+			if (pataspingu <= -25) {
+				animpataspingu = 0;
+			}
+		}
+
+
+
+
+		//animacion recorrido
+		if (reco5) {
+			movPingu_x2 = 400.0f;
+			movPingu_z2 += 1.0f;
+			orientaPingu2 = 0.0f;
+			if (movPingu_z2 >= 80.0f) {
+				reco5 = false;
+				reco6 = true;
+
+			}
+
+		}
+
+		if (reco6) {
+			movPingu_x2 += 1.0f;
+			movPingu_z2 = 80.0f;
+			orientaPingu2 = 90.0f;
+			if (movPingu_x2 >= 435.0f) {
+				reco6 = false;
+				reco7 = true;
+
+			}
+
+		}
+
+		if (reco7) {
+			movPingu_x2 -= 0.7f;
+			movPingu_z2 -= 1.0f;
+			orientaPingu2 = -125.0f;
+			if (movPingu_x2 <= 400.0f&&movPingu_z2 <= 30.0f) {
+				reco7 = false;
+				reco5 = true;
+
+			}
+
+		}
+	}
+
+}
+
+
+
+//carga de modelos
+	Model pecera1("resources/objects/models/tanques/pecera1/PeceraYObjetos.obj");
+	Model pecera2("resources/objects/models/tanques/pecera2/pecera2yElementos.obj");
+	Model pecera3("resources/objects/models/tanques/pecera3/pecera3yTroncos.obj");
+	Model cubo("resources/objects/cubo/cube02.obj");
+
+		
+		//pecera
+		model = glm::mat4(1.0f);
+		//model = glm::translate(model, glm::vec3(60.0f, 0.0f, -150.0f));
+		//model = glm::translate(model, glm::vec3(-490.0f, 0.0f, 1150.0f));
+		model = glm::translate(model, glm::vec3(-660.0f, 0.0f, 1650.0f));
+		////model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 0.0f, 0.0f));
+		//model = glm::scale(model, glm::vec3(20.0f, 15.0f, 20.0f));
+		model = glm::rotate(model, glm::radians(45.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		//model = glm::scale(model, glm::vec3(100.0f, 45.0f, 100.0f));
+		model = glm::scale(model, glm::vec3(125.0f, 45.0f, 135.0f));
+		staticShader.setMat4("model", model);
+		pecera2.Draw(staticShader);
+
+		// -------------------------------------------------------------------------------------------------------------------------
+		// Caja Transparente Peces
+		// -------------------------------------------------------------------------------------------------------------------------
+		glEnable(GL_BLEND);
+		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-650.0f, 0.0f, 490.0f));
+		model = glm::rotate(model, glm::radians(-1.24f), glm::vec3(0.0f, -1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(1.5f));
+		model = glm::scale(model, glm::vec3(11.19f, 5.0f, 5.27f));
+		staticShader.setMat4("model", model);
+		cubo.Draw(staticShader);
+		glEnable(GL_BLEND);
+
+

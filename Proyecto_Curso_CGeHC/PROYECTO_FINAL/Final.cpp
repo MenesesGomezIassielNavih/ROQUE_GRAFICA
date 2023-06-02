@@ -1126,6 +1126,15 @@ double	deltaTime = 0.0f,
 glm::vec3 lightPosition(0.0f, 4.0f, -10.0f);
 glm::vec3 lightDirection(0.0f, -1.0f, -1.0f);
 double myVariable = 0.0;   //sirve para el SOL
+double myVariable2 = 0.0f;
+double myVariable3 = 0.0f;
+double myVariable4 = 0.0f;
+double myVariable5 = 0.0f;
+
+
+glm::vec3 lightPosteEncendido(0.0f, 0.0f, 0.0f);
+glm::vec3 lightDirEncendido(0.3f, 0.3f, 0.3f);
+
 
 glm::vec3 pez01(0.0f, -1.0f, -1.0f);
 glm::vec3 pez02(0.0f, -1.0f, -1.0f);
@@ -1148,55 +1157,122 @@ glm::vec3 tmedusa04(0.0f, -1.0f, -1.0f);
 
 
 
-//variables mov   guinos
-float movPingu_x = 0.0f,
-movPingu_y = 0.0f,
-movPingu_z = 0.0f,
-orientaPingu = 0.0f,
-movPingu_x2 = 400.0f,
-movPingu_y2 = 0.0f,
-movPingu_z2 = 30.0f,
-orientaPingu2 = 0.0f,
-animalaspingu = 0.0f,
-alaspingu = 0.0f,
-animpataspingu = 0.0f,
-pataspingu = 0.0f;
-
+//variables mov pinguino
+float	movPingu_x = 0.0f,
+		movPingu_y = 0.0f,
+		movPingu_z = 0.0f,
+		orientaPingu = 0.0f,
+		movPingu_x2 = 400.0f,
+		movPingu_y2 = 0.0f,
+		movPingu_z2 = 30.0f,
+		orientaPingu2 = 0.0f,
+		animalaspingu = 0.0f,
+		alaspingu = 0.0f,
+		animpataspingu = 0.0f,
+		pataspingu = 0.0f;
 
 
 //animaciones pinguinos
-bool animacionP = true,
-reco1 = true,
-reco2 = false,
-reco3 = false,
-reco4 = false,
-recoo5 = false,
-recoo6 = false,
-recoo7 = false,
-animacionP2 = true,
-reco5 = true,
-reco6 = false,
-reco7 = false,
-reco8 = false,
-reco9 = false,
-reco10 = false,
-reco11 = false;
+bool	animacionP = true,
+		reco1 = true,
+		reco2 = false,
+		reco3 = false,
+		reco4 = false,
+		recoo5 = false,
+		recoo6 = false,
+		recoo7 = false,
+		animacionP2 = true,
+		reco5 = true,
+		reco6 = false,
+		reco7 = false,
+		reco8 = false,
+		reco9 = false,
+		reco10 = false,
+		reco11 = false;
 
 
+
+//variables mov   foca
+float	movFoca_x = 0.0f,
+		movFoca_y = 0.0f,
+		movFoca_z = 0.0f,
+		orientaFoca = 0.0f,
+		movFoca_x2 = 0.0f,
+		movFoca_y2 = 0.0f,
+		movFoca_z2 = 0.0f,
+		orientaFoca2 = 0.0f,
+		anim_aletasSupFoca = 0.0f,
+		aletasSupFoca = 0.0f,
+		anim_aletasInfFoca = 0.0f,
+		aletasInfFoca = 0.0f;
+
+
+bool	animacionFoca = true,
+		recoF1 = true,
+		recoF2 = false,
+		recoF3 = false,
+		recoF4 = false,
+		recooF5 = false,
+		recooF6 = false,
+		recooF7 = false,
+		animacionFoca2 = true,
+		recoF5 = true,
+		recoF6 = false,
+		recoF7 = false,
+		recoF8 = false,
+		recoF9 = false,
+		recoF10 = false,
+		recoF11 = false;
+
+
+//variables mov   Ballena
+float	movBallena_x = 0.0f,
+		movBallena_y = 0.0f,
+		movBallena_z = 0.0f,
+		orientaBallena = 0.0f,
+		movBallena_x2 = 0.0f,
+		movBallena_y2 = 0.0f,
+		movBallena_z2 = 0.0f,
+		orientaBallena2 = 0.0f,
+		orientaBallena3 = 0.0f,
+		anim_aletasSupBallena = 0.0f,
+		aletasSupBallena = 0.0f,
+		anim_aletasInfBallena = 0.0f,
+		aletasInfBallena = 0.0f;
+
+bool	animacionBallena = true,
+		recoB1 = true,
+		recoB2 = false,
+		recoB3 = false,
+		recoB4 = false,
+		recooB5 = false,
+		recooB6 = false,
+		recooB7 = false,
+		animacionBallena2 = true,
+		recoB5 = true,
+		recoB6 = false,
+		recoB7 = false,
+		recoB8 = false,
+		recoB9 = false,
+		recoB10 = false,
+		recoB11 = false,
+		recoB12 = false,
+		recoB13 = false,
+		recoB14 = false,
+		recoB15 = false;
 
 
 
 // posiciones
-//float x = 0.0f;
-//float y = 0.0f;
+
 float	movAuto_x = 0.0f,
-movAuto_z = 0.0f,
-orienta = 0.0f;
+		movAuto_z = 0.0f,
+		orienta = 0.0f;
 bool	animacion = false,
-recorrido1 = true,
-recorrido2 = false,
-recorrido3 = false,
-recorrido4 = false;
+		recorrido1 = true,
+		recorrido2 = false,
+		recorrido3 = false,
+		recorrido4 = false;
 
 //Keyframes (Manipulación y dibujo)
 float	posX = 0.0f,
@@ -1290,31 +1366,6 @@ rotfishInc = 0.0f,
 posXfish3Inc = 0.0f,
 rotfish3Inc = 0.0f;
 
-/*
-posXniñaInc = 0.0f,
-posZniñaInc = 0.0f,
-movBrazoDerNiñaInc = 0.0f,
-movBrazoIzqNiñaInc = 0.0f,
-rotPiernaDerNiñaInc = 0.0f,
-rotPiernaIzqNiñaInc = 0.0f,
-rotCabezaNiñaInc = 0.0f,
-
-posXPinInc = 0.0f,
-posZPinInc = 0.0f,
-rotPinInc = 0.0f,
-rotPatasPinInc = 0.0f,
-movCabezaPinInc = 0.0f;*/
-
-
-
-
-
-
-
-//Variables para animación delfin
-float pos_x;
-float pos_y;
-float pos_z;
 
 #define MAX_FRAMES 9
 int i_max_steps = 60;
@@ -1385,32 +1436,6 @@ void saveFrame(void){
 	KeyFrame[FrameIndex].rotfish3 = rotfish3;
 
 
-	/*KeyFrame[FrameIndex].posXshark = posXshark;
-	KeyFrame[FrameIndex].rotshark = rotshark;
-	KeyFrame[FrameIndex].movColaShark = movColaShark;
-	KeyFrame[FrameIndex].movAletasShark = movAletasShark;
-	KeyFrame[FrameIndex].movBocaShark = movBocaShark;
-
-	KeyFrame[FrameIndex].posXmedusa = posXmedusa;
-
-	KeyFrame[FrameIndex].posXniña = posXniña;
-	KeyFrame[FrameIndex].posZniña = posZniña;
-	KeyFrame[FrameIndex].movBrazoDerNiña = movBrazoDerNiña;
-	KeyFrame[FrameIndex].movBrazoIzqNiña = movBrazoIzqNiña;
-	KeyFrame[FrameIndex].rotPiernaDerNiña = rotPiernaDerNiña;
-	KeyFrame[FrameIndex].rotPiernaIzqNiña = rotPiernaIzqNiña;
-	KeyFrame[FrameIndex].rotCabezaNiña = rotCabezaNiña;
-
-	KeyFrame[FrameIndex].posXPin = posXPin;
-	KeyFrame[FrameIndex].posZPin = posZPin;
-	KeyFrame[FrameIndex].rotPin = rotPin;
-	KeyFrame[FrameIndex].rotPatasPin = rotPatasPin;
-	KeyFrame[FrameIndex].movCabezaPin = movCabezaPin;*/
-
-
-
-
-
 	FrameIndex++;
 }
 
@@ -1438,31 +1463,6 @@ void resetElements(void)
 	posXfish3 = KeyFrame[0].posXfish3;
 	rotfish3 = KeyFrame[0].rotfish3;
 
-	/*
-	posXshark = KeyFrame[0].posXshark;
-	rotshark = KeyFrame[0].rotshark;
-	movColaShark = KeyFrame[0].movColaShark;
-	movAletasShark = KeyFrame[0].movAletasShark;
-	movBocaShark = KeyFrame[0].movBocaShark;
-	
-	posXmedusa = KeyFrame[0].posXmedusa;
-
-	posXniña = KeyFrame[0].posXniña;
-	posZniña = KeyFrame[0].posZniña;
-	movBrazoDerNiña = KeyFrame[0].movBrazoDerNiña;
-	movBrazoIzqNiña = KeyFrame[0].movBrazoIzqNiña;
-	rotPiernaDerNiña = KeyFrame[0].rotPiernaDerNiña;
-	rotPiernaIzqNiña = KeyFrame[0].rotPiernaIzqNiña;
-	rotCabezaNiña = KeyFrame[0].rotCabezaNiña;
-
-	posXPin = KeyFrame[0].posXPin;
-	posZPin = KeyFrame[0].posZPin;
-	rotPin = KeyFrame[0].rotPin;
-	rotPatasPin = KeyFrame[0].rotPatasPin;
-	movCabezaPin = KeyFrame[0].movCabezaPin;*/
-
-
-	
 }
 
 void interpolation(void)
@@ -1489,32 +1489,6 @@ void interpolation(void)
 	posXfish3Inc = (KeyFrame[playIndex + 1].posXfish3 - KeyFrame[playIndex].posXfish3) / i_max_steps;
 	rotfish3Inc = (KeyFrame[playIndex + 1].rotfish3 - KeyFrame[playIndex].rotfish3) / i_max_steps;
 
-	/*
-	posXsharkInc = (KeyFrame[playIndex + 1].posXshark - KeyFrame[playIndex].posXshark) / i_max_steps;
-	rotsharkInc = (KeyFrame[playIndex + 1].rotshark - KeyFrame[playIndex].rotshark) / i_max_steps;
-	movColaSharkInc = (KeyFrame[playIndex + 1].movColaShark - KeyFrame[playIndex].movColaShark) / i_max_steps;
-	movAletasSharkInc = (KeyFrame[playIndex + 1].movAletasShark - KeyFrame[playIndex].movAletasShark) / i_max_steps;
-	movBocaSharkInc = (KeyFrame[playIndex + 1].movBocaShark - KeyFrame[playIndex].movBocaShark) / i_max_steps;
-	
-	posXmedusaInc = (KeyFrame[playIndex + 1].posXmedusa - KeyFrame[playIndex].posXmedusa) / i_max_steps;
-
-	posXniñaInc = (KeyFrame[playIndex + 1].posXniña - KeyFrame[playIndex].posXniña) / i_max_steps;
-	posZniñaInc = (KeyFrame[playIndex + 1].posZniña - KeyFrame[playIndex].posZniña) / i_max_steps;
-	movBrazoDerNiñaInc = (KeyFrame[playIndex + 1].movBrazoDerNiña - KeyFrame[playIndex].movBrazoDerNiña) / i_max_steps;
-	movBrazoIzqNiñaInc = (KeyFrame[playIndex + 1].movBrazoIzqNiña - KeyFrame[playIndex].movBrazoIzqNiña) / i_max_steps;
-	rotPiernaDerNiñaInc = (KeyFrame[playIndex + 1].rotPiernaDerNiña - KeyFrame[playIndex].rotPiernaDerNiña) / i_max_steps;
-	rotPiernaIzqNiñaInc = (KeyFrame[playIndex + 1].rotPiernaIzqNiña - KeyFrame[playIndex].rotPiernaIzqNiña) / i_max_steps;
-	rotCabezaNiñaInc = (KeyFrame[playIndex + 1].rotCabezaNiña - KeyFrame[playIndex].rotCabezaNiña) / i_max_steps;
-
-
-	posXPinInc = (KeyFrame[playIndex + 1].posXPin - KeyFrame[playIndex].posXPin) / i_max_steps;
-	posZPinInc = (KeyFrame[playIndex + 1].posZPin - KeyFrame[playIndex].posZPin) / i_max_steps;
-	rotPinInc = (KeyFrame[playIndex + 1].rotPin - KeyFrame[playIndex].rotPin) / i_max_steps;
-	rotPatasPinInc = (KeyFrame[playIndex + 1].rotPatasPin - KeyFrame[playIndex].rotPatasPin) / i_max_steps;
-	movCabezaPinInc = (KeyFrame[playIndex + 1].movCabezaPin - KeyFrame[playIndex].movCabezaPin) / i_max_steps;*/
-
-
-
 
 }
 
@@ -1525,6 +1499,27 @@ void animate(void)
 	lightDirection.y = 100 * sin(myVariable);
 	myVariable += 0.01f;
 
+
+	/////////////////////////////// LUZ POSTE
+	/*if (lightDirection.y < 0)
+	{
+		lightPosteEncendido.x = 0.0f;
+		lightPosteEncendido.y = 1.0f;
+		lightPosteEncendido.z = 1.0f;
+		lightDirEncendido.x = 0.05f;
+		lightDirEncendido.y = 0.05f;
+		lightDirEncendido.z = 0.05f;
+
+	}
+	else
+	{
+		lightPosteEncendido.x = 0.0f;
+		lightPosteEncendido.y = 0.0f;
+		lightPosteEncendido.z = 0.0f;
+		lightDirEncendido.x = 0.4f;
+		lightDirEncendido.y = 0.4f;
+		lightDirEncendido.z = 0.4f;
+	}*/
 
 	////////////////////////////////  ANIMACION PINGUINO
 	if (animacionP2) {
@@ -1633,6 +1628,210 @@ void animate(void)
 			if (movPingu_x2 >= 400.0f) {
 				reco11 = false;
 				reco5 = true;
+			}
+		}
+	}
+
+
+	///////////////////////////////////////////
+	if (animacionFoca2)
+	{
+		//animacion aletas superiores
+		if (anim_aletasSupFoca == 0) {//CAMBIAR PIVOTE
+			aletasSupFoca += 1.0f;
+			if (aletasSupFoca >= 15) {
+				anim_aletasSupFoca = 1;
+			}
+		}
+		else {
+			aletasSupFoca -= 1.0f;
+			if (aletasSupFoca <= -15) {
+				anim_aletasSupFoca = 0;
+			}
+		}
+
+		//animacion aletas Inferiores
+
+		if (anim_aletasInfFoca == 0) {
+			aletasInfFoca += 1.0f;
+			if (aletasInfFoca >= 25) {
+				anim_aletasInfFoca = 1;
+			}
+		}
+		else {
+			aletasInfFoca -= 1.0f;
+			if (aletasInfFoca <= -25) {
+				anim_aletasInfFoca = 0;
+			}
+		}
+
+		//animacion recorrido
+		if (recoF5) {
+			movFoca_x2 = 0.0f;
+			//movFoca_z2 += 1.0f;
+			orientaFoca2 = 0.0f;
+			//if (movFoca_z2 >= 150.0f) {
+			recoF5 = false;
+			recoF8 = true;
+		}
+
+		if (recoF8) {
+			myVariable2 += 0.01;
+			//movFoca_x2 =150+200.0f*sin(myVariable);
+			//movFoca_z2 = 150.0f*sin(2*myVariable);
+			movFoca_x2 = 200.0f * cos(4 * myVariable2);
+			movFoca_z2 = 150.0f * sin(4 * myVariable2);
+			movFoca_y2 = myVariable2 * 20.0f;
+			myVariable3 = movFoca_y2;
+
+			orientaFoca2 -= 2.29f;
+			if (myVariable2 >= 2.0f * PI) {
+				myVariable2 = 0.0f;
+				movFoca_z2 = 30.0f;
+				movFoca_y2 = myVariable3;
+				recoF8 = false;
+				recoF9 = true;
+			}
+		}
+
+		if (recoF9) {
+			movFoca_y2 -= 2.0f;
+			//movFoca_z2 += 1.0f;
+			orientaFoca2 = 0.0f;
+			if (movFoca_y2 <= 0.0f) {
+				recoF9 = false;
+				recoF8 = true;
+			}
+
+		}
+	}
+	//////////////////////////////////
+	//Ballena
+	/////////
+
+	if (animacionBallena2)
+	{
+		//animacion aletas superiores
+		if (anim_aletasSupBallena == 0) {//CAMBIAR PIVOTE
+			aletasSupBallena += 1.0f;
+			if (aletasSupBallena >= 15) {
+				anim_aletasSupBallena = 1;
+			}
+		}
+		else {
+			aletasSupBallena -= 1.0f;
+			if (aletasSupBallena <= -15) {
+				anim_aletasSupBallena = 0;
+			}
+		}
+
+		//animacion aletas Inferiores
+		if (anim_aletasInfBallena == 0) {
+			aletasInfBallena += 1.0f;
+			if (aletasInfBallena >= 15) {
+				anim_aletasInfBallena = 1;
+			}
+		}
+		else {
+			aletasInfBallena -= 1.0f;
+			if (aletasInfBallena <= -15) {
+				anim_aletasInfBallena = 0;
+			}
+		}
+
+		//animacion recorrido
+		if (recoB5) {
+			movBallena_x2 -= 50.0f;
+			//movFoca_z2 += 1.0f;
+			orientaBallena2 = 0.0f;
+			if (movBallena_x2 <= -3000.0f) {
+				recoB5 = false;
+				recoB8 = true;
+			}
+		}
+
+		if (recoB8) {
+			movBallena_z2 -= 50.0f;
+			//movFoca_z2 += 1.0f;
+			orientaBallena2 = -90.0f;
+			if (movBallena_z2 <= -600.0f) {
+				recoB8 = false;
+				recoB9 = true;
+			}
+		}
+
+		if (recoB9) {
+			movBallena_x2 += 50.0f;
+			//movFoca_z2 += 1.0f;
+			orientaBallena2 = -180.0f;
+			if (movBallena_x2 >= -450.0f) {
+				recoB9 = false;
+				recoB10 = true;
+			}
+		}
+
+		if (recoB10) {
+			movBallena_y2 -= 10.0f;
+			//movFoca_z2 += 1.0f;
+			orientaBallena2 = -180.0f;
+			orientaBallena3 = 0.0f;
+			if (movBallena_y2 < -1200.0f) {
+				recoB10 = false;
+				recoB11 = true;
+			}
+		}
+
+		if (recoB11) {
+			movBallena_y2 += 10.0f;
+			//movFoca_z2 += 1.0f;
+			orientaBallena2 = -180.0f;
+			orientaBallena3 = -90.0f;
+			if (movBallena_y2 > 300.0f) {
+				recoB11 = false;
+				recoB12 = true;
+			}
+		}
+
+		if (recoB12) {
+			movBallena_y2 -= 50.0f;
+			//movFoca_z2 += 1.0f;
+			orientaBallena2 = -180.0f;
+			orientaBallena3 = 0.0f;
+			if (movBallena_y2 < -1200.0f) {
+				recoB12 = false;
+				recoB13 = true;
+			}
+		}
+
+		if (recoB13) {
+			movBallena_x2 += 50.0f;
+			//movFoca_z2 += 1.0f;
+			orientaBallena2 = -180.0f;
+			if (movBallena_x2 >= 6000.0f) {
+				recoB13 = false;
+				recoB14 = true;
+			}
+		}
+
+		if (recoB14) {
+			movBallena_y2 += 50.0f;
+			//movFoca_z2 += 1.0f;
+			orientaBallena2 = -180.0f;
+			orientaBallena3 = -90.0f;
+			if (movBallena_y2 > 300.0f) {
+				recoB14 = false;
+				recoB15 = true;
+			}
+		}
+
+		if (recoB15) {
+			movBallena_y2 -= 50.0f;
+			//movFoca_z2 += 1.0f;
+			orientaBallena2 = -180.0f;
+			orientaBallena3 = -90.0f;
+			if (movBallena_y2 < -1200.0f) {
+				recoB15 = false;
+				recoB5 = true;
 			}
 		}
 	}
@@ -1807,31 +2006,6 @@ void animate(void)
 
 			posXfish3 += posXfish3Inc;
 			rotfish3 += rotfish3Inc;
-
-			/*
-			posXshark += posXsharkInc;
-			rotshark += rotsharkInc;
-			movColaShark += movColaSharkInc;
-			movAletasShark += movAletasSharkInc;
-			movBocaShark += movBocaSharkInc;
-
-			posXmedusa += posXmedusaInc;
-
-			posXniña += posXniñaInc;
-			posZniña += posZniñaInc;
-			movBrazoDerNiña += movBrazoDerNiñaInc;
-			movBrazoIzqNiña += movBrazoIzqNiñaInc;
-			rotPiernaDerNiña += rotPiernaDerNiñaInc;
-			rotPiernaIzqNiña += rotPiernaIzqNiñaInc;
-			rotCabezaNiña += rotCabezaNiñaInc;
-
-			posXPin += posXPinInc;
-			posZPin += posZPinInc;
-			rotPin += rotPinInc;
-			rotPatasPin += rotPatasPinInc;
-			movCabezaPin += movCabezaPinInc;*/
-
-
 
 			i_curr_steps++;
 		}
@@ -2013,13 +2187,6 @@ int main() {
 	// load models
 	// -----------
 	Model piso("resources/objects/piso/piso.obj");
-	Model botaDer("resources/objects/Personaje/bota.obj");
-	Model piernaDer("resources/objects/Personaje/piernader.obj");
-	Model piernaIzq("resources/objects/Personaje/piernader.obj");
-	Model torso("resources/objects/Personaje/torso.obj");
-	Model brazoDer("resources/objects/Personaje/brazoder.obj");
-	Model brazoIzq("resources/objects/Personaje/brazoizq.obj");
-	Model cabeza("resources/objects/Personaje/cabeza.obj");
 	Model cubo("resources/objects/cubo/cube02.obj");
 	ModelAnim animacionPersonaje("resources/objects/Personaje1/PersonajeBrazo.dae");
 	animacionPersonaje.initShaders(animShader.ID);
@@ -2030,17 +2197,23 @@ int main() {
 	ModelAnim perCaminando("resources/objects/Mixamo/Mixamo/RumbaDancing.dae");
 	perCaminando.initShaders(animShader.ID);
 
+
+
+
+
 	//MODELOS NAVIH PROYECTO
 	Model igloo("resources/objects/Igloo/igloo.obj");
 	Model vegetacion("resources/objects/Vegetacion/vegetacion.obj");
 	Model acuario("resources/objects/Acuario/acuario.obj");
 	Model acuario_vidrio("resources/objects/Acuario/acuario_vidrio.obj");
 	Model banio("resources/objects/Banio2/banio2.obj");
+	Model zunesha("resources/objects/Zunesha/zunesha.obj");
 
-	Model zuneshaFBX("resources/FBX/Zunesha/Sunicha.fbx");
 	Model ladrillo_Texture("resources/Texturas1/bricks.jpg");
 	Model madera_Texture("resources/Texturas1/wood01.png");
-	Model goingmerryFBX("resources/FBX/Going_Merry/going_merry.fbx");
+	//Model goingmerryFBX("resources/FBX/Going_Merry/going_merry.fbx");
+	//Model goingmerryFBX("resources/FBX/Going Merry/uploads_files_2094735_GM_FBX.fbx");
+	Model goingmerryFBX("resources/FBX/Going Merry/uploads_files_2094735_ship.fbx");
 
 	Model azul("resources/objects/Esfera/azul/azul.obj");
 	Model blanco("resources/objects/Esfera/blanco/blanco.obj");
@@ -2049,6 +2222,7 @@ int main() {
 	Model negro("resources/objects/Esfera/negro/negro.obj");
 	Model rojo("resources/objects/Esfera/rojo/rojo.obj");
 	Model rosa("resources/objects/Esfera/rosa/rosa.obj");
+	Model poste1("resources/objects/luces/Luminarias/POSTE1/poste1.obj");
 
 	//pinguino en partes
 	Model pingu1("resources/objects/pinguino2/pingu.obj");
@@ -2056,6 +2230,20 @@ int main() {
 	Model pingupd1("resources/objects/pinguino2/pieder.obj");
 	Model pinguai1("resources/objects/pinguino2/alaizq.obj");
 	Model pinguad1("resources/objects/pinguino2/alader.obj");
+
+	//Foca en partes
+	Model foca("resources/objects/foaccaaa/foca/foca_torso.obj");
+	Model focaPi("resources/objects/foaccaaa/foca/foca_aleta_Inf_Derecha.obj");
+	Model focaPd("resources/objects/foaccaaa/foca/foca_aleta_Inf_Izquierda.obj");
+	Model focaAi("resources/objects/foaccaaa/foca/foca_aleta_S_Derecha.obj");
+	Model focaAd("resources/objects/foaccaaa/foca/foca_aleta_S_Izquierda.obj");
+
+	//Ballena partes
+	Model ballenaTorso("resources/objects/ballena_Laboon/ballenaLabbon_torso.obj");
+	Model ballenaCola("resources/objects/ballena_Laboon/ballenaLabbon_cola.obj");
+
+
+
 
 
 
@@ -2086,28 +2274,6 @@ int main() {
 
 		KeyFrame[i].posXfish3 = 0;
 		KeyFrame[i].rotfish3 = 0;
-		
-		
-		/*
-		KeyFrame[i].posXshark = 0;
-		KeyFrame[i].rotshark = 0;
-		KeyFrame[i].movColaShark = 0;
-		KeyFrame[i].movAletasShark = 0;
-		KeyFrame[i].movBocaShark = 0;
-
-		KeyFrame[i].posXmedusa = 0;
-
-		KeyFrame[i].posXniña = 0;
-		KeyFrame[i].posZniña = 0;
-		KeyFrame[i].movBrazoDerNiña = 0;
-		KeyFrame[i].movBrazoIzqNiña = 0;
-		KeyFrame[i].rotPiernaDerNiña = 0;
-		KeyFrame[i].rotPiernaIzqNiña = 0;
-
-		KeyFrame[i].posXPin = 0;
-		KeyFrame[i].posZPin = 0;
-		KeyFrame[i].rotPin = 0;
-		KeyFrame[i].rotPatasPin = 0;*/
 
 	}
 
@@ -2162,11 +2328,17 @@ int main() {
 		staticShader.use();
 		//Setup Advanced Lights
 		staticShader.setVec3("viewPos", camera.Position);
-		staticShader.setVec3("dirLight.direction", lightDirection);
-		staticShader.setVec3("dirLight.ambient", glm::vec3(0.5f, 0.5f, 0.5f));
+		//staticShader.setVec3("dirLight.direction", lightDirection);
+		//staticShader.setVec3("dirLight.ambient", glm::vec3(0.5f, 0.5f, 0.5f));
 		//staticShader.setVec3("dirLight.ambient", glm::vec3(0.1f, 0.1f, 0.1f));
-		staticShader.setVec3("dirLight.diffuse", glm::vec3(1.0f, 1.0f, 1.0f));
-		staticShader.setVec3("dirLight.specular", glm::vec3(0.5f, 0.5f, 0.5f));
+		//staticShader.setVec3("dirLight.diffuse", glm::vec3(1.0f, 1.0f, 1.0f));
+		//staticShader.setVec3("dirLight.specular", glm::vec3(0.5f, 0.5f, 0.5f));
+		staticShader.setVec3("dirLight.direction", lightDirection);
+		staticShader.setVec3("dirLight.ambient", lightDirEncendido);
+		staticShader.setVec3("dirLight.diffuse", lightDirEncendido);
+		staticShader.setVec3("dirLight.specular", lightDirEncendido);
+
+
 
 		staticShader.setVec3("pointLight[0].position", lightPosition);
 		staticShader.setVec3("pointLight[0].ambient", glm::vec3(0.0f, 0.0f, 0.0f));
@@ -2231,15 +2403,47 @@ int main() {
 		staticShader.setMat4("model", model);
 		piso.Draw(staticShader);
 
+
+		//poste------------------------------------------
+		model = glm::mat4(1.0f);
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(0, 0, 0));
+		staticShader.setVec3("pointLight[0].position", glm::vec3(-30, 5, 50));
+		staticShader.setVec3("pointLight[0].ambient", lightPosteEncendido);
+		staticShader.setVec3("pointLight[0].diffuse", lightPosteEncendido);
+		staticShader.setVec3("pointLight[0].specular", lightPosteEncendido);
+
+		//staticShader.setVec3("pointLight[0].ambient", glm::vec3(0.0f, 1.0f, 1.0f));
+		//staticShader.setVec3("pointLight[0].diffuse", glm::vec3(0.0f, 1.0f, 1.0f));
+		//staticShader.setVec3("pointLight[0].specular", glm::vec3(0.0f, 1.0f, 1.0f));
+
+		staticShader.setFloat("pointLight[0].constant", 0.08f);
+		staticShader.setFloat("pointLight[0].linear", 0.009f);
+		staticShader.setFloat("pointLight[0].quadratic", 0.0032f); //más 0 es más brillante menos 0 menos brillante
+		staticShader.setFloat("material_shininess", 0.4f);
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-100.0f, 0.0f, 5.0f));
+		model = glm::scale(model, glm::vec3(0.5f));
+		staticShader.setMat4("model", model);
+
+		poste1.Draw(staticShader);
+
+
+
+		//--------------zunesha----------------------
+		//Zunesha Elefante
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, -500.0f, -1700.0f));
+		model = glm::rotate(model, glm::radians(0.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(100.0f));
+		staticShader.setMat4("model", model);
+		zunesha.Draw(staticShader);
+
+
+
 		//----------------tanques--------------------------
 
-
 		model = glm::mat4(1.0f);
-		//model = glm::translate(model, glm::vec3(60.0f, 0.0f, -150.0f));
-		//model = glm::translate(model, glm::vec3(-490.0f, 0.0f, 1150.0f));
 		model = glm::translate(model, glm::vec3(-660.0f, 0.0f, 1650.0f));
-		////model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 0.0f, 0.0f));
-		//model = glm::scale(model, glm::vec3(20.0f, 15.0f, 20.0f));
 		model = glm::rotate(model, glm::radians(45.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 		//model = glm::scale(model, glm::vec3(100.0f, 45.0f, 100.0f));
 		model = glm::scale(model, glm::vec3(125.0f, 45.0f, 135.0f));
@@ -2247,12 +2451,8 @@ int main() {
 		pecera2.Draw(staticShader);
 
 		// Pecera tiburones
-
 		model = glm::mat4(1.0f);
-		//model = glm::translate(model, glm::vec3(-230.0f, 0.0f, -350.0f));
 		model = glm::translate(model, glm::vec3(-310.0f, 0.0f, -350.0f));
-		////model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 0.0f, 0.0f));
-		//model = glm::scale(model, glm::vec3(120.0f, 15.0f, 120.0f));
 		model = glm::scale(model, glm::vec3(145.0f, 15.0f, 220.0f));
 		staticShader.setMat4("model", model);
 		pecera3.Draw(staticShader);
@@ -2314,7 +2514,82 @@ int main() {
 		pinguad1.Draw(staticShader);
 
 
+		//--------------------------------
+	// Personaje Foca
+	//-------------------------------
 
+	//Foca animada
+		glm::mat4 tmp31 = glm::mat4(1.0f);
+		//model = glm::translate(glm::mat4(1.0f), glm::vec3(1008.0f, /*-15.0f*/0.0f, -250.0f));
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-660.0f, 0.0f, 0.0f));
+		tmp31 = model = glm::translate(model, glm::vec3(-450.0f, 50.0f, 500.0f));
+		model = glm::translate(tmp31, glm::vec3(movFoca_x2, movFoca_y2, movFoca_z2));
+		//model = glm::translate(glm::mat4(1.0f), glm::vec3(movPingu_x2, 0.0f, movPingu_z2));
+		model = glm::rotate(model, glm::radians(orientaFoca2), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(15.0f));
+		staticShader.setMat4("model", model);
+		foca.Draw(staticShader);
+
+		//model = glm::translate(glm::mat4(1.0f), glm::vec3(movPingu_x2, 0.0f, movPingu_z2));
+		model = glm::translate(tmp31, glm::vec3(movFoca_x2, movFoca_y2, movFoca_z2));
+		model = glm::rotate(model, glm::radians(orientaFoca2), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::translate(model, glm::vec3(-3.0f, 0.0f, -10.0f));
+		model = glm::rotate(model, glm::radians(-aletasInfFoca), glm::vec3(1.0f, 0.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(15.0f));
+		staticShader.setMat4("model", model);
+		focaPi.Draw(staticShader);
+
+		//model = glm::translate(glm::mat4(1.0f), glm::vec3(movPingu_x2, 0.0f, movPingu_z2));
+		model = glm::translate(tmp31, glm::vec3(movFoca_x2, movFoca_y2, movFoca_z2));
+
+		model = glm::rotate(model, glm::radians(orientaFoca2), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::translate(model, glm::vec3(6.0f, 0.0f, -15.0f));
+		model = glm::rotate(model, glm::radians(aletasInfFoca), glm::vec3(1.0f, 0.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(15.0f));
+		staticShader.setMat4("model", model);
+		focaPd.Draw(staticShader);
+
+
+		model = glm::translate(tmp31, glm::vec3(movFoca_x2, movFoca_y2, movFoca_z2));
+		model = glm::rotate(model, glm::radians(orientaFoca2), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::translate(model, glm::vec3(-5.5f, -1.0f, 5.0f));
+		model = glm::rotate(model, glm::radians(-aletasSupFoca), glm::vec3(0.0f, 0.0f, 1.0f));
+		model = glm::scale(model, glm::vec3(15.0f));
+		staticShader.setMat4("model", model);
+		focaAi.Draw(staticShader);
+
+		model = glm::translate(tmp31, glm::vec3(movFoca_x2, movFoca_y2, movFoca_z2));
+		model = glm::rotate(model, glm::radians(orientaFoca2), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::translate(model, glm::vec3(8.0f, 0.0f, 5.0f));
+		model = glm::rotate(model, glm::radians(aletasSupFoca), glm::vec3(0.0f, 0.0f, 1.0f));
+		model = glm::scale(model, glm::vec3(15.0f));
+		staticShader.setMat4("model", model);
+		focaAd.Draw(staticShader);
+
+
+		// Ballena
+		glm::mat4 tmp51 = glm::mat4(1.0f);
+		//model = glm::translate(glm::mat4(1.0f), glm::vec3(1008.0f, /*-15.0f*/0.0f, -250.0f));
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-2500.0f, 0.0f, 0.0f));
+		tmp51 = model = glm::translate(model, glm::vec3(-450.0f, -10.0f, 500.0f));
+		model = glm::translate(tmp51, glm::vec3(movBallena_x2, movBallena_y2, movBallena_z2));
+		//model = glm::translate(glm::mat4(1.0f), glm::vec3(movPingu_x2, 0.0f, movPingu_z2));
+
+		model = glm::rotate(model, glm::radians(orientaBallena2), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(orientaBallena3), glm::vec3(0.0f, 0.0f, 1.0f));
+		model = glm::scale(model, glm::vec3(15.0f));
+		staticShader.setMat4("model", model);
+		ballenaTorso.Draw(staticShader);
+
+
+		model = glm::translate(tmp51, glm::vec3(movBallena_x2, movBallena_y2, movBallena_z2));
+		model = glm::rotate(model, glm::radians(orientaBallena2), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(orientaBallena3), glm::vec3(0.0f, 0.0f, 1.0f));
+		model = glm::translate(model, glm::vec3(610.0f, -60.0f, -10.0f));
+		model = glm::rotate(model, glm::radians(-aletasInfBallena), glm::vec3(0.0f, 0.0f, 1.0f)); //1.0,0.0,0.0
+		model = glm::scale(model, glm::vec3(18.0f));
+		staticShader.setMat4("model", model);
+		ballenaCola.Draw(staticShader);
 
 
 
@@ -2362,8 +2637,9 @@ int main() {
 		staticShader.setMat4("model", model);
 		GirlPiernaIzq.Draw(staticShader);
 
+		
+		
 		// PRIMERA ANIMACION PEZ
-
 		// Body 
 
 		//model = glm::mat4(1.0f);
@@ -5754,6 +6030,7 @@ int main() {
 
 
 
+
 		// -------------------------------------------------------------------------------------------------------------------------
 		// CUBO TEXTURIZADO
 		// -------------------------------------------------------------------------------------------------------------------------
@@ -5788,88 +6065,35 @@ int main() {
 
 
 
-		// -------------------------------------------------------------------------------------------------------------------------
-		// Personaje
-		// -------------------------------------------------------------------------------------------------------------------------
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(0, 0, 0));
-		model = glm::translate(model, glm::vec3(posX, posY, posZ));
-		tmp = model = glm::rotate(model, glm::radians(giroMonito), glm::vec3(0.0f, 1.0f, 0.0));
-		staticShader.setMat4("model", model);
-		//torso.Draw(staticShader);
-
-		//Pierna Der
-		model = glm::translate(tmp, glm::vec3(-0.5f, 0.0f, -0.1f));
-		model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0));
-		model = glm::rotate(model, glm::radians(-rotRodIzq), glm::vec3(1.0f, 0.0f, 0.0f));
-		staticShader.setMat4("model", model);
-		//piernaDer.Draw(staticShader);
-
-		//Pie Der
-		model = glm::translate(model, glm::vec3(0, -0.9f, -0.2f));
-		staticShader.setMat4("model", model);
-		//botaDer.Draw(staticShader);
-
-		//Pierna Izq
-		model = glm::translate(tmp, glm::vec3(0.5f, 0.0f, -0.1f));
-		model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-		staticShader.setMat4("model", model);
-		//piernaIzq.Draw(staticShader);
-
-		//Pie Iz
-		model = glm::translate(model, glm::vec3(0, -0.9f, -0.2f));
-		staticShader.setMat4("model", model);
-		//botaDer.Draw(staticShader);	//Izq trase
-
-		//Brazo derecho
-		model = glm::translate(tmp, glm::vec3(0.0f, -1.0f, 0.0f));
-		model = glm::translate(model, glm::vec3(-0.75f, 2.5f, 0));
-		model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-		staticShader.setMat4("model", model);
-		//brazoDer.Draw(staticShader);
-
-		//Brazo izquierdo
-		model = glm::translate(tmp, glm::vec3(0.0f, -1.0f, 0.0f));
-		model = glm::translate(model, glm::vec3(0.75f, 2.5f, 0));
-		model = glm::rotate(model, glm::radians(0.0f), glm::vec3(1.0f, 0.0f, 0.0f));
-		staticShader.setMat4("model", model);
-		//brazoIzq.Draw(staticShader);
-
-		//Cabeza
-		model = glm::translate(tmp, glm::vec3(0.0f, -1.0f, 0.0f));
-		model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0));
-		model = glm::translate(model, glm::vec3(0.0f, 2.5f, 0));
-		staticShader.setMat4("model", model);
-		//cabeza.Draw(staticShader);
-		// 
-
 
 		// -------------------------------------------------------------------------------------------------------------------------
 		// FBX
 		// -------------------------------------------------------------------------------------------------------------------------
 	
+		
+		
 		//Going_Merry
 		staticShader.use();
+
+		//fbxShader.use();
+		//fbxShader.setMat4("projection", projection);
+		//fbxShader.setMat4("view", view);
+
 		model = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 250.0f, 200.0f));
 		//model = glm::translate(model, glm::vec3(40.0f, 3.0f, 40.0f));
 		//model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
 		//model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 0.0f, -1.0f));
 		model = glm::scale(model, glm::vec3(1.0f));
-		fbxShader.setMat4("model", model);
-		goingmerryFBX.Draw(fbxShader);
-		staticShader.use();
-		
-		
-		//Zunesha Elefante
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, -500.0f, -1700.0f));
-		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
-		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 0.0f, -1.0f));
-		model = glm::scale(model, glm::vec3(100.0f));
 		staticShader.setMat4("model", model);
-		zuneshaFBX.Draw(fbxShader);
-		staticShader.use();
-	
+		goingmerryFBX.Draw(staticShader);
+		//staticShader.setMat4("model", model);
+		//goingmerryFBX.Draw(staticShader);
 
-		//OLA con animación procedural
+		
+		
+		// -------------------------------------------------------------------------------------------------------------------------
+		// OLAS DE PECERA DE ENMEDIO
+		// -------------------------------------------------------------------------------------------------------------------------
 		// Activamos el shader de Phong
 		wavesShader.use();
 		// Activamos para objetos transparentes
@@ -5882,10 +6106,6 @@ int main() {
 		wavesShader.setMat4("projection", projection);
 		wavesShader.setMat4("view", view);
 
-
-		// -------------------------------------------------------------------------------------------------------------------------
-		// OLAS DE PECERA DE ENMEDIO
-		// -------------------------------------------------------------------------------------------------------------------------
 		// Aplicamos transformaciones del modelo	
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(-20.0f, 150.0f, -220.0f));
@@ -5894,14 +6114,14 @@ int main() {
 		model = glm::scale(model, glm::vec3(5.5f, 1.0f, 2.0f));
 		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
 		wavesShader.setMat4("model", model);
-
 		wavesShader.setFloat("time", wavesTime);
 		wavesShader.setFloat("radius", 4.0f);
 		wavesShader.setFloat("height", 3.0f);
-
 		olaFBX.Draw(wavesShader);
 		wavesTime += 0.01;
 		staticShader.use();
+
+
 		// -------------------------------------------------------------------------------------------------------------------------
 		// OLAS DE PECERA DE PECES
 		// -------------------------------------------------------------------------------------------------------------------------
@@ -5925,13 +6145,13 @@ int main() {
 		model = glm::scale(model, glm::vec3(4.0f));
 		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
 		wavesShader.setMat4("model", model);
-
 		wavesShader.setFloat("time", wavesTime);
 		wavesShader.setFloat("radius", 3.0f);
 		wavesShader.setFloat("height", 3.0f);
-
 		olaFBX.Draw(wavesShader);
 		staticShader.use();
+
+
 		// -------------------------------------------------------------------------------------------------------------------------
 		// OLAS DE PECERA DE TRIBURONES
 		// ------------------------------------------------------------------------------------------------------------------------
@@ -5952,18 +6172,11 @@ int main() {
 		model = glm::scale(model, glm::vec3(52.0f, 1.0f, 55.0f));
 		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
 		wavesShader.setMat4("model", model);
-
 		wavesShader.setFloat("time", wavesTime);
 		wavesShader.setFloat("radius", 3.0f);
 		wavesShader.setFloat("height", 3.0f);
-
 		olaFBX.Draw(wavesShader);
 		staticShader.use();
-
-
-
-
-
 
 
 

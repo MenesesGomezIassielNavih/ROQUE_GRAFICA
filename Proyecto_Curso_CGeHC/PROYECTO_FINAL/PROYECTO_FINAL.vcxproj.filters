@@ -43,5 +43,11 @@
     <None Include="shaders\shaders_1\13_wavesAnimation.vs">
       <Filter>Archivos de recursos</Filter>
     </None>
+    <None Include="shaders\shaders_1\10_fragment_simple.fs">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="shaders\shaders_1\10_vertex_simple.vs">
+      <Filter>Archivos de recursos</Filter>
+    </None>
   </ItemGroup>
 </Project>

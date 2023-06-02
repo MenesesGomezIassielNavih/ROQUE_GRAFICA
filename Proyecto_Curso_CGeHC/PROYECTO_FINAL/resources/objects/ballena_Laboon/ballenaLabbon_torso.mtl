@@ -1,0 +1,14 @@
+# Blender 3.5.0 MTL File: 'None'
+# www.blender.org
+
+newmtl Laboon
+Ka 0.060000 0.060000 0.060000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd Laboon_Material _26_BaseColor.png
+map_Ks Laboon_Material _26_Metallic.png
+map_Ns Laboon_Material _26_Roughness.png
+map_refl Laboon_Material _26_Metallic.png
+map_Bump -bm 1.000000 Laboon_Material _26_Normal.png

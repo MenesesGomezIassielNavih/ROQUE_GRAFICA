@@ -1,0 +1,45 @@
+# Blender 3.5.0 MTL File: 'None'
+# www.blender.org
+
+newmtl City
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd City_BaseColor.png
+map_Ns City_Roughness.png
+map_Bump -bm 1.000000 City_Normal_OpenGL.png
+
+newmtl Elephant
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd Sunicha_BaseColor.png
+map_Ns Sunicha_Roughness.png
+map_Bump -bm 1.000000 Sunicha_Normal_Open_GL.png
+
+newmtl Fur
+Ns 1.255501
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+illum 2
+map_Kd Hair_Col.png
+map_d Hair_Col.png
+
+newmtl Tree
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+illum 2
+map_Kd Tree_BaseColor.png
+map_Ns Tree_Roughness.png
+map_d Tree_BaseColor.png
+map_Bump Tree_Normal.png

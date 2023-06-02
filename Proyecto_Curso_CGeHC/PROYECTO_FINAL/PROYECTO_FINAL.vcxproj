@@ -141,6 +141,8 @@
     <ClCompile Include="glad.c" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="shaders\shaders_1\10_fragment_simple.fs" />
+    <None Include="shaders\shaders_1\10_vertex_simple.vs" />
     <None Include="shaders\shaders_1\13_wavesAnimation.fs" />
     <None Include="shaders\shaders_1\13_wavesAnimation.vs" />
     <None Include="shaders\shader_Lights.vs" />
