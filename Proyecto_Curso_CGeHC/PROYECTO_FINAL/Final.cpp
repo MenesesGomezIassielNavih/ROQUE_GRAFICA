@@ -2367,9 +2367,9 @@ int main() {
 	Shader wavesShader("Shaders/shaders_1/13_wavesAnimation.vs", "Shaders/shaders_1/13_wavesAnimation.fs");
 	Shader lunaShader ("Shaders/shaders_1/12_ProceduralAnimation.vs", "Shaders/shaders_1/12_ProceduralAnimation.fs");
 	Shader1* my3Shader;
-	my3Shader = new Shader1("shaders/02-simplePVM.vs", "shaders/02-simplePVM.fs");
+	my3Shader = new Shader1("Shaders/shaders_1/02-simplePVM.vs", "Shaders/shaders_1/02-simplePVM.fs");
 	Shader1* myOtherShader;
-	myOtherShader = new Shader1("shaders/02-simplePVM.vs", "shaders/02-simplePVM.fs");
+	myOtherShader = new Shader1("Shaders/shaders_1/02-simplePVM.vs", "Shaders/shaders_1/02-simplePVM.fs");
 	Shader myShader2("Shaders/shaders_Textura/shader_texture_color.vs", "Shaders/shaders_Textura/shader_texture_color.fs");
 
 	vector<std::string> faces
@@ -2489,6 +2489,8 @@ int main() {
 	Model jardinera("resources/objects/Jardinera/jardinera.obj");
 	Model vallaConcreto("resources/objects/Valla/valla.obj");
 	Model muro("resources/objects/Muro/muro.obj");
+	Model vallae("resources/objects/vallap/vallae.obj");
+
 
 
 
@@ -2845,6 +2847,36 @@ int main() {
 		torniquete_tubo.Draw(staticShader);
 
 
+		//valla entrada
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(151.0f, 0.0f, 500.0f));
+		model = glm::scale(model, glm::vec3(1.5f));
+		staticShader.setMat4("model", model);
+		vallae.Draw(staticShader);
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(302.0f, 0.0f, 500.0f));
+		model = glm::scale(model, glm::vec3(1.5f));
+		staticShader.setMat4("model", model);
+		vallae.Draw(staticShader);
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-151.0f, 0.0f, 500.0f));
+		model = glm::scale(model, glm::vec3(1.5f));
+		staticShader.setMat4("model", model);
+		vallae.Draw(staticShader);
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-302.0f, 0.0f, 500.0f));
+		model = glm::scale(model, glm::vec3(1.5f));
+		staticShader.setMat4("model", model);
+		vallae.Draw(staticShader);
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-420.5f, 0.0f, 500.0f));
+		model = glm::scale(model, glm::vec3(1.5f));
+		staticShader.setMat4("model", model);
+		vallae.Draw(staticShader);
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(410.5f, 0.0f, 500.0f));
+		model = glm::scale(model, glm::vec3(1.5f));
+		staticShader.setMat4("model", model);
+		vallae.Draw(staticShader);
 
 
 
