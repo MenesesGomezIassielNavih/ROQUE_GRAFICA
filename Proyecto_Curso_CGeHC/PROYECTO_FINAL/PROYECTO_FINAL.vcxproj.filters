@@ -23,10 +23,10 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Final.cpp">
+    <ClCompile Include="glad.c">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="glad.c">
+    <ClCompile Include="Final.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>

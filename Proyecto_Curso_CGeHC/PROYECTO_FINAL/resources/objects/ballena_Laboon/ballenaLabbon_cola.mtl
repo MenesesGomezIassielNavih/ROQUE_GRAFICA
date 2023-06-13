@@ -11,4 +11,5 @@ map_Kd Laboon_Material _26_BaseColor.png
 map_Ks Laboon_Material _26_Metallic.png
 map_Ns Laboon_Material _26_Roughness.png
 map_refl Laboon_Material _26_Metallic.png
-map_Bump -bm 1.000000 Laboon_Material _26_Normal.png
+
+
