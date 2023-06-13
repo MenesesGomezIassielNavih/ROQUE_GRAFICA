@@ -1420,6 +1420,14 @@ recorrido2 = false,
 recorrido3 = false,
 recorrido4 = false;
 
+
+
+//Torniquetes 
+float giroTorniquete_x = 0.0f,
+giroTorniquete_y = 0.0f,
+giroTorniquete_z = 0.0f;
+
+
 //Keyframes (Manipulación y dibujo)
 float	posX = 0.0f,
 		posY = 0.0f,
@@ -2475,6 +2483,14 @@ int main() {
 	Model acuario("resources/objects/Acuario/acuario.obj");
 	Model acuario_vidrio("resources/objects/Acuario/acuario_vidrio.obj");
 	Model banio("resources/objects/Banio2/banio2.obj");
+	Model torniquete_base("resources/objects/Torniquete/torniquete_base.obj");
+	Model torniquete_tubo("resources/objects/Torniquete/torniquete_tubo.obj");
+	Model taquilla("resources/objects/Taquilla/taquilla.obj");
+	Model jardinera("resources/objects/Jardinera/jardinera.obj");
+	Model vallaConcreto("resources/objects/Valla/valla.obj");
+	Model muro("resources/objects/Muro/muro.obj");
+
+
 
 
 	Model azul("resources/objects/Esfera/azul/azul.obj");
@@ -2729,6 +2745,109 @@ int main() {
 		model = glm::scale(model, glm::vec3(0.65f, 0.0f, 0.40f));
 		staticShader.setMat4("model", model);
 		piso.Draw(staticShader);
+
+
+
+
+
+		//elementos delimitantes del escenario
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-150.0f, 0.0f, -20.0f));
+		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, -1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(5.0f));
+		staticShader.setMat4("model", model);
+		jardinera.Draw(staticShader);
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-50.0f, 0.0f, 300.0f));
+		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, -1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(5.0f));
+		staticShader.setMat4("model", model);
+		vallaConcreto.Draw(staticShader);
+
+
+		//Taquilla
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(5.0f, 28.0f, 485.0f));
+		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, -1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(8.0f));
+		staticShader.setMat4("model", model);
+		taquilla.Draw(staticShader);
+
+		//Muro entre taquillas Izquierdo
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-2.0f, -11.0f, 475.0f));
+		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, -1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(1400.0f));
+		staticShader.setMat4("model", model);
+		muro.Draw(staticShader);
+
+		//Muro entre taquillas Derecho
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(45.0f, -11.0f, 475.0f));
+		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, -1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(1400.0f));
+		staticShader.setMat4("model", model);
+		muro.Draw(staticShader);
+
+		/*Area de torniquetes Entrada
+		Torniquete base*/
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-60.0f, 8.0f, 500.0f));
+		tmp2 = model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, -1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(0.00017f));
+		staticShader.setMat4("model", model);
+		torniquete_base.Draw(staticShader);
+
+		//Torniquete tubo
+		model = glm::translate(tmp2, glm::vec3(0.2f, 3.5f, -9.0f));
+		model = glm::rotate(model, glm::radians(giroTorniquete_x), glm::vec3(0.2f, -0.1f, 0.0f));
+		model = glm::scale(model, glm::vec3(0.00017f));
+		staticShader.setMat4("model", model);
+		torniquete_tubo.Draw(staticShader);
+
+		//Torniquete base
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-40.0f, 8.0f, 500.0f));
+		tmp2 = model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, -1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(0.00017f));
+		staticShader.setMat4("model", model);
+		torniquete_base.Draw(staticShader);
+
+		//Torniquete tubo
+		model = glm::translate(tmp2, glm::vec3(0.2f, 3.5f, -9.0f));
+		model = glm::rotate(model, glm::radians(giroTorniquete_x), glm::vec3(0.2f, -0.1f, 0.0f));
+		model = glm::scale(model, glm::vec3(0.00017f));
+		staticShader.setMat4("model", model);
+		torniquete_tubo.Draw(staticShader);
+
+
+		/*Area de torniquetes Salida
+		Torniquete base*/
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(50.0f, 10.0f, 481.0f));
+		tmp2 = model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, -1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(0.00017f));
+		staticShader.setMat4("model", model);
+		torniquete_base.Draw(staticShader);
+
+		//Torniquete tubo
+		model = glm::translate(tmp2, glm::vec3(-0.2f, 3.5f, -9.0f));
+		model = glm::rotate(model, glm::radians(-giroTorniquete_x), glm::vec3(0.2f, -0.1f, 0.0f));
+		model = glm::scale(model, glm::vec3(0.00017f));
+		staticShader.setMat4("model", model);
+		torniquete_tubo.Draw(staticShader);
+
+		//Torniquete base
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(70.0f, 10.0f, 481.0f));
+		tmp2 = model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, -1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(0.00017f));
+		staticShader.setMat4("model", model);
+		torniquete_base.Draw(staticShader);
+
+		//Torniquete tubo
+		model = glm::translate(tmp2, glm::vec3(-0.2f, 3.5f, -9.0f));
+		model = glm::rotate(model, glm::radians(-giroTorniquete_x), glm::vec3(0.2f, -0.1f, 0.0f));
+		model = glm::scale(model, glm::vec3(0.00017f));
+		staticShader.setMat4("model", model);
+		torniquete_tubo.Draw(staticShader);
+
+
+
+
+
 
 
 
@@ -4215,9 +4334,10 @@ int main() {
 
 		
 		//Banio
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(300.0f, 0.0f, -260.0f));
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(80.0f, 0.0f, -760.0f));
 		model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-		model = glm::scale(model, glm::vec3(0.015f));
+		model = glm::scale(model, glm::vec3(0.075f));
+		model = glm::scale(model, glm::vec3(0.7f, 1.0f, 0.6f));
 		staticShader.setMat4("model", model);
 		banio.Draw(staticShader);
 
@@ -6447,38 +6567,12 @@ void my_input(GLFWwindow *window, int key, int scancode, int action, int mode)
 		movBocaShark += 0.15f;
 
 
-	//Teclas niña
-	if (glfwGetKey(window, GLFW_KEY_5) == GLFW_PRESS)
-		rotCabezaGirl += 0.5f;
-	if (glfwGetKey(window, GLFW_KEY_6) == GLFW_PRESS)
-		rotCabezaGirl -= 0.5f;
-
+	//Torniquetes animacion
 	if (glfwGetKey(window, GLFW_KEY_1) == GLFW_PRESS)
-		posXGirl--;
+		giroTorniquete_x++;
 	if (glfwGetKey(window, GLFW_KEY_2) == GLFW_PRESS)
-		posXGirl++;
-	if (glfwGetKey(window, GLFW_KEY_3) == GLFW_PRESS)
-		posZGirl--;
-	if (glfwGetKey(window, GLFW_KEY_4) == GLFW_PRESS)
-		posZGirl++;
+		giroTorniquete_x--;
 
-	if (glfwGetKey(window, GLFW_KEY_7) == GLFW_PRESS)
-		movBrazoDerGirl += 0.28f;
-	if (glfwGetKey(window, GLFW_KEY_8) == GLFW_PRESS)
-		movBrazoDerGirl -= 0.28f;
-	if (glfwGetKey(window, GLFW_KEY_9) == GLFW_PRESS)
-		movBrazoIzqGirl += 0.28f;
-	if (glfwGetKey(window, GLFW_KEY_0) == GLFW_PRESS)
-		movBrazoIzqGirl -= 0.28f;
-
-	if (glfwGetKey(window, GLFW_KEY_E) == GLFW_PRESS)
-		rotPiernaDerGirl += 0.2f;
-	if (glfwGetKey(window, GLFW_KEY_R) == GLFW_PRESS)
-		rotPiernaDerGirl -= 0.2f;
-	if (glfwGetKey(window, GLFW_KEY_T) == GLFW_PRESS)
-		rotPiernaIzqGirl += 0.2f;
-	if (glfwGetKey(window, GLFW_KEY_Y) == GLFW_PRESS)
-		rotPiernaIzqGirl -= 0.2f;
 
 	// Teclas Pinguino
 
@@ -6487,23 +6581,6 @@ void my_input(GLFWwindow *window, int key, int scancode, int action, int mode)
 	if (glfwGetKey(window, GLFW_KEY_G) == GLFW_PRESS)
 		movCabezaPin -= 0.2f;
 
-	if (glfwGetKey(window, GLFW_KEY_J) == GLFW_PRESS)
-		posXPin++;
-	if (glfwGetKey(window, GLFW_KEY_H) == GLFW_PRESS)
-		posXPin--;
-	if (glfwGetKey(window, GLFW_KEY_I) == GLFW_PRESS)
-		posZPin--;
-	if (glfwGetKey(window, GLFW_KEY_O) == GLFW_PRESS)
-		posZPin++;
-
-	if (glfwGetKey(window, GLFW_KEY_Z) == GLFW_PRESS)
-		rotPin += 0.2f;
-	if (glfwGetKey(window, GLFW_KEY_X) == GLFW_PRESS)
-		rotPin -= 0.2f;
-	if (glfwGetKey(window, GLFW_KEY_C) == GLFW_PRESS)
-		rotPatasPin += 0.2f;
-	if (glfwGetKey(window, GLFW_KEY_V) == GLFW_PRESS)
-		rotPatasPin -= 0.2f;
 
 	
 	//Car animation
