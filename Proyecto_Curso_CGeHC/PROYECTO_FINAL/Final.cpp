@@ -6149,7 +6149,7 @@ int main() {
 		glm::mat4 projectionFBX;
 		glm::mat4 viewFBX;
 
-	
+
 
 		// -------------------------------------------------------------------------------------------------------------------------
 		// OLAS DE PECERA DE ENMEDIO
@@ -6160,11 +6160,26 @@ int main() {
 		glEnable(GL_BLEND);
 		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
-		// Aplicamos transformaciones de proyección y cámara (si las hubiera)
-		projectionFBX = glm::perspective(glm::radians(camera.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 10000.0f);
-		viewFBX = camera.GetViewMatrix();
-		wavesShader.setMat4("projection", projectionFBX);
-		wavesShader.setMat4("view", viewFBX);
+
+
+
+		if (activeCamera) {
+			// Aplicamos transformaciones de proyección y cámara (si las hubiera)
+			projectionFBX = glm::perspective(glm::radians(camera.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 10000.0f);
+			viewFBX = camera.GetViewMatrix();
+			wavesShader.setMat4("projection", projectionFBX);
+			wavesShader.setMat4("view", viewFBX);
+			staticShader.setVec3("viewPos", camera.Position.x, camera.Position.y, camera.Position.z);
+		}
+		else {
+			projectionFBX = glm::perspective(glm::radians(camera2.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 10000.0f);
+			viewFBX = camera2.GetViewMatrix();
+			wavesShader.setMat4("projection", projectionFBX);
+			wavesShader.setMat4("view", viewFBX);
+			staticShader.setVec3("viewPos", camera2.Position);
+		}
+
+
 
 		// Aplicamos transformaciones del modelo	
 		modelFBX = glm::mat4(1.0f);
