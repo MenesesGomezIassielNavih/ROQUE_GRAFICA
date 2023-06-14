@@ -1195,7 +1195,8 @@ void CrearBoquillaTeteraRenderizar()
 
 
 Camera camera(glm::vec3(0.0f, 60.0f, 90.0f));
-Camera camera2(glm::vec3(1500.0f,800.0f,4000.0f));
+Camera camera2(glm::vec3(1500.0f, 800.0f, 4000.0f));
+Camera camera3(glm::vec3(0.0f, 0.0f, 0.0f));
 
 glm::vec3 position(0.0f, 0.0f, 0.0f);
 glm::vec3 forwardView(0.0f, -1.0f, 0.0f);
@@ -1203,9 +1204,10 @@ float     scaleV = 4.0f;
 float rotateCharacter = 0.0f;
 
 
+bool    activeCamera = true,
+activeCamera2 = false,
+activeCamera3 = false;
 
-
-bool    activeCamera = 1;
 
 float MovementSpeed = 0.4f;
 float lastX = SCR_WIDTH / 2.0f;
@@ -2630,20 +2632,24 @@ int main() {
 		glm::mat4 model2;
 		glm::mat4 tmp35 = glm::mat4(1.0f);
 
-		//camera.Position.y = 60.0f;
-		camera2.Front.y = 0.0f;
 		if (activeCamera) {
 			projection = glm::perspective(glm::radians(camera.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 10000.0f);
 			view = camera.GetViewMatrix();
-			
+
 			staticShader.setVec3("viewPos", camera.Position.x, camera.Position.y, camera.Position.z);
 
 
 		}
-		else {
+		else if (activeCamera2) {
 			projection = glm::perspective(glm::radians(camera2.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 10000.0f);
 			view = camera2.GetViewMatrix();
 			staticShader.setVec3("viewPos", camera2.Position);
+		}
+		else if (activeCamera3)
+		{
+			projection = glm::perspective(glm::radians(camera3.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 10000.0f);
+			view = camera3.GetViewMatrix();
+			staticShader.setVec3("viewPos", camera3.Position);
 		}
 
 		staticShader.setMat4("projection", projection);
@@ -2699,17 +2705,23 @@ int main() {
 
 		// view/projection transformations
 
-
 		if (activeCamera) {
 			projection = glm::perspective(glm::radians(camera.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 10000.0f);
 			view = camera.GetViewMatrix();
 			staticShader.setVec3("viewPos", camera.Position.x, camera.Position.y, camera.Position.z);
 		}
-		else {
+		else if (activeCamera2) {
 			projection = glm::perspective(glm::radians(camera2.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 10000.0f);
 			view = camera2.GetViewMatrix();
 			staticShader.setVec3("viewPos", camera2.Position);
 		}
+		else if (activeCamera3)
+		{
+			projection = glm::perspective(glm::radians(camera3.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 10000.0f);
+			view = camera3.GetViewMatrix();
+			staticShader.setVec3("viewPos", camera3.Position);
+		}
+
 
 		//projection = glm::perspective(glm::radians(camera.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 10000.0f);
 		//view = camera.GetViewMatrix();
@@ -2779,16 +2791,16 @@ int main() {
 
 
 		//Taquilla
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(5.0f, 92.0f, 900.0f));
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(5.0f, 114.0f, 910.0f));
 		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, -1.0f, 0.0f));
-		model = glm::scale(model, glm::vec3(26.0f));
+		model = glm::scale(model, glm::vec3(32.0f));
 		staticShader.setMat4("model", model);
 		taquilla.Draw(staticShader);
 
 		//Muro entre taquillas Izquierdo
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(-2.0f, -11.0f, 475.0f));
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-50.0f, -30.0f, 900.0f));
 		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, -1.0f, 0.0f));
-		model = glm::scale(model, glm::vec3(1400.0f));
+		model = glm::scale(model, glm::vec3(3200.0f));
 		staticShader.setMat4("model", model);
 		muro.Draw(staticShader);
 
@@ -3070,53 +3082,113 @@ int main() {
 		//camera.Position = position;
 		
 
+		//shopper fijo
+
+		if (activeCamera)
+		{
+			tmp35 = model2 = glm::translate(glm::mat4(1.0f), glm::vec3(0, 0, 0));
+			model2 = glm::rotate(model2, glm::radians(rotateCharacter), glm::vec3(0.0f, 1.0f, 0.0f));
+			//model2 = glm::translate(model2, glm::vec3(0.0f, -0.2f, -1.0f));
+
+			model2 = glm::scale(model2, glm::vec3(10.0f));
+			staticShader.setMat4("model", model2);
+			//staticShader.setVec3("viewPos", camera.Position.x, camera.Position.y, camera.Position.z);
+			shopperTorso.Draw(staticShader);
+
+
+			model2 = glm::translate(tmp35, glm::vec3(-9.0f, 27.0f, 0.0f));
+			model2 = glm::rotate(model2, glm::radians(rotateCharacter), glm::vec3(0.0f, 1.0f, 0.0f));
+			//model2 = glm::translate(model2, glm::vec3(-0.34f,5.0f+ 0.26f, -2.8f));
+			model2 = glm::rotate(model2, glm::radians(brazoDerShopper), glm::vec3(1.0f, 0.0f, 0.0f));
+			model2 = glm::scale(model2, glm::vec3(9.f));
+			staticShader.setMat4("model", model2);
+			//staticShader.setVec3("viewPos", camera.Position.x, camera.Position.y, camera.Position.z);
+			shopperBraDer.Draw(staticShader);
+
+			model2 = glm::translate(tmp35, glm::vec3(-4.0f, 9.0f, 0.0f));
+			model2 = glm::rotate(model2, glm::radians(rotateCharacter), glm::vec3(0.0f, 1.0f, 0.0f));
+			//model2 = glm::translate(model2, glm::vec3(-0.18f,5.0f -0.33f, -2.5f));
+			//	model2 = glm::translate(model2, glm::vec3(0.0f, -0.03f,0.0f ));
+			model2 = glm::rotate(model2, glm::radians(pieDerShopper), glm::vec3(1.0f, 0.0f, 0.0f));
+			model2 = glm::scale(model2, glm::vec3(9.0f));
+			staticShader.setMat4("model", model2);
+			//staticShader.setVec3("viewPos", camera.Position.x, camera.Position.y, camera.Position.z);
+			shopperPieDer.Draw(staticShader);
+
+			model2 = glm::translate(tmp35, glm::vec3(8.0f, 27.0f, 0.0f));
+			model2 = glm::rotate(model2, glm::radians(rotateCharacter), glm::vec3(0.0f, 1.0f, 0.0f));
+
+			model2 = glm::rotate(model2, glm::radians(-brazoDerShopper), glm::vec3(1.0f, 0.0f, 0.0f));
+			model2 = glm::scale(model2, glm::vec3(9.0f));
+			staticShader.setMat4("model", model2);
+			//staticShader.setVec3("viewPos", camera.Position.x, camera.Position.y, camera.Position.z);
+			shopperBraIzq.Draw(staticShader);
+
+			model2 = glm::translate(tmp35, glm::vec3(4.0f, 9.0f, 0.0f));
+			model2 = glm::rotate(model2, glm::radians(rotateCharacter), glm::vec3(0.0f, 1.0f, 0.0f));
+
+			model2 = glm::rotate(model2, glm::radians(-pieDerShopper), glm::vec3(1.0f, 0.0f, 0.0f));
+			model2 = glm::scale(model2, glm::vec3(9.0f));
+			staticShader.setMat4("model", model2);
+			//staticShader.setVec3("viewPos", camera.Position.x, camera.Position.y, camera.Position.z);
+			shopperPieIzq.Draw(staticShader);
+		}
+
+		//////////////AVATAR
+		//position = position + scaleV*forwardView;
+		//camera.Front = forwardView;
+		//camera.Position = position;
+		else if (activeCamera3)
+		{
+			tmp35 = model2 = glm::translate(glm::mat4(1.0f), glm::vec3(camera3.Position.x, camera3.Position.y, camera3.Position.z));
+			model2 = glm::rotate(model2, glm::radians(rotateCharacter), glm::vec3(0.0f, 1.0f, 0.0f));
+			model2 = glm::translate(model2, glm::vec3(0.0f, -0.2f, -1.0f));
+
+			model2 = glm::scale(model2, glm::vec3(0.1f));
+			staticShader.setMat4("model", model2);
+			staticShader.setVec3("viewPos", camera3.Position.x, camera3.Position.y, camera3.Position.z);
+			shopperTorso.Draw(staticShader);
+
+
+
+			model2 = glm::rotate(tmp35, glm::radians(rotateCharacter), glm::vec3(0.0f, 1.0f, 0.0f));
+			model2 = glm::translate(model2, glm::vec3(-0.24f, 0.26f, -2.8f));
+			model2 = glm::rotate(model2, glm::radians(brazoDerShopper), glm::vec3(1.0f, 0.0f, 0.0f));
+			model2 = glm::scale(model2, glm::vec3(0.25f));
+			staticShader.setMat4("model", model2);
+			staticShader.setVec3("viewPos", camera3.Position.x, camera3.Position.y, camera3.Position.z);
+			shopperBraDer.Draw(staticShader);
+
+
+			model2 = glm::rotate(tmp35, glm::radians(rotateCharacter), glm::vec3(0.0f, 1.0f, 0.0f));
+			model2 = glm::translate(model2, glm::vec3(-0.10f, -0.33f, -2.5f));
+			//	model2 = glm::translate(model2, glm::vec3(0.0f, -0.03f,0.0f ));
+			model2 = glm::rotate(model2, glm::radians(pieDerShopper), glm::vec3(1.0f, 0.0f, 0.0f));
+			model2 = glm::scale(model2, glm::vec3(0.25f));
+			staticShader.setMat4("model", model2);
+			staticShader.setVec3("viewPos", camera3.Position.x, camera3.Position.y, camera3.Position.z);
+			shopperPieDer.Draw(staticShader);
+
+
+			model2 = glm::rotate(tmp35, glm::radians(rotateCharacter), glm::vec3(0.0f, 1.0f, 0.0f));
+			model2 = glm::translate(model2, glm::vec3(0.22f, 0.26f, -2.8f));
+			model2 = glm::rotate(model2, glm::radians(-brazoDerShopper), glm::vec3(1.0f, 0.0f, 0.0f));
+			model2 = glm::scale(model2, glm::vec3(0.25f));
+			staticShader.setMat4("model", model2);
+			staticShader.setVec3("viewPos", camera3.Position.x, camera3.Position.y, camera3.Position.z);
+			shopperBraIzq.Draw(staticShader);
+
+
+			model2 = glm::rotate(tmp35, glm::radians(rotateCharacter), glm::vec3(0.0f, 1.0f, 0.0f));
+			model2 = glm::translate(model2, glm::vec3(+0.10f, -0.33f, -2.5f));
+			model2 = glm::rotate(model2, glm::radians(-pieDerShopper), glm::vec3(1.0f, 0.0f, 0.0f));
+			model2 = glm::scale(model2, glm::vec3(0.25f));
+			staticShader.setMat4("model", model2);
+			staticShader.setVec3("viewPos", camera3.Position.x, camera3.Position.y, camera3.Position.z);
+			shopperPieIzq.Draw(staticShader);
+		}
 		
-		tmp35 = model2 = glm::translate(glm::mat4(1.0f), glm::vec3(camera.Position.x, camera.Position.y, camera.Position.z));
-		model2 = glm::rotate(model2, glm::radians(rotateCharacter), glm::vec3(0.0f, 1.0f, 0.0f));
-		model2 = glm::translate(model2, glm::vec3(0.0f, -0.2f, -1.0f));
 		
-		model2 = glm::scale(model2, glm::vec3(0.1f));
-		staticShader.setMat4("model", model2);
-		staticShader.setVec3("viewPos", camera.Position.x, camera.Position.y, camera.Position.z);
-		shopperTorso.Draw(staticShader);
-	
-
-		
-		model2 = glm::rotate(tmp35, glm::radians(rotateCharacter), glm::vec3(0.0f, 1.0f, 0.0f));
-		model2 = glm::translate(model2, glm::vec3(-0.24f, 0.26f, -2.8f));
-		model2 = glm::rotate(model2, glm::radians(brazoDerShopper), glm::vec3(1.0f, 0.0f, 0.0f));
-		model2 = glm::scale(model2, glm::vec3(0.25f));
-		staticShader.setMat4("model", model2);
-		staticShader.setVec3("viewPos", camera.Position.x, camera.Position.y, camera.Position.z);
-		shopperBraDer.Draw(staticShader);
-
-
-		model2 = glm::rotate(tmp35, glm::radians(rotateCharacter), glm::vec3(0.0f, 1.0f, 0.0f));
-		model2 = glm::translate(model2, glm::vec3(-0.10f, -0.33f, -2.5f));
-	//	model2 = glm::translate(model2, glm::vec3(0.0f, -0.03f,0.0f ));
-		model2 = glm::rotate(model2, glm::radians(pieDerShopper), glm::vec3(1.0f, 0.0f, 0.0f));
-		model2 = glm::scale(model2, glm::vec3(0.25f));
-		staticShader.setMat4("model", model2);
-		staticShader.setVec3("viewPos", camera.Position.x, camera.Position.y, camera.Position.z);
-		shopperPieDer.Draw(staticShader);
-
-
-		model2 = glm::rotate(tmp35, glm::radians(rotateCharacter), glm::vec3(0.0f, 1.0f, 0.0f));
-		model2 = glm::translate(model2, glm::vec3(0.22f, 0.26f, -2.8f));
-		model2 = glm::rotate(model2, glm::radians(-brazoDerShopper), glm::vec3(1.0f, 0.0f, 0.0f));
-		model2 = glm::scale(model2, glm::vec3(0.25f));
-		staticShader.setMat4("model", model2);
-		staticShader.setVec3("viewPos", camera.Position.x, camera.Position.y, camera.Position.z);
-		shopperBraIzq.Draw(staticShader);
-
-
-		model2 = glm::rotate(tmp35, glm::radians(rotateCharacter), glm::vec3(0.0f, 1.0f, 0.0f));
-		model2 = glm::translate(model2, glm::vec3(+0.10f, -0.33f,-2.5f));
-		model2 = glm::rotate(model2, glm::radians(-pieDerShopper), glm::vec3(1.0f, 0.0f, 0.0f));
-		model2 = glm::scale(model2, glm::vec3(0.25f));
-		staticShader.setMat4("model", model2);
-		staticShader.setVec3("viewPos", camera.Position.x, camera.Position.y, camera.Position.z);
-		shopperPieIzq.Draw(staticShader);
 
 		
 
@@ -5992,10 +6064,16 @@ int main() {
 			view = camera.GetViewMatrix();
 			staticShader.setVec3("viewPos", camera.Position.x, camera.Position.y, camera.Position.z);
 		}
-		else {
+		else if (activeCamera2) {
 			projection = glm::perspective(glm::radians(camera2.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 10000.0f);
 			view = camera2.GetViewMatrix();
 			staticShader.setVec3("viewPos", camera2.Position);
+		}
+		else if (activeCamera3)
+		{
+			projection = glm::perspective(glm::radians(camera3.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 10000.0f);
+			view = camera3.GetViewMatrix();
+			staticShader.setVec3("viewPos", camera3.Position);
 		}
 
 
@@ -6034,16 +6112,21 @@ int main() {
 		// Aplicamos transformaciones de proyección y cámara (si las hubiera)
 
 
-
-		if (activeCamera) {
+		if(activeCamera) {
 			projection = glm::perspective(glm::radians(camera.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 10000.0f);
 			view = camera.GetViewMatrix();
 			staticShader.setVec3("viewPos", camera.Position.x, camera.Position.y, camera.Position.z);
 		}
-		else {
+		else if (activeCamera2) {
 			projection = glm::perspective(glm::radians(camera2.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 10000.0f);
 			view = camera2.GetViewMatrix();
 			staticShader.setVec3("viewPos", camera2.Position);
+		}
+		else if (activeCamera3)
+		{
+			projection = glm::perspective(glm::radians(camera3.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 10000.0f);
+			view = camera3.GetViewMatrix();
+			staticShader.setVec3("viewPos", camera3.Position);
 		}
 		//projection = glm::perspective(glm::radians(45.0f), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 1000.0f);
 		myOtherShader->setMat4("projection", projection);
@@ -6085,10 +6168,16 @@ int main() {
 			view = camera.GetViewMatrix();
 			staticShader.setVec3("viewPos", camera.Position.x, camera.Position.y, camera.Position.z);
 		}
-		else {
+		else if (activeCamera2) {
 			projection = glm::perspective(glm::radians(camera2.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 10000.0f);
 			view = camera2.GetViewMatrix();
 			staticShader.setVec3("viewPos", camera2.Position);
+		}
+		else if (activeCamera3)
+		{
+			projection = glm::perspective(glm::radians(camera3.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 10000.0f);
+			view = camera3.GetViewMatrix();
+			staticShader.setVec3("viewPos", camera3.Position);
 		}
 
 		//projection = glm::perspective(glm::radians(45.0f), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 1000.0f);
@@ -6133,10 +6222,16 @@ int main() {
 			viewT = camera.GetViewMatrix();
 			staticShader.setVec3("viewPos", camera.Position.x, camera.Position.y, camera.Position.z);
 		}
-		else {
+		else if (activeCamera2) {
 			projectionT = glm::perspective(glm::radians(camera2.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 10000.0f);
 			viewT = camera2.GetViewMatrix();
 			staticShader.setVec3("viewPos", camera2.Position);
+		}
+		else if (activeCamera3)
+		{
+			projectionT = glm::perspective(glm::radians(camera3.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 10000.0f);
+			viewT = camera3.GetViewMatrix();
+			staticShader.setVec3("viewPos", camera3.Position);
 		}
 		//glm::mat4 projectionT = glm::perspective(glm::radians(camera.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 10000.0f);
 		//glm::mat4 viewT = camera.GetViewMatrix();
@@ -6387,13 +6482,23 @@ int main() {
 			wavesShader.setMat4("view", viewFBX);
 			staticShader.setVec3("viewPos", camera.Position.x, camera.Position.y, camera.Position.z);
 		}
-		else {
+		else if (activeCamera2) {
 			projectionFBX = glm::perspective(glm::radians(camera2.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 10000.0f);
 			viewFBX = camera2.GetViewMatrix();
 			wavesShader.setMat4("projection", projectionFBX);
 			wavesShader.setMat4("view", viewFBX);
 			staticShader.setVec3("viewPos", camera2.Position);
 		}
+		else if (activeCamera3) {
+			projectionFBX = glm::perspective(glm::radians(camera3.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 10000.0f);
+			viewFBX = camera3.GetViewMatrix();
+			wavesShader.setMat4("projection", projectionFBX);
+			wavesShader.setMat4("view", viewFBX);
+			staticShader.setVec3("viewPos", camera3.Position);
+		}
+
+	
+
 
 
 
@@ -6514,129 +6619,149 @@ void my_input(GLFWwindow *window, int key, int scancode, int action, int mode)
 		glfwSetWindowShouldClose(window, true);
 	if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
 		if (activeCamera)
-		{
 			camera.ProcessKeyboard(FORWARD, (float)deltaTime);
-			animacionSH = false;
-		}
-			
-		else
+		else if (activeCamera2)
 			camera2.ProcessKeyboard(FORWARD, (float)deltaTime);
-	if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
+		else if (activeCamera3)
+			camera3.ProcessKeyboard(FORWARD, (float)deltaTime);
 
-		if (activeCamera) {
+	if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
+		if (activeCamera)
 			camera.ProcessKeyboard(BACKWARD, (float)deltaTime);
-			animacionSH = false;
-		}
-		else
+		else if (activeCamera2)
 			camera2.ProcessKeyboard(BACKWARD, (float)deltaTime);
+		else if (activeCamera3)
+			camera3.ProcessKeyboard(BACKWARD, (float)deltaTime);
+
 	if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
 		if (activeCamera)
-		{
 			camera.ProcessKeyboard(LEFT, (float)deltaTime);
-			animacionSH = false;
-		}
-			
-		else
+		else if (activeCamera2)
 			camera2.ProcessKeyboard(LEFT, (float)deltaTime);
+		else if (activeCamera3)
+			camera3.ProcessKeyboard(LEFT, (float)deltaTime);
+
 	if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
-		if (activeCamera) 
-		{
+		if (activeCamera)
 			camera.ProcessKeyboard(RIGHT, (float)deltaTime);
-			animacionSH = false;
-		}
-			
-		else
+		else if (activeCamera2)
 			camera2.ProcessKeyboard(RIGHT, (float)deltaTime);
-// Character movement
+		else if (activeCamera3)
+			camera3.ProcessKeyboard(RIGHT, (float)deltaTime);
+	// Character movement
 	if (glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS) {
 
-		if (activeCamera) {
-			animacionSH = true;
+		if (activeCamera3) {
 			glm::mat4 model = glm::mat4(1.0f);
-			model = glm::rotate(model, glm::radians(180.0f+rotateCharacter), glm::vec3(0.0f, 1.0f, 0.0f));
+			//model = glm::translate(model, glm::vec3(camera3.Position.x, camera3.Position.y, camera3.Position.z));
+			model = glm::rotate(model, glm::radians(180.0f + rotateCharacter), glm::vec3(0.0f, 1.0f, 0.0f));
 			glm::vec4 viewVector = model * glm::vec4(0.0f, 0.0f, 1.0f, 1.0f);
 			forwardView = glm::vec3(viewVector);
 			forwardView = glm::normalize(forwardView);
 
 			position = position + scaleV * forwardView;
-			camera.Front = forwardView;
-			camera.ProcessKeyboard(FORWARD, deltaTime);
-			camera.Position = position;
-			camera.Position.z -= 10.0f; //camera.Position.y += 1.7f
-			camera.Position.y = 5.0f;
-			camera.Position -= forwardView;
+			camera3.Front = forwardView;
+			camera3.ProcessKeyboard(FORWARD, deltaTime);
+			camera3.Position = position;
+			camera3.Position.z -= 5.0f; //camera.Position.y += 1.7f
+			camera3.Position.y = 5.0f;
+			camera3.Position -= forwardView;
 		}
-		
+
 
 	}
 	if (glfwGetKey(window, GLFW_KEY_DOWN) == GLFW_PRESS) {
-		if (activeCamera) {
-			animacionSH = true;
+		if (activeCamera3) {
 			glm::mat4 model = glm::mat4(1.0f);
-			model = glm::rotate(model, glm::radians(180.0f+rotateCharacter), glm::vec3(0.0f, 1.0f, 0.0f));
+			//model = glm::translate(model, glm::vec3(camera3.Position.x, camera3.Position.y, camera3.Position.z));
+			model = glm::rotate(model, glm::radians(180.0f + rotateCharacter), glm::vec3(0.0f, 1.0f, 0.0f));
 			glm::vec4 viewVector = model * glm::vec4(0.0f, 0.0f, 1.0f, 1.0f);
 			forwardView = glm::vec3(viewVector);
 			forwardView = glm::normalize(forwardView);
 
 			position = position - scaleV * forwardView;
-			camera.Front = forwardView;
-			camera.ProcessKeyboard(BACKWARD, deltaTime);
-			camera.Position = position;
-			camera.Position.z += 10.0f;
-			camera.Position.y = 5.0f;
-			camera.Position -= forwardView;
+			camera3.Front = forwardView;
+			camera3.ProcessKeyboard(BACKWARD, deltaTime);
+			camera3.Position = position;
+			camera3.Position.z += 5.0f;
+			camera3.Position.y = 5.0f;
+			camera3.Position -= forwardView;
 		}
-		
+
 	}
 	if (glfwGetKey(window, GLFW_KEY_LEFT) == GLFW_PRESS) {
 
-		if (activeCamera) {
-			animacionSH = true;
+		if (activeCamera3) {
 			rotateCharacter += 3.0f;
 
 			glm::mat4 model = glm::mat4(1.0f);
-			model = glm::rotate(model, glm::radians(180.0f+rotateCharacter), glm::vec3(0.0f, 1.0f, 0.0f));
+			//model = glm::translate(model, glm::vec3(camera3.Position.x, camera3.Position.y, camera3.Position.z));
+			model = glm::rotate(model, glm::radians(180.0f + rotateCharacter), glm::vec3(0.0f, 1.0f, 0.0f));
 			glm::vec4 viewVector = model * glm::vec4(0.0f, 0.0f, 1.0f, 1.0f);
 			forwardView = glm::vec3(viewVector);
 			forwardView = glm::normalize(forwardView);
 
-			camera.Front = forwardView;
-			camera.Position = position;
-			camera.Position.y += 1.7f;
-			camera.Position -= forwardView;
+			position = position + scaleV * forwardView;
+			camera3.Front = forwardView;
+			camera3.ProcessKeyboard(LEFT, (float)deltaTime);
+			camera3.Position = position;
+			camera3.Position.y += 1.7f;
+			camera3.Position -= forwardView;
+
+
 		}
-		
+
 	}
 	if (glfwGetKey(window, GLFW_KEY_RIGHT) == GLFW_PRESS) {
-		if (activeCamera) {
-			animacionSH = true;
+		if (activeCamera3) {
 			rotateCharacter -= 3.0f;
 
 			glm::mat4 model = glm::mat4(1.0f);
-			model = glm::rotate(model, glm::radians(180.0f+rotateCharacter), glm::vec3(0.0f, 1.0f, 0.0f));
+			//model = glm::translate(model, glm::vec3(camera3.Position.x, camera3.Position.y, camera3.Position.z));
+			model = glm::rotate(model, glm::radians(180.0f + rotateCharacter), glm::vec3(0.0f, 1.0f, 0.0f));
 			glm::vec4 viewVector = model * glm::vec4(0.0f, 0.0f, 1.0f, 1.0f);
 			forwardView = glm::vec3(viewVector);
 			forwardView = glm::normalize(forwardView);
 
-			camera.Front = forwardView;
-			camera.Position = position;
-			camera.Position.y += 1.7f;
-			camera.Position -= forwardView;
+			position = position - scaleV * forwardView;
+			camera3.Front = forwardView;
+			camera3.ProcessKeyboard(RIGHT, (float)deltaTime);
+			camera3.Position = position;
+			camera3.Position.y += 1.7f;
+			camera3.Position -= forwardView;
 		}
-		
+
 	}
 	
 
 	if (glfwGetKey(window, GLFW_KEY_F1) == GLFW_PRESS)
+	{
 		activeCamera = false;
-	if (glfwGetKey(window, GLFW_KEY_F2) == GLFW_PRESS)
-		activeCamera = true;
-		
-	if (glfwGetKey(window, GLFW_KEY_F3) == GLFW_PRESS)
-		door_offset += 3.0f;
-	if (glfwGetKey(window, GLFW_KEY_F4) == GLFW_PRESS)
-		door_offset -= 3.0f;
+		activeCamera2 = true; //isometrico
+		activeCamera3 = false;
+	}
 
+	if (glfwGetKey(window, GLFW_KEY_F2) == GLFW_PRESS)
+	{
+		activeCamera = true; //normal
+		activeCamera2 = false;
+		activeCamera3 = false;
+	}
+
+	if (glfwGetKey(window, GLFW_KEY_F3) == GLFW_PRESS)
+	{
+		activeCamera = false;//camara avatar
+		activeCamera2 = false;
+		activeCamera3 = true;
+
+	}
+
+		
+	if (glfwGetKey(window, GLFW_KEY_F4) == GLFW_PRESS)
+		door_offset += 3.0f;
+	if (glfwGetKey(window, GLFW_KEY_F5) == GLFW_PRESS)
+		door_offset -= 3.0f;
+	
 
 	
 	//PROYECTO
@@ -6741,9 +6866,11 @@ void mouse_callback(GLFWwindow* window, double xpos, double ypos)
 	lastX = xpos;
 	lastY =ypos;  //ypos
 	if (activeCamera)
-		camera.ProcessMouseMovement(xoffset,yoffset); //xoffset,yoffset
-	else
+		camera.ProcessMouseMovement(xoffset, yoffset); //xoffset,yoffset
+	else if (activeCamera2)
 		camera2.ProcessMouseMovement(xoffset, yoffset); //xoffset,yoffset
+	else if (activeCamera3)
+		camera3.ProcessMouseMovement(xoffset, yoffset); //xoffset,yoffset
 }
 // glfw: whenever the mouse scroll wheel scrolls, this callback is called
 // ----------------------------------------------------------------------
@@ -6751,6 +6878,8 @@ void scroll_callback(GLFWwindow* window, double xoffset, double yoffset)
 {
 	if (activeCamera)
 		camera.ProcessMouseScroll(yoffset);
-	else
+	else if (activeCamera2)
 		camera2.ProcessMouseMovement(xoffset, yoffset); //xoffset,yoffset
+	else if (activeCamera3)
+		camera3.ProcessMouseMovement(xoffset, yoffset); //xoffset,yoffset
 }
