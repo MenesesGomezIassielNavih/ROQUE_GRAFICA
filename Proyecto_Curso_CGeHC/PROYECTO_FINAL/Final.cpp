@@ -40,6 +40,11 @@
 #include <Plane.h>
 #include <Shader1.h>
 #include <Vertex1.h>
+//AUDIO
+#include <irrKlang.h>
+using namespace irrklang;
+#pragma comment(lib, "irrKlang.lib")
+
 
 //GLOBALES
 bool sound = true;
@@ -2594,6 +2599,17 @@ int main() {
 	CrearAsaTetera();
 	CrearBoquillaTetera();
 	cuboSencillo();
+
+
+
+	//CONFIGURACION AUDIO IRRKLANG
+	ISoundEngine* SoundEngine = createIrrKlangDevice();
+	if (!SoundEngine)
+		return 0;
+	SoundEngine->play2D("resources/Sound/ElDelfinAzul.mp3", true);
+	//SoundEngine->play2D("resources/Sound/acuario.wav", true);
+
+
 	
 	// draw in wireframe
 	//glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
@@ -2799,75 +2815,75 @@ int main() {
 		taquilla.Draw(staticShader);
 
 		//Muro entre taquillas Izquierdo
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(-50.0f, -30.0f, 900.0f));
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-40.0f, -25.0f, 900.0f));
 		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, -1.0f, 0.0f));
 		model = glm::scale(model, glm::vec3(3200.0f));
 		staticShader.setMat4("model", model);
 		muro.Draw(staticShader);
 
 		//Muro entre taquillas Derecho
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(45.0f, -11.0f, 475.0f));
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(120.0f, -25.0f, 900.0f));
 		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, -1.0f, 0.0f));
-		model = glm::scale(model, glm::vec3(1400.0f));
+		model = glm::scale(model, glm::vec3(3200.0f));
 		staticShader.setMat4("model", model);
 		muro.Draw(staticShader);
 
 		/*Area de torniquetes Entrada
 		Torniquete base*/
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(-60.0f, 8.0f, 500.0f));
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-200.0f, 40.0f, 900.0f));
 		tmp2 = model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, -1.0f, 0.0f));
-		model = glm::scale(model, glm::vec3(0.00017f));
+		model = glm::scale(model, glm::vec3(0.00085f));
 		staticShader.setMat4("model", model);
 		torniquete_base.Draw(staticShader);
 
 		//Torniquete tubo
-		model = glm::translate(tmp2, glm::vec3(0.2f, 3.5f, -9.0f));
+		model = glm::translate(tmp2, glm::vec3(0.2f, 17.5f, -9.0f));
 		model = glm::rotate(model, glm::radians(giroTorniquete_x), glm::vec3(0.2f, -0.1f, 0.0f));
-		model = glm::scale(model, glm::vec3(0.00017f));
+		model = glm::scale(model, glm::vec3(0.00085f));
 		staticShader.setMat4("model", model);
 		torniquete_tubo.Draw(staticShader);
 
 		//Torniquete base
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(-40.0f, 8.0f, 500.0f));
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-200.0f, 40.0f, 1000.0f));
 		tmp2 = model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, -1.0f, 0.0f));
-		model = glm::scale(model, glm::vec3(0.00017f));
+		model = glm::scale(model, glm::vec3(0.00085f));
 		staticShader.setMat4("model", model);
 		torniquete_base.Draw(staticShader);
 
 		//Torniquete tubo
-		model = glm::translate(tmp2, glm::vec3(0.2f, 3.5f, -9.0f));
+		model = glm::translate(tmp2, glm::vec3(0.2f, 17.5f, -9.0f));
 		model = glm::rotate(model, glm::radians(giroTorniquete_x), glm::vec3(0.2f, -0.1f, 0.0f));
-		model = glm::scale(model, glm::vec3(0.00017f));
+		model = glm::scale(model, glm::vec3(0.00085f));
 		staticShader.setMat4("model", model);
 		torniquete_tubo.Draw(staticShader);
 
 
 		/*Area de torniquetes Salida
 		Torniquete base*/
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(50.0f, 10.0f, 481.0f));
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(50.0f, 50.0f, 481.0f));
 		tmp2 = model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, -1.0f, 0.0f));
-		model = glm::scale(model, glm::vec3(0.00017f));
+		model = glm::scale(model, glm::vec3(0.00085f));
 		staticShader.setMat4("model", model);
 		torniquete_base.Draw(staticShader);
 
 		//Torniquete tubo
-		model = glm::translate(tmp2, glm::vec3(-0.2f, 3.5f, -9.0f));
+		model = glm::translate(tmp2, glm::vec3(-0.2f, 17.5f, -9.0f));
 		model = glm::rotate(model, glm::radians(-giroTorniquete_x), glm::vec3(0.2f, -0.1f, 0.0f));
-		model = glm::scale(model, glm::vec3(0.00017f));
+		model = glm::scale(model, glm::vec3(0.00085f));
 		staticShader.setMat4("model", model);
 		torniquete_tubo.Draw(staticShader);
 
 		//Torniquete base
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(70.0f, 10.0f, 481.0f));
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(70.0f, 17.5f, 481.0f));
 		tmp2 = model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, -1.0f, 0.0f));
-		model = glm::scale(model, glm::vec3(0.00017f));
+		model = glm::scale(model, glm::vec3(0.00085f));
 		staticShader.setMat4("model", model);
 		torniquete_base.Draw(staticShader);
 
 		//Torniquete tubo
-		model = glm::translate(tmp2, glm::vec3(-0.2f, 3.5f, -9.0f));
+		model = glm::translate(tmp2, glm::vec3(-0.2f, 17.5f, -9.0f));
 		model = glm::rotate(model, glm::radians(-giroTorniquete_x), glm::vec3(0.2f, -0.1f, 0.0f));
-		model = glm::scale(model, glm::vec3(0.00017f));
+		model = glm::scale(model, glm::vec3(0.00085f));
 		staticShader.setMat4("model", model);
 		torniquete_tubo.Draw(staticShader);
 
