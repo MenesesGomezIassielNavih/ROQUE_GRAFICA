@@ -2830,28 +2830,28 @@ int main() {
 
 		/*Area de torniquetes Entrada
 		Torniquete base*/
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(-200.0f, 40.0f, 900.0f));
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-270.0f, 50.0f, 970.0f));
 		tmp2 = model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, -1.0f, 0.0f));
 		model = glm::scale(model, glm::vec3(0.00085f));
 		staticShader.setMat4("model", model);
 		torniquete_base.Draw(staticShader);
 
 		//Torniquete tubo
-		model = glm::translate(tmp2, glm::vec3(0.2f, 17.5f, -9.0f));
+		model = glm::translate(tmp2, glm::vec3(1.1f, 19.5f, -60.0f));
 		model = glm::rotate(model, glm::radians(giroTorniquete_x), glm::vec3(0.2f, -0.1f, 0.0f));
 		model = glm::scale(model, glm::vec3(0.00085f));
 		staticShader.setMat4("model", model);
 		torniquete_tubo.Draw(staticShader);
 
 		//Torniquete base
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(-200.0f, 40.0f, 1000.0f));
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-175.0f, 50.0f, 970.0f));
 		tmp2 = model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, -1.0f, 0.0f));
 		model = glm::scale(model, glm::vec3(0.00085f));
 		staticShader.setMat4("model", model);
 		torniquete_base.Draw(staticShader);
 
 		//Torniquete tubo
-		model = glm::translate(tmp2, glm::vec3(0.2f, 17.5f, -9.0f));
+		model = glm::translate(tmp2, glm::vec3(1.1f, 19.5f, -60.0f));
 		model = glm::rotate(model, glm::radians(giroTorniquete_x), glm::vec3(0.2f, -0.1f, 0.0f));
 		model = glm::scale(model, glm::vec3(0.00085f));
 		staticShader.setMat4("model", model);
@@ -2860,64 +2860,78 @@ int main() {
 
 		/*Area de torniquetes Salida
 		Torniquete base*/
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(50.0f, 50.0f, 481.0f));
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(178.0f, 50.0f, 860.0f));
 		tmp2 = model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, -1.0f, 0.0f));
 		model = glm::scale(model, glm::vec3(0.00085f));
 		staticShader.setMat4("model", model);
 		torniquete_base.Draw(staticShader);
 
 		//Torniquete tubo
-		model = glm::translate(tmp2, glm::vec3(-0.2f, 17.5f, -9.0f));
+		model = glm::translate(tmp2, glm::vec3(-1.1f, 19.5f, -60.0f));
 		model = glm::rotate(model, glm::radians(-giroTorniquete_x), glm::vec3(0.2f, -0.1f, 0.0f));
 		model = glm::scale(model, glm::vec3(0.00085f));
 		staticShader.setMat4("model", model);
 		torniquete_tubo.Draw(staticShader);
 
 		//Torniquete base
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(70.0f, 17.5f, 481.0f));
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(273.0f, 50.0f, 860.0f));
 		tmp2 = model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, -1.0f, 0.0f));
 		model = glm::scale(model, glm::vec3(0.00085f));
 		staticShader.setMat4("model", model);
 		torniquete_base.Draw(staticShader);
 
 		//Torniquete tubo
-		model = glm::translate(tmp2, glm::vec3(-0.2f, 17.5f, -9.0f));
+		model = glm::translate(tmp2, glm::vec3(-1.1f, 19.5f, -60.0f));
 		model = glm::rotate(model, glm::radians(-giroTorniquete_x), glm::vec3(0.2f, -0.1f, 0.0f));
 		model = glm::scale(model, glm::vec3(0.00085f));
 		staticShader.setMat4("model", model);
 		torniquete_tubo.Draw(staticShader);
 
 
-		//valla entrada
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(151.0f, 0.0f, 500.0f));
-		model = glm::scale(model, glm::vec3(1.5f));
+		//valla entrada frente derecha
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(560.0f, 0.0f, 910.0f));
+		model = glm::scale(model, glm::vec3(5.25f));
 		staticShader.setMat4("model", model);
 		vallae.Draw(staticShader);
 
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(302.0f, 0.0f, 500.0f));
-		model = glm::scale(model, glm::vec3(1.5f));
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(1140.0f, 0.0f, 910.0f));
+		model = glm::scale(model, glm::vec3(5.25f));
 		staticShader.setMat4("model", model);
 		vallae.Draw(staticShader);
 
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(-151.0f, 0.0f, 500.0f));
-		model = glm::scale(model, glm::vec3(1.5f));
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(1525.0f, 0.0f, 910.0f));
+		model = glm::scale(model, glm::vec3(5.25f));
+		model = glm::scale(model, glm::vec3(0.25f, 1.0f, 1.0f));
 		staticShader.setMat4("model", model);
 		vallae.Draw(staticShader);
 
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(-302.0f, 0.0f, 500.0f));
-		model = glm::scale(model, glm::vec3(1.5f));
+
+		//valla entrada frente izquierda
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-600.0f, 0.0f, 910.0f));
+		model = glm::scale(model, glm::vec3(5.25f));
 		staticShader.setMat4("model", model);
 		vallae.Draw(staticShader);
 
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(-420.5f, 0.0f, 500.0f));
-		model = glm::scale(model, glm::vec3(1.5f));
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-1180.0f, 0.0f, 910.0f));
+		model = glm::scale(model, glm::vec3(5.25f));
 		staticShader.setMat4("model", model);
 		vallae.Draw(staticShader);
 
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(410.5f, 0.0f, 500.0f));
-		model = glm::scale(model, glm::vec3(1.5f));
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-1525.0f, 0.0f, 910.0f));
+		model = glm::scale(model, glm::vec3(5.25f));
+		model = glm::scale(model, glm::vec3(0.25f, 1.0f, 1.0f));
 		staticShader.setMat4("model", model);
 		vallae.Draw(staticShader);
+
+
+
+
+
+
+
+
 
 
 
