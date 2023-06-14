@@ -2490,6 +2490,7 @@ int main() {
 	Model vallaConcreto("resources/objects/Valla/valla.obj");
 	Model muro("resources/objects/Muro/muro.obj");
 	Model vallae("resources/objects/vallap/vallae.obj");
+	Model boa_hancock("resources/objects/BoaHancock/boahancock.obj");
 
 
 
@@ -2740,6 +2741,17 @@ int main() {
 		zunesha.Draw(staticShader);
 
 
+		//--------------Boa Hancock----------------------
+		//Zunesha Elefante
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(300.0f, 7.5f, 600.0f));
+		//model = glm::rotate(model, glm::radians(0.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+		//model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(1.5f));
+		staticShader.setMat4("model", model);
+		boa_hancock.Draw(staticShader);
+
+
+
 		
 		//-----------------piso----------------------------
 		model = glm::mat4(1.0f);
@@ -2767,9 +2779,9 @@ int main() {
 
 
 		//Taquilla
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(5.0f, 28.0f, 485.0f));
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(5.0f, 92.0f, 900.0f));
 		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, -1.0f, 0.0f));
-		model = glm::scale(model, glm::vec3(8.0f));
+		model = glm::scale(model, glm::vec3(26.0f));
 		staticShader.setMat4("model", model);
 		taquilla.Draw(staticShader);
 
@@ -5618,23 +5630,11 @@ int main() {
 		// ------------------------------------------------------------------------------------------------------------------------ -
 		// PINGUINO AVATAR
 		// -------------------------------------------------------------------------------------------------------------------------
-
 		model = glm::translate(glm::mat4(1.0f), glm::vec3(0, 0, 0));
-		model = glm::translate(model, glm::vec3(12.0f, 10.0f, 1000.0f));// es el único traslación pa mover
-		model = glm::rotate(model, glm::radians(-30.0f), glm::vec3(0.0f, 0.0f, 1.0f));
-		staticShader.setVec3("pointLight[0].ambient", glm::vec3(0.0f, 0.0f, 0.0f)); // color
-		staticShader.setVec3("pointLight[0].diffuse", glm::vec3(0.0f, 0.0f, 1.0f));
-		staticShader.setVec3("pointLight[0].specular", glm::vec3(0.0f, 0.0f, 1.0f));
-		model = glm::scale(model, glm::vec3(6.0f, 1.0f, 3.0f)); //escala
-		staticShader.use();
-		staticShader.setMat4("projection", projection);
-		staticShader.setMat4("view", view);
-		staticShader.setMat4("model", model);
-		
-		CrearCilindroRenderizar();// brazo derecho
-
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(0, 0, 0));
-		model = glm::translate(model, glm::vec3(-12.0f, 10.0f, 1000.0f));// es el único traslación pa mover
+		//model = glm::translate(glm::mat4(1.0f), glm::vec3(-900.0f, 110.0f, -570.0f));
+		model = glm::scale(model, glm::vec3(5.0f, 5.0f, 5.0f));
+		model = glm::translate(model, glm::vec3(-912.0f, 118.0f, -570.0f));
+		model = glm::translate(model, glm::vec3(+700.0f, -90.0f, +460.0f));
 		model = glm::rotate(model, glm::radians(30.0f), glm::vec3(0.0f, 0.0f, 1.0f));
 		staticShader.setVec3("pointLight[0].ambient", glm::vec3(0.0f, 0.0f, 0.0f)); // color
 		staticShader.setVec3("pointLight[0].diffuse", glm::vec3(0.0f, 0.0f, 1.0f));
@@ -5644,7 +5644,23 @@ int main() {
 		staticShader.setMat4("projection", projection);
 		staticShader.setMat4("view", view);
 		staticShader.setMat4("model", model);
-		
+		CrearCilindroRenderizar();// brazo derecho
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(0, 0, 0));
+		model = glm::scale(model, glm::vec3(5.0f, 5.0f, 5.0f));
+		model = glm::translate(model, glm::vec3(-887.0f, 118.0f, -574.0f));
+		model = glm::translate(model, glm::vec3(+700.0f, -90.0f, +460.0f));
+		//model = glm::translate(model, glm::vec3(-12.0f, 10.0f, 1000.0f));// es el único traslación pa mover
+		model = glm::rotate(model, glm::radians(-30.0f), glm::vec3(0.0f, 0.0f, 1.0f));
+		//model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		staticShader.setVec3("pointLight[0].ambient", glm::vec3(0.0f, 0.0f, 0.0f)); // color
+		staticShader.setVec3("pointLight[0].diffuse", glm::vec3(0.0f, 0.0f, 1.0f));
+		staticShader.setVec3("pointLight[0].specular", glm::vec3(0.0f, 0.0f, 1.0f));
+		model = glm::scale(model, glm::vec3(6.0f, 1.0f, 3.0f)); //escala
+		staticShader.use();
+		staticShader.setMat4("projection", projection);
+		staticShader.setMat4("view", view);
+		staticShader.setMat4("model", model);
 		CrearCilindroRenderizar();// brazo izquierdo
 		
 
@@ -5661,8 +5677,14 @@ int main() {
 		staticShader.setFloat("material_shininess", 0.6f);
 		//model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0));
 		model = glm::translate(glm::mat4(1.0f), glm::vec3(0, 0, 0));
-		model = glm::translate(model, glm::vec3(0.0f, 18.0f, 991.0f));
-		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0));
+		//model = glm::translate(model, glm::vec3(0.0f, 18.0f, 991.0f));
+		model = glm::scale(model, glm::vec3(5.0f, 5.0f, 5.0f));
+		model = glm::translate(model, glm::vec3(-900.0f, 128.0f, -579.0f));
+		model = glm::translate(model, glm::vec3(+700.0f, -90.0f, +461.0f));
+		//Traslación individual
+		model = glm::translate(model, glm::vec3(0.0f, -4.5f, +12.0f));
+		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(1.0f, 0.0f, 0.0));
+	//	model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 		model = glm::scale(model, glm::vec3(4.0f, 4.0f, 2.0f));
 		staticShader.setMat4("model", model);
 		CrearPiramideCuadrangularRenderizar();
@@ -5682,7 +5704,12 @@ int main() {
 		//rosa.Draw(staticShader);
 
 		model = glm::translate(glm::mat4(1.0f), glm::vec3(0, 0, 0));
-		model = glm::translate(model, glm::vec3(0.0f, 10.0f, 995.0f));
+		//model = glm::translate(model, glm::vec3(0.0f, 10.0f, 995.0f));
+		model = glm::scale(model, glm::vec3(5.0f, 5.0f, 5.0f));
+		model = glm::translate(model, glm::vec3(-900.0f, 120.0f, -575.0f));
+		model = glm::translate(model, glm::vec3(+700.0f, -90.0f, +460.0f));
+		//Traslación individual
+		model = glm::translate(model, glm::vec3(0.0f, -4.0f, +5.0f));
 		model = glm::scale(model, glm::vec3(7.0f));
 		//model = glm::scale(model, glm::vec3(1.0f, 1.0f, 1.0f));
 		staticShader.setMat4("model", model);
@@ -5703,7 +5730,12 @@ int main() {
 		//rosa.Draw(staticShader);
 
 		model = glm::translate(glm::mat4(1.0f), glm::vec3(0, 0, 0));
-		model = glm::translate(model, glm::vec3(0.0f, 9.0f, 1000.0f));
+		//model = glm::translate(model, glm::vec3(0.0f, 9.0f, 1000.0f));
+		model = glm::scale(model, glm::vec3(5.0f, 5.0f, 5.0f));
+		model = glm::translate(model, glm::vec3(-900.0f, 119.0f, -570.0f));
+		model = glm::translate(model, glm::vec3(+700.0f, -90.0f, +460.0f));
+		//Traslación individual
+		model = glm::translate(model, glm::vec3(0.0f, -4.0f, -5.0f));
 		model = glm::scale(model, glm::vec3(10.0f));
 		//model = glm::scale(model, glm::vec3(1.0f, 1.0f, 1.0f));
 		staticShader.setMat4("model", model);
@@ -5724,7 +5756,12 @@ int main() {
 		//rosa.Draw(staticShader);
 
 		model = glm::translate(glm::mat4(1.0f), glm::vec3(0, 0, 0));
-		model = glm::translate(model, glm::vec3(0.0f, 15.0f, 1000.0f));
+		//model = glm::translate(model, glm::vec3(0.0f, 15.0f, 1000.0f));
+		model = glm::scale(model, glm::vec3(5.0f, 5.0f, 5.0f));
+		model = glm::translate(model, glm::vec3(-900.0f, 125.0f, -570.0f));
+		model = glm::translate(model, glm::vec3(+700.0f, -90.0f, +460.0f));
+		//Traslación individual
+		model = glm::translate(model, glm::vec3(0.0f, -4.0f, -5.0f));
 		model = glm::scale(model, glm::vec3(7.5f));
 		//model = glm::scale(model, glm::vec3(1.0f, 1.0f, 1.0f));
 		staticShader.setMat4("model", model);
@@ -5745,7 +5782,12 @@ int main() {
 		//rosa.Draw(staticShader);
 
 		model = glm::translate(glm::mat4(1.0f), glm::vec3(0, 0, 0));
-		model = glm::translate(model, glm::vec3(-2.0f, 20.0f, 993.0f));
+		//model = glm::translate(model, glm::vec3(-2.0f, 20.0f, 993.0f));
+		model = glm::scale(model, glm::vec3(5.0f, 5.0f, 5.0f));
+		model = glm::translate(model, glm::vec3(-898.0f, 130.0f, -579.0f));
+		model = glm::translate(model, glm::vec3(+700.0f, -90.0f, +460.0f));
+		//Traslación individual
+		model = glm::translate(model, glm::vec3(0.0f, -4.0f, +10.0f));
 		model = glm::scale(model, glm::vec3(1.5f));
 		//model = glm::scale(model, glm::vec3(1.0f, 1.0f, 1.0f));
 		staticShader.setMat4("model", model);
@@ -5766,7 +5808,13 @@ int main() {
 		//rosa.Draw(staticShader);
 
 		model = glm::translate(glm::mat4(1.0f), glm::vec3(0, 0, 0));
-		model = glm::translate(model, glm::vec3(-2.0f, 20.0f, 992.0f));
+		//model = glm::translate(model, glm::vec3(-2.0f, 20.0f, 992.0f));
+		model = glm::scale(model, glm::vec3(5.0f, 5.0f, 5.0f));
+		model = glm::translate(model, glm::vec3(-898.0f, 130.0f, -577.0f));
+		model = glm::translate(model, glm::vec3(+700.0f, -90.0f, +460.0f));
+
+		//Traslación individual
+		model = glm::translate(model, glm::vec3(0.0f, -4.0f, +10.0f));
 		model = glm::scale(model, glm::vec3(0.8f));
 		//model = glm::scale(model, glm::vec3(1.0f, 1.0f, 1.0f));
 		staticShader.setMat4("model", model);
@@ -5787,9 +5835,13 @@ int main() {
 		//rosa.Draw(staticShader);
 
 		model = glm::translate(glm::mat4(1.0f), glm::vec3(0, 0, 0));
-		model = glm::translate(model, glm::vec3(2.0f, 20.0f, 993.0f));
+		//model = glm::translate(model, glm::vec3(2.0f, 20.0f, 993.0f));
+		model = glm::scale(model, glm::vec3(5.0f, 5.0f, 5.0f));
+		model = glm::translate(model, glm::vec3(-903.0f, 130.0f, -578.0f));
+		model = glm::translate(model, glm::vec3(+700.0f, -90.0f, +460.0f));
+		//Traslación individual
+		model = glm::translate(model, glm::vec3(0.0f, -4.0f, +10.0f));
 		model = glm::scale(model, glm::vec3(2.0f));
-		//model = glm::scale(model, glm::vec3(1.0f, 1.0f, 1.0f));
 		staticShader.setMat4("model", model);
 		CrearSphereRenderizar();//dibuja cabeza ojo izquierdo
 
@@ -5808,9 +5860,13 @@ int main() {
 		//rosa.Draw(staticShader);
 
 		model = glm::translate(glm::mat4(1.0f), glm::vec3(0, 0, 0));
-		model = glm::translate(model, glm::vec3(2.0f, 20.0f, 991.0f));
+		//model = glm::translate(model, glm::vec3(2.0f, 20.0f, 991.0f));
+		model = glm::scale(model, glm::vec3(5.0f, 5.0f, 5.0f));
+		model = glm::translate(model, glm::vec3(-903.0f, 130.0f, -577.0f));
+		model = glm::translate(model, glm::vec3(+700.0f, -90.0f, +460.0f));
+		//Traslación individual
+		model = glm::translate(model, glm::vec3(0.0f, -4.0f, +11.0f));
 		model = glm::scale(model, glm::vec3(0.8f));
-		//model = glm::scale(model, glm::vec3(1.0f, 1.0f, 1.0f));
 		staticShader.setMat4("model", model);
 		CrearSphereRenderizar();//dibuja cabeza pupila ojo izquierdo
 
@@ -5830,9 +5886,13 @@ int main() {
 		//rosa.Draw(staticShader);
 
 		model = glm::translate(glm::mat4(1.0f), glm::vec3(0, 0, 0));
-		model = glm::translate(model, glm::vec3(3.0f, 1.0f, 1000.0f));
+		//model = glm::translate(model, glm::vec3(3.0f, 1.0f, 1000.0f));
+		model = glm::scale(model, glm::vec3(5.0f, 5.0f, 5.0f));
+		model = glm::translate(model, glm::vec3(-897.0f, 111.0f, -570.0f));
+		model = glm::translate(model, glm::vec3(+700.0f, -90.0f, +460.0f));
+		//Traslación individual
+		model = glm::translate(model, glm::vec3(0.0f, -7.0f, -5.0f));
 		model = glm::scale(model, glm::vec3(3.0f));
-		//model = glm::scale(model, glm::vec3(1.0f, 1.0f, 1.0f));
 		staticShader.setMat4("model", model);
 		CrearSphereRenderizar();//dibuja pata derecha
 
@@ -5851,9 +5911,13 @@ int main() {
 		//rosa.Draw(staticShader);
 
 		model = glm::translate(glm::mat4(1.0f), glm::vec3(0, 0, 0));
-		model = glm::translate(model, glm::vec3(-3.0f, 1.0f, 1000.0f));
+	//	model = glm::translate(model, glm::vec3(-3.0f, 1.0f, 1000.0f));
+		model = glm::scale(model, glm::vec3(5.0f, 5.0f, 5.0f));
+		model = glm::translate(model, glm::vec3(-903.0f, 111.0f, -570.0f));
+		model = glm::translate(model, glm::vec3(+700.0f, -90.0f, +460.0f));
+		//Traslación individual
+		model = glm::translate(model, glm::vec3(0.0f, -7.0f, -5.0f));
 		model = glm::scale(model, glm::vec3(3.0f));
-		//model = glm::scale(model, glm::vec3(1.0f, 1.0f, 1.0f));
 		staticShader.setMat4("model", model);
 		CrearSphereRenderizar();//dibuja pata izquierda
 //acaba pinguino
@@ -6600,9 +6664,9 @@ void my_input(GLFWwindow *window, int key, int scancode, int action, int mode)
 
 
 	//Torniquetes animacion
-	if (glfwGetKey(window, GLFW_KEY_1) == GLFW_PRESS)
+	if (glfwGetKey(window, GLFW_KEY_7) == GLFW_PRESS)
 		giroTorniquete_x++;
-	if (glfwGetKey(window, GLFW_KEY_2) == GLFW_PRESS)
+	if (glfwGetKey(window, GLFW_KEY_8) == GLFW_PRESS)
 		giroTorniquete_x--;
 
 
@@ -6614,10 +6678,7 @@ void my_input(GLFWwindow *window, int key, int scancode, int action, int mode)
 		movCabezaPin -= 0.2f;
 
 
-	
-	//Car animation
-	if (key == GLFW_KEY_SPACE && action == GLFW_PRESS)
-		animacion ^= true;
+
 
 
 	if (key == GLFW_KEY_O && action == GLFW_PRESS)
