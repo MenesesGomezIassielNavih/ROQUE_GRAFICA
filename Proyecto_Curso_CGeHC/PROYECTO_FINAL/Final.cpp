@@ -2494,8 +2494,6 @@ int main() {
 	Model torniquete_base("resources/objects/Torniquete/torniquete_base.obj");
 	Model torniquete_tubo("resources/objects/Torniquete/torniquete_tubo.obj");
 	Model taquilla("resources/objects/Taquilla/taquilla.obj");
-	Model jardinera("resources/objects/Jardinera/jardinera.obj");
-	Model vallaConcreto("resources/objects/Valla/valla.obj");
 	Model muro("resources/objects/Muro/muro.obj");
 	Model vallae("resources/objects/vallap/vallae.obj");
 	Model boa_hancock("resources/objects/BoaHancock/boahancock.obj");
@@ -2772,7 +2770,7 @@ int main() {
 
 		//--------------Boa Hancock----------------------
 		//Zunesha Elefante
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(300.0f, 7.5f, 600.0f));
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(300.0f, 0.0f, 400.0f));
 		//model = glm::rotate(model, glm::radians(0.0f), glm::vec3(1.0f, 0.0f, 0.0f));
 		//model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 		model = glm::scale(model, glm::vec3(1.5f));
@@ -2793,19 +2791,7 @@ int main() {
 
 
 
-		//elementos delimitantes del escenario
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(-150.0f, 0.0f, -20.0f));
-		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, -1.0f, 0.0f));
-		model = glm::scale(model, glm::vec3(5.0f));
-		staticShader.setMat4("model", model);
-		jardinera.Draw(staticShader);
-
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(-50.0f, 0.0f, 300.0f));
-		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, -1.0f, 0.0f));
-		model = glm::scale(model, glm::vec3(5.0f));
-		staticShader.setMat4("model", model);
-		vallaConcreto.Draw(staticShader);
-
+		//elementos delimitantes del escenari
 
 		//Taquilla
 		model = glm::translate(glm::mat4(1.0f), glm::vec3(5.0f, 114.0f, 910.0f));
@@ -2927,8 +2913,94 @@ int main() {
 
 
 
+		//valla lateral derecha
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(1600.0f, 0.0f, 610.0f));
+		model = glm::scale(model, glm::vec3(5.25f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		staticShader.setMat4("model", model);
+		vallae.Draw(staticShader);
 
 
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(1600.0f, 0.0f, 20.0f));
+		model = glm::scale(model, glm::vec3(5.25f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		staticShader.setMat4("model", model);
+		vallae.Draw(staticShader);
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(1600.0f, 0.0f, -570.0f));
+		model = glm::scale(model, glm::vec3(5.25f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		staticShader.setMat4("model", model);
+		vallae.Draw(staticShader);
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(1600.0f, 0.0f, -920.0f));
+		model = glm::scale(model, glm::vec3(5.25f));
+		model = glm::scale(model, glm::vec3(1.0f, 1.0f, 0.3f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		staticShader.setMat4("model", model);
+		vallae.Draw(staticShader);
+
+
+		//valla lateral izquierda
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-1590.0f, 0.0f, 610.0f));
+		model = glm::scale(model, glm::vec3(5.25f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		staticShader.setMat4("model", model);
+		vallae.Draw(staticShader);
+
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-1590.0f, 0.0f, 20.0f));
+		model = glm::scale(model, glm::vec3(5.25f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		staticShader.setMat4("model", model);
+		vallae.Draw(staticShader);
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-1590.0f, 0.0f, -570.0f));
+		model = glm::scale(model, glm::vec3(5.25f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		staticShader.setMat4("model", model);
+		vallae.Draw(staticShader);
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-1590.0f, 0.0f, -920.0f));
+		model = glm::scale(model, glm::vec3(5.25f));
+		model = glm::scale(model, glm::vec3(1.0f, 1.0f, 0.3f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		staticShader.setMat4("model", model);
+		vallae.Draw(staticShader);
+
+
+
+		//valla trasera
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(1280.0f, 0.0f, -1000.0f));
+		model = glm::scale(model, glm::vec3(5.25f));
+		staticShader.setMat4("model", model);
+		vallae.Draw(staticShader);
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(700.0f, 0.0f, -1000.0f));
+		model = glm::scale(model, glm::vec3(5.25f));
+		staticShader.setMat4("model", model);
+		vallae.Draw(staticShader);
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(120.0f, 0.0f, -1000.0f));
+		model = glm::scale(model, glm::vec3(5.25f));
+		staticShader.setMat4("model", model);
+		vallae.Draw(staticShader);
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-460.0f, 0.0f, -1000.0f));
+		model = glm::scale(model, glm::vec3(5.25f));
+		staticShader.setMat4("model", model);
+		vallae.Draw(staticShader);
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-1040.0f, 0.0f, -1000.0f));
+		model = glm::scale(model, glm::vec3(5.25f));
+		staticShader.setMat4("model", model);
+		vallae.Draw(staticShader);
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-1460.0f, 0.0f, -1000.0f));
+		model = glm::scale(model, glm::vec3(5.25f));
+		model = glm::scale(model, glm::vec3(0.55f, 1.0f, 1.0f));
+		staticShader.setMat4("model", model);
+		vallae.Draw(staticShader);
 
 
 
