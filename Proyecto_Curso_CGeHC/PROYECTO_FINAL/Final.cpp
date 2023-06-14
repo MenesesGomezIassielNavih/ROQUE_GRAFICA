@@ -1195,11 +1195,12 @@ void CrearBoquillaTeteraRenderizar()
 
 
 Camera camera(glm::vec3(0.0f, 60.0f, 90.0f));
-Camera camera2(glm::vec3(1500.0f, 800.0f, 4000.0f));
+Camera camera2(glm::vec3(1500.0f, 1300.0f, 2500.0f));
 Camera camera3(glm::vec3(0.0f, 0.0f, 0.0f));
 
 glm::vec3 position(0.0f, 0.0f, 0.0f);
 glm::vec3 forwardView(0.0f, -1.0f, 0.0f);
+//glm::vec3 forwardView(-0.47f, -0.41f, -0.78f);
 float     scaleV = 4.0f;
 float rotateCharacter = 0.0f;
 
@@ -6736,9 +6737,11 @@ void my_input(GLFWwindow *window, int key, int scancode, int action, int mode)
 
 	if (glfwGetKey(window, GLFW_KEY_F1) == GLFW_PRESS)
 	{
+		camera2.Front = glm::vec3(-0.47f, -0.41f, -0.78f);
 		activeCamera = false;
 		activeCamera2 = true; //isometrico
 		activeCamera3 = false;
+		
 	}
 
 	if (glfwGetKey(window, GLFW_KEY_F2) == GLFW_PRESS)
