@@ -72,5 +72,4 @@ C:\Users\Navih M\Documents\Visual Studio 2022\Proyectos\Roque\ROQUE_GRAFICA\Proy
 C:\Users\Navih M\Documents\Visual Studio 2022\Proyectos\Roque\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(6885,32): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
 C:\Users\Navih M\Documents\Visual Studio 2022\Proyectos\Roque\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(6887,41): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
 C:\Users\Navih M\Documents\Visual Studio 2022\Proyectos\Roque\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\Final.cpp(6887,32): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
-glfw3.lib(input.obj) : warning LNK4099: no se encontró PDB 'glfw.pdb' con 'glfw3.lib(input.obj)' o en 'C:\Users\Navih M\Documents\Visual Studio 2022\Proyectos\Roque\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\Debug\glfw.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
   PROYECTO_FINAL.vcxproj -> C:\Users\Navih M\Documents\Visual Studio 2022\Proyectos\Roque\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\Debug\PROYECTO_FINAL.exe

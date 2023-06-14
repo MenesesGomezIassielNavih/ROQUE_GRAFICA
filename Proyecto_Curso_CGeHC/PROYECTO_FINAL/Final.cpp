@@ -1194,7 +1194,7 @@ void CrearBoquillaTeteraRenderizar()
 
 
 
-Camera camera(glm::vec3(0.0f, 60.0f, 90.0f));
+Camera camera(glm::vec3(0.0f, 250.0f, 90.0f));
 Camera camera2(glm::vec3(1500.0f, 1300.0f, 2500.0f));
 Camera camera3(glm::vec3(0.0f, 0.0f, 0.0f));
 
@@ -2705,7 +2705,7 @@ int main() {
 		glm::mat4 tmp3 = glm::mat4(1.0f);
 
 		// view/projection transformations
-
+		//camera.Position.y = 100.0f;
 		if (activeCamera) {
 			projection = glm::perspective(glm::radians(camera.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 10000.0f);
 			view = camera.GetViewMatrix();
@@ -4460,8 +4460,9 @@ int main() {
 
 
 		//Acuario
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(-150.0f, -220.0f, -1400.0f));
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-150.0f, -110.0f, -1400.0f));
 		model = glm::scale(model, glm::vec3(300.0f));
+		model = glm::scale(model, glm::vec3(1.0f, 0.5f, 1.0f));
 		model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 		staticShader.setMat4("model", model);
 		acuario.Draw(staticShader);
@@ -4472,10 +4473,11 @@ int main() {
 		// -------------------------------------------------------------------------------------------------------------------------
 		glEnable(GL_BLEND);
 		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(1.0f, 10.0f, -167.0f));
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(1.0f, 5.0f, -167.0f));
 		model = glm::rotate(model, glm::radians(92.24f), glm::vec3(0.0f, -1.0f, 0.0f));
 		model = glm::scale(model, glm::vec3(2.5f));
 		model = glm::scale(model, glm::vec3(0.74f, 0.955f, 1.27f));
+		model = glm::scale(model, glm::vec3(1.0f, 0.5f, 1.0f));
 		staticShader.setMat4("model", model);
 		cubo.Draw(staticShader);
 		glDisable(GL_BLEND);
@@ -4548,7 +4550,7 @@ int main() {
 
 		//En cada primitiva las luces van después de las traslaciones para que tenga material la primitiva
 		model = glm::translate(glm::mat4(1.0f), glm::vec3(0, 0, 0));
-		model = glm::translate(model, glm::vec3(4.0f, 0.0f, 0.0f));
+		model = glm::translate(model, glm::vec3(100.0f, 0.0f, 0.0f));
 		//la posición de la luz debe estar x constante, Y+2 y z+1
 		staticShader.setVec3("pointLight[0].position", glm::vec3(4, 2, 1));
 		staticShader.setVec3("pointLight[0].ambient", glm::vec3(0.0f, 0.0f, 1.0f));
@@ -4562,9 +4564,7 @@ int main() {
 		staticShader.setMat4("model", model);
 		CrearCuboRenderizar();  //dibuja el cubo
 
-		
-
-
+	
 
 		model = glm::translate(model, glm::vec3(-8.0f, 0.0f, 0.0f));
 		//la posición de la luz debe estar x constante, Y+2 y z+1
@@ -4582,9 +4582,9 @@ int main() {
 		CrearPiramideCuadrangularRenderizar();
 		
 
-		model = glm::translate(model, glm::vec3(-3.0f, 0.0f, 0.0f));
+		model = glm::translate(model, glm::vec3(6.0f, 0.0f, 0.0f));
 		//la posición de la luz debe estar x constante, Y+2 y z+1
-		staticShader.setVec3("pointLight[0].position", glm::vec3(-3, 2, 1));
+		staticShader.setVec3("pointLight[0].position", glm::vec3(6, 2, 1));
 		staticShader.setVec3("pointLight[0].ambient", glm::vec3(0.0f, 1.0f, 0.f));
 		staticShader.setVec3("pointLight[0].diffuse", glm::vec3(0.07568f, 0.61424f, 0.07568f));
 		staticShader.setVec3("pointLight[0].specular", glm::vec3(0.633f, 0.727811f, 0.633f));
@@ -4934,7 +4934,7 @@ int main() {
 
 
 		model = glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, 0.0f);
-		tmp = model = glm::translate(model, glm::vec3(15.0f, 30.0f, 20.0f));
+		tmp = model = glm::translate(model, glm::vec3(45.0f, 30.0f, 20.0f));
 		//model = glm::rotate(tmp, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
 		model = glm::rotate(tmp, glm::radians(0.0f), glm::vec3(0.0f, 0.0f, 1.0f));
 
@@ -5425,7 +5425,7 @@ int main() {
 
 		staticShader.use();
 
-		tmp = model = glm::translate(glm::mat4(1.0f), glm::vec3(15.0f, 2.0f, 20.0f));
+		tmp = model = glm::translate(glm::mat4(1.0f), glm::vec3(70.0f, 2.0f, 40.0f));
 		//model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
 		model = glm::scale(model, glm::vec3(0.5f, 0.5f, 0.5f));
 		staticShader.setMat4("model", model);
@@ -6015,7 +6015,7 @@ int main() {
 		//rosa.Draw(staticShader);
 
 		model = glm::translate(glm::mat4(1.0f), glm::vec3(0, 0, 0));
-		model = glm::translate(model, glm::vec3(10.0f, 10.0f, 0.0f));
+		model = glm::translate(model, glm::vec3(100.0f, 10.0f, 100.0f));
 		model = glm::scale(model, glm::vec3(10.0f));
 		//model = glm::scale(model, glm::vec3(1.0f, 1.0f, 1.0f));
 		staticShader.setMat4("model", model);
@@ -6036,7 +6036,7 @@ int main() {
 		//rosa.Draw(staticShader);
 
 		model = glm::translate(glm::mat4(1.0f), glm::vec3(0, 0, 0));
-		model = glm::translate(model, glm::vec3(10.0f, 40.0f, 0.0f));
+		model = glm::translate(model, glm::vec3(100.0f, 40.0f, 100.0f));
 		model = glm::scale(model, glm::vec3(10.0f));
 		//model = glm::scale(model, glm::vec3(1.0f, 1.0f, 1.0f));
 		staticShader.setMat4("model", model);
@@ -6086,7 +6086,7 @@ int main() {
 
 		// Aplicamos transformaciones del modelo
 		model = glm::mat4(1.0f);
-		model = glm::translate(model, glm::vec3(20.0f, 5.0f, 0.0f));
+		model = glm::translate(model, glm::vec3(80.0f, 5.0f, 60.0f));
 		model = glm::rotate(model, glm::radians(0.0f), glm::vec3(1.0f, 0.0f, 0.0f));
 		model = glm::scale(model, glm::vec3(10.0f, 10.0f, 10.0f));
 		staticShader.setMat4("model", model);
@@ -6137,7 +6137,7 @@ int main() {
 
 		model = glm::mat4(1.0f);
 
-		model = glm::translate(model, glm::vec3(30.0f, 5.0f, 15.0f));
+		model = glm::translate(model, glm::vec3(100.0f, 5.0f, 60.0f));
 		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
 		model = glm::scale(model, glm::vec3(10.0f, 10.0f, 10.0f));
 		staticShader.setMat4("model", model);
@@ -6189,7 +6189,7 @@ int main() {
 
 		model = glm::mat4(1.0f);
 
-		model = glm::translate(model, glm::vec3(40.0f, 3.0f, 40.0f));
+		model = glm::translate(model, glm::vec3(110.0f, 3.0f, 130.0f));
 		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
 		model = glm::scale(model, glm::vec3(10.0f, 10.0f, 10.0f));
 		staticShader.setMat4("model", model);
@@ -6505,7 +6505,7 @@ int main() {
 
 		// Aplicamos transformaciones del modelo	
 		modelFBX = glm::mat4(1.0f);
-		modelFBX = glm::translate(modelFBX, glm::vec3(-20.0f, 150.0f, -220.0f));
+		modelFBX = glm::translate(modelFBX, glm::vec3(-20.0f, 75.0f, -220.0f));
 		//model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
 		modelFBX = glm::scale(modelFBX, glm::vec3(2.5f));
 		modelFBX = glm::scale(modelFBX, glm::vec3(5.5f, 1.0f, 2.0f));
