@@ -2728,7 +2728,7 @@ int main() {
 		glm::mat4 tmp3 = glm::mat4(1.0f);
 
 		// view/projection transformations
-		//camera.Position.y = 100.0f;
+		camera.Position.y = 100.0f;
 		if (activeCamera) {
 			projection = glm::perspective(glm::radians(camera.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 10000.0f);
 			view = camera.GetViewMatrix();

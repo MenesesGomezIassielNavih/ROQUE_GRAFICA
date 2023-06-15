@@ -81,8 +81,8 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>lib;C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\include\irrKlang\lib\Win32-visualStudio</AdditionalLibraryDirectories>
-      <AdditionalDependencies>irrKlang.lib;SDL2.lib;SDL2main.lib;assimp-vc141-mtd.lib;opengl32.lib;glew32.lib;glfw3.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Users\Navih M\Documents\Visual Studio 2022\Proyectos\FINAL\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\lib\irrKlang\lib\Win32-visualStudio;lib;C:\CGeIHC\proyecto teoria\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\include\irrKlang\lib\Win32-visualStudio</AdditionalLibraryDirectories>
+      <AdditionalDependencies>irrKlang.lib;SDL2.lib;SDL2main.lib;assimp-vc141-mtd.lib;opengl32.lib;irrKlang.lib;SDL2.lib;SDL2main.lib;assimp-vc141-mtd.lib;opengl32.lib;glew32.lib;glfw3.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -100,8 +100,8 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>lib</AdditionalLibraryDirectories>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;assimp-vc141-mtd.lib;opengl32.lib;glfw3.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Users\Navih M\Documents\Visual Studio 2022\Proyectos\FINAL\ROQUE_GRAFICA\Proyecto_Curso_CGeHC\PROYECTO_FINAL\lib\irrKlang\lib\Win32-visualStudio;lib;</AdditionalLibraryDirectories>
+      <AdditionalDependencies>irrKlang.lib;SDL2.lib;SDL2main.lib;assimp-vc141-mtd.lib;opengl32.lib;SDL2.lib;SDL2main.lib;assimp-vc141-mtd.lib;opengl32.lib;glfw3.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
