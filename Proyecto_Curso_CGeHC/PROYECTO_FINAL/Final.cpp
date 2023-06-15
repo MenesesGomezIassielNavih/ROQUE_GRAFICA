@@ -41,10 +41,10 @@
 #include <Shader1.h>
 #include <Vertex1.h>
 //AUDIO
-#include <irrKlang.h>
+#include <irrKlang/include/irrKlang.h>
 using namespace irrklang;
 #pragma comment(lib, "irrKlang.lib")
-
+#pragma comment(lib, "irrKlang/lib/Win32-visualStudio/irrKlang.lib")
 
 //GLOBALES
 bool sound = true;
@@ -1253,6 +1253,15 @@ glm::vec3 tmedusa(0.0f, -1.0f, -1.0f);
 glm::vec3 tmedusa02(0.0f, -1.0f, -1.0f);
 glm::vec3 tmedusa03(0.0f, -1.0f, -1.0f);
 glm::vec3 tmedusa04(0.0f, -1.0f, -1.0f);
+
+
+
+//coordenadas
+//variables mov   guinos
+float mov_Barra_X = 0.0f;
+
+
+
 
 
 
@@ -4650,6 +4659,28 @@ int main() {
 		// Primitivas
 		// -------------------------------------------------------------------------------------------------------------------------
 
+		//Esta parte sirvió para saber todas las dimensiones del escenario
+		/*
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(0, 0, 0));
+		model = glm::translate(model, glm::vec3(0.0f, 0.0f, 0.0f));
+		staticShader.setVec3("pointLight[0].position", glm::vec3(4, 2, 1));
+		staticShader.setVec3("pointLight[0].ambient", glm::vec3(1.0f, 0.0f, 1.0f));
+		model = glm::translate(model, glm::vec3(0.0f, 0.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(1.0f));
+		model = glm::scale(model, glm::vec3(1.0f, mov_Barra_X, 2000.0f));
+		staticShader.setMat4("model", model);
+		CrearCuboRenderizar();  */
+
+
+
+
+
+
+
+
+
+
+
 		//En cada primitiva las luces van después de las traslaciones para que tenga material la primitiva
 		model = glm::translate(glm::mat4(1.0f), glm::vec3(0, 0, 0));
 		model = glm::translate(model, glm::vec3(100.0f, 0.0f, 0.0f));
@@ -6902,10 +6933,10 @@ void my_input(GLFWwindow *window, int key, int scancode, int action, int mode)
 
 	// Teclas Pinguino
 
-	if (glfwGetKey(window, GLFW_KEY_F) == GLFW_PRESS)
-		movCabezaPin += 0.2f;
-	if (glfwGetKey(window, GLFW_KEY_G) == GLFW_PRESS)
-		movCabezaPin -= 0.2f;
+	if (glfwGetKey(window, GLFW_KEY_C) == GLFW_PRESS)
+		mov_Barra_X -= 200.0f;
+	if (glfwGetKey(window, GLFW_KEY_V) == GLFW_PRESS)
+		mov_Barra_X += 200.0f;
 
 
 
