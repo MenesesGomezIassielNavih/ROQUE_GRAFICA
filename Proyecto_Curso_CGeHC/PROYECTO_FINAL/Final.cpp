@@ -7,7 +7,7 @@
 #include <mmsystem.h>
 #include <glad/glad.h>
 #include <glfw3.h>	//main
-#include <stdlib.h>		3
+#include <stdlib.h>		//3
 #include <glm/glm.hpp>	//camera y model
 #include <glm/gtc/matrix_transform.hpp>	//camera y model
 #include <glm/gtc/type_ptr.hpp>
@@ -6692,15 +6692,15 @@ int main() {
 
 		modelFBX = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 1800.0f, 0.0f));
 		modelFBX = glm::rotate(modelFBX, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
-		modelFBX = glm::scale(modelFBX, glm::vec3(700.0f));
+		modelFBX = glm::scale(modelFBX, glm::vec3(1400.0f));
 		fbxShader.setMat4("model", modelFBX);
 		moonFBX.Draw(fbxShader);
 
 		lunaShader.setMat4("model", modelFBX);
 		lunaShader.setFloat("time", proceduralTime2);
-		lunaShader.setFloat("radius", 50.0f);
-		lunaShader.setFloat("height", 10.0f);
-		proceduralTime2 += 0.02;
+		lunaShader.setFloat("radius", 75.0f);//radio que describe el modelo
+		lunaShader.setFloat("height", 10.0f);//altura del modelo
+		proceduralTime2 += 0.01;//tiempo de la trayectoria
 
 
 
@@ -6892,7 +6892,7 @@ void my_input(GLFWwindow *window, int key, int scancode, int action, int mode)
 
 	}
 
-		
+	//puerta de caja roja	
 	if (glfwGetKey(window, GLFW_KEY_F4) == GLFW_PRESS)
 		door_offset += 3.0f;
 	if (glfwGetKey(window, GLFW_KEY_F5) == GLFW_PRESS)
